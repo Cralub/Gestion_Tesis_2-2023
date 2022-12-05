@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="82EBA9D1-877D-46A2-4EB2-515B3830F99D" name="MANAGER">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>AC3EA1FA-2C7C-81D1-0646-70B2D080AB3E</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="FE11DA55-E86D-F10D-31FE-018F5E3CD702">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>E25C5F13-E2CD-0CC3-23C0-4E2326926EB5</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AEAEE82C-D790-FBB8-B23C-EB4701339D8D" referredColumn="A080BB0A-3C9C-2615-C8A9-AB9A825386BF"/>
+</associations>
+</Column>
+<Column name="BUDGET" id="A0B5E00E-60C0-CC67-C348-1FD17484023B">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>8703AE5A-E62F-AF89-4EC3-596E1ADB8087</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TARGET_REVENUE" id="23090DBD-F9B0-4A1A-7175-D87B0AED6586">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>269B19E4-210F-6BE4-0205-A709590D885C</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2DF73AC8-25E1-6C25-874E-58DFF715097D" name="MANAGER_PK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>597F410C-946A-F162-B06E-7BF2085C8D41</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE11DA55-E86D-F10D-31FE-018F5E3CD702"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FFE4887B-46F9-4BBB-4D45-3165F86EA9DA" name="MANAGER_STAFF_FK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>4EFAE94E-0A97-3543-81D3-98D8C8C9EA84</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE11DA55-E86D-F10D-31FE-018F5E3CD702"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

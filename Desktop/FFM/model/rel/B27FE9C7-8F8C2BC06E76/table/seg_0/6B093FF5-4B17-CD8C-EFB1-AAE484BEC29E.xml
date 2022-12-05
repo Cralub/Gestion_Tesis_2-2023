@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6B093FF5-4B17-CD8C-EFB1-AAE484BEC29E" name="PROMOTIONAL_MENU">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>B3CB69B5-EAA4-4551-7BA6-92BA79B59BAE</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODE" id="9911B4DD-4F2D-B4BD-D39D-B22747170E51">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>C925BC98-0B1F-1CD1-5285-7BB0A75E8443</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="74062231-4E58-9D51-6FD0-A3373913ED85">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>761284F7-4AD9-326E-48A7-5AF10990F4C6</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_DATE" id="7485033C-4B83-5E88-5D93-E9D6B3322C52">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>99EC7799-7D0D-AD7F-4F9F-5DEDFC6056D5</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="END_DATE" id="4DFB19C2-EC98-47A8-2894-650A5BA32A1F">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>ABF41A7C-BEF3-F664-A1D0-F885A28A2A20</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GIVE_AWAY" id="0CE92395-2700-ECB2-1722-130BADEF6068">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>443A1D1A-A10F-508C-A2DF-29BB9538D275</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B31B58C2-D52E-5DC8-940E-E7AD7E941D1D" name="PROMOTIONAL_MENU_PK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>C2BE17AE-039F-04D3-AD27-8E1A8247456D</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9911B4DD-4F2D-B4BD-D39D-B22747170E51"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

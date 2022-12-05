@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_9" directorySegmentName="seg_0" id="D99E669E-EA89-BA79-3FEA-3A21CA3F1D80">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:41:26 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<identifying>true</identifying>
+<nameOnSource>The time of</nameOnSource>
+<nameOnTarget>For</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6F9FCFE9-741A-EAE5-CF89-68CD6FB03249</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>1E60AEAD-CAF8-69D6-02D1-C8368368430C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

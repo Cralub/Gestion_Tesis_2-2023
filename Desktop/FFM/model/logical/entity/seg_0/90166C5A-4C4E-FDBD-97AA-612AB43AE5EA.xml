@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="90166C5A-4C4E-FDBD-97AA-612AB43AE5EA" name="STAFF">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:49:02 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="E25C5F13-E2CD-0CC3-23C0-4E2326926EB5">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:53:53 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FIRST_NAME" id="D24CFE38-8415-5FDD-4314-2260302167C3">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:54:24 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LAST_NAME" id="9BE4B441-4063-C14C-E0D2-D47DC2970442">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:54:45 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="BIRTHDATE" id="5FE40DF9-03FA-291E-9032-DCF7E1BDAA6D">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:54:59 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SALARY" id="B37D3826-92F6-0D30-E135-88BF63A877B6">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:55:19 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TRAINING" id="826A7190-F42B-344C-FD6F-E42DA185A012">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:55:36 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="OVERTIME RATE" id="EF1BDD72-9A41-8A93-6079-15D2D966EA01">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:56:00 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="BUDGET" id="7E96C438-7C54-0AA5-2D24-EA65DD3420C9">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:56:28 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TARGET REVENUE" id="4C9A94ED-14AE-8A42-60B9-10168CE2E8CE">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:56:59 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID1" id="642950BC-9B97-FD25-23EE-8233A6BF6EA8">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:35:19 UTC</createdTime>
+<generatorID>426B669C-69D2-2326-1C45-7B021FBD49F7</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>E25C5F13-E2CD-0CC3-23C0-4E2326926EB5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="597F410C-946A-F162-B06E-7BF2085C8D41" name="STAFF PK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 12:54:20 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E25C5F13-E2CD-0CC3-23C0-4E2326926EB5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

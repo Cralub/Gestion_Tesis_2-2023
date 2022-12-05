@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43580B65-66C1-E499-192F-C426B7DB92B4" name="COOK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>3E2866E0-8E40-628A-B307-0308E6C79863</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="893FCC8D-8AEB-601C-C078-1810D06A63E1">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>E25C5F13-E2CD-0CC3-23C0-4E2326926EB5</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C444A7D2-232E-2B4D-44F7-B462A7E08E27" referredColumn="A080BB0A-3C9C-2615-C8A9-AB9A825386BF"/>
+</associations>
+</Column>
+<Column name="TRAINING" id="73C701A1-5713-CE36-1C72-A1EE70EBE729">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>4FE42E80-8E6F-48EF-150F-0DC7D2E2F680</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4FA94651-663E-B6D6-1C5B-7AE24D2A51BB" name="COOK_PK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>597F410C-946A-F162-B06E-7BF2085C8D41</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="893FCC8D-8AEB-601C-C078-1810D06A63E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E37CE7D0-0378-47D9-2715-03FD46C4CEF4" name="COOK_STAFF_FK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>E34AB82A-3CE5-E979-F35C-5FCDA972D5D3</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="893FCC8D-8AEB-601C-C078-1810D06A63E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

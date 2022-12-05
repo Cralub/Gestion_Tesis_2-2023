@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EB96F476-23A5-E006-8CC8-77C37E5204B4" name="FOOD ITEM">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:06:22 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="FOOD_ITEM_NUMBER" id="E9C7975C-40BB-787B-08C1-B80983C5FDE2">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:06:34 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DESCRIPTION" id="71E9A3AF-92A1-8A4D-AF02-E1557923270E">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:06:52 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PRICE" id="EB8F81C4-577C-E1BA-6E48-524778FB0BA3">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:07:10 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CODE" id="DF9C2B97-5364-55A8-42BF-CA612CAC1231">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:44:03 UTC</createdTime>
+<generatorID>60C4C6FD-4DCC-2B6E-C432-7F20CD19091B</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>06CCC876-8EB1-78CF-6147-818E5BFC429A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CODE1" id="B5441132-315A-733C-E2CC-E1F09D85F8E1">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:45:33 UTC</createdTime>
+<generatorID>ED02E9FC-FBD1-1525-9688-85FF27932931</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>C925BC98-0B1F-1CD1-5285-7BB0A75E8443</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C4370337-264F-C472-D119-6422F2FB532A" name="FOOD ITEM PK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:06:49 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="B27FE9C7-9AF2-38C4-C90C-8F8C2BC06E76" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E9C7975C-40BB-787B-08C1-B80983C5FDE2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

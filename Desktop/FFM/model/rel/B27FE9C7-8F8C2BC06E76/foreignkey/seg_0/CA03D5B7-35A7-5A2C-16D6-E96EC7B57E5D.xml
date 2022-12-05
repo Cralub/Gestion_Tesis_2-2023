@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CA03D5B7-35A7-5A2C-16D6-E96EC7B57E5D" containerWithKeyObject="F26E73E4-3FE4-B0FE-C770-5EEF18B3C8A5" localFKIndex="1F2431A6-4705-C122-B4A0-7E7B9F9D4447" name="ORDER_LINE_ORDER_FK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>271112FA-8616-54DC-2ED1-535C5684B7D2</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>ORDER</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>704798D1-C2A3-7BD9-67B4-DFF3D52FE2DD</referredTableID>
+<keyObject>2D9C77E7-E942-733D-EFD0-26026CCB524A</keyObject>
+<referredKeyID>2D9C77E7-E942-733D-EFD0-26026CCB524A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ORDER_NUMBER</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

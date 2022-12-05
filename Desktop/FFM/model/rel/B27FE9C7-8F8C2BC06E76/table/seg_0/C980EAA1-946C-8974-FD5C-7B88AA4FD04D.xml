@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C980EAA1-946C-8974-FD5C-7B88AA4FD04D" name="SHIFT_ASSIGNMENT">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>1E60AEAD-CAF8-69D6-02D1-C8368368430C</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SHIFT_ASSIGNMENT" id="D5071607-C2C9-FC6A-1AFD-4204CC4DCA3A">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>EEA1B73E-290D-0E8D-FD4C-4199899EE770</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STAFF_ID" id="6B78BAE0-CB52-C0B4-2940-440B89183A68">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>F4A1C364-211C-E00C-ED48-9EF0F30E25DF</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C9B53296-F4E5-66FC-C578-746EAEDC3295" referredColumn="A080BB0A-3C9C-2615-C8A9-AB9A825386BF"/>
+</associations>
+</Column>
+<Column name="SHIFT_SHIFT_ID" id="5B1D41C1-1513-4265-110A-3C838455F209">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="68355F9A-D6B6-DF9E-5840-CFCFA80BD5C4" referredColumn="B49A729A-3EBA-C9B5-6A81-928148955F03"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D95A9CB-527F-B934-BB13-E7D824749F8F" name="SHIFT_ASSIGNMENT_PK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>3FB7694F-0279-8323-F492-73BBA8C0C34C</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B78BAE0-CB52-C0B4-2940-440B89183A68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0F8C64A9-B820-8690-A78E-625B3114FBBA" name="SHIFT_ASSIGNMENT_STAFF_FK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>3B15404B-42B4-F038-667F-02E4DEF36F5B</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B78BAE0-CB52-C0B4-2940-440B89183A68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBAD1511-F539-0BE6-236A-2368E95D79B2" name="SHIFT_ASSIGNMENT_SHIFT_FK">
+<createdBy>cralu</createdBy>
+<createdTime>2022-12-05 13:50:24 UTC</createdTime>
+<generatorID>D99E669E-EA89-BA79-3FEA-3A21CA3F1D80</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B1D41C1-1513-4265-110A-3C838455F209"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
