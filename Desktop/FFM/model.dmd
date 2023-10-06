@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="model" id="701B951B-AD1E-9F22-DD8E-83D363EE01E0" version="3.5">
-<createdBy>cralu</createdBy>
-<createdTime>2022-12-05 12:47:45 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>701B951B-AD1E-9F22-DD8E-83D363EE01E0</designId>
-</OSDM_Design>
