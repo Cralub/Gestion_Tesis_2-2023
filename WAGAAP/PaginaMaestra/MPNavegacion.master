@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPNavegacion.master.cs" Inherits="PaginaMaestra_MPNavegacion" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    <%--<div>
+            <div>
+                <asp:Button ID="btnCodigoUsuarioSesion" runat="server" Text="ID Usuario" OnClick="btnCodigoUsuarioSesion_Click" />
+                <asp:TextBox runat="server" ID="txbCodigoUsuarioSesion"></asp:TextBox>
+                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" OnClick="btnLimpiar_Click"/>
+            </div>
+            <div>
+                <asp:Button ID="btnCrearProyecto" runat="server" Text="Nuevo Proyecto" OnClick="btnCrearProyecto_Click" />
+                <asp:Button ID="btnFormularios" runat="server" Text="Proyectos-Formularios" OnClick="btnFormularios_Click" />
+                <asp:Button ID="btnFiltrarProyectos" runat="server" Text="Filtros Proyectos(General)" OnClick="btnFiltrarProyectos_Click" />
+                <asp:Button ID="btnInformacion" runat="server" Text="Informacion Proyectos" OnClick="btnInformacion_Click" />
+            </div>
+        </div>--%>
+            
+        
+        </asp:ContentPlaceHolder>
+      
+        
+    </div>
+    </form>
+</body>
+</html>
