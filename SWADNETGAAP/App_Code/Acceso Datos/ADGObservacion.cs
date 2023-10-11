@@ -100,7 +100,7 @@ public class ADGObservacion
         }
         catch (Exception ex)
         {
-            throw ex;
+            throw;
         }
         return res;
     }
