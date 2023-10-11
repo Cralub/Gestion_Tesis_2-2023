@@ -1,7 +1,7 @@
 ﻿using SWLNGAAP;
 using System;
 
-public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Page
+public partial class WebForm_Observaciones_PActualizarObservacion : System.Web.UI.Page
 { 
     #region Controladoras
     CObservacion cObservacion = new CObservacion();
@@ -22,7 +22,7 @@ public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Pag
     {
         if (!IsPostBack)
         {
-
+            CargarDatosObservacion();
         }
     }
     //Datos de prueba
@@ -31,11 +31,36 @@ public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Pag
     string CodigoUsuarioObservacionPrueba = "BLC0030298";
     //
    
-    protected void btnCrearObservacion_Click(object sender, EventArgs e)
+   
+
+   
+    //Metodo de Prueba
+    void CargarDatosObservacion()
+    {
+        //if(Session["CodigoObservacion"] > 0)
+        if (txtCodigoObservación.Text != "")
+        {
+            EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(int.Parse(txtCodigoObservación.Text));
+            if (eGObservacion.TipoObservacion == 'O') rbObservacionFondo.Checked = true; else rbObservacionForma.Checked = true;
+            txtComentario.Text = eGObservacion.ComentarioObservacion;
+        }
+        else
+        {
+            EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(1);
+            if (eGObservacion.TipoObservacion == 'O') rbObservacionFondo.Checked = true; else rbObservacionForma.Checked = true;
+            txtComentario.Text = eGObservacion.ComentarioObservacion;
+        }
+    }
+    protected void btnBuscarObservacion_Click(object sender, EventArgs e)
+    {
+        CargarDatosObservacion();
+    }
+    //
+    protected void btnActualizarObservacion_Click(object sender, EventArgs e)
     {
         EGObservacion eGObservacion = new EGObservacion()
         {
-            CodigoObservacion = cObservacion.Obtener_GObsevacion_O_SiguienteCodigoObservacion(),
+            CodigoObservacion = int.Parse(txtCodigoObservación.Text),
             CodigoProyecto = CodigoProyectoPrueba,
             CodigoSubEtapa = CodigoSubEtapaPrueba,
             CodigoUsuarioObservacion = CodigoUsuarioObservacionPrueba,
@@ -45,7 +70,7 @@ public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Pag
         };
         if (ValidarEntradas(eGObservacion))
         {
-            cObservacion.Insertar_GObservacion_I(
+            cObservacion.Actualizar_GObservacion_A(
                 eGObservacion.CodigoObservacion,
                 eGObservacion.CodigoProyecto,
                 eGObservacion.CodigoSubEtapa,
