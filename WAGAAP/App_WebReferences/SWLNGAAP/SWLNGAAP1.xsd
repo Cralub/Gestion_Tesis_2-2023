@@ -496,6 +496,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Obtener_GUsuarios_O_CodigoProyecto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarios_O_CodigoProyectoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuarios_O_CodigoProyectoResult" nillable="true" type="q29:ArrayOfEGUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Obtener_GRol_O_Todo">
     <xs:complexType>
       <xs:sequence />
@@ -504,7 +518,7 @@
   <xs:element name="Obtener_GRol_O_TodoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_TodoResult" nillable="true" type="q29:ArrayOfEGRol" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_TodoResult" nillable="true" type="q30:ArrayOfEGRol" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -518,7 +532,7 @@
   <xs:element name="Obtener_GRol_O_CodigoRolResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_CodigoRolResult" nillable="true" type="q30:EGRol" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_CodigoRolResult" nillable="true" type="q31:EGRol" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -532,7 +546,7 @@
   <xs:element name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResult" nillable="true" type="q31:EUsuarioNetvalle" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResult" nillable="true" type="q32:EUsuarioNetvalle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -546,7 +560,7 @@
   <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResult" nillable="true" type="q32:ArrayOfEProyectoCompleja" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResult" nillable="true" type="q33:ArrayOfEProyectoCompleja" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -560,7 +574,7 @@
   <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResult" nillable="true" type="q33:ArrayOfEProyectoCompleja" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResult" nillable="true" type="q34:ArrayOfEProyectoCompleja" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -602,7 +616,7 @@
   <xs:element name="Obtener_EProgresoEtapaSubEtapa_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProgresoEtapaSubEtapa_OResult" nillable="true" type="q34:ArrayOfEProgresoEtapaSubEtapa" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProgresoEtapaSubEtapa_OResult" nillable="true" type="q35:ArrayOfEProgresoEtapaSubEtapa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -633,7 +647,7 @@
   <xs:element name="Obtener_EUsuarioCompleto_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleto_OResult" nillable="true" type="q35:EUsuarioCompleto" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleto_OResult" nillable="true" type="q36:EUsuarioCompleto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -647,7 +661,7 @@
   <xs:element name="Obtener_EProyectoTiempoEntrega_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q36:ArrayOfEProyectoTiempoEntrega" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q37:ArrayOfEProyectoTiempoEntrega" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

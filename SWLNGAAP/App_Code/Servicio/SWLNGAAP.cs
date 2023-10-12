@@ -213,6 +213,13 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_GUsuario_A(codigoUsuario, NombreCompletoUsuario, sede);
     }
+    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
+    {
+        CGAAP cGAAP = new CGAAP();
+        List<EGUsuario> lstEGUsuarios = new List<EGUsuario>();
+        lstEGUsuarios = cGAAP.Obtener_GUsuarios_O_CodigoProyecto(CodigoProyecto);
+        return lstEGUsuarios;
+    }
     #endregion
     #region GRol
     public List<EGRol> Obtener_GRol_O_Todo()

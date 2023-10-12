@@ -71,6 +71,17 @@ public class CUsuario
             throw;
         }
     }
+    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
+    {
+        try
+        {
+            return lNServicio.Obtener_GUsuarios_O_CodigoProyecto(CodigoProyecto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
 
     #endregion

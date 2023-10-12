@@ -212,6 +212,12 @@
   <wsdl:message name="ISWLNGAAP_Actualizar_GUsuario_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_AResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarios_O_CodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarios_O_CodigoProyectoResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Obtener_GRol_O_Todo_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GRol_O_Todo" />
   </wsdl:message>
@@ -414,6 +420,10 @@
     <wsdl:operation name="Actualizar_GUsuario_A">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_A" message="tns:ISWLNGAAP_Actualizar_GUsuario_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_AResponse" message="tns:ISWLNGAAP_Actualizar_GUsuario_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarios_O_CodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuarios_O_CodigoProyecto" message="tns:ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuarios_O_CodigoProyectoResponse" message="tns:ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Obtener_GRol_O_Todo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GRol_O_Todo" message="tns:ISWLNGAAP_Obtener_GRol_O_Todo_InputMessage" />
@@ -761,6 +771,15 @@
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GUsuario_A">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarios_O_CodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GUsuarios_O_CodigoProyecto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

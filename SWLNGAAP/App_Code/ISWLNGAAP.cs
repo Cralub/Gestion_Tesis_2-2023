@@ -87,6 +87,8 @@ public interface ISWLNGAAP
     EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario);
     [OperationContract]
     void Actualizar_GUsuario_A(string codigoUsuario, string NombreCompletoUsuario, string sede);
+    [OperationContract]
+    List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto);
     #endregion
     #region GRol
     [OperationContract]

@@ -33,6 +33,8 @@ public class EProyectoCompleja
     [DataMember]
     public List<string> CodigosEstudiantes { get; set; }
     [DataMember]
+    public char EstadoProyecto { get; set; }
+    [DataMember]
     public string CodigoTutor { get; set; }
     
     #endregion
@@ -51,6 +53,7 @@ public class EProyectoCompleja
         EnlaceDocumentoProyecto = string.Empty;
 
         CodigosEstudiantes = new List<string>();
+        EstadoProyecto = char.MinValue;
         CodigoTutor = string.Empty;
     }
 }

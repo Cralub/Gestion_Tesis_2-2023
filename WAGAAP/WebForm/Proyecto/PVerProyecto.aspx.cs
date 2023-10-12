@@ -14,11 +14,11 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
     CRol cRol = new CRol();
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
     #endregion
-    
+
     private string CodigoProyecto;
-   EUsuarioNetvalle usuarioNetvalle = new EUsuarioNetvalle();
-    
-    EGProyecto eGProyecto  = new EGProyecto();
+    EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
+
+    EGProyecto eGProyecto = new EGProyecto();
     List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
     List<EGRol> listaRoles = new List<EGRol>();
 
@@ -29,16 +29,19 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
         if (!IsPostBack)
         {
             CodigoProyecto = Session["CodigoProyecto"] as string;
-            usuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
+
+            //usuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
+
+            eUsuarioNetvalle.CodigoUsuarioNetvalle = "HPD0076900";
             CargarDatos();
         }
-        
+
     }
     private void CargarDatos()
     {
-        eGProyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto.Trim()); 
-        lblCodigoUsuario.Text = usuarioNetvalle.CodigoUsuarioNetvalle;
-        
+        eGProyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto.Trim());
+        lblCodigoUsuario.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
+
         switch (eGProyecto.ModalidadProyecto)
         {
             case 'T':
@@ -56,6 +59,8 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
         }
         lblTitulo.Text = eGProyecto.TituloProyecto;
         lblObjetivoGeneral.Text = eGProyecto.ObjetivoGeneralProyecto;
+        lblObjetivosEspecificos.Text = eGProyecto.ObjetivosEspecificosProyecto;
+        lblAlcanceProyecto.Text = eGProyecto.AlcanceProyecto;
         lkbEnlaceDocumento.Text = eGProyecto.EnlaceDocumentoProyecto;
         listaRoles = cRol.Obtener_GRol_O_Todo().ToList();
         gvListaUsuarios.DataSource = null;
@@ -77,14 +82,14 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             return "Rol Desconocido";
         }
     }
-    
+
 
 
     protected void gvListaUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         int index = Convert.ToInt32(e.CommandArgument);
         string CodigoUsuario = System.Net.WebUtility.HtmlDecode(gvListaUsuarios.Rows[index].Cells[0].Text);
-        
+
         if (e.CommandName == "btnVer")
         {
             Session["CodigoUsuario"] = CodigoUsuario;

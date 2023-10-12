@@ -13,7 +13,7 @@
         </div>
         <br />
         <div>
-            <asp:Label runat="server">usuario:</asp:Label>
+            <asp:Label runat="server">Usuario:</asp:Label>
             <asp:Label ID="lblCodigoUsuario" runat="server"></asp:Label>
         </div>
         <br />
@@ -24,11 +24,20 @@
         </div>
         <br />
         <div>
-            <asp:Label runat="server">ObjetivoGeneral:</asp:Label>
+            <asp:Label runat="server">Objetivo General:</asp:Label>
             <asp:Label ID="lblObjetivoGeneral" runat="server"></asp:Label>
         </div>
         <br />
-
+        <div>
+            <asp:Label runat="server">Objetivos Especificos:</asp:Label>
+            <asp:Label ID="lblObjetivosEspecificos" runat="server"></asp:Label>
+        </div>
+        <br />
+        <div>
+            <asp:Label runat="server">Alcance del proyecto:</asp:Label>
+            <asp:Label ID="lblAlcanceProyecto" runat="server"></asp:Label>
+        </div>
+        <br />
         <div>
             <asp:Label runat="server">EnlaceDocumento:</asp:Label>
             <asp:LinkButton ID="lkbEnlaceDocumento" runat="server"></asp:LinkButton>
@@ -36,16 +45,6 @@
         <br />
         <asp:GridView ID="gvListaUsuarios" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaUsuarios_RowCommand">
             <Columns>
-                <%-- <asp:TemplateField HeaderText="Usuario">
-                        <ItemTemplate>
-                            <%# Eval("CodigoUsuario") %>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Rol">
-                        <ItemTemplate>
-                            <%# GetRolNombre(Eval("CodigoRol").ToString().Trim()) %>
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
                 <asp:BoundField DataField="CodigoUsuario" HeaderText="Usuario" />
                 <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" />
                 <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />

@@ -596,6 +596,26 @@ public class CGAAP
             throw;
         }
     }
+    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
+    {
+        List<EGUsuario> lstEGUsuarios = new List<EGUsuario>();
+        List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
+        try
+        {
+            lstEGUsuarioProyecto = Obtener_GUsuarioProyecto_O_CodigoProyecto(CodigoProyecto);
+            foreach (EGUsuarioProyecto eGUsuarioProyecto in lstEGUsuarioProyecto)
+            {
+                EGUsuario eGUsuario = Obtener_GUsuario_O_CodigoUsuario(eGUsuarioProyecto.CodigoUsuario);
+
+                lstEGUsuarios.Add(eGUsuario);
+            }
+            return lstEGUsuarios;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GRol
     public List<EGRol> Obtener_GRol_O_Todo()
@@ -772,6 +792,7 @@ public class CGAAP
                     eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
                     eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                     eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
+                    eGProyectoComplejo.EstadoProyecto = eGProyecto.EstadoProyecto;
                     eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "ES").Select(s => s.CodigoUsuario).ToList();
                     eGProyectoComplejo.CodigoTutor = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "TU").Select(s => s.CodigoUsuario).FirstOrDefault();
 
@@ -818,6 +839,7 @@ public class CGAAP
                 eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
                 eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                 eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
+                eGProyectoComplejo.EstadoProyecto = eGProyecto.EstadoProyecto;
                 eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "ES").Select(s => s.CodigoUsuario).ToList();
                 eGProyectoComplejo.CodigoTutor = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "TU").Select(s => s.CodigoUsuario).FirstOrDefault();
 

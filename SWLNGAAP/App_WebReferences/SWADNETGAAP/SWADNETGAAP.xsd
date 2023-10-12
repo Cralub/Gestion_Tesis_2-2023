@@ -47,6 +47,7 @@
       <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
+      <xs:element minOccurs="0" name="NumeroRevisiones" type="xs:unsignedByte" />
       <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />

@@ -555,6 +555,22 @@ public class LNServicio
             throw;
         }
     }
+    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
+    {
+        List<EGUsuario> lstEGUsuarios = new List<EGUsuario>();
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                lstEGUsuarios = clienteSWLNGAAP.Obtener_GUsuarios_O_CodigoProyecto(CodigoProyecto).ToList();
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstEGUsuarios;
+    }
     #endregion
     #region GRol
     public List<EGRol> Obtener_GRol_O_Todo()

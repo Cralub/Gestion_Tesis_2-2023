@@ -123,6 +123,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EGUsuario" nillable="true" type="tns:EGUsuario" />
+  <xs:complexType name="ArrayOfEGUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGUsuario" nillable="true" type="tns:EGUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGUsuario" nillable="true" type="tns:ArrayOfEGUsuario" />
   <xs:complexType name="ArrayOfEGRol">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EGRol" nillable="true" type="tns:EGRol" />
@@ -170,6 +176,7 @@
       <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CodigosEstudiantes" nillable="true" type="q1:ArrayOfstring" />
       <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoProyecto" type="ser:char" />
       <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
       <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
