@@ -46,9 +46,9 @@ public partial class WebForm_Observaciones_PActualizarObservacion : System.Web.U
         }
         else
         {
-            EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(1);
-            if (eGObservacion.TipoObservacion == 'O') rbObservacionFondo.Checked = true; else rbObservacionForma.Checked = true;
-            txtComentario.Text = eGObservacion.ComentarioObservacion;
+            //EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(1);
+            //if (eGObservacion.TipoObservacion == 'O') rbObservacionFondo.Checked = true; else rbObservacionForma.Checked = true;
+            //txtComentario.Text = eGObservacion.ComentarioObservacion;
         }
     }
     protected void btnBuscarObservacion_Click(object sender, EventArgs e)
