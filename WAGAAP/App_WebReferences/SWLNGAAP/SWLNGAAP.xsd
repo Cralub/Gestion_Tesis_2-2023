@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfEGUsuarioRol">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGUsuarioRol" nillable="true" type="tns:EGUsuarioRol" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGUsuarioRol" nillable="true" type="tns:ArrayOfEGUsuarioRol" />
+  <xs:complexType name="EGUsuarioRol">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuarioRol" type="xs:int" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGUsuarioRol" nillable="true" type="tns:EGUsuarioRol" />
+  <xs:complexType name="ArrayOfEGUsuarioProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGUsuarioProyecto" nillable="true" type="tns:EGUsuarioProyecto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGUsuarioProyecto" nillable="true" type="tns:ArrayOfEGUsuarioProyecto" />
+  <xs:complexType name="EGUsuarioProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuarioProyecto" type="xs:int" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoUsuarioProyecto" type="ser:char" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGUsuarioProyecto" nillable="true" type="tns:EGUsuarioProyecto" />
+  <xs:complexType name="ArrayOfEGProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGProyecto" nillable="true" type="tns:EGProyecto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGProyecto" nillable="true" type="tns:ArrayOfEGProyecto" />
+  <xs:complexType name="EGProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoProyecto" type="ser:char" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
+      <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGProyecto" nillable="true" type="tns:EGProyecto" />
+  <xs:complexType name="EGEtapa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoEtapa" type="ser:char" />
+      <xs:element minOccurs="0" name="FechaDefinidaEtapa" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaFinEtapa" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaInicioEtapa" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NumeroEtapa" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGEtapa" nillable="true" type="tns:EGEtapa" />
+  <xs:complexType name="EGSubEtapa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoUsuarioFirma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoSubEtapa" type="ser:char" />
+      <xs:element minOccurs="0" name="FechaDefinidaSubEtapa" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaFinSubEtapa" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaInicioSubEtapa" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NumeroSubEtapa" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGSubEtapa" nillable="true" type="tns:EGSubEtapa" />
+  <xs:complexType name="ArrayOfEGObservacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGObservacion" nillable="true" type="tns:EGObservacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGObservacion" nillable="true" type="tns:ArrayOfEGObservacion" />
+  <xs:complexType name="EGObservacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoObservacion" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoUsuarioObservacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComentarioObservacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoObservacion" type="ser:char" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TipoObservacion" type="ser:char" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGObservacion" nillable="true" type="tns:EGObservacion" />
+  <xs:complexType name="EGUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SedeUsuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGUsuario" nillable="true" type="tns:EGUsuario" />
+  <xs:complexType name="ArrayOfEGRol">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGRol" nillable="true" type="tns:EGRol" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGRol" nillable="true" type="tns:ArrayOfEGRol" />
+  <xs:complexType name="EGRol">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescripcionRol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGRol" nillable="true" type="tns:EGRol" />
+  <xs:complexType name="EUsuarioNetvalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApellidosUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarreraUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CelularUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DireccionTrabajoUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DireccionUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacultadUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombresUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RolUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SedeUsuarioNetvalle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EUsuarioNetvalle" nillable="true" type="tns:EUsuarioNetvalle" />
+  <xs:complexType name="ArrayOfEProyectoCompleja">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EProyectoCompleja" nillable="true" type="tns:EProyectoCompleja" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEProyectoCompleja" nillable="true" type="tns:ArrayOfEProyectoCompleja" />
+  <xs:complexType name="EProyectoCompleja">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoTutor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CodigosEstudiantes" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
+      <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EProyectoCompleja" nillable="true" type="tns:EProyectoCompleja" />
+  <xs:complexType name="ArrayOfEProgresoEtapaSubEtapa">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EProgresoEtapaSubEtapa" nillable="true" type="tns:EProgresoEtapaSubEtapa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEProgresoEtapaSubEtapa" nillable="true" type="tns:ArrayOfEProgresoEtapaSubEtapa" />
+  <xs:complexType name="EProgresoEtapaSubEtapa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CantidadSubEtapaFinalizada" type="xs:int" />
+      <xs:element minOccurs="0" name="CantidadSubEtapaTotal" type="xs:int" />
+      <xs:element minOccurs="0" name="EstadoEtapa" type="ser:char" />
+      <xs:element minOccurs="0" name="NumeroEtapa" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EProgresoEtapaSubEtapa" nillable="true" type="tns:EProgresoEtapaSubEtapa" />
+  <xs:complexType name="EUsuarioCompleto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Carrera" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Celular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DireccionTrabajo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Facultad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCompleto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RolNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RolProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EUsuarioCompleto" nillable="true" type="tns:EUsuarioCompleto" />
+  <xs:complexType name="ArrayOfEProyectoTiempoEntrega">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EProyectoTiempoEntrega" nillable="true" type="tns:EProyectoTiempoEntrega" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEProyectoTiempoEntrega" nillable="true" type="tns:ArrayOfEProyectoTiempoEntrega" />
+  <xs:complexType name="EProyectoTiempoEntrega">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Documento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaEntrega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Modalidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Objetivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EProyectoTiempoEntrega" nillable="true" type="tns:EProyectoTiempoEntrega" />
+  <xs:complexType name="ArrayOfEGTutorExterno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGTutorExterno" nillable="true" type="tns:EGTutorExterno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGTutorExterno" nillable="true" type="tns:ArrayOfEGTutorExterno" />
+  <xs:complexType name="EGTutorExterno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApellidosTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarreraTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoTutorExterno" type="xs:int" />
+      <xs:element minOccurs="0" name="DescripcionTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DireccionTrabajoTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombresTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SedeTutorExterno" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGTutorExterno" nillable="true" type="tns:EGTutorExterno" />
+</xs:schema>
