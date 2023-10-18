@@ -2,16 +2,15 @@
 <xs:schema id="DTOGProyecto" targetNamespace="http://tempuri.org/DTOGProyecto.xsd" xmlns:mstns="http://tempuri.org/DTOGProyecto.xsd" xmlns="http://tempuri.org/DTOGProyecto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString11" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString11 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString11.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString19" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString19 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString19.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString11" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString11 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString11.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString19" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString19 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString19.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GProyectoTableAdapter" GeneratorDataComponentClassName="GProyectoTableAdapter" Name="GProyecto" UserDataComponentName="GProyectoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="NETGAAPConnectionString1 (Web.config)" DbObjectName="NETGAAP.dbo.GProyecto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="NETGAAPConnectionString19 (Web.config)" DbObjectName="NETGAAP.dbo.GProyecto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[GProyecto] WHERE (([CodigoProyecto] = @Original_CodigoProyecto))</CommandText>
@@ -22,17 +21,14 @@
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[GProyecto] ([CodigoProyecto], [ModalidadProyecto], [TituloProyecto], [ObjetivoGeneralProyecto], [ObjetivosEspecificosProyecto], [AlcanceProyecto], [EnlaceDocumentoProyecto], [EstadoProyecto], [NumeroRevisiones], [Estado], [FechaRegistro], [FechaModificacion]) VALUES (@CodigoProyecto, @ModalidadProyecto, @TituloProyecto, @ObjetivoGeneralProyecto, @ObjetivosEspecificosProyecto, @AlcanceProyecto, @EnlaceDocumentoProyecto, @EstadoProyecto, @NumeroRevisiones, @Estado, @FechaRegistro, @FechaModificacion)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[GProyecto] ([CodigoProyecto], [ModalidadProyecto], [TituloProyecto], [ObjetivoGeneralProyecto], [EnlaceDocumentoProyecto], [EstadoProyecto], [Estado], [FechaRegistro], [FechaModificacion]) VALUES (@CodigoProyecto, @ModalidadProyecto, @TituloProyecto, @ObjetivoGeneralProyecto, @EnlaceDocumentoProyecto, @EstadoProyecto, @Estado, @FechaRegistro, @FechaModificacion)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@ModalidadProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="ModalidadProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TituloProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TituloProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ObjetivoGeneralProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ObjetivoGeneralProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ObjetivosEspecificosProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ObjetivosEspecificosProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@AlcanceProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="AlcanceProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EnlaceDocumentoProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EnlaceDocumentoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@EstadoProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="EstadoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@NumeroRevisiones" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="NumeroRevisiones" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistro" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistro" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaModificacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaModificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -41,23 +37,20 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, ObjetivosEspecificosProyecto, AlcanceProyecto, EnlaceDocumentoProyecto, EstadoProyecto, NumeroRevisiones, Estado, FechaRegistro, FechaModificacion FROM dbo.GProyecto</CommandText>
+                    <CommandText>SELECT CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto, Estado, FechaRegistro, FechaModificacion FROM dbo.GProyecto</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[GProyecto] SET [CodigoProyecto] = @CodigoProyecto, [ModalidadProyecto] = @ModalidadProyecto, [TituloProyecto] = @TituloProyecto, [ObjetivoGeneralProyecto] = @ObjetivoGeneralProyecto, [ObjetivosEspecificosProyecto] = @ObjetivosEspecificosProyecto, [AlcanceProyecto] = @AlcanceProyecto, [EnlaceDocumentoProyecto] = @EnlaceDocumentoProyecto, [EstadoProyecto] = @EstadoProyecto, [NumeroRevisiones] = @NumeroRevisiones, [Estado] = @Estado, [FechaRegistro] = @FechaRegistro, [FechaModificacion] = @FechaModificacion WHERE (([CodigoProyecto] = @Original_CodigoProyecto))</CommandText>
+                    <CommandText>UPDATE [dbo].[GProyecto] SET [CodigoProyecto] = @CodigoProyecto, [ModalidadProyecto] = @ModalidadProyecto, [TituloProyecto] = @TituloProyecto, [ObjetivoGeneralProyecto] = @ObjetivoGeneralProyecto, [EnlaceDocumentoProyecto] = @EnlaceDocumentoProyecto, [EstadoProyecto] = @EstadoProyecto, [Estado] = @Estado, [FechaRegistro] = @FechaRegistro, [FechaModificacion] = @FechaModificacion WHERE (([CodigoProyecto] = @Original_CodigoProyecto))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@ModalidadProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="ModalidadProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TituloProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TituloProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ObjetivoGeneralProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ObjetivoGeneralProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ObjetivosEspecificosProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ObjetivosEspecificosProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@AlcanceProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="AlcanceProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EnlaceDocumentoProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EnlaceDocumentoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@EstadoProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="EstadoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@NumeroRevisiones" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="NumeroRevisiones" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistro" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistro" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaModificacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaModificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -72,11 +65,8 @@
               <Mapping SourceColumn="ModalidadProyecto" DataSetColumn="ModalidadProyecto" />
               <Mapping SourceColumn="TituloProyecto" DataSetColumn="TituloProyecto" />
               <Mapping SourceColumn="ObjetivoGeneralProyecto" DataSetColumn="ObjetivoGeneralProyecto" />
-              <Mapping SourceColumn="ObjetivosEspecificosProyecto" DataSetColumn="ObjetivosEspecificosProyecto" />
-              <Mapping SourceColumn="AlcanceProyecto" DataSetColumn="AlcanceProyecto" />
               <Mapping SourceColumn="EnlaceDocumentoProyecto" DataSetColumn="EnlaceDocumentoProyecto" />
               <Mapping SourceColumn="EstadoProyecto" DataSetColumn="EstadoProyecto" />
-              <Mapping SourceColumn="NumeroRevisiones" DataSetColumn="NumeroRevisiones" />
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
               <Mapping SourceColumn="FechaRegistro" DataSetColumn="FechaRegistro" />
               <Mapping SourceColumn="FechaModificacion" DataSetColumn="FechaModificacion" />
@@ -97,7 +87,7 @@
               <xs:element name="CodigoProyecto" msprop:Generator_ColumnPropNameInRow="CodigoProyecto" msprop:Generator_ColumnPropNameInTable="CodigoProyectoColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoProyecto" msprop:Generator_UserColumnName="CodigoProyecto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="5" />
+                    <xs:maxLength value="4" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -122,20 +112,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ObjetivosEspecificosProyecto" msprop:Generator_ColumnPropNameInRow="ObjetivosEspecificosProyecto" msprop:Generator_ColumnPropNameInTable="ObjetivosEspecificosProyectoColumn" msprop:Generator_ColumnVarNameInTable="columnObjetivosEspecificosProyecto" msprop:Generator_UserColumnName="ObjetivosEspecificosProyecto">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="AlcanceProyecto" msprop:Generator_ColumnPropNameInRow="AlcanceProyecto" msprop:Generator_ColumnPropNameInTable="AlcanceProyectoColumn" msprop:Generator_ColumnVarNameInTable="columnAlcanceProyecto" msprop:Generator_UserColumnName="AlcanceProyecto">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="EnlaceDocumentoProyecto" msprop:Generator_ColumnPropNameInRow="EnlaceDocumentoProyecto" msprop:Generator_ColumnPropNameInTable="EnlaceDocumentoProyectoColumn" msprop:Generator_ColumnVarNameInTable="columnEnlaceDocumentoProyecto" msprop:Generator_UserColumnName="EnlaceDocumentoProyecto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -150,7 +126,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NumeroRevisiones" msprop:Generator_ColumnPropNameInRow="NumeroRevisiones" msprop:Generator_ColumnPropNameInTable="NumeroRevisionesColumn" msprop:Generator_ColumnVarNameInTable="columnNumeroRevisiones" msprop:Generator_UserColumnName="NumeroRevisiones" type="xs:unsignedByte" />
               <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

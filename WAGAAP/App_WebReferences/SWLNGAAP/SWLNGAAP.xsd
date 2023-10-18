@@ -46,7 +46,6 @@
   <xs:element name="ArrayOfEGProyecto" nillable="true" type="tns:ArrayOfEGProyecto" />
   <xs:complexType name="EGProyecto">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AlcanceProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
@@ -55,7 +54,6 @@
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
       <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -75,6 +73,42 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EGEtapa" nillable="true" type="tns:EGEtapa" />
+  <xs:complexType name="EGFormularioAceptacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoEstudiante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoFormularioAceptacion" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoTribunal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PreguntaFondo1" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo10" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo2" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo3" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo4" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo5" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo6" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo7" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo8" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFondo9" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma1" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma10" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma2" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma3" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma4" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma5" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma6" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma7" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma8" type="ser:char" />
+      <xs:element minOccurs="0" name="PreguntaFormatoYForma9" type="ser:char" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGFormularioAceptacion" nillable="true" type="tns:EGFormularioAceptacion" />
+  <xs:complexType name="ArrayOfEGFormularioAceptacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGFormularioAceptacion" nillable="true" type="tns:EGFormularioAceptacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGFormularioAceptacion" nillable="true" type="tns:ArrayOfEGFormularioAceptacion" />
   <xs:complexType name="EGSubEtapa">
     <xs:sequence>
       <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
@@ -118,7 +152,6 @@
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="NombreCompletoUsuario" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SedeUsuario" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -163,7 +196,6 @@
   <xs:element name="ArrayOfEProyectoCompleja" nillable="true" type="tns:ArrayOfEProyectoCompleja" />
   <xs:complexType name="EProyectoCompleja">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AlcanceProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoTutor" nillable="true" type="xs:string" />
@@ -172,7 +204,6 @@
       <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
       <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rol" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -215,12 +246,10 @@
   <xs:element name="ArrayOfEProyectoTiempoEntrega" nillable="true" type="tns:ArrayOfEProyectoTiempoEntrega" />
   <xs:complexType name="EProyectoTiempoEntrega">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Alcance" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Documento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaEntrega" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Modalidad" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Objetivo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ObjetivosEspecificos" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

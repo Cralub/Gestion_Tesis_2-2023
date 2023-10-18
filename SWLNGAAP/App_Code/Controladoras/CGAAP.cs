@@ -189,7 +189,7 @@ public class CGAAP
     }
     #endregion
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
         try
@@ -198,8 +198,6 @@ public class CGAAP
             eGProyecto.ModalidadProyecto = ModalidadProyecto;
             eGProyecto.TituloProyecto = TituloProyecto;
             eGProyecto.ObjetivoGeneralProyecto = ObjetivoGeneralProyecto;
-            eGProyecto.ObjetivosEspecificosProyecto = ObjetivosEspecificosProyecto;
-            eGProyecto.AlcanceProyecto = AlcanceProyecto;
             eGProyecto.EnlaceDocumentoProyecto = EnlaceDocumentoProyecto;
             eGProyecto.EstadoProyecto = EstadoProyecto;
             asNetGAAP.Insertar_GProyecto_I(eGProyecto);
@@ -253,7 +251,7 @@ public class CGAAP
             throw;
         }
     }
-    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto)
     {
         EGProyecto egProyecto = new EGProyecto();
         try
@@ -262,8 +260,6 @@ public class CGAAP
             egProyecto.ModalidadProyecto = ModalidadProyecto;
             egProyecto.TituloProyecto = TituloProyecto;
             egProyecto.ObjetivoGeneralProyecto = ObjetivoGeneralProyecto;
-            egProyecto.ObjetivosEspecificosProyecto = ObjetivosEspecificosProyecto;
-            egProyecto.AlcanceProyecto = AlcanceProyecto;
             egProyecto.EnlaceDocumentoProyecto = EnlaceDocumentoProyecto;
             asNetGAAP.Actualizar_GProyecto_A(egProyecto);
         }
@@ -356,6 +352,31 @@ public class CGAAP
         }
     }
 
+    #endregion
+    #region GFormularioAceptacion
+    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        try
+        {
+
+            asNetGAAP.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    {
+        try
+        {
+            return asNetGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto).ToList();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GSubEtapa
     public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
@@ -460,6 +481,7 @@ public class CGAAP
             throw;
         }
     }
+
     public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto)
     {
         List<EGObservacion> lstObservacion = new List<EGObservacion>();
@@ -468,6 +490,17 @@ public class CGAAP
             lstObservacion = asNetGAAP.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto).ToList();
             return lstObservacion;
 
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    {
+        try
+        {
+            return asNetGAAP.Obtener_GObservacion_O_TipoObservacion(TipoObservacion).ToList();
         }
         catch (Exception)
         {
@@ -555,13 +588,12 @@ public class CGAAP
     }
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string CodigoUsuario, string SedeUsuario)
     {
         EGUsuario eGUsuario = new EGUsuario();
         try
         {
             eGUsuario.CodigoUsuario = CodigoUsuario;
-            eGUsuario.NombreCompletoUsuario = NombreCompletoUsuario;
             eGUsuario.SedeUsuario = SedeUsuario;
             asNetGAAP.Insertar_GUsuario_I(eGUsuario);
         }
@@ -581,13 +613,12 @@ public class CGAAP
             throw;
         }
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
+    public void Actualizar_GUsuario_A(string CodigoUsuario, string SedeUsuario)
     {
         EGUsuario eGUsuario = new EGUsuario();
         try
         {
             eGUsuario.CodigoUsuario = CodigoUsuario;
-            eGUsuario.NombreCompletoUsuario = NombreCompletoUsuario;
             eGUsuario.SedeUsuario = SedeUsuario;
             asNetGAAP.Actualizar_GUsuario_A(eGUsuario);
         }
@@ -661,7 +692,7 @@ public class CGAAP
         }
     }
     #endregion
-    #region EUsuarioCompleto - UsuarioNetvalle
+    #region EUsuarioCompleto
     public EUsuarioCompleto Obtener_EUsuarioCompleto_O_CodigoUsuario(string CodigoUsuario, string CodigoProyecto)
     {
         EUsuarioCompleto eEUsuarioCompleto;
@@ -716,8 +747,6 @@ public class CGAAP
                 }
                 eEProyectoTiempoEntrega.Titulo = entrega.TituloProyecto;
                 eEProyectoTiempoEntrega.Objetivo = entrega.ObjetivoGeneralProyecto;
-                eEProyectoTiempoEntrega.ObjetivosEspecificos = entrega.ObjetivosEspecificosProyecto;
-                eEProyectoTiempoEntrega.Alcance = entrega.AlcanceProyecto;
                 eEProyectoTiempoEntrega.Documento = entrega.EnlaceDocumentoProyecto;
                 eEProyectoTiempoEntrega.FechaEntrega = Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(entrega.CodigoProyecto).CodigoEtapa).FechaDefinidaSubEtapa;
                 lstEProyectoTiempoEntrega.Add(eEProyectoTiempoEntrega);
@@ -769,8 +798,6 @@ public class CGAAP
                     eGProyectoComplejo.TituloProyecto = eGProyecto.TituloProyecto;
                     eGProyectoComplejo.ModalidadProyecto = eGProyecto.ModalidadProyecto;
                     eGProyectoComplejo.ObjetivoGeneralProyecto = eGProyecto.ObjetivoGeneralProyecto;
-                    eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
-                    eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                     eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
                     eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "ES").Select(s => s.CodigoUsuario).ToList();
                     eGProyectoComplejo.CodigoTutor = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "TU").Select(s => s.CodigoUsuario).FirstOrDefault();
@@ -815,8 +842,6 @@ public class CGAAP
                 eGProyectoComplejo.TituloProyecto = eGProyecto.TituloProyecto;
                 eGProyectoComplejo.ModalidadProyecto = eGProyecto.ModalidadProyecto;
                 eGProyectoComplejo.ObjetivoGeneralProyecto = eGProyecto.ObjetivoGeneralProyecto;
-                eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
-                eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                 eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
                 eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "ES").Select(s => s.CodigoUsuario).ToList();
                 eGProyectoComplejo.CodigoTutor = lstUsuariosPorProyecto.Where(w => w.CodigoRol == "TU").Select(s => s.CodigoUsuario).FirstOrDefault();
@@ -942,8 +967,6 @@ public class CGAAP
             eGProyecto.CodigoProyecto = CodigoProyecto;
             eGProyecto.TituloProyecto = "No definido";
             eGProyecto.ObjetivoGeneralProyecto = "No definido";
-            eGProyecto.ObjetivosEspecificosProyecto = "No definido";
-            eGProyecto.AlcanceProyecto = "No definido";
             eGProyecto.EnlaceDocumentoProyecto = "No definido";
             eGProyecto.ModalidadProyecto ='T';
             asNetGAAP.Insertar_GProyecto_I(eGProyecto);

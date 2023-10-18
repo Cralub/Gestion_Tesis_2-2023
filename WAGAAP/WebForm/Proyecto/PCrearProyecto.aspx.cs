@@ -59,7 +59,7 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
                 EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(estudianteNetvalle.CodigoUsuarioNetvalle);
                 if (eGUsuario.CodigoUsuario.Equals(""))
                 {
-                    cUsuario.Insertar_GUsuario_I(estudianteNetvalle.CodigoUsuarioNetvalle, estudianteNetvalle.NombresUsuarioNetvalle, estudianteNetvalle.SedeUsuarioNetvalle);
+                    cUsuario.Insertar_GUsuario_I(estudianteNetvalle.CodigoUsuarioNetvalle, estudianteNetvalle.SedeUsuarioNetvalle);
                     cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), SDatosGlobales.ROL_ESTUDIANTE, estudianteNetvalle.CodigoUsuarioNetvalle);
                 }
                 //Creamos un nuevo Proyecto y quitamos las opciones por seguridad

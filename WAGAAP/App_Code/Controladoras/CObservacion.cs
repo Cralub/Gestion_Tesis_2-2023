@@ -72,6 +72,19 @@ public class CObservacion
         }
         return lstObservacion;
     }
+    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    {
+        List<EGObservacion> lstObservacion = new List<EGObservacion>();
+        try
+        {
+            lstObservacion = lNServicio.Obtener_GObservacion_O_TipoObservacion(TipoObservacion);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstObservacion;
+    }
     public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
     {
         EGObservacion eGObservacion = new EGObservacion();

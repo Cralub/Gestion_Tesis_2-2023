@@ -49,6 +49,25 @@ public class ADGObservacion
         }
         return dtoGObservacion;
     }
+
+    public DTOGObservacion Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    {
+        DTOGObservacion dtoGObservacion = new DTOGObservacion();
+        try
+        {
+            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GObservacion_O_TipoObservacion");
+            BDSWADNETGAAP.AddInParameter(dbCommand, "TipoObservacion", DbType.String, TipoObservacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.LoadDataSet(dbCommand, dtoGObservacion, "GObservacion");
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return dtoGObservacion;
+    }
+
     public DTOGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
     {
         DTOGObservacion dtoGObservacion = new DTOGObservacion();
@@ -100,7 +119,7 @@ public class ADGObservacion
         }
         catch (Exception ex)
         {
-            throw;
+            throw ex;
         }
         return res;
     }

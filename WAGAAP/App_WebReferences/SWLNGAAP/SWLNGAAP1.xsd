@@ -164,8 +164,6 @@
         <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ModalidadProyecto" type="q8:char" />
         <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="AlcanceProyecto" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
         <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoProyecto" type="q9:char" />
       </xs:sequence>
@@ -209,8 +207,6 @@
         <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ModalidadProyecto" type="q12:char" />
         <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="AlcanceProyecto" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -292,6 +288,32 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Insertar_GFormularioAceptacion_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="eGFormularioAceptacion" nillable="true" type="q17:EGFormularioAceptacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GFormularioAceptacion_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GFormularioAceptacion_O_CodigoProyecto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GFormularioAceptacion_O_CodigoProyectoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GFormularioAceptacion_O_CodigoProyectoResult" nillable="true" type="q18:ArrayOfEGFormularioAceptacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insertar_GSubEtapa_I">
     <xs:complexType>
       <xs:sequence>
@@ -302,7 +324,7 @@
         <xs:element minOccurs="0" name="FechaFinSubEtapa" type="xs:dateTime" />
         <xs:element minOccurs="0" name="CodigoUsuarioFirma" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoSubEtapa" type="q17:char" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoSubEtapa" type="q19:char" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -333,7 +355,7 @@
   <xs:element name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivoResult" nillable="true" type="q18:EGSubEtapa" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivoResult" nillable="true" type="q20:EGSubEtapa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -348,7 +370,7 @@
   <xs:element name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResult" nillable="true" type="q19:EGSubEtapa" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResult" nillable="true" type="q21:EGSubEtapa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -356,7 +378,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
-        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Estado" type="q20:char" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Estado" type="q22:char" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -373,8 +395,8 @@
         <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
         <xs:element minOccurs="0" name="CodigoUsuarioObservacion" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ComentarioObservacion" nillable="true" type="xs:string" />
-        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TipoObservacion" type="q21:char" />
-        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q22:char" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TipoObservacion" type="q23:char" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q24:char" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -393,7 +415,21 @@
   <xs:element name="Obtener_GObservacion_O_CodigoProyectoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GObservacion_O_CodigoProyectoResult" nillable="true" type="q23:ArrayOfEGObservacion" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GObservacion_O_CodigoProyectoResult" nillable="true" type="q25:ArrayOfEGObservacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObservacion_O_TipoObservacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TipoObservacion" type="q26:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObservacion_O_TipoObservacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GObservacion_O_TipoObservacionResult" nillable="true" type="q27:ArrayOfEGObservacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -407,7 +443,7 @@
   <xs:element name="Obtener_GObservacion_O_CodigoObservacionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GObservacion_O_CodigoObservacionResult" nillable="true" type="q24:EGObservacion" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GObservacion_O_CodigoObservacionResult" nillable="true" type="q28:EGObservacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -419,8 +455,8 @@
         <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
         <xs:element minOccurs="0" name="CodigoUsuarioObservacion" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ComentarioObservacion" nillable="true" type="xs:string" />
-        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TipoObservacion" type="q25:char" />
-        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q26:char" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TipoObservacion" type="q29:char" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q30:char" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -433,7 +469,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CodigoObservacion" type="xs:int" />
-        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q27:char" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q31:char" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -458,7 +494,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NombreCompletoUsuario" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -478,7 +513,7 @@
   <xs:element name="Obtener_GUsuario_O_CodigoUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuario_O_CodigoUsuarioResult" nillable="true" type="q28:EGUsuario" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuario_O_CodigoUsuarioResult" nillable="true" type="q32:EGUsuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -486,7 +521,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NombreCompletoUsuario" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -504,7 +538,7 @@
   <xs:element name="Obtener_GRol_O_TodoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_TodoResult" nillable="true" type="q29:ArrayOfEGRol" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_TodoResult" nillable="true" type="q33:ArrayOfEGRol" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -518,7 +552,7 @@
   <xs:element name="Obtener_GRol_O_CodigoRolResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_CodigoRolResult" nillable="true" type="q30:EGRol" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_CodigoRolResult" nillable="true" type="q34:EGRol" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -532,7 +566,7 @@
   <xs:element name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResult" nillable="true" type="q31:EUsuarioNetvalle" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResult" nillable="true" type="q35:EUsuarioNetvalle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -546,7 +580,7 @@
   <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResult" nillable="true" type="q32:ArrayOfEProyectoCompleja" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResult" nillable="true" type="q36:ArrayOfEProyectoCompleja" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -560,7 +594,7 @@
   <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResult" nillable="true" type="q33:ArrayOfEProyectoCompleja" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResult" nillable="true" type="q37:ArrayOfEProyectoCompleja" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -602,7 +636,7 @@
   <xs:element name="Obtener_EProgresoEtapaSubEtapa_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProgresoEtapaSubEtapa_OResult" nillable="true" type="q34:ArrayOfEProgresoEtapaSubEtapa" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProgresoEtapaSubEtapa_OResult" nillable="true" type="q38:ArrayOfEProgresoEtapaSubEtapa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -633,7 +667,7 @@
   <xs:element name="Obtener_EUsuarioCompleto_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleto_OResult" nillable="true" type="q35:EUsuarioCompleto" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleto_OResult" nillable="true" type="q39:EUsuarioCompleto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -647,7 +681,7 @@
   <xs:element name="Obtener_EProyectoTiempoEntrega_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q36:ArrayOfEProyectoTiempoEntrega" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q40:ArrayOfEProyectoTiempoEntrega" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

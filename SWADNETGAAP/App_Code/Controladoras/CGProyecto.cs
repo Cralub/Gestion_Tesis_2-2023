@@ -32,8 +32,6 @@ public class CGProyecto
             eGProyecto.ModalidadProyecto = char.Parse(drGProyecto.ModalidadProyecto);
             eGProyecto.TituloProyecto = drGProyecto.TituloProyecto;
             eGProyecto.ObjetivoGeneralProyecto = drGProyecto.ObjetivoGeneralProyecto;
-            eGProyecto.ObjetivosEspecificosProyecto = drGProyecto.ObjetivosEspecificosProyecto;
-            eGProyecto.AlcanceProyecto = drGProyecto.AlcanceProyecto;
             eGProyecto.EnlaceDocumentoProyecto = drGProyecto.EnlaceDocumentoProyecto;
             eGProyecto.EstadoProyecto = char.Parse(drGProyecto.EstadoProyecto);            
             lstEGProyecto.Add(eGProyecto);
@@ -52,8 +50,6 @@ public class CGProyecto
             eGProyecto.ModalidadProyecto = char.Parse(drGProyecto.ModalidadProyecto);
             eGProyecto.TituloProyecto = drGProyecto.TituloProyecto;
             eGProyecto.ObjetivoGeneralProyecto = drGProyecto.ObjetivoGeneralProyecto;
-            eGProyecto.ObjetivosEspecificosProyecto = drGProyecto.ObjetivosEspecificosProyecto;
-            eGProyecto.AlcanceProyecto = drGProyecto.AlcanceProyecto;
             eGProyecto.EnlaceDocumentoProyecto = drGProyecto.EnlaceDocumentoProyecto;
             eGProyecto.EstadoProyecto = char.Parse(drGProyecto.EstadoProyecto);
         }

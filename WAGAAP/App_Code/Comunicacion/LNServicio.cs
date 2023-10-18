@@ -199,13 +199,13 @@ public class LNServicio
     }
     #endregion
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, ObjetivosEspecificosProyecto, AlcanceProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
+                clienteSWLNGAAP.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
             }
         }
         catch (Exception)
@@ -245,13 +245,13 @@ public class LNServicio
         }
         return eGProyecto;
     }
-    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, ObjetivosEspecificosProyecto, AlcanceProyecto, EnlaceDocumentoProyecto);
+                clienteSWLNGAAP.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto);
             }
         }
         catch (Exception)
@@ -417,6 +417,38 @@ public class LNServicio
         }
     }
     #endregion
+    #region GFormularioAceptacion
+    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    {
+        List<EGFormularioAceptacion> lstFormularioAceptacion = new List<EGFormularioAceptacion>();
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                lstFormularioAceptacion = clienteSWLNGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto).ToList();
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstFormularioAceptacion;
+    }
+    #endregion
     #region GObservacion
     public void Insertar_GObservacion_I(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion)
     {
@@ -464,6 +496,24 @@ public class LNServicio
         }
         return lstObservacion;
     }
+
+    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    {
+        List<EGObservacion> lstObservacion = new List<EGObservacion>();
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                lstObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_TipoObservacion(TipoObservacion).ToList();
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstObservacion;
+    }
+
     public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
     {
         EGObservacion eGObservacion = new EGObservacion();
@@ -511,13 +561,13 @@ public class LNServicio
     }
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string CodigoUsuario, string SedeUsuario)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, NombreCompletoUsuario, SedeUsuario);
+                clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, SedeUsuario);
             }
         }
         catch (Exception)
@@ -541,13 +591,13 @@ public class LNServicio
         }
         return eGUsuario;
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
+    public void Actualizar_GUsuario_A(string CodigoUsuario, string SedeUsuario)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GUsuario_A(CodigoUsuario, NombreCompletoUsuario, SedeUsuario);
+                clienteSWLNGAAP.Actualizar_GUsuario_A(CodigoUsuario, SedeUsuario);
             }
         }
         catch (Exception)
