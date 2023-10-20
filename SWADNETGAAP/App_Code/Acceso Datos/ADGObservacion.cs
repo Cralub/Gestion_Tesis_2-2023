@@ -75,7 +75,7 @@ public class ADGObservacion
         {
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GObservacion_O_CodigoObservacion");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoObservacion", DbType.String, CodigoObservacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoObservacion", DbType.Int32, CodigoObservacion);
             BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dtoGObservacion, "GObservacion");
         }

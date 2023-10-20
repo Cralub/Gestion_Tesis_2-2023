@@ -514,7 +514,6 @@ public class CGAAP
         {
             eGObservacion = asNetGAAP.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
             return eGObservacion;
-
         }
         catch (Exception)
         {

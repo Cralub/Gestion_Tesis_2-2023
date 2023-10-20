@@ -61,17 +61,16 @@ public class CGObservacion
     {
         EGObservacion eGObservacion = new EGObservacion();
         DTOGObservacion dtoGObservacion = adGObservacion.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
-        foreach (DTOGObservacion.GObservacionRow gObservacionRow in dtoGObservacion.GObservacion.Rows)
+        foreach (DTOGObservacion.GObservacionRow drObservacionRow in dtoGObservacion.GObservacion.Rows)
         {
-            eGObservacion = new EGObservacion();
-            eGObservacion.CodigoObservacion = gObservacionRow.CodigoObservacion;
-            eGObservacion.CodigoProyecto = gObservacionRow.CodigoProyecto;
-            eGObservacion.CodigoSubEtapa = gObservacionRow.CodigoSubEtapa;
-            eGObservacion.CodigoUsuarioObservacion = gObservacionRow.CodigoUsuarioObservacion;
-            eGObservacion.ComentarioObservacion = gObservacionRow.ComentarioObservacion;
-            eGObservacion.TipoObservacion = Convert.ToChar(gObservacionRow.TipoObservacion);
-            eGObservacion.EstadoObservacion = Convert.ToChar(gObservacionRow.EstadoObservacion);
-            eGObservacion.FechaRegistro = gObservacionRow.FechaRegistro;
+            eGObservacion.CodigoObservacion = drObservacionRow.CodigoObservacion;
+            eGObservacion.CodigoProyecto = drObservacionRow.CodigoProyecto;
+            eGObservacion.CodigoSubEtapa = drObservacionRow.CodigoSubEtapa;
+            eGObservacion.CodigoUsuarioObservacion = drObservacionRow.CodigoUsuarioObservacion;
+            eGObservacion.ComentarioObservacion = drObservacionRow.ComentarioObservacion;
+            eGObservacion.TipoObservacion = Convert.ToChar(drObservacionRow.TipoObservacion);
+            eGObservacion.EstadoObservacion = Convert.ToChar(drObservacionRow.EstadoObservacion);
+            eGObservacion.FechaRegistro = drObservacionRow.FechaRegistro;
         }
         return eGObservacion;
 
