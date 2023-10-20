@@ -454,6 +454,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCompletoUsuario" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -481,6 +482,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreCompletoUsuario" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

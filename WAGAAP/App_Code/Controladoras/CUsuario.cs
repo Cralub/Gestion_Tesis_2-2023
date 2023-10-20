@@ -36,11 +36,11 @@ public class CUsuario
     #region Metodos Publicos
 
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
     {
         try
         {
-            lNServicio.Insertar_GUsuario_I(CodigoUsuario, SedeUsuario);
+            lNServicio.Insertar_GUsuario_I(CodigoUsuario, NombreCompletoUsuario, SedeUsuario);
         }
         catch (Exception)
         {
@@ -60,11 +60,11 @@ public class CUsuario
         }
         return eGUsuario;
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string SedeUsuario)
+    public void Actualizar_GUsuario_A(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
     {
         try
         {
-            lNServicio.Actualizar_GUsuario_A(CodigoUsuario, SedeUsuario);
+            lNServicio.Actualizar_GUsuario_A(CodigoUsuario, NombreCompletoUsuario, SedeUsuario);
         }
         catch (Exception)
         {

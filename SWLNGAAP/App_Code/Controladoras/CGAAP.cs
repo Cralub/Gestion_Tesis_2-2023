@@ -551,12 +551,13 @@ public class CGAAP
     }
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario ,string SedeUsuario)
     {
         EGUsuario eGUsuario = new EGUsuario();
         try
         {
             eGUsuario.CodigoUsuario = CodigoUsuario;
+            eGUsuario.NombreCompletoUsuario = NombreCompletoUsuario;
             eGUsuario.SedeUsuario = SedeUsuario;
             asNetGAAP.Insertar_GUsuario_I(eGUsuario);
         }
@@ -576,12 +577,13 @@ public class CGAAP
             throw;
         }
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string SedeUsuario)
+    public void Actualizar_GUsuario_A(string CodigoUsuario, string NombreCompletoUsuario ,string SedeUsuario)
     {
         EGUsuario eGUsuario = new EGUsuario();
         try
         {
             eGUsuario.CodigoUsuario = CodigoUsuario;
+            eGUsuario.NombreCompletoUsuario = NombreCompletoUsuario;
             eGUsuario.SedeUsuario = SedeUsuario;
             asNetGAAP.Actualizar_GUsuario_A(eGUsuario);
         }

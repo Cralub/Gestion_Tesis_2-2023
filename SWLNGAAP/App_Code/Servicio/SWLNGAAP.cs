@@ -198,20 +198,20 @@ public class SWLNGAAP : ISWLNGAAP
 
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string sede)
+    public void Insertar_GUsuario_I(string CodigoUsuario,  string NombreCompletoUsuario, string sede)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_GUsuario_I(CodigoUsuario, sede);
+        cGAAP.Insertar_GUsuario_I(CodigoUsuario, NombreCompletoUsuario ,sede);
     }
     public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario)
     {
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
     }
-    public void Actualizar_GUsuario_A(string codigoUsuario, string sede)
+    public void Actualizar_GUsuario_A(string codigoUsuario, string NombreCompletoUsuario, string sede)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Actualizar_GUsuario_A(codigoUsuario, sede);
+        cGAAP.Actualizar_GUsuario_A(codigoUsuario, NombreCompletoUsuario, sede);
     }
     #endregion
     #region GRol

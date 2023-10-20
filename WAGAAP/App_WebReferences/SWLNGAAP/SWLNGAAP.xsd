@@ -116,6 +116,7 @@
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombreCompletoUsuario" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SedeUsuario" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

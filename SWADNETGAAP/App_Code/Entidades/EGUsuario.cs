@@ -12,6 +12,9 @@ public class EGUsuario
     public string CodigoUsuario { get; set; }
 
     [DataMember]
+    public string NombreCompletoUsuario { get; set; }
+
+    [DataMember]
     public string SedeUsuario { get; set; }
 
     #region Auditoría básica
@@ -30,6 +33,7 @@ public class EGUsuario
     {
         CodigoUsuario = string.Empty;
         SedeUsuario = string.Empty;
+        NombreCompletoUsuario= string.Empty;
 
         Estado = string.Empty;
         FechaRegistro = DateTime.MinValue;

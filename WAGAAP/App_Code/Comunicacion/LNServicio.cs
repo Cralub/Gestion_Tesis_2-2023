@@ -511,13 +511,13 @@ public class LNServicio
     }
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, SedeUsuario);
+                clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, NombreCompletoUsuario, SedeUsuario);
             }
         }
         catch (Exception)
@@ -541,13 +541,13 @@ public class LNServicio
         }
         return eGUsuario;
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string SedeUsuario)
+    public void Actualizar_GUsuario_A(string CodigoUsuario, string NombreCompletoUsuario, string SedeUsuario)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GUsuario_A(CodigoUsuario, SedeUsuario);
+                clienteSWLNGAAP.Actualizar_GUsuario_A(CodigoUsuario, NombreCompletoUsuario, SedeUsuario);
             }
         }
         catch (Exception)

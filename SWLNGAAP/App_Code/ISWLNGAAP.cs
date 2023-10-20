@@ -82,11 +82,11 @@ public interface ISWLNGAAP
     #endregion
     #region GUsuario
     [OperationContract]
-    void Insertar_GUsuario_I(string CodigoUsuario, string sede);
+    void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario ,string sede);
     [OperationContract]
     EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario);
     [OperationContract]
-    void Actualizar_GUsuario_A(string codigoUsuario, string sede);
+    void Actualizar_GUsuario_A(string codigoUsuario, string NombreCompletoUsuario, string sede);
     #endregion
     #region GRol
     [OperationContract]
