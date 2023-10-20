@@ -22,9 +22,11 @@ public partial class WebForm_Usuario_Default : System.Web.UI.Page
     void cargarListaUsuarioRol()
     {
         string codigoUsuario = txtCodigoUsuarioRol.Text;
+
         listaUsuarioRol = cUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario).ToList();
         gvListaUsuarioRol.DataSource = listaUsuarioRol;
         gvListaUsuarioRol.DataBind();
+        
 
 
     }
@@ -32,6 +34,16 @@ public partial class WebForm_Usuario_Default : System.Web.UI.Page
     protected void btnBuscar_Click(object sender, EventArgs e)
     {
         cargarListaUsuarioRol();
-        gvListaUsuarioRol.DataBind();
+        
+    }
+
+    protected void gvListaUsuarioRol_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        
+    }
+
+    protected void gvListaUsuarioRol_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+
     }
 }

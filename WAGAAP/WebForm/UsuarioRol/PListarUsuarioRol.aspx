@@ -5,14 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:TextBox ID="txtCodigoUsuarioRol" runat="server"></asp:TextBox>
     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
-    <asp:GridView ID="gvListaUsuarioRol" DataKeyNames="CodigoUsuarioRol" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
+    <asp:GridView ID="gvListaUsuarioRol" DataKeyNames="CodigoUsuarioRol" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" OnRowEditing="gvListaUsuarioRol_RowEditing" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField DataField="CodigoUsuarioRol" HeaderText="CodigoUsuarioRol" ReadOnly="True" SortExpression="CodigoUsuarioRol" />
             <asp:BoundField DataField="CodigoRol" HeaderText="CodigoRol" SortExpression="CodigoRol" />
             <asp:BoundField DataField="CodigoUsuario" HeaderText="CodigoUsuario" SortExpression="CodigoUsuario" />
             <asp:TemplateField HeaderText="Editar">
                 <ItemTemplate>
-                    <asp:Button runat="server" ID="btnEditar" Text="Editar" CommandName="Edit" CommandArgument='<%# Eval("CodigoUsuarioRol") %>' class="Boton" />
+                    <!--Make an edito button that sends the id (the value of the first colum) to the page PEditarUsuarioRol and the value of the codigoUsuario too-->
+                    <asp:Button ID="btnEditar" runat="server" Text="Editar" PostBackUrl='<%# "PEditarUsuarioRol.aspx?CodigoUsuarioRol=" + Eval("CodigoUsuarioRol") + "&CodigoUsuario=" + Eval("CodigoUsuario") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
