@@ -73,10 +73,10 @@ public class SWLNGAAP : ISWLNGAAP
     }
     #endregion
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_GProyecto_I(CodigoProyecto,  ModalidadProyecto,  TituloProyecto,  ObjetivoGeneralProyecto, ObjetivosEspecificosProyecto, AlcanceProyecto,  EnlaceDocumentoProyecto,  EstadoProyecto);
+        cGAAP.Insertar_GProyecto_I(CodigoProyecto,  ModalidadProyecto,  TituloProyecto,  ObjetivoGeneralProyecto,  EnlaceDocumentoProyecto,  EstadoProyecto);
     }
     public List<EGProyecto> Obtener_GProyecto_O_Todo()
     {
@@ -90,10 +90,10 @@ public class SWLNGAAP : ISWLNGAAP
         eGProyecto = cGAAP.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto);
         return eGProyecto;
     }
-    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, ObjetivosEspecificosProyecto, AlcanceProyecto, EnlaceDocumentoProyecto);
+        cGAAP.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto);
     }
     #endregion
     #region GEtapa
@@ -127,6 +127,21 @@ public class SWLNGAAP : ISWLNGAAP
         cGAAP.Actualizar_GEtapa_A_EstadoEtapa(CodigoEtapa, EstadoEtapa);
     }
 
+    #endregion
+    #region GFormularioAceptacion
+    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
+    }
+
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    {
+        CGAAP cGAAP = new CGAAP();
+        List<EGFormularioAceptacion> lstEGFormularioAceptacion = new List<EGFormularioAceptacion>();
+        lstEGFormularioAceptacion = cGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto);
+        return lstEGFormularioAceptacion;
+    }
     #endregion
     #region GSubEtapa
     public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
@@ -175,6 +190,14 @@ public class SWLNGAAP : ISWLNGAAP
         return lstObservacion;
 
     }
+    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    {
+        CGAAP cGAAP = new CGAAP();
+        List<EGObservacion> lstObservacion = new List<EGObservacion>();
+        lstObservacion = cGAAP.Obtener_GObservacion_O_TipoObservacion(TipoObservacion);
+        return lstObservacion;
+
+    }
     public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
     {
         CGAAP cGAAP = new CGAAP();
@@ -198,20 +221,20 @@ public class SWLNGAAP : ISWLNGAAP
 
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario, string sede)
+    public void Insertar_GUsuario_I(string CodigoUsuario, string sede)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_GUsuario_I(CodigoUsuario, NombreCompletoUsuario, sede);
+        cGAAP.Insertar_GUsuario_I(CodigoUsuario, sede);
     }
     public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario)
     {
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
     }
-    public void Actualizar_GUsuario_A(string codigoUsuario, string NombreCompletoUsuario, string sede)
+    public void Actualizar_GUsuario_A(string codigoUsuario, string sede)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Actualizar_GUsuario_A(codigoUsuario, NombreCompletoUsuario, sede);
+        cGAAP.Actualizar_GUsuario_A(codigoUsuario, sede);
     }
     public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
     {

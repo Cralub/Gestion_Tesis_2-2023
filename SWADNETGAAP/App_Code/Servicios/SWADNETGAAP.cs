@@ -136,6 +136,21 @@ public class SWADNETGAAP : ISWADNETGAAP
     }
 
     #endregion
+    #region Tabla: GFormularioAceptacion
+    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion formularioAceptacion)
+    {
+        CGFormularioAceptacion cGFormularioAceptacion = new CGFormularioAceptacion();
+        cGFormularioAceptacion.Insertar_GFormularioAceptacion_I(formularioAceptacion);
+    }
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    {
+        CGFormularioAceptacion cGFormularioAceptacion = new CGFormularioAceptacion();
+        List<EGFormularioAceptacion> lstEGFormularioAceptacion = new List<EGFormularioAceptacion>();
+        lstEGFormularioAceptacion = cGFormularioAceptacion.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto);
+        return lstEGFormularioAceptacion;
+    }
+
+    #endregion
     #region Tabla: GSubEtapa
     public void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa)
     {
@@ -183,6 +198,14 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGObservacion cGObservacion = new CGObservacion();
         List<EGObservacion> lstEGObservaciones = new List<EGObservacion>();
         lstEGObservaciones = cGObservacion.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto);
+        return lstEGObservaciones;
+    }
+
+    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    {
+        CGObservacion cGObservacion = new CGObservacion();
+        List<EGObservacion> lstEGObservaciones = new List<EGObservacion>();
+        lstEGObservaciones = cGObservacion.Obtener_GObservacion_O_TipoObservacion(TipoObservacion);
         return lstEGObservaciones;
     }
     public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)

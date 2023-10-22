@@ -19,8 +19,6 @@ public class ADGProyecto
             BDSWADNETGAAP.AddInParameter(dbCommand, "ModalidadProyecto", DbType.StringFixedLength, eGProyecto.ModalidadProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "TituloProyecto", DbType.String, eGProyecto.TituloProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivoGeneralProyecto", DbType.String, eGProyecto.ObjetivoGeneralProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivosEspecificosProyecto", DbType.String, eGProyecto.ObjetivosEspecificosProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "AlcanceProyecto", DbType.String, eGProyecto.AlcanceProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "EnlaceDocumentoProyecto", DbType.String, eGProyecto.EnlaceDocumentoProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoProyecto", DbType.StringFixedLength, SDatosPA.Activo);
             BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
@@ -76,8 +74,6 @@ public class ADGProyecto
             BDSWADNETGAAP.AddInParameter(dbCommand, "ModalidadProyecto", DbType.StringFixedLength, eGProyecto.ModalidadProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "TituloProyecto", DbType.String, eGProyecto.TituloProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivoGeneralProyecto", DbType.String, eGProyecto.ObjetivoGeneralProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivosEspecificosProyecto", DbType.String, eGProyecto.ObjetivosEspecificosProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "AlcanceProyecto", DbType.String, eGProyecto.AlcanceProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "EnlaceDocumentoProyecto", DbType.String, eGProyecto.EnlaceDocumentoProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoProyecto", DbType.StringFixedLength, eGProyecto.EstadoProyecto);
             BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);

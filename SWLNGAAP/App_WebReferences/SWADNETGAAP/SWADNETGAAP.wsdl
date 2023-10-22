@@ -139,6 +139,18 @@
   <wsdl:message name="ISWADNETGAAP_Actualizar_GEtapa_A_EstadoEtapa_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GEtapa_A_EstadoEtapaResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GFormularioAceptacion_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GFormularioAceptacion_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GFormularioAceptacion_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GFormularioAceptacion_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GFormularioAceptacion_O_CodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GFormularioAceptacion_O_CodigoProyectoResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Insertar_GSubEtapa_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GSubEtapa_I" />
   </wsdl:message>
@@ -186,6 +198,12 @@
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_TipoObservacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_TipoObservacionResponse" />
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoObservacion" />
@@ -336,6 +354,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GEtapa_A_EstadoEtapa" message="tns:ISWADNETGAAP_Actualizar_GEtapa_A_EstadoEtapa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GEtapa_A_EstadoEtapaResponse" message="tns:ISWADNETGAAP_Actualizar_GEtapa_A_EstadoEtapa_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Insertar_GFormularioAceptacion_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GFormularioAceptacion_I" message="tns:ISWADNETGAAP_Insertar_GFormularioAceptacion_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GFormularioAceptacion_IResponse" message="tns:ISWADNETGAAP_Insertar_GFormularioAceptacion_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GFormularioAceptacion_O_CodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GSubEtapa_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GSubEtapa_I" message="tns:ISWADNETGAAP_Insertar_GSubEtapa_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GSubEtapa_IResponse" message="tns:ISWADNETGAAP_Insertar_GSubEtapa_I_OutputMessage" />
@@ -367,6 +393,10 @@
     <wsdl:operation name="Obtener_GObservacion_O_CodigoProyecto">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObservacion_O_TipoObservacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_TipoObservacion" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_TipoObservacionResponse" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Obtener_GObservacion_O_CodigoObservacion">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoObservacion" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_InputMessage" />
@@ -609,6 +639,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Insertar_GFormularioAceptacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GFormularioAceptacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GFormularioAceptacion_O_CodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_CodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GSubEtapa_I">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GSubEtapa_I" style="document" />
       <wsdl:input>
@@ -674,6 +722,15 @@
     </wsdl:operation>
     <wsdl:operation name="Obtener_GObservacion_O_CodigoProyecto">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObservacion_O_TipoObservacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_TipoObservacion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -36,11 +36,11 @@ public class CProyecto
     #region Metodos Públicos
 
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
     {
         try
         {
-            lNServicio.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, ObjetivosEspecificosProyecto, AlcanceProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
+            lNServicio.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
 
         }
         catch (Exception)
@@ -74,11 +74,11 @@ public class CProyecto
         }
         return eGProyecto;
     }
-    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto)
     {
         try
         {
-            lNServicio.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, ObjetivosEspecificosProyecto, AlcanceProyecto, EnlaceDocumentoProyecto);
+            lNServicio.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto);
         }
         catch (Exception)
         {

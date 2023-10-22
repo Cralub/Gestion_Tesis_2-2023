@@ -25,10 +25,6 @@ public class EProyectoCompleja
     [DataMember]
     public string ObjetivoGeneralProyecto { get; set; }
     [DataMember]
-    public string ObjetivosEspecificosProyecto { get; set; }
-    [DataMember]
-    public string AlcanceProyecto { get; set; }
-    [DataMember]
     public string EnlaceDocumentoProyecto { get; set; }
     [DataMember]
     public List<string> CodigosEstudiantes { get; set; }
@@ -48,8 +44,6 @@ public class EProyectoCompleja
         ModalidadProyecto = char.MinValue;
         TituloProyecto = string.Empty;
         ObjetivoGeneralProyecto = string.Empty;
-        ObjetivosEspecificosProyecto = string.Empty;
-        AlcanceProyecto = string.Empty;
         EnlaceDocumentoProyecto = string.Empty;
 
         CodigosEstudiantes = new List<string>();
