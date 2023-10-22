@@ -24,8 +24,8 @@ public class CGUsuario
         DTOGUsuario dtoGUsuario = adGUsuario.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
         foreach (DTOGUsuario.GUsuarioRow drGUsuario in dtoGUsuario.GUsuario.Rows)
         {
+
             eGUsuario.CodigoUsuario = drGUsuario.CodigoUsuario;
-            eGUsuario.NombreCompletoUsuario = drGUsuario.NombreCompletoUsuario;
             eGUsuario.SedeUsuario = drGUsuario.SedeUsuario;
         }
         return eGUsuario;

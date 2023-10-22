@@ -295,6 +295,32 @@ public class ASNETGAAP
         }
     }
     #endregion
+    #region GFormularioAceptacion
+    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        try
+        {
+            SWADNETGAAP.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    {
+        List<EGFormularioAceptacion> lstFormularioAceptacion = new List<EGFormularioAceptacion>(); 
+        try
+        {
+            lstFormularioAceptacion = SWADNETGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto).ToList();
+            return lstFormularioAceptacion;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
     #region GSubEtapa
     public void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa)
     {
@@ -388,6 +414,19 @@ public class ASNETGAAP
         try
         {
             lstObservacion = SWADNETGAAP.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto).ToList();
+            return lstObservacion;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    {
+        List<EGObservacion> lstObservacion = new List<EGObservacion>();
+        try
+        {
+            lstObservacion = SWADNETGAAP.Obtener_GObservacion_O_TipoObservacion(TipoObservacion).ToList();
             return lstObservacion;
         }
         catch (Exception)

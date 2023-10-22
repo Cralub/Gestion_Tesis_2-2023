@@ -10,8 +10,7 @@ public class EGUsuario
     #region Propiedades
     [DataMember]
     public string CodigoUsuario { get; set; }
-    [DataMember]
-    public string NombreCompletoUsuario { get; set; }
+
     [DataMember]
     public string SedeUsuario { get; set; }
 
@@ -30,8 +29,8 @@ public class EGUsuario
     public EGUsuario()
     {
         CodigoUsuario = string.Empty;
-        NombreCompletoUsuario = string.Empty;
         SedeUsuario = string.Empty;
+
         Estado = string.Empty;
         FechaRegistro = DateTime.MinValue;
         FechaModificacion = DateTime.MinValue;

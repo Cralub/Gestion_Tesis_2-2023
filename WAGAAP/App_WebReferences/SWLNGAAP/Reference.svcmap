@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="e4f2c532-2b87-45e7-a3f2-5c81dda9c155" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="3c03bda2-3adb-4bae-87df-4eabda3db185" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:51705/SWLNGAAP.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SWLNGAAP.xsd" MetadataType="Schema" ID="711891d2-7c48-4dc9-b253-0fb2ac8be4f2" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd2" />
-    <MetadataFile FileName="SWLNGAAP1.xsd" MetadataType="Schema" ID="dc210d84-7f8a-4df4-ae2e-59437340f189" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd0" />
-    <MetadataFile FileName="SWLNGAAP2.xsd" MetadataType="Schema" ID="2e1fdea9-fc13-4c95-ac48-91a0c148a478" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd1" />
-    <MetadataFile FileName="SWLNGAAP3.xsd" MetadataType="Schema" ID="d7c43f56-c9b8-4ad0-a2b3-9301cddbb6e7" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd3" />
-    <MetadataFile FileName="SWLNGAAP.disco" MetadataType="Disco" ID="8e49924a-1d18-44d5-8cba-4db0b5893ef3" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?disco" />
-    <MetadataFile FileName="SWLNGAAP.wsdl" MetadataType="Wsdl" ID="a0cfbb82-df5f-40c6-a0c2-6822dd8b65ea" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?wsdl" />
+    <MetadataFile FileName="SWLNGAAP.xsd" MetadataType="Schema" ID="3a0595a5-6d72-47fe-8f61-4e5c0d4821b0" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd2" />
+    <MetadataFile FileName="SWLNGAAP1.xsd" MetadataType="Schema" ID="0f24dfed-89a4-487d-b595-ab36382c44d8" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd0" />
+    <MetadataFile FileName="SWLNGAAP2.xsd" MetadataType="Schema" ID="cb6e55ff-2a90-45b6-aff9-28fd85bfa8b4" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd1" />
+    <MetadataFile FileName="SWLNGAAP3.xsd" MetadataType="Schema" ID="f4e4af83-53ac-4134-8a8a-3214e29d3e2f" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd3" />
+    <MetadataFile FileName="SWLNGAAP.disco" MetadataType="Disco" ID="ce8495b7-3204-4b19-bd96-7818d30dcb9a" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?disco" />
+    <MetadataFile FileName="SWLNGAAP.wsdl" MetadataType="Wsdl" ID="7122aca5-7306-43e0-b926-a781ac8a9679" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

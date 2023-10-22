@@ -43,12 +43,9 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
             if (Session["proyectoCompleja"] != null)
             {
                 CargarInformacionProyecto();
-            }
-            
+            }  
         }
     }
-
-    
 
     private void CargarInformacionProyecto()
     {
@@ -92,13 +89,11 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
              ModalidadProyecto = char.Parse(ddlModalidades.SelectedValue.Trim()),
              TituloProyecto = txbTitulo.Text.Trim(),
              ObjetivoGeneralProyecto = txbObjetivoGeneral.Text.Trim(),
-             ObjetivosEspecificosProyecto = txbObjetivosEspecificos.Text.Trim(),
-             AlcanceProyecto = txbAlcance.Text.Trim(),
              EnlaceDocumentoProyecto = lkbEnlaceDocumento.Text.Trim()
         };
         if (ValidarEntradas(eGProyecto))
         {
-            cProyecto.Actualizar_GProyecto_A(eGProyecto.CodigoProyecto, eGProyecto.ModalidadProyecto, eGProyecto.TituloProyecto, eGProyecto.ObjetivoGeneralProyecto, eGProyecto.ObjetivosEspecificosProyecto, eGProyecto.AlcanceProyecto, eGProyecto.EnlaceDocumentoProyecto);
+            cProyecto.Actualizar_GProyecto_A(eGProyecto.CodigoProyecto, eGProyecto.ModalidadProyecto, eGProyecto.TituloProyecto, eGProyecto.ObjetivoGeneralProyecto, eGProyecto.EnlaceDocumentoProyecto);
         }
     }
     protected void BtnTutor_Click(object sender, EventArgs e)

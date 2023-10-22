@@ -60,8 +60,14 @@ public interface ISWADNETGAAP
     [OperationContract]
     void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa);
     #endregion
-    #region Tabla: GSubEtapa
+    #region Tabla: GFormularioAceptacion
     [OperationContract]
+    void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion formularioAceptacion);
+    [OperationContract]
+    List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto);
+    [OperationContract]
+    #endregion
+    #region Tabla: GSubEtapa
     void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa);
     [OperationContract]
     List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int CodigoEtapa);
@@ -79,6 +85,8 @@ public interface ISWADNETGAAP
     void Insertar_GObservacion_I(EGObservacion eGObservacion);
     [OperationContract]
     List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto);
+    [OperationContract]
+    List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion);
     [OperationContract]
     EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion);
     [OperationContract]

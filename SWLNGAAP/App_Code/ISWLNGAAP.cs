@@ -34,13 +34,13 @@ public interface ISWLNGAAP
     #endregion
     #region GProyecto
     [OperationContract]
-    void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto);
+    void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto);
     [OperationContract]
     List<EGProyecto> Obtener_GProyecto_O_Todo();
     [OperationContract]
     EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto);
     [OperationContract]
-    void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string ObjetivosEspecificosProyecto, string AlcanceProyecto, string EnlaceDocumentoProyecto);
+    void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto);
     #endregion
     #region GEtapa
     [OperationContract]
@@ -53,6 +53,12 @@ public interface ISWLNGAAP
     EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa);
     [OperationContract]
     void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa);
+    #endregion
+    #region GFormularioAceptacion
+    [OperationContract]
+    void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion);
+    [OperationContract]
+    List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto);
     #endregion
     #region GSubEtapa
     [OperationContract]
@@ -72,6 +78,8 @@ public interface ISWLNGAAP
     [OperationContract]
     List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto);
     [OperationContract]
+    List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion);
+    [OperationContract]
     EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion);
     [OperationContract]
     void Actualizar_GObservacion_A(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion);
@@ -82,13 +90,15 @@ public interface ISWLNGAAP
     #endregion
     #region GUsuario
     [OperationContract]
-    void Insertar_GUsuario_I(string CodigoUsuario, string NombreCompletoUsuario, string sede);
+    void Insertar_GUsuario_I(string CodigoUsuario, string sede);
     [OperationContract]
     EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario);
     [OperationContract]
+
     void Actualizar_GUsuario_A(string codigoUsuario, string NombreCompletoUsuario, string sede);
     [OperationContract]
     List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto);
+
     #endregion
     #region GRol
     [OperationContract]

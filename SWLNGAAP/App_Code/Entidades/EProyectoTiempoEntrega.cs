@@ -18,10 +18,6 @@ public class EProyectoTiempoEntrega
 
     [DataMember]
     public string Objetivo { get; set; }
-    [DataMember]
-    public string ObjetivosEspecificos { get; set; }
-    [DataMember]
-    public string Alcance { get; set; }
 
     [DataMember]
     public string Documento { get; set; }
@@ -36,8 +32,6 @@ public class EProyectoTiempoEntrega
         Modalidad = string.Empty;
         Titulo = string.Empty;
         Objetivo = string.Empty;
-        ObjetivosEspecificos = string.Empty;
-        Alcance = string.Empty;
         Documento = string.Empty;
         FechaEntrega = DateTime.MinValue;
     }
