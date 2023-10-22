@@ -113,6 +113,11 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
             Session["CodigoProyecto"] = CodigoProyecto;
             Response.Redirect("PVerProyecto.aspx");
         }
+        if (e.CommandName == "btnObservaciones")
+        {
+            Session["CodigoProyecto"] = CodigoProyecto;
+            Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
+        }
         if (e.CommandName == "btnInfo")
         {
             Session["CodigoProyecto"] = CodigoProyecto;

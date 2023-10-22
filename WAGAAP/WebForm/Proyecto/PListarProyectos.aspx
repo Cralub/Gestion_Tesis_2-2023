@@ -33,6 +33,7 @@
                 <asp:BoundField DataField="TituloProyecto" HeaderText="Titulo" />
                 <asp:BoundField DataField="ModalidadProyecto" HeaderText="Modalidad" />
                 <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
+                <asp:ButtonField ButtonType="Button" CommandName="btnObservaciones" Text="Observaciones" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
                 <asp:ButtonField ButtonType="Button" CommandName="btnInfo" Text="Grafica" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
             </Columns>
         </asp:GridView>
