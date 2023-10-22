@@ -17,6 +17,10 @@ public class EGProyecto
     [DataMember]
     public string ObjetivoGeneralProyecto { get; set; }
     [DataMember]
+    public string ObjetivosEspecificosProyecto { get; set; }
+    [DataMember]
+    public string AlcanceProyecto { get; set; }
+    [DataMember]
     public string EnlaceDocumentoProyecto { get; set; }
     [DataMember]
     public char EstadoProyecto { get; set; }
@@ -40,6 +44,8 @@ public class EGProyecto
         ModalidadProyecto = char.MinValue;
         TituloProyecto = string.Empty;
         ObjetivoGeneralProyecto = string.Empty;
+        ObjetivosEspecificosProyecto = string.Empty;
+        AlcanceProyecto = string.Empty;
         EnlaceDocumentoProyecto = string.Empty;
         EstadoProyecto = char.MinValue;
         NumeroRevisiones = byte.MinValue;

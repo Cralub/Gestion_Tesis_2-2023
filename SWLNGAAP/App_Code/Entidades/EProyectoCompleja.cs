@@ -7,6 +7,8 @@ using System.Web;
 /// <summary>
 /// Descripción breve de EProyectoCompleja
 /// </summary>
+
+[DataContract]
 public class EProyectoCompleja
 {
     #region Atributos

@@ -26,6 +26,7 @@ public class CGUsuario
         {
 
             eGUsuario.CodigoUsuario = drGUsuario.CodigoUsuario;
+            eGUsuario.NombreCompletoUsuario = drGUsuario.NombreCompletoUsuario;
             eGUsuario.SedeUsuario = drGUsuario.SedeUsuario;
         }
         return eGUsuario;

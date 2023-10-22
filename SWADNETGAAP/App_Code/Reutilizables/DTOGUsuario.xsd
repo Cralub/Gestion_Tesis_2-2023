@@ -2,31 +2,28 @@
 <xs:schema id="DTOGUsuario" targetNamespace="http://tempuri.org/DTOGUsuario.xsd" xmlns:mstns="http://tempuri.org/DTOGUsuario.xsd" xmlns="http://tempuri.org/DTOGUsuario.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="4" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString6" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString6 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString6.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPv2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPv2ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPv2ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDGestionDeApoyoYAsesoriaAProyectosConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDGestionDeApoyoYAsesoriaAProyectosConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDGestionDeApoyoYAsesoriaAProyectosConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GUsuarioTableAdapter" GeneratorDataComponentClassName="GUsuarioTableAdapter" Name="GUsuario" UserDataComponentName="GUsuarioTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="NETGAAPv2ConnectionString (Web.config)" DbObjectName="NETGAAPv2.dbo.GUsuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BDGestionDeApoyoYAsesoriaAProyectosConnectionString (Web.config)" DbObjectName="GAAPDATABASE.dbo.GUsuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[GUsuario] WHERE (([CodigoUsuario] = @Original_CodigoUsuario))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_CodigoUsuario" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CodigoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[GUsuario] ([CodigoUsuario], [SedeUsuario], [Estado], [FechaRegistro], [FechaModificacion]) VALUES (@CodigoUsuario, @SedeUsuario, @Estado, @FechaRegistro, @FechaModificacion)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[GUsuario] ([CodigoUsuario], [NombreCompletoUsuario], [SedeUsuario], [Estado], [FechaRegistro], [FechaModificacion]) VALUES (@CodigoUsuario, @NombreCompletoUsuario, @SedeUsuario, @Estado, @FechaRegistro, @FechaModificacion)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoUsuario" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NombreCompletoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NombreCompletoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@SedeUsuario" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="SedeUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistro" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistro" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -36,20 +33,21 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT CodigoUsuario, SedeUsuario, Estado, FechaRegistro, FechaModificacion FROM dbo.GUsuario</CommandText>
+                    <CommandText>SELECT CodigoUsuario, NombreCompletoUsuario, SedeUsuario, Estado, FechaRegistro, FechaModificacion FROM dbo.GUsuario</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[GUsuario] SET [CodigoUsuario] = @CodigoUsuario, [SedeUsuario] = @SedeUsuario, [Estado] = @Estado, [FechaRegistro] = @FechaRegistro, [FechaModificacion] = @FechaModificacion WHERE (([CodigoUsuario] = @Original_CodigoUsuario))</CommandText>
+                    <CommandText>UPDATE [dbo].[GUsuario] SET [CodigoUsuario] = @CodigoUsuario, [NombreCompletoUsuario] = @NombreCompletoUsuario, [SedeUsuario] = @SedeUsuario, [Estado] = @Estado, [FechaRegistro] = @FechaRegistro, [FechaModificacion] = @FechaModificacion WHERE (([CodigoUsuario] = @Original_CodigoUsuario))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoUsuario" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NombreCompletoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NombreCompletoUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@SedeUsuario" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="SedeUsuario" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistro" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistro" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaModificacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaModificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_CodigoUsuario" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CodigoUsuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuario" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -57,6 +55,7 @@
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="CodigoUsuario" DataSetColumn="CodigoUsuario" />
+              <Mapping SourceColumn="NombreCompletoUsuario" DataSetColumn="NombreCompletoUsuario" />
               <Mapping SourceColumn="SedeUsuario" DataSetColumn="SedeUsuario" />
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
               <Mapping SourceColumn="FechaRegistro" DataSetColumn="FechaRegistro" />
@@ -78,7 +77,14 @@
               <xs:element name="CodigoUsuario" msprop:Generator_ColumnPropNameInRow="CodigoUsuario" msprop:Generator_ColumnPropNameInTable="CodigoUsuarioColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoUsuario" msprop:Generator_UserColumnName="CodigoUsuario">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreCompletoUsuario" msprop:Generator_ColumnPropNameInRow="NombreCompletoUsuario" msprop:Generator_ColumnPropNameInTable="NombreCompletoUsuarioColumn" msprop:Generator_ColumnVarNameInTable="columnNombreCompletoUsuario" msprop:Generator_UserColumnName="NombreCompletoUsuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="280" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

@@ -7,6 +7,7 @@ using System.Web;
 /// <summary>
 /// Descripción breve de EProyectoTiempoEntrega
 /// </summary>
+[DataContract]
 public class EProyectoTiempoEntrega
 {
     #region Propiedades
