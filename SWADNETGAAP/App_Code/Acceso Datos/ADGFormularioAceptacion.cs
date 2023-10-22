@@ -5,7 +5,6 @@ using System.Data.Common;
 using System.Data;
 using System.Linq;
 using System.Web;
-using Azure;
 
 /// <summary>
 /// Descripción breve de ADGFormularioAceptacion
