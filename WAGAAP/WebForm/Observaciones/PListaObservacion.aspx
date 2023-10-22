@@ -6,7 +6,7 @@
     <div>
         <div><asp:Button  ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click"/></div>
 
-        <asp:GridView ID="grvListaObservacionesTipo" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="grvListaObservacionesTipo_RowCommand">
+        <asp:GridView ID="gvListaObservaciones" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="grvListaObservaciones_RowCommand">
             <Columns>
                 <asp:BoundField DataField="TipoObservacion" HeaderText="Tipo" Visible="true"/>
                 <asp:BoundField DataField="CodigoObservacion" Visible="true" />

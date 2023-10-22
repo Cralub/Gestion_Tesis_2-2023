@@ -14,26 +14,33 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
     CObservacion cObservacion = new CObservacion();
     #endregion
 
-    private static char TipoObservacion = 'O';
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            CargarObservacionesTipo();  
+            CargarObservacionesTipo();
         }
+        Session["CodigoProyecto"] = "GP123";
     }
+    
     private void CargarObservacionesTipo()
     {
-        List<EGObservacion> listaObservaciones = cObservacion.Obtener_GObservacion_O_TipoObservacion(TipoObservacion);
-
-        grvListaObservacionesTipo.DataSource = listaObservaciones;
-        grvListaObservacionesTipo.DataBind();
-    }
-
-    protected void grvListaObservacionesTipo_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
+        if (Session["CodigoProyecto"] != null)
         {
-            Response.Redirect("PFormularioEstudiante.aspx");
+            string codigoProyecto = Session["CodigoProyecto"].ToString();
+            List<EGObservacion> listaObservaciones = cObservacion.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto);
+            gvListaObservaciones.DataSource = listaObservaciones;
+            gvListaObservaciones.DataBind();
+        }
+    }
+    protected void grvListaObservaciones_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int index = Convert.ToInt32(e.CommandArgument);
+        string CodigoObservacion = gvListaObservaciones.DataKeys[index].Value.ToString();
+        if (e.CommandName == "btnVer")
+        {
+            Session["CodigoObservacion"] = CodigoObservacion;
+            Response.Redirect("PObservacionDetalle.aspx");
         }
     }
 
