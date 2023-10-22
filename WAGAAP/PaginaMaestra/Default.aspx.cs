@@ -19,8 +19,8 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
         {
             if (Session["UsuarioSesion"] != null)
             {
-                //EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
-                //txbCodigoUsuarioSesion.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
+                EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
+                txbCodigoUsuarioSesion.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
             }
         }
     }
@@ -28,11 +28,11 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
     {
         if (txbCodigoUsuarioSesion.Text.Trim().Length == 10)
         {
-            //EUsuarioNetvalle eUsuarioNetvalle = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(txbCodigoUsuarioSesion.Text.Trim());
-            //if (eUsuarioNetvalle != null)
-            //{
-            //    Session["UsuarioSesion"] = eUsuarioNetvalle;
-            //}
+            EUsuarioNetvalle eUsuarioNetvalle = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(txbCodigoUsuarioSesion.Text.Trim());
+            if (eUsuarioNetvalle != null)
+            {
+                Session["UsuarioSesion"] = eUsuarioNetvalle;
+            }
         }
 
     }

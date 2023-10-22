@@ -10,7 +10,7 @@ using System.Web;
 public class CObservacion
 {
     #region Atributos
-    private LNServicio lnServicio;
+    private LNServicio lNServicio;
     #endregion
 
     #region Propiedades
@@ -18,26 +18,92 @@ public class CObservacion
     {
         get { return GetType().Name; }
     }
+
     #endregion
 
     #region Constructor
     public CObservacion()
     {
-        lnServicio = new LNServicio();
+        lNServicio = new LNServicio();
     }
+
     #endregion
 
     #region Métodos públicos
-    public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
+
+    #region GObservacion
+    public void Insertar_GObservacion_I(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion)
     {
         try
         {
-            lnServicio.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
+            lNServicio.Insertar_GObservacion_I(CodigoObservacion, CodigoProyecto, CodigoSubEtapa, CodigoUsuarioObservacion, ComentarioObservacion, TipoObservacion, EstadoObservacion);
         }
         catch (Exception)
         {
             throw;
         }
     }
+    public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
+    {
+        try
+        {
+            return lNServicio.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
+
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto)
+    {
+        List<EGObservacion> lstObservacion = new List<EGObservacion>();
+        try
+        {
+            lstObservacion = lNServicio.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto).ToList();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstObservacion;
+    }
+    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
+    {
+        EGObservacion eGObservacion = new EGObservacion();
+        try
+        {
+            eGObservacion = lNServicio.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return eGObservacion;
+    }
+    public void Actualizar_GObservacion_A(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion)
+    {
+        try
+        {
+            lNServicio.Actualizar_GObservacion_A(CodigoObservacion, CodigoProyecto, CodigoSubEtapa, CodigoUsuarioObservacion, ComentarioObservacion, TipoObservacion, EstadoObservacion);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
+    {
+        try
+        {
+            lNServicio.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
+
     #endregion
 }

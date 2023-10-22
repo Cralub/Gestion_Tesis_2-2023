@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 /// <summary>
 /// Descripción breve de EGObservacion
 /// </summary>
-/// 
 [DataContract]
 public class EGObservacion
 {

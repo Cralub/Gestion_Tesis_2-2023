@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 /// <summary>
 /// Descripción breve de EGUsuarioNetvalle
@@ -40,7 +41,7 @@ public class EUsuarioNetvalle
         ApellidosUsuarioNetvalle = string.Empty;
         RolUsuarioNetvalle = string.Empty;
 
-        
+
         CarreraUsuarioNetvalle = string.Empty;
         FacultadUsuarioNetvalle = string.Empty;
         SedeUsuarioNetvalle = string.Empty;

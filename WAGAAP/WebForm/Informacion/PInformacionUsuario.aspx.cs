@@ -20,15 +20,15 @@ public partial class WebForm_Usuario_PInformacionUsuario : System.Web.UI.Page
             if (Session["CodigoUsuario"] != null)
             {
 
-                //var usuario = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(Session["CodigoUsuario"] as string);
+                var usuario = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(Session["CodigoUsuario"] as string);
 
-                //lblNombreCompleto.Text = usuario.NombresUsuarioNetvalle + " " + usuario.ApellidosUsuarioNetvalle;
-                //lblCarrera.Text = usuario.CarreraUsuarioNetvalle;
-                //lblFacultad.Text = usuario.FacultadUsuarioNetvalle;
-                //lblSede.Text = usuario.SedeUsuarioNetvalle;
-                //lblDireccion.Text = usuario.DireccionUsuarioNetvalle;
-                //lblDireccionTrabajo.Text = usuario.DireccionTrabajoUsuarioNetvalle;
-                //lblCelular.Text = usuario.CelularUsuarioNetvalle;
+                lblNombreCompleto.Text = usuario.NombresUsuarioNetvalle + " " + usuario.ApellidosUsuarioNetvalle;
+                lblCarrera.Text = usuario.CarreraUsuarioNetvalle;
+                lblFacultad.Text = usuario.FacultadUsuarioNetvalle;
+                lblSede.Text = usuario.SedeUsuarioNetvalle;
+                lblDireccion.Text = usuario.DireccionUsuarioNetvalle;
+                lblDireccionTrabajo.Text = usuario.DireccionTrabajoUsuarioNetvalle;
+                lblCelular.Text = usuario.CelularUsuarioNetvalle;
             }
         }
     }

@@ -10,13 +10,10 @@ using System.Web;
 public class CUsuarioNetvalle
 {
     #region Atributos
-
     private LNServicio lNServicio;
-
     #endregion
 
     #region Propiedades
-
     public string NombreClase
     {
         get { return GetType().Name; }
@@ -25,7 +22,6 @@ public class CUsuarioNetvalle
     #endregion
 
     #region Constructor
-
     public CUsuarioNetvalle()
     {
         lNServicio = new LNServicio();
@@ -33,23 +29,23 @@ public class CUsuarioNetvalle
 
     #endregion
 
-    #region Metodos Publicos
+    #region Métodos públicos
 
-    //#region UsuarioNetvalle
-    //public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
-    //{
-    //    EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
-    //    try
-    //    {
-    //        eUsuarioNetvalle = lNServicio.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return eUsuarioNetvalle;
-    //}
-    //#endregion
+    #region UsuarioNetvalle
+    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    {
+        EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
+        try
+        {
+            eUsuarioNetvalle = lNServicio.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return eUsuarioNetvalle;
+    }
+    #endregion
 
     #endregion
 }

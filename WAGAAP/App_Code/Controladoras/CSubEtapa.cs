@@ -10,13 +10,10 @@ using System.Web;
 public class CSubEtapa
 {
     #region Atributos
-
     private LNServicio lNServicio;
-
     #endregion
 
     #region Propiedades
-
     public string NombreClase
     {
         get { return GetType().Name; }
@@ -25,7 +22,6 @@ public class CSubEtapa
     #endregion
 
     #region Constructor
-
     public CSubEtapa()
     {
         lNServicio = new LNServicio();
@@ -33,69 +29,69 @@ public class CSubEtapa
 
     #endregion
 
-    #region Metodos Publicos
+    #region Métodos públicos
 
-    //#region GSubEtapa
-    //public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
-    //{
-    //    try
-    //    {
-    //        lNServicio.Insertar_GSubEtapa_I(CodigoSubEtapa, NumeroSubEtapa, FechaInicioSubEtapa, FechaDefinidaSubEtapa, FechaFinSubEtapa, CodigoUsuarioFirma, CodigoEtapa, EstadoSubEtapa);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //}
-    //public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
-    //{
-    //    try
-    //    {
-    //        return lNServicio.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //}
-    //public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
-    //{
-    //    EGSubEtapa eGSubEtapa = new EGSubEtapa();
-    //    try
-    //    {
-    //        eGSubEtapa = lNServicio.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoEtapa);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return eGSubEtapa;
-    //}
-    //public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa)
-    //{
-    //    EGSubEtapa eGSubEtapa = new EGSubEtapa();
-    //    try
-    //    {
-    //        eGSubEtapa = lNServicio.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(CodigoEtapa, NumeroSubEtapa);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return eGSubEtapa;
-    //}
-    //public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa)
-    //{
-    //    try
-    //    {
-    //        lNServicio.Actualizar_GSubEtapa_A_EstadoSubEtapa(CodigoSubEtapa, EstadoSubEtapa);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //}
-    //#endregion
+    #region GSubEtapa
+    public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
+    {
+        try
+        {
+            lNServicio.Insertar_GSubEtapa_I(CodigoSubEtapa, NumeroSubEtapa, FechaInicioSubEtapa, FechaDefinidaSubEtapa, FechaFinSubEtapa, CodigoUsuarioFirma, CodigoEtapa, EstadoSubEtapa);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
+    {
+        try
+        {
+            return lNServicio.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
+    {
+        EGSubEtapa eGSubEtapa = new EGSubEtapa();
+        try
+        {
+            eGSubEtapa = lNServicio.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoEtapa);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return eGSubEtapa;
+    }
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa)
+    {
+        EGSubEtapa eGSubEtapa = new EGSubEtapa();
+        try
+        {
+            eGSubEtapa = lNServicio.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(CodigoEtapa, NumeroSubEtapa);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return eGSubEtapa;
+    }
+    public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa)
+    {
+        try
+        {
+            lNServicio.Actualizar_GSubEtapa_A_EstadoSubEtapa(CodigoSubEtapa, EstadoSubEtapa);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
 
     #endregion
 }

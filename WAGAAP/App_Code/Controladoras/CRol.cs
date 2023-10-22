@@ -10,13 +10,10 @@ using System.Web;
 public class CRol
 {
     #region Atributos
-
     private LNServicio lNServicio;
-
     #endregion
 
     #region Propiedades
-
     public string NombreClase
     {
         get { return GetType().Name; }
@@ -25,7 +22,6 @@ public class CRol
     #endregion
 
     #region Constructor
-
     public CRol()
     {
         lNServicio = new LNServicio();
@@ -33,37 +29,37 @@ public class CRol
 
     #endregion
 
-    #region Metodos Publicos
+    #region Métodos públicos
 
-    //#region GRol
-    //public List<EGRol> Obtener_GRol_O_Todo()
-    //{
-    //    List<EGRol> lstEGRol = new List<EGRol>();
-    //    try
-    //    {
-    //        lstEGRol = lNServicio.Obtener_GRol_O_Todo().ToList();
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return lstEGRol;
-    //}
-    //public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
-    //{
-    //    EGRol eGRol = new EGRol();
-    //    try
-    //    {
-    //        eGRol = lNServicio.Obtener_GRol_O_CodigoRol(CodigoRol);
-    //    }
-    //    catch (Exception)
-    //    {
+    #region GRol
+    public List<EGRol> Obtener_GRol_O_Todo()
+    {
+        List<EGRol> lstEGRol = new List<EGRol>();
+        try
+        {
+            lstEGRol = lNServicio.Obtener_GRol_O_Todo().ToList();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstEGRol;
+    }
+    public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
+    {
+        EGRol eGRol = new EGRol();
+        try
+        {
+            eGRol = lNServicio.Obtener_GRol_O_CodigoRol(CodigoRol);
+        }
+        catch (Exception)
+        {
 
-    //        throw;
-    //    }
-    //    return eGRol;
-    //}
-    //#endregion
+            throw;
+        }
+        return eGRol;
+    }
+    #endregion
 
     #endregion
 }

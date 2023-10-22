@@ -5,11 +5,11 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Descripción resumida de CGCelular
+/// Summary description for CGCelular
 /// </summary>
 public class CGCelular
 {
-    #region Atributos
+    #region Atributo
     private ADGCelular adGCelular;
     #endregion
 

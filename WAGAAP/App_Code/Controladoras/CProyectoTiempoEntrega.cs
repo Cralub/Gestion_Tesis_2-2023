@@ -10,13 +10,10 @@ using System.Web;
 public class CProyectoTiempoEntrega
 {
     #region Atributos
-
     private LNServicio lNServicio;
-
     #endregion
 
     #region Propiedades
-
     public string NombreClase
     {
         get { return GetType().Name; }
@@ -25,7 +22,6 @@ public class CProyectoTiempoEntrega
     #endregion
 
     #region Constructor
-
     public CProyectoTiempoEntrega()
     {
         lNServicio = new LNServicio();
@@ -33,23 +29,23 @@ public class CProyectoTiempoEntrega
 
     #endregion
 
-    #region Metodos Publicos
+    #region Métodos públicos
 
-    //#region EProyectoTiempoEntrega
-    //public List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string CodigoUsuario)
-    //{
-    //    List<EProyectoTiempoEntrega> lstEProyectoTiempoEntrega = new List<EProyectoTiempoEntrega>();
-    //    try
-    //    {
-    //        lstEProyectoTiempoEntrega = lNServicio.Obtener_EProyectoTiempoEntrega_O(CodigoUsuario);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return lstEProyectoTiempoEntrega;
-    //}
-    //#endregion
+    #region EProyectoTiempoEntrega
+    public List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string CodigoUsuario)
+    {
+        List<EProyectoTiempoEntrega> lstEProyectoTiempoEntrega = new List<EProyectoTiempoEntrega>();
+        try
+        {
+            lstEProyectoTiempoEntrega = lNServicio.Obtener_EProyectoTiempoEntrega_O(CodigoUsuario);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstEProyectoTiempoEntrega;
+    }
+    #endregion
 
     #endregion
 }

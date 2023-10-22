@@ -10,13 +10,10 @@ using System.Web;
 public class CUsuarioCompleto
 {
     #region Atributos
-
     private LNServicio lNServicio;
-
     #endregion
 
     #region Propiedades
-
     public string NombreClase
     {
         get { return GetType().Name; }
@@ -25,7 +22,6 @@ public class CUsuarioCompleto
     #endregion
 
     #region Constructor
-
     public CUsuarioCompleto()
     {
         lNServicio = new LNServicio();
@@ -33,23 +29,23 @@ public class CUsuarioCompleto
 
     #endregion
 
-    #region Metodos Publicos
+    #region Métodos públicos
 
-    //#region EUsuarioCompleto
-    //public EUsuarioCompleto Obtener_EUsuarioCompleto_O(string CodigoUsuario, string CodigoProyecto)
-    //{
-    //    EUsuarioCompleto eEUsuarioCompleto = new EUsuarioCompleto();
-    //    try
-    //    {
-    //        eEUsuarioCompleto = lNServicio.Obtener_EUsuarioCompleto_O(CodigoUsuario, CodigoProyecto);
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return eEUsuarioCompleto;
-    //}
-    //#endregion
+    #region EUsuarioCompleto
+    public EUsuarioCompleto Obtener_EUsuarioCompleto_O(string CodigoUsuario, string CodigoProyecto)
+    {
+        EUsuarioCompleto eEUsuarioCompleto = new EUsuarioCompleto();
+        try
+        {
+            eEUsuarioCompleto = lNServicio.Obtener_EUsuarioCompleto_O(CodigoUsuario, CodigoProyecto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return eEUsuarioCompleto;
+    }
+    #endregion
 
     #endregion
 }

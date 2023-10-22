@@ -10,7 +10,7 @@ using System.Web;
 public class CProyecto
 {
     #region Atributos
-    private LNServicio lnServicio;
+    private LNServicio lNServicio;
     #endregion
 
     #region Propiedades
@@ -18,21 +18,50 @@ public class CProyecto
     {
         get { return GetType().Name; }
     }
+
     #endregion
 
     #region Constructor
     public CProyecto()
     {
-        lnServicio = new LNServicio();
+        lNServicio = new LNServicio();
     }
+
     #endregion
 
     #region Métodos públicos
+
+    #region GProyecto
+    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    {
+        try
+        {
+            lNServicio.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
+
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    {
+        List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
+        try
+        {
+            lstEGProyecto = lNServicio.Obtener_GProyecto_O_Todo();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstEGProyecto;
+    }
     public EGProyecto Obtener_GProyecto_O(string codigoProyecto)
     {
         try
         {
-            return lnServicio.Obtener_GProyecto_O(codigoProyecto.ToUpper());
+            return lNServicio.Obtener_GProyecto_O(codigoProyecto.ToUpper());
         }
         catch (Exception)
         {
@@ -43,13 +72,15 @@ public class CProyecto
     {
         try
         {
-            lnServicio.Actualizar_GProyecto_A(codigoProyecto.ToUpper(), modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, objetivosEspecificosProyecto, alcanceProyecto, enlaceDocumentoProyecto);
+            lNServicio.Actualizar_GProyecto_A(codigoProyecto.ToUpper(), modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, objetivosEspecificosProyecto, alcanceProyecto, enlaceDocumentoProyecto);
         }
         catch (Exception)
         {
             throw;
         }
     }
+    #endregion
+
     #endregion
 
 }

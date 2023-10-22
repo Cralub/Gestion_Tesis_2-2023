@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Web;
 
 /// <summary>
-/// Datos estáticos para Procedimientos Almacenados
+/// Datos Estaticos para los Procedimentos Almacenados
 /// </summary>
 public static class SDatosPA
 {

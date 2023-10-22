@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
- 
+
 public partial class WebForm_Usuario_PPerfilUsuario : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            SSesion.CodigoUsuario = "ADMIN"; // Se carga en el inicio de sesión
-            SSesion.CodigoCelular = 1;
+            Session["CodigoUsuario"] = "ADMIN"; // Se carga en el inicio de sesión
+            Session["CodigoCelular"] = 1;
             txbNumeroCelular.Text = "76980976";
             if (txbNumeroCelular.Text.Equals(string.Empty))
             {

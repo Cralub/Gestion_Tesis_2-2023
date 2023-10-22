@@ -11,23 +11,23 @@ using System.Web;
 /// </summary>
 public class ADUsuarioNetvalle
 {
-    #region Metodos públicos
-    //public DTOGUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
-    //{
-    //    DTOGUsuarioNetvalle dTOGUsuarioNetvalle = new DTOGUsuarioNetvalle();
-    //    try
-    //    {
-    //        Database BDSWADNETUSR = SBaseDatos.DBSWADNETUSR;
-    //        DbCommand dbCommand = BDSWADNETUSR.GetStoredProcCommand("UsuarioNetvalle_O_CodigoUsuario");
-    //        BDSWADNETUSR.AddInParameter(dbCommand, "CodigoUsuarioNetvalle", DbType.String, CodigoUsuario);
-    //        BDSWADNETUSR.AddInParameter(dbCommand, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-    //        BDSWADNETUSR.LoadDataSet(dbCommand, dTOGUsuarioNetvalle, "UsuarioNetvalle");
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return dTOGUsuarioNetvalle;
-    //}
+    #region Métodos públicos
+    public DTOGUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    {
+        DTOGUsuarioNetvalle dTOGUsuarioNetvalle = new DTOGUsuarioNetvalle();
+        try
+        {
+            Database BDSWADNETUSR = SBaseDatos.DBSWADNETUSR;
+            DbCommand dbCommand = BDSWADNETUSR.GetStoredProcCommand("UsuarioNetvalle_O_CodigoUsuario");
+            BDSWADNETUSR.AddInParameter(dbCommand, "CodigoUsuarioNetvalle", DbType.String, CodigoUsuario);
+            BDSWADNETUSR.AddInParameter(dbCommand, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETUSR.LoadDataSet(dbCommand, dTOGUsuarioNetvalle, "UsuarioNetvalle");
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return dTOGUsuarioNetvalle;
+    }
     #endregion
 }

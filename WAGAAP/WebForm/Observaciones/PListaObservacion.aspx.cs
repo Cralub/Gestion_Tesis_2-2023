@@ -28,11 +28,11 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
 
     private void CargaDatos_CodigoProyecto()
     {
-        //EProyectoCompleja eProyectoCompleja = Session["proyectoCompleja"] as EProyectoCompleja;
-        //List<EGObservacion> eGObservacionList = cObservacion.Obtener_GObservacion_O_CodigoProyecto(eProyectoCompleja.CodigoProyecto).ToList();
-        //grvListaObservaciones.DataSource = null;
-        //grvListaObservaciones.DataSource = eGObservacionList;
-        //grvListaObservaciones.DataBind();
+        EProyectoCompleja eProyectoCompleja = Session["proyectoCompleja"] as EProyectoCompleja;
+        List<EGObservacion> eGObservacionList = cObservacion.Obtener_GObservacion_O_CodigoProyecto(eProyectoCompleja.CodigoProyecto).ToList();
+        grvListaObservaciones.DataSource = null;
+        grvListaObservaciones.DataSource = eGObservacionList;
+        grvListaObservaciones.DataBind();
 
     }
     

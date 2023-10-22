@@ -1,5 +1,4 @@
 ﻿using Microsoft.Practices.EnterpriseLibrary.Data;
-using System;
 
 /// <summary>
 /// Descripción breve de SBaseDatos
@@ -7,8 +6,9 @@ using System;
 public static class SBaseDatos
 {
     // Cadena de conexión para la base de datos NETGAAP
-    public static Database BDNETGAAP = DatabaseFactory.CreateDatabase("BDGestionDeApoyoYAsesoriaAProyectosDeGradoCadenaConexion");
+    public static Database BDSWADNETGAAP = DatabaseFactory.CreateDatabase("BDGestionDeApoyoYAsesoriaAProyectosConnectionString");
 
-    // Cadena de conexión para la base de datos NETVALLE
-    public static Database BDNETVALLE = DatabaseFactory.CreateDatabase("BDNetvalleCadenaConexion");
+    // Cadena de conexión para la base de datos NETVALLE_USUARIOS
+    public static Database DBSWADNETUSR = DatabaseFactory.CreateDatabase("BDNetvalleConnectionString");
+
 }

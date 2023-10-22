@@ -7,6 +7,240 @@
       <xsd:import schemaLocation="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuarioRol_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GUsuarioRol_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuarioRol_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GUsuarioRol_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_CodigoRol" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_CodigoRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_CodigoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_CodigoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioRol_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioRol_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioRol_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioRol_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuarioProyecto_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GUsuarioProyecto_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuarioProyecto_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GUsuarioProyecto_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_CodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_CodigoProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_CodigoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_CodigoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioProyecto_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioProyecto_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GProyecto_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GProyecto_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GProyecto_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GProyecto_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_Todo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_Todo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_Todo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_TodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_OResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GProyecto_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GProyecto_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GProyecto_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GProyecto_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GEtapa_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GEtapa_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GEtapa_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GEtapa_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_CodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_CodigoProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_SiguienteCodigoEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_SiguienteCodigoEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_CodigoProyecto_NumeroEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GEtapa_A_EstadoEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GEtapa_A_EstadoEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GEtapa_A_EstadoEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GEtapa_A_EstadoEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GSubEtapa_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GSubEtapa_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GSubEtapa_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GSubEtapa_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_SiguienteCodigoSubEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GSubEtapa_A_EstadoSubEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GSubEtapa_A_EstadoSubEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GObservacion_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GObservacion_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GObservacion_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GObservacion_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoObservacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoObservacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GObservacion_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GObservacion_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GObservacion_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GObservacion_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GObservacion_A_EstadoObservacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GObservacion_A_EstadoObservacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObsevacion_O_SiguienteCodigoObservacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObsevacion_O_SiguienteCodigoObservacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GObsevacion_O_SiguienteCodigoObservacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GObsevacion_O_SiguienteCodigoObservacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuario_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GUsuario_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuario_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GUsuario_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuario_O_CodigoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_CodigoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuario_O_CodigoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_CodigoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuario_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuario_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_Todo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GRol_O_Todo" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_Todo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GRol_O_TodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_CodigoRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GRol_O_CodigoRol" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_CodigoRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GRol_O_CodigoRolResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GCelular_O_SiguienteCodigoCelular_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GCelular_O_SiguienteCodigoCelular" />
   </wsdl:message>
@@ -37,43 +271,169 @@
   <wsdl:message name="ISWADNETGAAP_Eliminar_GCelular_E_OutputMessage">
     <wsdl:part name="parameters" element="tns:Eliminar_GCelular_EResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_UsuarioNetvalle_O_CodigoUsuario" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyectoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuarioProyecto_I_InputMessage">
-    <wsdl:part name="parameters" element="tns:Insertar_GUsuarioProyecto_I" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Insertar_GUsuarioProyecto_I_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Insertar_GUsuarioProyecto_IResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_InputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioProyecto_A" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioProyecto_AResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_OResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GProyecto_A_InputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GProyecto_A" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GProyecto_A_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GProyecto_AResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_InputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GObservacion_A_EstadoObservacion" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GObservacion_A_EstadoObservacionResponse" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="ISWADNETGAAP">
+    <wsdl:operation name="Insertar_GUsuarioRol_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioRol_I" message="tns:ISWADNETGAAP_Insertar_GUsuarioRol_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioRol_IResponse" message="tns:ISWADNETGAAP_Insertar_GUsuarioRol_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRolResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_CodigoRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoRol" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoRolResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_CodigoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoUsuario" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoUsuarioResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRolResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuarioRol_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioRol_A" message="tns:ISWADNETGAAP_Actualizar_GUsuarioRol_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioRol_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuarioRol_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GUsuarioProyecto_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_I" message="tns:ISWADNETGAAP_Insertar_GUsuarioProyecto_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_IResponse" message="tns:ISWADNETGAAP_Insertar_GUsuarioProyecto_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_CodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_CodigoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoUsuario" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoUsuarioResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuarioProyecto_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GProyecto_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_I" message="tns:ISWADNETGAAP_Insertar_GProyecto_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_IResponse" message="tns:ISWADNETGAAP_Insertar_GProyecto_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O_Todo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_Todo" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_Todo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_TodoResponse" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_Todo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_OResponse" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GProyecto_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GProyecto_A" message="tns:ISWADNETGAAP_Actualizar_GProyecto_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GProyecto_AResponse" message="tns:ISWADNETGAAP_Actualizar_GProyecto_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GEtapa_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GEtapa_I" message="tns:ISWADNETGAAP_Insertar_GEtapa_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GEtapa_IResponse" message="tns:ISWADNETGAAP_Insertar_GEtapa_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_SiguienteCodigoEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_SiguienteCodigoEtapa" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_SiguienteCodigoEtapaResponse" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivoResponse" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto_NumeroEtapaResponse" message="tns:ISWADNETGAAP_Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GEtapa_A_EstadoEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GEtapa_A_EstadoEtapa" message="tns:ISWADNETGAAP_Actualizar_GEtapa_A_EstadoEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GEtapa_A_EstadoEtapaResponse" message="tns:ISWADNETGAAP_Actualizar_GEtapa_A_EstadoEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GSubEtapa_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GSubEtapa_I" message="tns:ISWADNETGAAP_Insertar_GSubEtapa_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GSubEtapa_IResponse" message="tns:ISWADNETGAAP_Insertar_GSubEtapa_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapaResponse" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_SiguienteCodigoSubEtapaResponse" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivoResponse" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResponse" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GSubEtapa_A_EstadoSubEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GSubEtapa_A_EstadoSubEtapa" message="tns:ISWADNETGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GSubEtapa_A_EstadoSubEtapaResponse" message="tns:ISWADNETGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GObservacion_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GObservacion_I" message="tns:ISWADNETGAAP_Insertar_GObservacion_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GObservacion_IResponse" message="tns:ISWADNETGAAP_Insertar_GObservacion_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObservacion_O_CodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObservacion_O_CodigoObservacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoObservacion" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoObservacionResponse" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GObservacion_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A" message="tns:ISWADNETGAAP_Actualizar_GObservacion_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_AResponse" message="tns:ISWADNETGAAP_Actualizar_GObservacion_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GObservacion_A_EstadoObservacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A_EstadoObservacion" message="tns:ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A_EstadoObservacionResponse" message="tns:ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObsevacion_O_SiguienteCodigoObservacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObsevacion_O_SiguienteCodigoObservacion" message="tns:ISWADNETGAAP_Obtener_GObsevacion_O_SiguienteCodigoObservacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObsevacion_O_SiguienteCodigoObservacionResponse" message="tns:ISWADNETGAAP_Obtener_GObsevacion_O_SiguienteCodigoObservacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GUsuario_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuario_I" message="tns:ISWADNETGAAP_Insertar_GUsuario_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuario_IResponse" message="tns:ISWADNETGAAP_Insertar_GUsuario_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuario_O_CodigoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_CodigoUsuario" message="tns:ISWADNETGAAP_Obtener_GUsuario_O_CodigoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_CodigoUsuarioResponse" message="tns:ISWADNETGAAP_Obtener_GUsuario_O_CodigoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuario_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuario_A" message="tns:ISWADNETGAAP_Actualizar_GUsuario_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuario_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuario_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GRol_O_Todo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_Todo" message="tns:ISWADNETGAAP_Obtener_GRol_O_Todo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_TodoResponse" message="tns:ISWADNETGAAP_Obtener_GRol_O_Todo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GRol_O_CodigoRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_CodigoRol" message="tns:ISWADNETGAAP_Obtener_GRol_O_CodigoRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_CodigoRolResponse" message="tns:ISWADNETGAAP_Obtener_GRol_O_CodigoRol_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Obtener_GCelular_O_SiguienteCodigoCelular">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O_SiguienteCodigoCelular" message="tns:ISWADNETGAAP_Obtener_GCelular_O_SiguienteCodigoCelular_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O_SiguienteCodigoCelularResponse" message="tns:ISWADNETGAAP_Obtener_GCelular_O_SiguienteCodigoCelular_OutputMessage" />
@@ -94,33 +454,364 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GCelular_E" message="tns:ISWADNETGAAP_Eliminar_GCelular_E_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GCelular_EResponse" message="tns:ISWADNETGAAP_Eliminar_GCelular_E_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Insertar_GUsuarioProyecto_I">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_I" message="tns:ISWADNETGAAP_Insertar_GUsuarioProyecto_I_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_IResponse" message="tns:ISWADNETGAAP_Insertar_GUsuarioProyecto_I_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Actualizar_GUsuarioProyecto_A">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Obtener_GProyecto_O">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_OResponse" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Actualizar_GProyecto_A">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GProyecto_A" message="tns:ISWADNETGAAP_Actualizar_GProyecto_A_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GProyecto_AResponse" message="tns:ISWADNETGAAP_Actualizar_GProyecto_A_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Actualizar_GObservacion_A_EstadoObservacion">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A_EstadoObservacion" message="tns:ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A_EstadoObservacionResponse" message="tns:ISWADNETGAAP_Actualizar_GObservacion_A_EstadoObservacion_OutputMessage" />
+    <wsdl:operation name="Obtener_UsuarioNetvalle_O_CodigoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuario" message="tns:ISWADNETGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse" message="tns:ISWADNETGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISWADNETGAAP" type="tns:ISWADNETGAAP">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insertar_GUsuarioRol_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioRol_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_CodigoRol">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_CodigoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuarioRol_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioRol_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GUsuarioProyecto_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_CodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_CodigoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuarioProyecto_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GProyecto_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O_Todo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_Todo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GProyecto_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GProyecto_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GEtapa_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GEtapa_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_SiguienteCodigoEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_SiguienteCodigoEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GEtapa_A_EstadoEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GEtapa_A_EstadoEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GSubEtapa_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GSubEtapa_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GSubEtapa_A_EstadoSubEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GSubEtapa_A_EstadoSubEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GObservacion_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GObservacion_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObservacion_O_CodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObservacion_O_CodigoObservacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoObservacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GObservacion_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GObservacion_A_EstadoObservacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A_EstadoObservacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GObsevacion_O_SiguienteCodigoObservacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GObsevacion_O_SiguienteCodigoObservacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GUsuario_I">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuario_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuario_O_CodigoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_CodigoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuario_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuario_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GRol_O_Todo">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_Todo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GRol_O_CodigoRol">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_CodigoRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Obtener_GCelular_O_SiguienteCodigoCelular">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O_SiguienteCodigoCelular" style="document" />
       <wsdl:input>
@@ -166,53 +857,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Insertar_GUsuarioProyecto_I">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_I" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Actualizar_GUsuarioProyecto_A">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Obtener_GProyecto_O">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Actualizar_GProyecto_A">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GProyecto_A" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Actualizar_GObservacion_A_EstadoObservacion">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GObservacion_A_EstadoObservacion" style="document" />
+    <wsdl:operation name="Obtener_UsuarioNetvalle_O_CodigoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

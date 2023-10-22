@@ -27,12 +27,12 @@ public partial class WebForm_PObservacionDetalle : System.Web.UI.Page
 
     private void CargaDatos_CodigoProyectoDetalle()
     {
-        //int CodigoObservacion = (int)Session["CodigoObservacion"];
-        //EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
-        //lblObservador.Text = eGObservacion.CodigoUsuarioObservacion;
-        //lblTipoObservacion.Text = (eGObservacion.TipoObservacion == 'O') ? "Observacion Fondo" : "Observacion Forma";
-        //lblFechaRegistro.Text = eGObservacion.FechaRegistro.ToShortDateString();
-        //lblComentarioObservacion.Text = eGObservacion.ComentarioObservacion;
+        int CodigoObservacion = (int)Session["CodigoObservacion"];
+        EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
+        lblObservador.Text = eGObservacion.CodigoUsuarioObservacion;
+        lblTipoObservacion.Text = (eGObservacion.TipoObservacion == 'O') ? "Observacion Fondo" : "Observacion Forma";
+        lblFechaRegistro.Text = eGObservacion.FechaRegistro.ToShortDateString();
+        lblComentarioObservacion.Text = eGObservacion.ComentarioObservacion;
     }
 }
 

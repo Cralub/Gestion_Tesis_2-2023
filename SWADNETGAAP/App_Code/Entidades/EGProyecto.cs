@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+
 /// <summary>
 /// Descripción breve de EGProyecto
 /// </summary>

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+
 /// <summary>
 /// Descripción breve de CGProyecto
 /// </summary>
 public class CGProyecto
 {
-    #region Atributos
+    #region Atributo
     private ADGProyecto adGProyecto;
     #endregion
 
@@ -16,6 +17,29 @@ public class CGProyecto
     #endregion
 
     #region Métodos públicos
+    public void Insertar_GProyecto_I(EGProyecto eGProyecto)
+    {
+        adGProyecto.Insertar_GProyecto_I(eGProyecto);
+    }
+    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    {
+        EGProyecto eGProyecto;
+        List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
+        DTOGProyecto dtoGProyecto = adGProyecto.Obtener_GProyecto_O_Todo();
+        foreach (DTOGProyecto.GProyectoRow drGProyecto in dtoGProyecto.GProyecto.Rows)
+        {
+            eGProyecto = new EGProyecto();
+            eGProyecto.CodigoProyecto = drGProyecto.CodigoProyecto;
+            eGProyecto.ModalidadProyecto = char.Parse(drGProyecto.ModalidadProyecto);
+            eGProyecto.TituloProyecto = drGProyecto.TituloProyecto;
+            eGProyecto.ObjetivoGeneralProyecto = drGProyecto.ObjetivoGeneralProyecto;
+            eGProyecto.EnlaceDocumentoProyecto = drGProyecto.EnlaceDocumentoProyecto;
+            eGProyecto.EstadoProyecto = char.Parse(drGProyecto.EstadoProyecto);            
+            lstEGProyecto.Add(eGProyecto);
+        }
+
+        return lstEGProyecto;
+    }
     public EGProyecto Obtener_GProyecto_O(string codigoProyecto)
     {
         EGProyecto proyecto = null;

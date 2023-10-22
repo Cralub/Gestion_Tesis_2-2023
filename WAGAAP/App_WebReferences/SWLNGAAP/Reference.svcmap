@@ -25,6 +25,7 @@
     <MetadataFile FileName="SWLNGAAP.xsd" MetadataType="Schema" ID="711891d2-7c48-4dc9-b253-0fb2ac8be4f2" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd2" />
     <MetadataFile FileName="SWLNGAAP1.xsd" MetadataType="Schema" ID="dc210d84-7f8a-4df4-ae2e-59437340f189" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd0" />
     <MetadataFile FileName="SWLNGAAP2.xsd" MetadataType="Schema" ID="2e1fdea9-fc13-4c95-ac48-91a0c148a478" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd1" />
+    <MetadataFile FileName="SWLNGAAP3.xsd" MetadataType="Schema" ID="d7c43f56-c9b8-4ad0-a2b3-9301cddbb6e7" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?xsd=xsd3" />
     <MetadataFile FileName="SWLNGAAP.disco" MetadataType="Disco" ID="8e49924a-1d18-44d5-8cba-4db0b5893ef3" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?disco" />
     <MetadataFile FileName="SWLNGAAP.wsdl" MetadataType="Wsdl" ID="a0cfbb82-df5f-40c6-a0c2-6822dd8b65ea" SourceId="1" SourceUrl="http://localhost:51705/SWLNGAAP.svc?wsdl" />
   </Metadata>

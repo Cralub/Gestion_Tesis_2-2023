@@ -2,6 +2,522 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
   <xs:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="Insertar_GUsuarioRol_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuarioRol" type="xs:int" />
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GUsuarioRol_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRolResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_CodigoRol">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_CodigoRolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuarioRol_O_CodigoRolResult" nillable="true" type="q1:ArrayOfEGUsuarioRol" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_CodigoUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_CodigoUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuarioRol_O_CodigoUsuarioResult" nillable="true" type="q2:ArrayOfEGUsuarioRol" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRolResult" nillable="true" type="q3:EGUsuarioRol" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GUsuarioRol_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuarioRol" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GUsuarioRol_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GUsuarioProyecto_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuarioProyecto" type="xs:int" />
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoUsuarioProyecto" type="q4:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GUsuarioProyecto_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyectoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyectoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioProyecto_O_CodigoProyecto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioProyecto_O_CodigoProyectoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuarioProyecto_O_CodigoProyectoResult" nillable="true" type="q5:ArrayOfEGUsuarioProyecto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioProyecto_O_CodigoUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuarioProyecto_O_CodigoUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuarioProyecto_O_CodigoUsuarioResult" nillable="true" type="q6:ArrayOfEGUsuarioProyecto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GUsuarioProyecto_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuarioProyecto" type="xs:int" />
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoUsuarioProyecto" type="q7:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GUsuarioProyecto_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GProyecto_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ModalidadProyecto" type="q8:char" />
+        <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EnlaceDocumentoProyecto" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoProyecto" type="q9:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GProyecto_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_O_Todo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_O_TodoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_TodoResult" nillable="true" type="q10:ArrayOfEGProyecto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_O">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_OResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_OResult" nillable="true" type="q11:EGProyecto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GProyecto_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoProyecto" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="modalidadProyecto" type="q12:char" />
+        <xs:element minOccurs="0" name="tituloProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="objetivoGeneralProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="objetivosEspecificosProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="alcanceProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="enlaceDocumentoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GProyecto_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GEtapa_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+        <xs:element minOccurs="0" name="NumeroEtapa" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="FechaInicioEtapa" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="FechaDefinidaEtapa" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="FechaFinEtapa" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoEtapa" type="q13:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GEtapa_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GEtapa_O_SiguienteCodigoEtapa">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GEtapa_O_SiguienteCodigoEtapaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Obtener_GEtapa_O_SiguienteCodigoEtapaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivoResult" nillable="true" type="q14:EGEtapa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumeroSubEtapa" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GEtapa_O_CodigoProyecto_NumeroEtapaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GEtapa_O_CodigoProyecto_NumeroEtapaResult" nillable="true" type="q15:EGEtapa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GEtapa_A_EstadoEtapa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoEtapa" type="q16:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GEtapa_A_EstadoEtapaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GSubEtapa_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
+        <xs:element minOccurs="0" name="NumeroSubEtapa" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="FechaInicioSubEtapa" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="FechaDefinidaSubEtapa" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="FechaFinSubEtapa" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="CodigoUsuarioFirma" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoSubEtapa" type="q17:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GSubEtapa_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GSubEtapa_O_SiguienteCodigoSubEtapaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Obtener_GSubEtapa_O_SiguienteCodigoSubEtapaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivoResult" nillable="true" type="q18:EGSubEtapa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+        <xs:element minOccurs="0" name="NumeroSubEtapa" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResult" nillable="true" type="q19:EGSubEtapa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GSubEtapa_A_EstadoSubEtapa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Estado" type="q20:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GSubEtapa_A_EstadoSubEtapaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GObservacion_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoObservacion" type="xs:int" />
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
+        <xs:element minOccurs="0" name="CodigoUsuarioObservacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ComentarioObservacion" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TipoObservacion" type="q21:char" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q22:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GObservacion_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObservacion_O_CodigoProyecto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObservacion_O_CodigoProyectoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GObservacion_O_CodigoProyectoResult" nillable="true" type="q23:ArrayOfEGObservacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObservacion_O_CodigoObservacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoObservacion" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObservacion_O_CodigoObservacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GObservacion_O_CodigoObservacionResult" nillable="true" type="q24:EGObservacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GObservacion_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoObservacion" type="xs:int" />
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
+        <xs:element minOccurs="0" name="CodigoUsuarioObservacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ComentarioObservacion" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TipoObservacion" type="q25:char" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EstadoObservacion" type="q26:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GObservacion_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GObservacion_A_EstadoObservacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoObservacion" type="xs:int" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="estadoObservacion" type="q27:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GObservacion_A_EstadoObservacionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObsevacion_O_SiguienteCodigoObservacion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GObsevacion_O_SiguienteCodigoObservacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Obtener_GObsevacion_O_SiguienteCodigoObservacionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GUsuario_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GUsuario_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuario_O_CodigoUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GUsuario_O_CodigoUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GUsuario_O_CodigoUsuarioResult" nillable="true" type="q28:EGUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GUsuario_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sede" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GUsuario_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GRol_O_Todo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GRol_O_TodoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_TodoResult" nillable="true" type="q29:ArrayOfEGRol" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GRol_O_CodigoRol">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GRol_O_CodigoRolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GRol_O_CodigoRolResult" nillable="true" type="q30:EGRol" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insertar_GCelular_I">
     <xs:complexType>
       <xs:sequence>
@@ -26,7 +542,7 @@
   <xs:element name="Obtener_GCelular_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GCelular_OResult" nillable="true" type="q1:EGCelular" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GCelular_OResult" nillable="true" type="q31:EGCelular" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -57,49 +573,133 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Obtener_GProyecto_O">
+  <xs:element name="Obtener_UsuarioNetvalle_O_CodigoUsuario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="codigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Obtener_GProyecto_OResponse">
+  <xs:element name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_OResult" nillable="true" type="q2:EGProyecto" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_UsuarioNetvalle_O_CodigoUsuarioResult" nillable="true" type="q32:EUsuarioNetvalle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Actualizar_GProyecto_A">
+  <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="codigoProyecto" nillable="true" type="xs:string" />
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="modalidadProyecto" type="q3:char" />
-        <xs:element minOccurs="0" name="tituloProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="objetivoGeneralProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="objetivosEspecificosProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="alcanceProyecto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="enlaceDocumentoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Actualizar_GProyecto_AResponse">
+  <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResult" nillable="true" type="q33:ArrayOfEProyectoCompleja" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResult" nillable="true" type="q34:ArrayOfEProyectoCompleja" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Verificar_GProyecto_CorrespondeRevision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumeroEtapa" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="NumeroSubEtapa" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Verificar_GProyecto_CorrespondeRevisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Verificar_GProyecto_CorrespondeRevisionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_Etapa_SubEtapa_AvanzarEnFlujo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_Etapa_SubEtapa_AvanzarEnFlujoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Actualizar_GObservacion_A_EstadoObservacion">
+  <xs:element name="Obtener_EProgresoEtapaSubEtapa_O">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="codigoObservacion" type="xs:int" />
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="estadoObservacion" type="q4:char" />
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Actualizar_GObservacion_A_EstadoObservacionResponse">
+  <xs:element name="Obtener_EProgresoEtapaSubEtapa_OResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProgresoEtapaSubEtapa_OResult" nillable="true" type="q35:ArrayOfEProgresoEtapaSubEtapa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_ProyectoCompleto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoDirector" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DiasEtapa" type="xs:int" />
+        <xs:element minOccurs="0" name="DiasSubEtapa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_ProyectoCompletoResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_EUsuarioCompleto_O">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_EUsuarioCompleto_OResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleto_OResult" nillable="true" type="q36:EUsuarioCompleto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_EProyectoTiempoEntrega_O">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_EProyectoTiempoEntrega_OResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q37:ArrayOfEProyectoTiempoEntrega" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

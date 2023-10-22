@@ -10,13 +10,10 @@ using System.Web;
 public class CProgresoEtapaSubEtapa
 {
     #region Atributos
-
     private LNServicio lNServicio;
-
     #endregion
 
     #region Propiedades
-
     public string NombreClase
     {
         get { return GetType().Name; }
@@ -25,7 +22,6 @@ public class CProgresoEtapaSubEtapa
     #endregion
 
     #region Constructor
-
     public CProgresoEtapaSubEtapa()
     {
         lNServicio = new LNServicio();
@@ -33,23 +29,23 @@ public class CProgresoEtapaSubEtapa
 
     #endregion
 
-    #region Metodos Publicos
+    #region Métodos públicos
 
-    //#region EProgresoEtapaSubEtapa
-    //public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string CodigoProyecto)
-    //{
-    //    List<EProgresoEtapaSubEtapa> lstEProgresoEtapaSubEtapa = new List<EProgresoEtapaSubEtapa>();
-    //    try
-    //    {
-    //        lstEProgresoEtapaSubEtapa = lNServicio.Obtener_EProgresoEtapaSubEtapa_O(CodigoProyecto).ToList();
-    //    }
-    //    catch (Exception)
-    //    {
-    //        throw;
-    //    }
-    //    return lstEProgresoEtapaSubEtapa;
-    //}
-    //#endregion
+    #region EProgresoEtapaSubEtapa
+    public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string CodigoProyecto)
+    {
+        List<EProgresoEtapaSubEtapa> lstEProgresoEtapaSubEtapa = new List<EProgresoEtapaSubEtapa>();
+        try
+        {
+            lstEProgresoEtapaSubEtapa = lNServicio.Obtener_EProgresoEtapaSubEtapa_O(CodigoProyecto).ToList();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstEProgresoEtapaSubEtapa;
+    }
+    #endregion
 
     #endregion
 }
