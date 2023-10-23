@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div><asp:Button  ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click"/></div>
     <ul>
         <li>
             <asp:Label runat="server">Observador</asp:Label>

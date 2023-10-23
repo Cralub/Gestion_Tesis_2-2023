@@ -46,7 +46,7 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
 
     protected void btnVolver_Click(object sender, EventArgs e)
     {
-        Session["proyectoCompleja"] = null;
-        Response.Redirect("~/WebForm/Formulario/PListarProyectosFormulario.aspx");
+        Session["CodigoProyecto"] = null;
+        Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
     }
 }
