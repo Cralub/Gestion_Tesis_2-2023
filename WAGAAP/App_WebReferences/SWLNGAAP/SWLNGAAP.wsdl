@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
       <xsd:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ISWLNGAAP_Insertar_GUsuarioRol_I_InputMessage">
@@ -302,6 +303,30 @@
   <wsdl:message name="ISWLNGAAP_Obtener_EProyectoTiempoEntrega_O_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_EProyectoTiempoEntrega_OResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Descifrado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Descifrado" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Descifrado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DescifradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Cifrar_Cadena_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cifrar_Cadena" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Cifrar_Cadena_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Cifrar_CadenaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_Empleado_Id_Emp_SedeAcademica_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_Empleado_Id_Emp_SedeAcademica" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_Empleado_Id_Emp_SedeAcademica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_Empleado_Id_Emp_SedeAcademicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_EmpleadoFotografia_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_EmpleadoFotografia" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_EmpleadoFotografia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_EmpleadoFotografiaResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISWLNGAAP">
     <wsdl:operation name="Insertar_GUsuarioRol_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GUsuarioRol_I" message="tns:ISWLNGAAP_Insertar_GUsuarioRol_I_InputMessage" />
@@ -498,6 +523,22 @@
     <wsdl:operation name="Obtener_EProyectoTiempoEntrega_O">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_EProyectoTiempoEntrega_O" message="tns:ISWLNGAAP_Obtener_EProyectoTiempoEntrega_O_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_EProyectoTiempoEntrega_OResponse" message="tns:ISWLNGAAP_Obtener_EProyectoTiempoEntrega_O_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Descifrado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Descifrado" message="tns:ISWLNGAAP_Descifrado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/DescifradoResponse" message="tns:ISWLNGAAP_Descifrado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Cifrar_Cadena">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Cifrar_Cadena" message="tns:ISWLNGAAP_Cifrar_Cadena_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Cifrar_CadenaResponse" message="tns:ISWLNGAAP_Cifrar_Cadena_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_Empleado_Id_Emp_SedeAcademica">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_Empleado_Id_Emp_SedeAcademica" message="tns:ISWLNGAAP_Obtener_Empleado_Id_Emp_SedeAcademica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_Empleado_Id_Emp_SedeAcademicaResponse" message="tns:ISWLNGAAP_Obtener_Empleado_Id_Emp_SedeAcademica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EmpleadoFotografia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_EmpleadoFotografia" message="tns:ISWLNGAAP_Obtener_EmpleadoFotografia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_EmpleadoFotografiaResponse" message="tns:ISWLNGAAP_Obtener_EmpleadoFotografia_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISWLNGAAP" type="tns:ISWLNGAAP">
@@ -936,6 +977,42 @@
     </wsdl:operation>
     <wsdl:operation name="Obtener_EProyectoTiempoEntrega_O">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_EProyectoTiempoEntrega_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Descifrado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Descifrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cifrar_Cadena">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Cifrar_Cadena" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_Empleado_Id_Emp_SedeAcademica">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_Empleado_Id_Emp_SedeAcademica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_EmpleadoFotografia">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_EmpleadoFotografia" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.UI.WebControls;
 
@@ -21,6 +22,49 @@ public class LNServicio
     public LNServicio()
     {
         
+    }
+    private EDefecto ConstruirDefecto(TTipoDefecto tipoDefecto, string metodo, string excepcion, string mensaje, string stackTrace)
+    {
+        EDefecto eDefecto = new EDefecto
+        {
+            TipoDefecto = tipoDefecto,
+            Servicio = SDatosGlobales.NOMBRE_APLICACION,
+            Clase = NombreClase,
+            Metodo = metodo,
+            Mensaje = mensaje,
+            Excepcion = excepcion,
+        };
+
+        return eDefecto;
+    }
+
+    private EDefecto ConstruirDefecto(TTipoDefecto tipoDefecto, string metodo, string excepcion, string mensaje)
+    {
+        EDefecto eDefecto = new EDefecto
+        {
+            TipoDefecto = tipoDefecto,
+            Servicio = SDatosGlobales.NOMBRE_APLICACION,
+            Clase = NombreClase,
+            Metodo = metodo,
+            Mensaje = mensaje,
+            Excepcion = excepcion
+        };
+
+        return eDefecto;
+    }
+
+    private EDefecto ConstruirDefecto(FaultException<EDefecto> ex)
+    {
+        EDefecto eDefecto = new EDefecto
+        {
+            TipoDefecto = ex.Detail.TipoDefecto,
+            Servicio = ex.Detail.Servicio,
+            Clase = ex.Detail.Clase,
+            Metodo = ex.Detail.Metodo,
+            Excepcion = ex.Detail.Excepcion,
+            Mensaje = ex.Detail.Mensaje,
+        };
+        return eDefecto;
     }
     #endregion
 
@@ -805,6 +849,203 @@ public class LNServicio
         }
     }
     #endregion
+    #endregion
+
+    #region Cifrado y descifrado
+    public string Descifrar_Cadena(string Texto, string Tipo)
+    {
+        string textoDescifrado = string.Empty;
+        try
+        {
+            using (SWLNGAAPClient sWLNGAAPClient = new SWLNGAAPClient())
+            {
+                textoDescifrado = sWLNGAAPClient.Descifrado(Texto, Tipo);
+            }
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Descifrar_Cadena", ex.Source, ex.Message, ex.StackTrace);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient sWLNServicioClient = new SWLNGAAPClient())
+                {
+                    textoDescifrado = sWLNServicioClient.Descifrado(Texto, Tipo);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Descifrar_Cadena", communicationException.ToString(), communicationException.Message, communicationException.StackTrace);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Descifrar_Cadena", ex.Source, ex.Message, ex.StackTrace);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+
+        return textoDescifrado;
+    }
+
+    public string Cifrar_Cadena(string TextoACifrar)
+    {
+        string textoCifrado = string.Empty;
+
+        try
+        {
+            using (SWLNGAAPClient sWLNGAAPClient = new SWLNGAAPClient())
+            {
+                textoCifrado = sWLNGAAPClient.Cifrar_Cadena(TextoACifrar);
+                //textoCifrado = sWLNServicioClient.Adicionar_VSolicitud()
+            }
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Cifrar_Cadena", ex.Source, ex.Message, ex.StackTrace);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient sWLNGAAPClient = new SWLNGAAPClient())
+                {
+                    textoCifrado = sWLNGAAPClient.Cifrar_Cadena(TextoACifrar);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Cifrar_Cadena", communicationException.ToString(), communicationException.Message, communicationException.StackTrace);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Cifrar_Cadena", ex.Source, ex.Message, ex.StackTrace);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+
+        return textoCifrado;
+    }
+    #endregion
+
+    #region EEmpleado
+    public Tuple<EEmpleado, EMensajeError> Obtener_Empleado_Id_Emp_SedeAcademica(string Id_Emp, string SedeAcademica)
+    {
+        Tuple<EEmpleado, EMensajeError> result;
+        try
+        {
+            using (SWLNGAAPClient sWLNGAAPClient = new SWLNGAAPClient())
+            {
+                result = sWLNGAAPClient.Obtener_Empleado_Id_Emp_SedeAcademica(Id_Emp, SedeAcademica);
+            }
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_Empleado_Id_Emp_SedeAcademica", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient sWLNGAAPClient = new SWLNGAAPClient())
+                {
+                    result = sWLNGAAPClient.Obtener_Empleado_Id_Emp_SedeAcademica(Id_Emp, SedeAcademica);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_Empleado_Id_Emp_SedeAcademica", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_Empleado_Id_Emp_SedeAcademica", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_Empleado_Id_Emp_SedeAcademica", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+
+        return result;
+    }
+
+    public Tuple<byte[], EMensajeError> Obtener_EmpleadoFotografia(string Id_Emp, string SedeAcademica)
+    {
+        Tuple<byte[], EMensajeError> result;
+        try
+        {
+            using (SWLNGAAPClient sWLNGAAPClient = new SWLNGAAPClient())
+            {
+                result = sWLNGAAPClient.Obtener_EmpleadoFotografia(Id_Emp, SedeAcademica);
+            }
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EmpleadoFotografia", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient sWLNGAAPClient = new SWLNGAAPClient())
+                {
+                    result = sWLNGAAPClient.Obtener_EmpleadoFotografia(Id_Emp, SedeAcademica);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EmpleadoFotografia", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_EmpleadoFotografia", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EmpleadoFotografia", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+
+        return result;
+    }
+
     #endregion
     #endregion
 }

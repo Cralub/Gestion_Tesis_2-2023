@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
   <xs:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:51705/SWLNGAAP.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:element name="Insertar_GUsuarioRol_I">
     <xs:complexType>
       <xs:sequence>
@@ -696,6 +697,65 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q41:ArrayOfEProyectoTiempoEntrega" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Descifrado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Texto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescifradoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DescifradoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Cifrar_Cadena">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TextoACifrar" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Cifrar_CadenaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cifrar_CadenaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_Empleado_Id_Emp_SedeAcademica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdEmp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_Empleado_Id_Emp_SedeAcademicaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_Empleado_Id_Emp_SedeAcademicaResult" nillable="true" type="q42:TupleOfEEmpleadoEMensajeErroraI91Yjnm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_EmpleadoFotografia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdEmp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Sede" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_EmpleadoFotografiaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_EmpleadoFotografiaResult" nillable="true" type="q43:TupleOfbase64BinaryEMensajeErrorlLTIrbuF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

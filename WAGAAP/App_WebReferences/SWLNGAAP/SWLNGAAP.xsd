@@ -265,4 +265,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EProyectoTiempoEntrega" nillable="true" type="tns:EProyectoTiempoEntrega" />
+  <xs:complexType name="EEmpleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cargo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoEmpleado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorreoElectronico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorreoPersonal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuentaEmpleado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreSedeAcademica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Oficina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimerApellido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimerNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SedeAcademica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SegundoApellido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SegundoNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoFijo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoMovil" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EEmpleado" nillable="true" type="tns:EEmpleado" />
+  <xs:complexType name="EMensajeError">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="EMensajeError" nillable="true" type="tns:EMensajeError" />
 </xs:schema>

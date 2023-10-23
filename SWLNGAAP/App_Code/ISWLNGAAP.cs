@@ -137,7 +137,15 @@ public interface ISWLNGAAP
     List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string CodigoUsuario);
     #endregion
 
-
+    //Añadidas
+    [OperationContract]
+    string Descifrado(string Texto, string Tipo);
+    [OperationContract]
+    string Cifrar_Cadena(string TextoACifrar);
+    [OperationContract]
+    Tuple<EEmpleado, EMensajeError> Obtener_Empleado_Id_Emp_SedeAcademica(string IdEmp, string Sede);
+    [OperationContract]
+    Tuple<byte[], EMensajeError> Obtener_EmpleadoFotografia(string IdEmp, string Sede);
 }
 
 

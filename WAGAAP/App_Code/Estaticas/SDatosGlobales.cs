@@ -8,7 +8,15 @@ using System.Web;
 /// </summary>
 public static class SDatosGlobales
 {
-    
+    #region Estados
+
+    /// <summary>
+    /// Códigos de estados utilizados dentro del sistema
+    /// </summary>
+    /// 
+    public const string NOMBRE_APLICACION = "PROYECTO GESTION DE APOYO Y ASESORIA A PROYECTOS";
+
+    #endregion
     #region Roles
     public const string ROL_ESTUDIANTE = "ES";
     public const string ROL_TUTOR = "TU";
