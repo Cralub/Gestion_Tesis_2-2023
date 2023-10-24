@@ -1108,5 +1108,91 @@ public class LNServicio
         }
     }
     #endregion
+
+    #region GTutorExterno
+
+    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    {
+        List<EGTutorExterno> lstEGTutorExterno = new List<EGTutorExterno>();
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                lstEGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O_Todo().ToList();
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return lstEGTutorExterno;
+    }
+
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    {
+        EGTutorExterno eGTutorExterno = new EGTutorExterno();
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                eGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return eGTutorExterno;
+    }
+
+    public void Insertar_GTutorExterno_I(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Insertar_GTutorExterno_I(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void Actualizar_GTutorExterno_A(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Actualizar_GTutorExterno_A(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estado);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
+
+
+
+
     #endregion
 }
