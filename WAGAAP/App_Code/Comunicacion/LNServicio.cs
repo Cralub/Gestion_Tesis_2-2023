@@ -1047,5 +1047,66 @@ public class LNServicio
     }
 
     #endregion
+
+    #region GCelular
+    public void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular)
+    {
+        try
+        {
+            using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+            {
+                swlnGAAP.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    {
+        EGCelular celular = new EGCelular();
+        try
+        {
+            using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+            {
+                celular = swlnGAAP.Obtener_GCelular_O(codigoCelular);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        return celular;
+    }
+    public void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular)
+    {
+        try
+        {
+            using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+            {
+                swlnGAAP.Actualizar_GCelular_A(codigoCelular, codigoUsuario, codigoAreaCelular, numeroCelular);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Eliminar_GCelular_E(int codigoCelular)
+    {
+        try
+        {
+            using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+            {
+                swlnGAAP.Eliminar_GCelular_E(codigoCelular);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
     #endregion
 }

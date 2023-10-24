@@ -108,6 +108,34 @@ public interface ISWLNGAAP
     [OperationContract]
     EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario);
     #endregion
+    #region GCelular
+    [OperationContract]
+    void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular);
+    [OperationContract]
+    EGCelular Obtener_GCelular_O(int codigoCelular);
+    [OperationContract]
+    void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular);
+    [OperationContract]
+    void Eliminar_GCelular_E(int codigoCelular);
+    #endregion
+    #region GTutorExterno
+
+    [OperationContract]
+    void Insertar_GTutorExterno_I(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno);
+
+    [OperationContract]
+    void Actualizar_GTutorExterno_A(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno);
+
+    [OperationContract]
+    List<EGTutorExterno> Obtener_GTutorExterno_O_Todo();
+
+    [OperationContract]
+    EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno);
+
+    [OperationContract]
+    void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado);
+
+    #endregion
     #region GProyectoComplejo
     [OperationContract]
     List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(string CodigoUsuario);

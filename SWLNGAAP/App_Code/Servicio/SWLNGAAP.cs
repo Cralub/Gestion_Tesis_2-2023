@@ -263,6 +263,64 @@ public class SWLNGAAP : ISWLNGAAP
         return cGAAP.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
     }
     #endregion
+    #region GCelular
+    public void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
+    }
+    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    {
+        CGAAP cGAAP = new CGAAP();
+        return cGAAP.Obtener_GCelular_O(codigoCelular);
+    }
+    public void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Actualizar_GCelular_A(codigoCelular, codigoUsuario, codigoAreaCelular, numeroCelular);
+    }
+    public void Eliminar_GCelular_E(int codigoCelular)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Eliminar_GCelular_E(codigoCelular);
+    }
+    #endregion
+    #region GTutorExterno
+    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    {
+        CGAAP cGAAP = new CGAAP();
+        return cGAAP.Obtener_GTutorExterno_O_Todo();
+    }
+
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    {
+        CGAAP cGAAP = new CGAAP();
+        return cGAAP.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
+    }
+
+
+    public void Insertar_GTutorExterno_I(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Insertar_GTutorExterno_I(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
+    }
+
+    public void Actualizar_GTutorExterno_A(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Actualizar_GTutorExterno_A(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
+    }
+
+
+    public void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estado);
+    }
+
+
+    #endregion
+
     #region GProyectoCompleja
     public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(string CodigoUsuario)
     {

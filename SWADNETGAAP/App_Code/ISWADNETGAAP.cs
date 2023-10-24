@@ -114,7 +114,30 @@ public interface ISWADNETGAAP
     [OperationContract]
     EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario);
     #endregion
-
+    #region Tabla: GCelular
+    [OperationContract]
+    int Obtener_GCelular_O_SiguienteCodigoCelular();
+    [OperationContract]
+    void Insertar_GCelular_I(EGCelular celular);
+    [OperationContract]
+    EGCelular Obtener_GCelular_O(int codigoCelular);
+    [OperationContract]
+    void Actualizar_GCelular_A(EGCelular celular);
+    [OperationContract]
+    void Eliminar_GCelular_E(int codigoCelular);
+    #endregion
+    #region Tabla: GTutorExterno
+    [OperationContract]
+    void Insertar_GTutorExterno_I(EGTutorExterno tutorExterno);
+    [OperationContract]
+    EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno);
+    [OperationContract]
+    void Actualizar_GTutorExterno_A(EGTutorExterno tutorExterno);
+    [OperationContract]
+    void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado);
+    [OperationContract]
+    List<EGTutorExterno> Obtener_GTutorExterno_O_Todo();
+    #endregion
 }
 
 

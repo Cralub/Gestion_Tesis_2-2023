@@ -198,6 +198,39 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EUsuarioNetvalle" nillable="true" type="tns:EUsuarioNetvalle" />
+  <xs:complexType name="EGCelular">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoAreaCelular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoCelular" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NumeroCelular" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGCelular" nillable="true" type="tns:EGCelular" />
+  <xs:complexType name="ArrayOfEGTutorExterno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGTutorExterno" nillable="true" type="tns:EGTutorExterno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGTutorExterno" nillable="true" type="tns:ArrayOfEGTutorExterno" />
+  <xs:complexType name="EGTutorExterno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApellidosTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarreraTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoTutorExterno" type="xs:int" />
+      <xs:element minOccurs="0" name="DescripcionTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DireccionTrabajoTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NombresTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SedeTutorExterno" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EGTutorExterno" nillable="true" type="tns:EGTutorExterno" />
   <xs:complexType name="ArrayOfEProyectoCompleja">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EProyectoCompleja" nillable="true" type="tns:EProyectoCompleja" />

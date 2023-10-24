@@ -685,8 +685,142 @@ public class CGAAP
         }
     }
     #endregion
+    #region GCelular
+    public void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular)
+    {
+        EGCelular celular = new EGCelular();
+        try
+        {
+            celular.CodigoCelular = asNetGAAP.Obtener_GCelular_O_SiguienteCodigoCelular();
+            celular.CodigoUsuario = codigoUsuario;
+            celular.CodigoAreaCelular = codigoAreaCelular;
+            celular.NumeroCelular = numeroCelular;
+            asNetGAAP.Insertar_GCelular_I(celular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    {
+        try
+        {
+            return asNetGAAP.Obtener_GCelular_O(codigoCelular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular)
+    {
+        EGCelular celular = new EGCelular();
+        try
+        {
+            celular.CodigoCelular = codigoCelular;
+            celular.CodigoUsuario = codigoUsuario;
+            celular.CodigoAreaCelular = codigoAreaCelular;
+            celular.NumeroCelular = numeroCelular;
+            asNetGAAP.Actualizar_GCelular_A(celular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Eliminar_GCelular_E(int codigoCelular)
+    {
+        try
+        {
+            asNetGAAP.Eliminar_GCelular_E(codigoCelular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
+    #region GTutorExterno
+    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    {
+        try
+        {
+            return asNetGAAP.Obtener_GTutorExterno_O_Todo();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    {
+        try
+        {
+            return asNetGAAP.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void Insertar_GTutorExterno_I(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    {
+        EGTutorExterno eGTutorExterno = new EGTutorExterno();
+        try
+        {
+            eGTutorExterno.CodigoTutorExterno = codigoTutorExterno;
+            eGTutorExterno.NombresTutorExterno = nombresTutorExterno;
+            eGTutorExterno.ApellidosTutorExterno = apellidosTutorExterno;
+            eGTutorExterno.CarreraTutorExterno = carreraTutorExterno;
+            eGTutorExterno.DireccionTrabajoTutorExterno = direccionTrabajoTutorExterno;
+            eGTutorExterno.DescripcionTutorExterno = descripcionTutorExterno;
+            eGTutorExterno.SedeTutorExterno = sedeTutorExterno;
+            asNetGAAP.Insertar_GTutorExterno_I(eGTutorExterno);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void Actualizar_GTutorExterno_A(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    {
+        EGTutorExterno eGTutorExterno = new EGTutorExterno();
+        try
+        {
+            eGTutorExterno.CodigoTutorExterno = codigoTutorExterno;
+            eGTutorExterno.NombresTutorExterno = nombresTutorExterno;
+            eGTutorExterno.ApellidosTutorExterno = apellidosTutorExterno;
+            eGTutorExterno.CarreraTutorExterno = carreraTutorExterno;
+            eGTutorExterno.DireccionTrabajoTutorExterno = direccionTrabajoTutorExterno;
+            eGTutorExterno.DescripcionTutorExterno = descripcionTutorExterno;
+            eGTutorExterno.SedeTutorExterno = sedeTutorExterno;
+            asNetGAAP.Actualizar_GTutorExterno_A(eGTutorExterno);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado)
+    {
+        try
+        {
+            asNetGAAP.Actualizar_GTutorExterno_A_EstadoTutorExterno(codigoTutorExterno, estado);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
+
     #region Metodos Complejos
-   
+
     #region EProgresoEtapaSubEtapa
     public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string CodigoProyecto)
     {

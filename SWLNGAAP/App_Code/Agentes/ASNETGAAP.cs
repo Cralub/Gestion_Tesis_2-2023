@@ -556,4 +556,127 @@ public class ASNETGAAP
         }
     }
     #endregion
+    #region Tabla: GCelular
+    public int Obtener_GCelular_O_SiguienteCodigoCelular()
+    {
+        try
+        {
+            return SWADNETGAAP.Obtener_GCelular_O_SiguienteCodigoCelular();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Insertar_GCelular_I(EGCelular celular)
+    {
+        try
+        {
+            SWADNETGAAP.Insertar_GCelular_I(celular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    {
+        try
+        {
+            return SWADNETGAAP.Obtener_GCelular_O(codigoCelular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Actualizar_GCelular_A(EGCelular celular)
+    {
+        try
+        {
+            SWADNETGAAP.Actualizar_GCelular_A(celular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Eliminar_GCelular_E(int codigoCelular)
+    {
+        try
+        {
+            SWADNETGAAP.Eliminar_GCelular_E(codigoCelular);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
+    #region GTutorExterno
+    public void Insertar_GTutorExterno_I(EGTutorExterno eGTutorExterno)
+    {
+        try
+        {
+            SWADNETGAAP.Insertar_GTutorExterno_I(eGTutorExterno);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    {
+        try
+        {
+            return SWADNETGAAP.Obtener_GTutorExterno_O_Todo().ToList();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    {
+
+        try
+        {
+            EGTutorExterno eGTutorExterno = new EGTutorExterno();
+
+            eGTutorExterno = SWADNETGAAP.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
+            return eGTutorExterno;
+
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void Actualizar_GTutorExterno_A(EGTutorExterno eGTutorExterno)
+    {
+        try
+        {
+            SWADNETGAAP.Actualizar_GTutorExterno_A(eGTutorExterno);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void Actualizar_GTutorExterno_A_EstadoTutorExterno(int codigoTutorExterno, string estadoTutorExterno)
+    {
+        try
+        {
+            SWADNETGAAP.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estadoTutorExterno);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    #endregion
 }

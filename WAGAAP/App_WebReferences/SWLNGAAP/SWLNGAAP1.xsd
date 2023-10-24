@@ -585,6 +585,136 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Insertar_GCelular_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoAreaCelular" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numeroCelular" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GCelular_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GCelular_O">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoCelular" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GCelular_OResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GCelular_OResult" nillable="true" type="q37:EGCelular" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GCelular_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoCelular" type="xs:int" />
+        <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoAreaCelular" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numeroCelular" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GCelular_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Eliminar_GCelular_E">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoCelular" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Eliminar_GCelular_EResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GTutorExterno_I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoTutorExterno" type="xs:int" />
+        <xs:element minOccurs="0" name="nombresTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apellidosTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="carreraTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="direccionTrabajoTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="descripcionTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sedeTutorExterno" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_GTutorExterno_IResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GTutorExterno_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoTutorExterno" type="xs:int" />
+        <xs:element minOccurs="0" name="nombresTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apellidosTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="carreraTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="direccionTrabajoTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="descripcionTutorExterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sedeTutorExterno" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GTutorExterno_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GTutorExterno_O_Todo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GTutorExterno_O_TodoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GTutorExterno_O_TodoResult" nillable="true" type="q38:ArrayOfEGTutorExterno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GTutorExterno_O_CodigoTutorExterno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoTutorExterno" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GTutorExterno_O_CodigoTutorExternoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GTutorExterno_O_CodigoTutorExternoResult" nillable="true" type="q39:EGTutorExterno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GTutorExterno_A_Estado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoTutorExterno" type="xs:int" />
+        <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_GTutorExterno_A_EstadoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja">
     <xs:complexType>
       <xs:sequence>
@@ -595,7 +725,7 @@
   <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResult" nillable="true" type="q37:ArrayOfEProyectoCompleja" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoComplejaResult" nillable="true" type="q40:ArrayOfEProyectoCompleja" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -609,7 +739,7 @@
   <xs:element name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResult" nillable="true" type="q38:ArrayOfEProyectoCompleja" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_TodosResult" nillable="true" type="q41:ArrayOfEProyectoCompleja" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -651,7 +781,7 @@
   <xs:element name="Obtener_EProgresoEtapaSubEtapa_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProgresoEtapaSubEtapa_OResult" nillable="true" type="q39:ArrayOfEProgresoEtapaSubEtapa" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProgresoEtapaSubEtapa_OResult" nillable="true" type="q42:ArrayOfEProgresoEtapaSubEtapa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -682,7 +812,7 @@
   <xs:element name="Obtener_EUsuarioCompleto_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleto_OResult" nillable="true" type="q40:EUsuarioCompleto" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EUsuarioCompleto_OResult" nillable="true" type="q43:EUsuarioCompleto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -696,7 +826,7 @@
   <xs:element name="Obtener_EProyectoTiempoEntrega_OResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q41:ArrayOfEProyectoTiempoEntrega" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_EProyectoTiempoEntrega_OResult" nillable="true" type="q44:ArrayOfEProyectoTiempoEntrega" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -740,7 +870,7 @@
   <xs:element name="Obtener_Empleado_Id_Emp_SedeAcademicaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_Empleado_Id_Emp_SedeAcademicaResult" nillable="true" type="q42:TupleOfEEmpleadoEMensajeErroraI91Yjnm" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_Empleado_Id_Emp_SedeAcademicaResult" nillable="true" type="q45:TupleOfEEmpleadoEMensajeErroraI91Yjnm" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -755,7 +885,7 @@
   <xs:element name="Obtener_EmpleadoFotografiaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_EmpleadoFotografiaResult" nillable="true" type="q43:TupleOfbase64BinaryEMensajeErrorlLTIrbuF" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Obtener_EmpleadoFotografiaResult" nillable="true" type="q46:TupleOfbase64BinaryEMensajeErrorlLTIrbuF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

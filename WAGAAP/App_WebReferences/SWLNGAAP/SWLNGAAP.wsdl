@@ -255,6 +255,60 @@
   <wsdl:message name="ISWLNGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Insertar_GCelular_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GCelular_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Insertar_GCelular_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GCelular_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_OResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GCelular_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GCelular_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GCelular_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GCelular_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Eliminar_GCelular_E_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GCelular_E" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Eliminar_GCelular_E_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GCelular_EResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Insertar_GTutorExterno_I_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GTutorExterno_I" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Insertar_GTutorExterno_I_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_GTutorExterno_IResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GTutorExterno_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GTutorExterno_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GTutorExterno_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GTutorExterno_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GTutorExterno_O_Todo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_O_Todo" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GTutorExterno_O_Todo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_O_TodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GTutorExterno_O_CodigoTutorExterno_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_O_CodigoTutorExterno" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GTutorExterno_O_CodigoTutorExterno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_O_CodigoTutorExternoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GTutorExterno_A_Estado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GTutorExterno_A_Estado" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GTutorExterno_A_Estado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GTutorExterno_A_EstadoResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja" />
   </wsdl:message>
@@ -491,6 +545,42 @@
     <wsdl:operation name="Obtener_UsuarioNetvalle_O_CodigoUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuario" message="tns:ISWLNGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse" message="tns:ISWLNGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GCelular_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GCelular_I" message="tns:ISWLNGAAP_Insertar_GCelular_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GCelular_IResponse" message="tns:ISWLNGAAP_Insertar_GCelular_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GCelular_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O" message="tns:ISWLNGAAP_Obtener_GCelular_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_OResponse" message="tns:ISWLNGAAP_Obtener_GCelular_O_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GCelular_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GCelular_A" message="tns:ISWLNGAAP_Actualizar_GCelular_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GCelular_AResponse" message="tns:ISWLNGAAP_Actualizar_GCelular_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_GCelular_E">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Eliminar_GCelular_E" message="tns:ISWLNGAAP_Eliminar_GCelular_E_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Eliminar_GCelular_EResponse" message="tns:ISWLNGAAP_Eliminar_GCelular_E_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GTutorExterno_I">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GTutorExterno_I" message="tns:ISWLNGAAP_Insertar_GTutorExterno_I_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GTutorExterno_IResponse" message="tns:ISWLNGAAP_Insertar_GTutorExterno_I_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GTutorExterno_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GTutorExterno_A" message="tns:ISWLNGAAP_Actualizar_GTutorExterno_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GTutorExterno_AResponse" message="tns:ISWLNGAAP_Actualizar_GTutorExterno_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GTutorExterno_O_Todo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GTutorExterno_O_Todo" message="tns:ISWLNGAAP_Obtener_GTutorExterno_O_Todo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GTutorExterno_O_TodoResponse" message="tns:ISWLNGAAP_Obtener_GTutorExterno_O_Todo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GTutorExterno_O_CodigoTutorExterno">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GTutorExterno_O_CodigoTutorExterno" message="tns:ISWLNGAAP_Obtener_GTutorExterno_O_CodigoTutorExterno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GTutorExterno_O_CodigoTutorExternoResponse" message="tns:ISWLNGAAP_Obtener_GTutorExterno_O_CodigoTutorExterno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GTutorExterno_A_Estado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GTutorExterno_A_Estado" message="tns:ISWLNGAAP_Actualizar_GTutorExterno_A_Estado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GTutorExterno_A_EstadoResponse" message="tns:ISWLNGAAP_Actualizar_GTutorExterno_A_Estado_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja" message="tns:ISWLNGAAP_Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_InputMessage" />
@@ -905,6 +995,87 @@
     </wsdl:operation>
     <wsdl:operation name="Obtener_UsuarioNetvalle_O_CodigoUsuario">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GCelular_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Insertar_GCelular_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GCelular_O">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GCelular_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_GCelular_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_GCelular_E">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Eliminar_GCelular_E" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_GTutorExterno_I">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Insertar_GTutorExterno_I" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GTutorExterno_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_GTutorExterno_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GTutorExterno_O_Todo">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GTutorExterno_O_Todo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GTutorExterno_O_CodigoTutorExterno">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GTutorExterno_O_CodigoTutorExterno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GTutorExterno_A_Estado">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_GTutorExterno_A_Estado" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

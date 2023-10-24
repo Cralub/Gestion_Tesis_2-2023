@@ -267,4 +267,63 @@ public class SWADNETGAAP : ISWADNETGAAP
         return cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
     }
     #endregion
+    #region Tabla: GCelular
+    public int Obtener_GCelular_O_SiguienteCodigoCelular()
+    {
+        CGCelular cGCelular = new CGCelular();
+        return cGCelular.Obtener_GCelular_O_SiguienteCodigoCelular();
+    }
+    public void Insertar_GCelular_I(EGCelular celular)
+    {
+        CGCelular cGCelular = new CGCelular();
+        cGCelular.Insertar_GCelular_I(celular);
+    }
+    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    {
+        CGCelular cGCelular = new CGCelular();
+        return cGCelular.Obtener_GCelular_O(codigoCelular);
+    }
+    public void Actualizar_GCelular_A(EGCelular celular)
+    {
+        CGCelular cGCelular = new CGCelular();
+        cGCelular.Actualizar_GCelular_A(celular);
+    }
+    public void Eliminar_GCelular_E(int codigoCelular)
+    {
+        CGCelular cGCelular = new CGCelular();
+        cGCelular.Eliminar_GCelular_E(codigoCelular);
+    }
+    #endregion
+    #region Tabla: GTutorExterno
+    public void Insertar_GTutorExterno_I(EGTutorExterno tutorExterno)
+    {
+        CGTutorExterno cGTutorExterno = new CGTutorExterno();
+        cGTutorExterno.Insertar_GTutorExterno_I(tutorExterno);
+
+    }
+
+    public void Actualizar_GTutorExterno_A(EGTutorExterno tutorExterno)
+    {
+        CGTutorExterno cGTutorExterno = new CGTutorExterno();
+        cGTutorExterno.Actualizar_GTutorExterno_A(tutorExterno);
+    }
+
+    public void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado)
+    {
+        CGTutorExterno cGTutorExterno = new CGTutorExterno();
+        cGTutorExterno.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estado);
+    }
+
+    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    {
+        CGTutorExterno cGTutorExterno = new CGTutorExterno();
+        return cGTutorExterno.Obtener_GTutorExterno_O_Todo();
+    }
+
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    {
+        CGTutorExterno cGTutorExterno = new CGTutorExterno();
+        return cGTutorExterno.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
+    }
+    #endregion
 }
