@@ -189,15 +189,13 @@
   <xs:element name="EGRol" nillable="true" type="tns:EGRol" />
   <xs:complexType name="EUsuarioNetvalle">
     <xs:sequence>
-      <xs:element minOccurs="0" name="ApellidosUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CarreraUsuarioNetvalle" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CelularUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DireccionTrabajoUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DireccionUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EstadoUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FacultadUsuarioNetvalle" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NombresUsuarioNetvalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCompletoUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RolUsuarioNetvalle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SedeUsuarioNetvalle" nillable="true" type="xs:string" />
     </xs:sequence>

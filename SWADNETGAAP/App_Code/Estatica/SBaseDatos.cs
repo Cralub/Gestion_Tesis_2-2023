@@ -9,6 +9,6 @@ public static class SBaseDatos
     public static Database BDSWADNETGAAP = DatabaseFactory.CreateDatabase("BDGestionDeApoyoYAsesoriaAProyectosConnectionString");
 
 
-    public static Database DBSWADNETUSR = DatabaseFactory.CreateDatabase("BDNetvalleConnectionString");
+    //public static Database DBSWADNETUSR = DatabaseFactory.CreateDatabase("BDNetvalleConnectionString");
 
 }

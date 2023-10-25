@@ -17,7 +17,7 @@ public class ADUsuarioNetvalle
         DTOGUsuarioNetvalle dTOGUsuarioNetvalle = new DTOGUsuarioNetvalle();
         try
         {
-            Database BDSWADNETUSR = SBaseDatos.DBSWADNETUSR;
+            Database BDSWADNETUSR = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETUSR.GetStoredProcCommand("UsuarioNetvalle_O_CodigoUsuario");
             BDSWADNETUSR.AddInParameter(dbCommand, "CodigoUsuarioNetvalle", DbType.String, CodigoUsuario);
             BDSWADNETUSR.AddInParameter(dbCommand, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);

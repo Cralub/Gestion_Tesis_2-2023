@@ -23,15 +23,13 @@ public class CUsuarioNetvalle
         {
             eUsuarioNetvalle = new EUsuarioNetvalle();
             eUsuarioNetvalle.CodigoUsuarioNetvalle = dgUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.NombresUsuarioNetvalle = dgUsuarioNetvalle.NombresUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.ApellidosUsuarioNetvalle = dgUsuarioNetvalle.ApellidosUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.NombreCompletoUsuarioNetvalle = dgUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.RolUsuarioNetvalle = dgUsuarioNetvalle.RolUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.CarreraUsuarioNetvalle = dgUsuarioNetvalle.CarreraUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.FacultadUsuarioNetvalle = dgUsuarioNetvalle.FacultadUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.SedeUsuarioNetvalle = dgUsuarioNetvalle.SedeUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.DireccionUsuarioNetvalle = dgUsuarioNetvalle.DireccionUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle = dgUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.CelularUsuarioNetvalle = dgUsuarioNetvalle.CelularUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle = dgUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle.TrimEnd();            
         }
         return eUsuarioNetvalle;
     }

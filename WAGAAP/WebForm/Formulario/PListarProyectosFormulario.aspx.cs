@@ -26,7 +26,7 @@ public partial class WebForm_Formulario_PListarProyectosFormulario : System.Web.
     {
         EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
         lblCodigoUsuario.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
-        lblNombreUsuario.Text = String.Format("{0} {1}", eUsuarioNetvalle.NombresUsuarioNetvalle, eUsuarioNetvalle.ApellidosUsuarioNetvalle);
+        lblNombreUsuario.Text = eUsuarioNetvalle.NombreCompletoUsuarioNetvalle;
         lstProyectos = new List<EProyectoCompleja>();
         lstProyectos = cProyectoCompleja.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(eUsuarioNetvalle.CodigoUsuarioNetvalle).ToList();
         gvListaProyectos.DataSource = lstProyectos;

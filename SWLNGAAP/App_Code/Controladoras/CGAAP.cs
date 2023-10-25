@@ -849,23 +849,21 @@ public class CGAAP
     public EUsuarioCompleto Obtener_EUsuarioCompleto_O_CodigoUsuario(string CodigoUsuario, string CodigoProyecto)
     {
         EUsuarioCompleto eEUsuarioCompleto;
-        EGUsuario eGUsuario = Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
-        EUsuarioNetvalle eUsuarioNetvalle = Obtener_UsuarioNetvalle_O_CodigoUsuario(eGUsuario.CodigoUsuario);
-        EGUsuarioProyecto eGProyectoUsuario = Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(CodigoUsuario, CodigoProyecto);
-        EGUsuarioRol eGUsuarioRol = Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(eGUsuario.CodigoUsuario, eGProyectoUsuario.CodigoRol);
+        EGUsuario eGUsuario = Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);//Busca usuario en nuestro sistema
+        EUsuarioNetvalle eUsuarioNetvalle = Obtener_UsuarioNetvalle_O_CodigoUsuario(eGUsuario.CodigoUsuario);// Busca la informacion del usuario de Netvalle
+        EGUsuarioProyecto eGProyectoUsuario = Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(CodigoUsuario, CodigoProyecto);//Busca el proyecto en el que participa el usuario
+        EGUsuarioRol eGUsuarioRol = Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(eGUsuario.CodigoUsuario, eGProyectoUsuario.CodigoRol);// Busca el rol que ocupa en el proyecto
         try
         {
             eEUsuarioCompleto = new EUsuarioCompleto();
-            eEUsuarioCompleto.NombreCompleto = eUsuarioNetvalle.NombresUsuarioNetvalle + " " + eUsuarioNetvalle.ApellidosUsuarioNetvalle;
+            eEUsuarioCompleto.NombreCompleto = eUsuarioNetvalle.NombreCompletoUsuarioNetvalle;
             eEUsuarioCompleto.RolNetvalle = eUsuarioNetvalle.RolUsuarioNetvalle;
-            eEUsuarioCompleto.RolProyecto = Obtener_GRol_O_Todo().Where(w => w.CodigoRol == eGUsuarioRol.CodigoRol).Select(s => s.DescripcionRol).FirstOrDefault();
+            eEUsuarioCompleto.RolProyecto = Obtener_GRol_O_Todo().Where(w => w.CodigoRol == eGUsuarioRol.CodigoRol).Select(s => s.DescripcionRol).FirstOrDefault();// Saca la descripcion del rol
             eEUsuarioCompleto.Carrera = eUsuarioNetvalle.CarreraUsuarioNetvalle;
             eEUsuarioCompleto.Facultad = eUsuarioNetvalle.FacultadUsuarioNetvalle;
             eEUsuarioCompleto.Sede = eUsuarioNetvalle.SedeUsuarioNetvalle;
             eEUsuarioCompleto.Direccion = eUsuarioNetvalle.DireccionUsuarioNetvalle;
             eEUsuarioCompleto.DireccionTrabajo = eUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle;
-            eEUsuarioCompleto.Celular = eUsuarioNetvalle.CelularUsuarioNetvalle;
-
             return eEUsuarioCompleto;
         }
         catch (Exception)

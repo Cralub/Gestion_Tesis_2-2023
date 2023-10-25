@@ -9,7 +9,6 @@ using System.Web.UI.WebControls;
 public partial class WebForm_Usuario_PInformacionUsuario : System.Web.UI.Page
 {
     #region Controladores
-    
     CUsuarioNetvalle cUsuarioNetvalle = new CUsuarioNetvalle();
     #endregion
 
@@ -22,13 +21,13 @@ public partial class WebForm_Usuario_PInformacionUsuario : System.Web.UI.Page
 
                 var usuario = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(Session["CodigoUsuario"] as string);
 
-                lblNombreCompleto.Text = usuario.NombresUsuarioNetvalle + " " + usuario.ApellidosUsuarioNetvalle;
+                lblNombreCompleto.Text = usuario.NombreCompletoUsuarioNetvalle;
                 lblCarrera.Text = usuario.CarreraUsuarioNetvalle;
                 lblFacultad.Text = usuario.FacultadUsuarioNetvalle;
                 lblSede.Text = usuario.SedeUsuarioNetvalle;
                 lblDireccion.Text = usuario.DireccionUsuarioNetvalle;
                 lblDireccionTrabajo.Text = usuario.DireccionTrabajoUsuarioNetvalle;
-                lblCelular.Text = usuario.CelularUsuarioNetvalle;
+                lblCelular.Text = "";
             }
         }
     }

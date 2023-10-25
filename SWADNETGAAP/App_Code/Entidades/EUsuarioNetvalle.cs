@@ -10,9 +10,7 @@ public class EUsuarioNetvalle
     [DataMember]
     public string CodigoUsuarioNetvalle { get; set; }
     [DataMember]
-    public string NombresUsuarioNetvalle { get; set; }
-    [DataMember]
-    public string ApellidosUsuarioNetvalle { get; set; }
+    public string NombreCompletoUsuarioNetvalle { get; set; }   
     [DataMember]
     public string RolUsuarioNetvalle { get; set; }
     [DataMember]
@@ -24,9 +22,7 @@ public class EUsuarioNetvalle
     [DataMember]
     public string DireccionUsuarioNetvalle { get; set; }
     [DataMember]
-    public string DireccionTrabajoUsuarioNetvalle { get; set; }
-    [DataMember]
-    public string CelularUsuarioNetvalle { get; set; }
+    public string DireccionTrabajoUsuarioNetvalle { get; set; }    
     [DataMember]
     public string EstadoUsuarioNetvalle { get; set; }
     #endregion
@@ -36,20 +32,15 @@ public class EUsuarioNetvalle
     public EUsuarioNetvalle()
     {
         CodigoUsuarioNetvalle = string.Empty;
-
-        NombresUsuarioNetvalle = string.Empty;
-        ApellidosUsuarioNetvalle = string.Empty;
+        NombreCompletoUsuarioNetvalle = string.Empty;        
         RolUsuarioNetvalle = string.Empty;
-
         
         CarreraUsuarioNetvalle = string.Empty;
         FacultadUsuarioNetvalle = string.Empty;
         SedeUsuarioNetvalle = string.Empty;
-        DireccionUsuarioNetvalle = string.Empty;
-        CelularUsuarioNetvalle = string.Empty;
+        DireccionUsuarioNetvalle = string.Empty;        
 
         DireccionTrabajoUsuarioNetvalle = string.Empty;
-
         EstadoUsuarioNetvalle = string.Empty;
     }
     #endregion
