@@ -12,7 +12,6 @@
             <asp:BoundField DataField="CodigoUsuario" HeaderText="CodigoUsuario" SortExpression="CodigoUsuario" />
             <asp:TemplateField HeaderText="Editar">
                 <ItemTemplate>
-                    <!--Make an edito button that sends the id (the value of the first colum) to the page PEditarUsuarioRol and the value of the codigoUsuario too-->
                     <asp:Button ID="btnEditar" runat="server" Text="Editar" PostBackUrl='<%# "PEditarUsuarioRol.aspx?CodigoUsuarioRol=" + Eval("CodigoUsuarioRol") + "&CodigoUsuario=" + Eval("CodigoUsuario") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
