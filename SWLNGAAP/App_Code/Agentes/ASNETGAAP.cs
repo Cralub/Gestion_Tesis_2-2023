@@ -176,11 +176,22 @@ public class ASNETGAAP
     #endregion
 
     #region Tabla: GProyecto
-    public void Insertar_GProyecto_I(EGProyecto eGProyecto)
+    public string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto)
     {
         try
         {
-            SWADNETGAAP.Insertar_GProyecto_I(eGProyecto);
+            return SWADNETGAAP.Obtener_GProyecto_O_ExisteCodigoProyecto(codigoProyecto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Insertar_GProyecto_I(EGProyecto proyecto)
+    {
+        try
+        {
+            SWADNETGAAP.Insertar_GProyecto_I(proyecto);
         }
         catch (Exception)
         {
@@ -225,11 +236,11 @@ public class ASNETGAAP
     #endregion
 
     #region Tabla: GEtapa
-    public void Insertar_GEtapa_I(EGEtapa eGEtapa)
+    public void Insertar_GEtapa_I(EGEtapa etapa)
     {
         try
         {
-            SWADNETGAAP.Insertar_GEtapa_I(eGEtapa);
+            SWADNETGAAP.Insertar_GEtapa_I(etapa);
         }
         catch (Exception)
         {
@@ -249,11 +260,9 @@ public class ASNETGAAP
     }
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
     {
-        int res = 0;
         try
         {
-            res = SWADNETGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
-            return res;
+            return SWADNETGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
         }
         catch (Exception)
         {
@@ -301,11 +310,11 @@ public class ASNETGAAP
     #endregion
 
     #region Tabla: GSubEtapa
-    public void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa)
+    public void Insertar_GSubEtapa_I(EGSubEtapa subEtapa)
     {
         try
         {
-            SWADNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
+            SWADNETGAAP.Insertar_GSubEtapa_I(subEtapa);
         }
         catch (Exception)
         {
@@ -325,11 +334,9 @@ public class ASNETGAAP
     }
     public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
     {
-        int res = 0;
         try
         {
-            res = SWADNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-            return res;
+            return SWADNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
         }
         catch (Exception)
         {

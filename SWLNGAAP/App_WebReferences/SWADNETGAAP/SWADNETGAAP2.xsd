@@ -160,6 +160,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Obtener_GProyecto_O_ExisteCodigoProyecto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoProyecto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_O_ExisteCodigoProyectoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Obtener_GProyecto_O_ExisteCodigoProyectoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insertar_GProyecto_I">
     <xs:complexType>
       <xs:sequence>
@@ -293,7 +307,7 @@
   <xs:element name="Insertar_GSubEtapa_I">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="eGSubEtapa" nillable="true" type="q20:EGSubEtapa" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="subEtapa" nillable="true" type="q20:EGSubEtapa" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

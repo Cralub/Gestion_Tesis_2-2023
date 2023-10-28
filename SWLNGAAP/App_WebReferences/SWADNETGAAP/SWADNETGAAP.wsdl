@@ -79,6 +79,12 @@
   <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioProyecto_AResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_ExisteCodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_ExisteCodigoProyectoResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Insertar_GProyecto_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GProyecto_I" />
   </wsdl:message>
@@ -326,6 +332,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O_ExisteCodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_ExisteCodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_ExisteCodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GProyecto_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_I" message="tns:ISWADNETGAAP_Insertar_GProyecto_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_IResponse" message="tns:ISWADNETGAAP_Insertar_GProyecto_I_OutputMessage" />
@@ -562,6 +572,15 @@
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GUsuarioProyecto_A">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O_ExisteCodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_ExisteCodigoProyecto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

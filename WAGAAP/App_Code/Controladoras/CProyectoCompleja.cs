@@ -88,11 +88,11 @@ public class CProyectoCompleja
             throw;
         }
     }
-    public void Insertar_ProyectoCompleto(string CodigoProyecto, string CodigoUsuario, string CodigoDirector, int DiasEtapa, int DiasSubEtapa)
+    public void Insertar_ProyectoCompleto(string codigoProyecto, int diasEtapa, int diasSubEtapa, string codigoUsuario, string codigoDirector)
     {
         try
         {
-            lNServicio.Insertar_ProyectoCompleto(CodigoProyecto, CodigoUsuario, CodigoDirector, DiasEtapa, DiasSubEtapa);
+            lNServicio.Insertar_ProyectoCompleto(codigoProyecto, diasEtapa, diasSubEtapa, codigoUsuario, codigoDirector);
         }
         catch (Exception)
         {

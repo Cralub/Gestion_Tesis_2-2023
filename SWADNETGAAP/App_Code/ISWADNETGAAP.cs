@@ -37,7 +37,9 @@ public interface ISWADNETGAAP
 
     #region Tabla: GProyecto
     [OperationContract]
-    void Insertar_GProyecto_I(EGProyecto eGProyecto);
+    string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto);
+    [OperationContract]
+    void Insertar_GProyecto_I(EGProyecto proyecto);
     [OperationContract]
     List<EGProyecto> Obtener_GProyecto_O_Todo();
     [OperationContract]
@@ -63,7 +65,7 @@ public interface ISWADNETGAAP
 
     #region Tabla: GSubEtapa
     [OperationContract]
-    void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa);
+    void Insertar_GSubEtapa_I(EGSubEtapa subEtapa);
     [OperationContract]
     List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int CodigoEtapa);
     [OperationContract]

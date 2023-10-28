@@ -36,7 +36,9 @@ public interface ISWLNGAAP
 
     #region GProyecto
     [OperationContract]
-    void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto);
+    string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto);
+    [OperationContract]
+    void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string objetivosEspecificosProyecto, string alcanceProyecto, string enlaceDocumentoProyecto, byte numeroRevisiones);
     [OperationContract]
     List<EGProyecto> Obtener_GProyecto_O_Todo();
     [OperationContract]
@@ -47,9 +49,7 @@ public interface ISWLNGAAP
 
     #region GEtapa
     [OperationContract]
-    void Insertar_GEtapa_I(int CodigoEtapa, byte NumeroEtapa, DateTime FechaInicioEtapa, DateTime FechaDefinidaEtapa, DateTime FechaFinEtapa, string CodigoProyecto, char EstadoEtapa);
-    [OperationContract]
-    int Obtener_GEtapa_O_SiguienteCodigoEtapa();
+    void Insertar_GEtapa_I(byte numeroEtapa, DateTime fechaInicioEtapa, DateTime fechaDefinidaEtapa, DateTime fechaFinEtapa, string codigoProyecto, char estadoEtapa);
     [OperationContract]
     EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto);
     [OperationContract]
@@ -60,9 +60,7 @@ public interface ISWLNGAAP
 
     #region GSubEtapa
     [OperationContract]
-    void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa);
-    [OperationContract]
-    int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+    void Insertar_GSubEtapa_I(byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa);
     [OperationContract]
     EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa);
     [OperationContract]
@@ -137,7 +135,7 @@ public interface ISWLNGAAP
     [OperationContract]
     List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string CodigoProyecto);
     [OperationContract]
-    void Insertar_ProyectoCompleto(string CodigoProyecto, string CodigoUsuario, string CodigoDirector, int DiasEtapa, int DiasSubEtapa);
+    void Insertar_ProyectoCompleto(string codigoProyecto, int diasEtapa, int diasSubEtapa, string codigoUsuario, string codigoDirector);
     #endregion
     #region EUsuarioCompleto
     [OperationContract]

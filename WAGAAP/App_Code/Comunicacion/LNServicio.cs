@@ -201,13 +201,27 @@ public class LNServicio
     #endregion
 
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
+                return clienteSWLNGAAP.Obtener_GProyecto_O_ExisteCodigoProyecto(codigoProyecto);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string objetivosEspecificosProyecto, string alcanceProyecto, string enlaceDocumentoProyecto, byte numeroRevisiones)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, objetivosEspecificosProyecto, alcanceProyecto, enlaceDocumentoProyecto, numeroRevisiones);
             }
         }
         catch (Exception)
@@ -264,35 +278,19 @@ public class LNServicio
     #endregion
 
     #region GEtapa
-    public void Insertar_GEtapa_I(int CodigoEtapa, byte NumeroEtapa, DateTime FechaInicioEtapa, DateTime FechaDefinidaEtapa, DateTime FechaFinEtapa, string CodigoProyecto, char EstadoEtapa)
+    public void Insertar_GEtapa_I(byte numeroEtapa, DateTime fechaInicioEtapa, DateTime fechaDefinidaEtapa, DateTime fechaFinEtapa, string codigoProyecto, char estadoEtapa)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GEtapa_I(CodigoEtapa, NumeroEtapa, FechaInicioEtapa, FechaDefinidaEtapa, FechaFinEtapa, CodigoProyecto, EstadoEtapa);
+                clienteSWLNGAAP.Insertar_GEtapa_I(numeroEtapa, fechaInicioEtapa, fechaDefinidaEtapa, fechaFinEtapa, codigoProyecto, estadoEtapa);
             }
         }
         catch (Exception)
         {
             throw;
         }
-    }
-    public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
-    {
-        int resultado = 0;
-        try
-        {
-            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
-            {
-                resultado = clienteSWLNGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
-            }
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        return resultado;
     }
     public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
     {
@@ -343,35 +341,19 @@ public class LNServicio
     #endregion
 
     #region GSubEtapa
-    public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
+    public void Insertar_GSubEtapa_I(byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GSubEtapa_I(CodigoSubEtapa, NumeroSubEtapa, FechaInicioSubEtapa, FechaDefinidaSubEtapa, FechaFinSubEtapa, CodigoUsuarioFirma, CodigoEtapa, EstadoSubEtapa);
+                clienteSWLNGAAP.Insertar_GSubEtapa_I(numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, codigoUsuarioFirma, codigoEtapa, estadoSubEtapa);
             }
         }
         catch (Exception)
         {
             throw;
         }
-    }
-    public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
-    {
-        int resultado = 0;
-        try
-        {
-            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
-            {
-                resultado = clienteSWLNGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-            }
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        return resultado;
     }
     public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
     {
@@ -801,11 +783,11 @@ public class LNServicio
             throw;
         }
     }
-    public void Insertar_ProyectoCompleto(string CodigoProyecto, string CodigoUsuario, string CodigoDirector, int DiasEtapa, int DiasSubEtapa)
+    public void Insertar_ProyectoCompleto(string codigoProyecto, int diasEtapa, int diasSubEtapa, string codigoUsuario, string codigoDirector)
     {
         using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
         {
-            clienteSWLNGAAP.Insertar_ProyectoCompleto(CodigoProyecto, CodigoUsuario, CodigoDirector, DiasEtapa, DiasSubEtapa);
+            clienteSWLNGAAP.Insertar_ProyectoCompleto(codigoProyecto, diasEtapa, diasSubEtapa, codigoUsuario, codigoDirector);
         }
     }
     #endregion

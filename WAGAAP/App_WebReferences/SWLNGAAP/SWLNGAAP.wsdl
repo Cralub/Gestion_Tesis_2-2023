@@ -74,6 +74,12 @@
   <wsdl:message name="ISWLNGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioProyecto_AResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_ExisteCodigoProyecto" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_ExisteCodigoProyectoResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Insertar_GProyecto_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GProyecto_I" />
   </wsdl:message>
@@ -104,12 +110,6 @@
   <wsdl:message name="ISWLNGAAP_Insertar_GEtapa_I_OutputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GEtapa_IResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_SiguienteCodigoEtapa" />
-  </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_SiguienteCodigoEtapaResponse" />
-  </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo" />
   </wsdl:message>
@@ -133,12 +133,6 @@
   </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Insertar_GSubEtapa_I_OutputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GSubEtapa_IResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa" />
-  </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_SiguienteCodigoSubEtapaResponse" />
   </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo" />
@@ -347,6 +341,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuarioProyecto_A" message="tns:ISWLNGAAP_Actualizar_GUsuarioProyecto_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuarioProyecto_AResponse" message="tns:ISWLNGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O_ExisteCodigoProyecto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GProyecto_O_ExisteCodigoProyecto" message="tns:ISWLNGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GProyecto_O_ExisteCodigoProyectoResponse" message="tns:ISWLNGAAP_Obtener_GProyecto_O_ExisteCodigoProyecto_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GProyecto_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GProyecto_I" message="tns:ISWLNGAAP_Insertar_GProyecto_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GProyecto_IResponse" message="tns:ISWLNGAAP_Insertar_GProyecto_I_OutputMessage" />
@@ -367,10 +365,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GEtapa_I" message="tns:ISWLNGAAP_Insertar_GEtapa_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GEtapa_IResponse" message="tns:ISWLNGAAP_Insertar_GEtapa_I_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GEtapa_O_SiguienteCodigoEtapa">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GEtapa_O_SiguienteCodigoEtapa" message="tns:ISWLNGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GEtapa_O_SiguienteCodigoEtapaResponse" message="tns:ISWLNGAAP_Obtener_GEtapa_O_SiguienteCodigoEtapa_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo" message="tns:ISWLNGAAP_Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivoResponse" message="tns:ISWLNGAAP_Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo_OutputMessage" />
@@ -386,10 +380,6 @@
     <wsdl:operation name="Insertar_GSubEtapa_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GSubEtapa_I" message="tns:ISWLNGAAP_Insertar_GSubEtapa_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GSubEtapa_IResponse" message="tns:ISWLNGAAP_Insertar_GSubEtapa_I_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa" message="tns:ISWLNGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GSubEtapa_O_SiguienteCodigoSubEtapaResponse" message="tns:ISWLNGAAP_Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo" message="tns:ISWLNGAAP_Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo_InputMessage" />
@@ -601,6 +591,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Obtener_GProyecto_O_ExisteCodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GProyecto_O_ExisteCodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GProyecto_I">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Insertar_GProyecto_I" style="document" />
       <wsdl:input>
@@ -646,15 +645,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GEtapa_O_SiguienteCodigoEtapa">
-      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GEtapa_O_SiguienteCodigoEtapa" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo" style="document" />
       <wsdl:input>
@@ -684,15 +674,6 @@
     </wsdl:operation>
     <wsdl:operation name="Insertar_GSubEtapa_I">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Insertar_GSubEtapa_I" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa">
-      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

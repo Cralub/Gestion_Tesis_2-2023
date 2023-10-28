@@ -32,22 +32,11 @@ public class CSubEtapa
     #region Métodos públicos
 
     #region GSubEtapa
-    public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
+    public void Insertar_GSubEtapa_I(byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa)
     {
         try
         {
-            lNServicio.Insertar_GSubEtapa_I(CodigoSubEtapa, NumeroSubEtapa, FechaInicioSubEtapa, FechaDefinidaSubEtapa, FechaFinSubEtapa, CodigoUsuarioFirma, CodigoEtapa, EstadoSubEtapa);
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-    }
-    public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
-    {
-        try
-        {
-            return lNServicio.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+            lNServicio.Insertar_GSubEtapa_I(numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, codigoUsuarioFirma, codigoEtapa, estadoSubEtapa);
         }
         catch (Exception)
         {

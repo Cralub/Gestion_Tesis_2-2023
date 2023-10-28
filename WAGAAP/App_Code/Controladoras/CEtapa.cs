@@ -32,23 +32,11 @@ public class CEtapa
     #region Métodos públicos
 
     #region GEtapa
-    public void Insertar_GEtapa_I(int CodigoEtapa, byte NumeroEtapa, DateTime FechaInicioEtapa, DateTime FechaDefinidaEtapa, DateTime FechaFinEtapa, string CodigoProyecto, char EstadoEtapa)
+    public void Insertar_GEtapa_I(byte numeroEtapa, DateTime fechaInicioEtapa, DateTime fechaDefinidaEtapa, DateTime fechaFinEtapa, string codigoProyecto, char estadoEtapa)
     {
         try
         {
-            lNServicio.Insertar_GEtapa_I(CodigoEtapa, NumeroEtapa, FechaInicioEtapa, FechaDefinidaEtapa, FechaFinEtapa, CodigoProyecto, EstadoEtapa);
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-    }
-    public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
-    {
-        try
-        {
-            return lNServicio.Obtener_GEtapa_O_SiguienteCodigoEtapa();
-
+            lNServicio.Insertar_GEtapa_I(numeroEtapa, fechaInicioEtapa, fechaDefinidaEtapa, fechaFinEtapa, codigoProyecto, estadoEtapa);
         }
         catch (Exception)
         {

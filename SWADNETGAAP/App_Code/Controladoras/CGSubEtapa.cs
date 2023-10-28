@@ -19,9 +19,9 @@ public class CGSubEtapa
     #endregion
 
     #region Métodos públicos
-    public void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa)
+    public void Insertar_GSubEtapa_I(EGSubEtapa subEtapa)
     {
-        adGSubEtapa.Insertar_GSubEtapa_I(eGSubEtapa);
+        adGSubEtapa.Insertar_GSubEtapa_I(subEtapa);
     }
     public List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int CodigoEtapa)
     {

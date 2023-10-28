@@ -78,10 +78,15 @@ public class SWADNETGAAP : ISWADNETGAAP
     #endregion
 
     #region Tabla: GProyecto
-    public void Insertar_GProyecto_I(EGProyecto eGProyecto)
+    public string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto)
     {
         CGProyecto cGProyecto = new CGProyecto();
-        cGProyecto.Insertar_GProyecto_I(eGProyecto);
+        return cGProyecto.Obtener_GProyecto_O_ExisteCodigoProyecto(codigoProyecto);
+    }
+    public void Insertar_GProyecto_I(EGProyecto proyecto)
+    {
+        CGProyecto cGProyecto = new CGProyecto();
+        cGProyecto.Insertar_GProyecto_I(proyecto);
     }
     public List<EGProyecto> Obtener_GProyecto_O_Todo()
     {
@@ -138,10 +143,10 @@ public class SWADNETGAAP : ISWADNETGAAP
     #endregion
 
     #region Tabla: GSubEtapa
-    public void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa)
+    public void Insertar_GSubEtapa_I(EGSubEtapa subEtapa)
     {
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
-        cGSubEtapa.Insertar_GSubEtapa_I(eGSubEtapa);
+        cGSubEtapa.Insertar_GSubEtapa_I(subEtapa);
     }
     public List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int CodigoEtapa)
     {

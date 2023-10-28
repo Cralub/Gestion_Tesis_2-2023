@@ -32,11 +32,22 @@ public class CProyecto
     #region Métodos públicos
 
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto)
     {
         try
         {
-            lNServicio.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
+            return lNServicio.Obtener_GProyecto_O_ExisteCodigoProyecto(codigoProyecto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string objetivosEspecificosProyecto, string alcanceProyecto, string enlaceDocumentoProyecto, byte numeroRevisiones)
+    {
+        try
+        {
+            lNServicio.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, objetivosEspecificosProyecto, alcanceProyecto, enlaceDocumentoProyecto, numeroRevisiones);
 
         }
         catch (Exception)

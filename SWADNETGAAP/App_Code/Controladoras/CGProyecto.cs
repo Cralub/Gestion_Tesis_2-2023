@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Descripción breve de CGProyecto
@@ -17,9 +19,17 @@ public class CGProyecto
     #endregion
 
     #region Métodos públicos
-    public void Insertar_GProyecto_I(EGProyecto eGProyecto)
+    public string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto)
     {
-        adGProyecto.Insertar_GProyecto_I(eGProyecto);
+        Object res = adGProyecto.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto);
+        if (res.ToString().IsNullOrEmpty())
+            return "OK";
+        else
+            return (string)res;
+    }
+    public void Insertar_GProyecto_I(EGProyecto proyecto)
+    {
+        adGProyecto.Insertar_GProyecto_I(proyecto);
     }
     public List<EGProyecto> Obtener_GProyecto_O_Todo()
     {

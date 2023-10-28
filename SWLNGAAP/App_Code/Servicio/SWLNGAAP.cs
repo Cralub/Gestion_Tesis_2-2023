@@ -75,10 +75,15 @@ public class SWLNGAAP : ISWLNGAAP
     #endregion
 
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public string Obtener_GProyecto_O_ExisteCodigoProyecto(string codigoProyecto)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_GProyecto_I(CodigoProyecto,  ModalidadProyecto,  TituloProyecto,  ObjetivoGeneralProyecto,  EnlaceDocumentoProyecto,  EstadoProyecto);
+        return cGAAP.Obtener_GProyecto_O_ExisteCodigoProyecto(codigoProyecto);
+    }
+    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string objetivosEspecificosProyecto, string alcanceProyecto, string enlaceDocumentoProyecto, byte numeroRevisiones)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, objetivosEspecificosProyecto, alcanceProyecto, enlaceDocumentoProyecto, numeroRevisiones);
     }
     public List<EGProyecto> Obtener_GProyecto_O_Todo()
     {
@@ -98,15 +103,10 @@ public class SWLNGAAP : ISWLNGAAP
     #endregion
 
     #region GEtapa
-    public void Insertar_GEtapa_I(int CodigoEtapa, byte NumeroEtapa, DateTime FechaInicioEtapa, DateTime FechaDefinidaEtapa, DateTime FechaFinEtapa, string CodigoProyecto, char EstadoEtapa)
+    public void Insertar_GEtapa_I(byte numeroEtapa, DateTime fechaInicioEtapa, DateTime fechaDefinidaEtapa, DateTime fechaFinEtapa, string codigoProyecto, char estadoEtapa)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_GEtapa_I(CodigoEtapa,  NumeroEtapa,  FechaInicioEtapa,  FechaDefinidaEtapa,  FechaFinEtapa,  CodigoProyecto,  EstadoEtapa);
-    }
-    public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
-    {
-        CGAAP cGAAP = new CGAAP();
-        return cGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
+        cGAAP.Insertar_GEtapa_I(numeroEtapa, fechaInicioEtapa, fechaDefinidaEtapa, fechaFinEtapa, codigoProyecto, estadoEtapa);
     }
     public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
     {
@@ -130,15 +130,10 @@ public class SWLNGAAP : ISWLNGAAP
     #endregion
 
     #region GSubEtapa
-    public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
+    public void Insertar_GSubEtapa_I(byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_GSubEtapa_I(CodigoSubEtapa,  NumeroSubEtapa,  FechaInicioSubEtapa,  FechaDefinidaSubEtapa,  FechaFinSubEtapa,  CodigoUsuarioFirma,  CodigoEtapa,  EstadoSubEtapa);
-    }
-    public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
-    {
-        CGAAP cGAAP = new CGAAP();
-        return cGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+        cGAAP.Insertar_GSubEtapa_I(numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, codigoUsuarioFirma, codigoEtapa, estadoSubEtapa);
     }
     public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
     {
@@ -289,10 +284,10 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(CodigoProyecto);
     }
-    public void Insertar_ProyectoCompleto(string CodigoProyecto, string CodigoUsuario, string CodigoDirector, int DiasEtapa, int DiasSubEtapa)
+    public void Insertar_ProyectoCompleto(string codigoProyecto, int diasEtapa, int diasSubEtapa, string codigoUsuario, string codigoDirector)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_ProyectoCompleto(CodigoProyecto, CodigoUsuario, CodigoDirector, DiasEtapa, DiasSubEtapa);
+        cGAAP.Insertar_ProyectoCompleto(codigoProyecto, diasEtapa, diasSubEtapa, codigoUsuario, codigoDirector);
     }
     #endregion
     #endregion

@@ -9,28 +9,28 @@ using System.Data.Common;
 public class ADGSubEtapa
 {
     #region Métodos públicos
-    public void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa)
+    public void Insertar_GSubEtapa_I(EGSubEtapa subEtapa)
     {
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GSubEtapa_I");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoSubEtapa", DbType.Int32, eGSubEtapa.CodigoSubEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoEtapa", DbType.Int32, eGSubEtapa.CodigoEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuarioFirma", DbType.StringFixedLength, SDatosPA.FirmaPorDefecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "NumeroSubEtapa", DbType.Byte, eGSubEtapa.NumeroSubEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaInicioSubEtapa", DbType.DateTime, eGSubEtapa.FechaInicioSubEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaDefinidaSubEtapa", DbType.DateTime, eGSubEtapa.FechaDefinidaSubEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaFinSubEtapa", DbType.DateTime, eGSubEtapa.FechaFinSubEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoSubEtapa", DbType.StringFixedLength, eGSubEtapa.EstadoSubEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
-            BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GSubEtapa_I");
+            bdNETGAAP.AddInParameter(comandoBD, "CodigoSubEtapa", DbType.Int32, subEtapa.CodigoSubEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "CodigoEtapa", DbType.Int32, subEtapa.CodigoEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "CodigoUsuarioFirma", DbType.String, SDatosPA.FirmaPorDefecto);
+            bdNETGAAP.AddInParameter(comandoBD, "NumeroSubEtapa", DbType.Byte, subEtapa.NumeroSubEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaInicioSubEtapa", DbType.DateTime, subEtapa.FechaInicioSubEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaDefinidaSubEtapa", DbType.DateTime, subEtapa.FechaDefinidaSubEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaFinSubEtapa", DbType.DateTime, subEtapa.FechaFinSubEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "EstadoSubEtapa", DbType.StringFixedLength, subEtapa.EstadoSubEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            bdNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            throw ex;
+            throw;
         }
     }
     public DTOGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa(int CodigoEtapa)
@@ -55,13 +55,13 @@ public class ADGSubEtapa
         Object res = null;
         try
         {
-            Database database = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = database.GetStoredProcCommand("GSubEtapa_O_UltimoCodigoSubEtapa");
-            res =database.ExecuteScalar(dbCommand);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GSubEtapa_O_UltimoCodigoSubEtapa");
+            res = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            throw ex;
+            throw;
         }
         return res;
     }

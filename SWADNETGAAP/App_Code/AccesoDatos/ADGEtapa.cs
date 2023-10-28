@@ -13,23 +13,23 @@ public class ADGEtapa
     {
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GEtapa_I");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoEtapa", DbType.Int32, etapa.CodigoEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "NumeroEtapa", DbType.Byte, etapa.NumeroEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaInicioEtapa", DbType.DateTime, etapa.FechaInicioEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaDefinidaEtapa", DbType.DateTime, etapa.FechaDefinidaEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaFinEtapa", DbType.DateTime, etapa.FechaFinEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoProyecto", DbType.StringFixedLength, etapa.CodigoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoEtapa", DbType.StringFixedLength, etapa.EstadoEtapa);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
-            BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GEtapa_I");
+            bdNETGAAP.AddInParameter(comandoBD, "CodigoEtapa", DbType.Int32, etapa.CodigoEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "NumeroEtapa", DbType.Byte, etapa.NumeroEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaInicioEtapa", DbType.DateTime, etapa.FechaInicioEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaDefinidaEtapa", DbType.DateTime, etapa.FechaDefinidaEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaFinEtapa", DbType.DateTime, etapa.FechaFinEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, etapa.CodigoProyecto);
+            bdNETGAAP.AddInParameter(comandoBD, "EstadoEtapa", DbType.StringFixedLength, etapa.EstadoEtapa);
+            bdNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            bdNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            throw ex;
+            throw;
         }
     }
     public Object Obtener_GEtapa_O_UltimoCodigoEtapa()
@@ -37,9 +37,9 @@ public class ADGEtapa
         Object res = null;
         try
         {
-            Database database = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = database.GetStoredProcCommand("GEtapa_O_UltimoCodigoEtapa");
-            res = database.ExecuteScalar(dbCommand);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GEtapa_O_UltimoCodigoEtapa");
+            res = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception ex)
         {
