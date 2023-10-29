@@ -76,6 +76,11 @@ public class CGUsuarioRol
     {
         aDGUsuarioRol.Actualizar_GUsuarioRol_A(eGUsuarioRol);
     }
+
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
+    {
+        aDGUsuarioRol.Eliminar_GusuarioRol_E(codigoUsuarioRol);
+    }
     #endregion
 
 }

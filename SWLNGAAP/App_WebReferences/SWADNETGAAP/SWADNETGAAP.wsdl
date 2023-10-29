@@ -43,6 +43,12 @@
   <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioRol_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioRol_AResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Eliminar_GUsuarioRol_E_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GUsuarioRol_E" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Eliminar_GUsuarioRol_E_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GUsuarioRol_EResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Insertar_GUsuarioProyecto_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GUsuarioProyecto_I" />
   </wsdl:message>
@@ -78,6 +84,12 @@
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GUsuarioProyecto_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Eliminar_GUsuarioProyecto_E_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GUsuarioProyecto_E" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Eliminar_GUsuarioProyecto_E_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GUsuarioProyecto_EResponse" />
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Insertar_GProyecto_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GProyecto_I" />
@@ -302,6 +314,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioRol_A" message="tns:ISWADNETGAAP_Actualizar_GUsuarioRol_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioRol_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuarioRol_A_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Eliminar_GUsuarioRol_E">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GUsuarioRol_E" message="tns:ISWADNETGAAP_Eliminar_GUsuarioRol_E_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GUsuarioRol_EResponse" message="tns:ISWADNETGAAP_Eliminar_GUsuarioRol_E_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GUsuarioProyecto_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_I" message="tns:ISWADNETGAAP_Insertar_GUsuarioProyecto_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_IResponse" message="tns:ISWADNETGAAP_Insertar_GUsuarioProyecto_I_OutputMessage" />
@@ -325,6 +341,10 @@
     <wsdl:operation name="Actualizar_GUsuarioProyecto_A">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuarioProyecto_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_GUsuarioProyecto_E">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GUsuarioProyecto_E" message="tns:ISWADNETGAAP_Eliminar_GUsuarioProyecto_E_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GUsuarioProyecto_EResponse" message="tns:ISWADNETGAAP_Eliminar_GUsuarioProyecto_E_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Insertar_GProyecto_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_I" message="tns:ISWADNETGAAP_Insertar_GProyecto_I_InputMessage" />
@@ -515,6 +535,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Eliminar_GUsuarioRol_E">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Eliminar_GUsuarioRol_E" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GUsuarioProyecto_I">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Insertar_GUsuarioProyecto_I" style="document" />
       <wsdl:input>
@@ -562,6 +591,15 @@
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GUsuarioProyecto_A">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuarioProyecto_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_GUsuarioProyecto_E">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Eliminar_GUsuarioProyecto_E" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

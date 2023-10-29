@@ -116,6 +116,23 @@ public class ADGUsuarioRol
         }
         return dtoGUsuarioRol;
     }
+
+    public void Eliminar_GusuarioRol_E(int CodigoUsuarioRol)
+    {
+        try
+        {
+            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuarioRol_E");
+            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuarioRol", DbType.Int32, CodigoUsuarioRol);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Inactivo);
+            BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+
+    }
     #endregion
 
 }

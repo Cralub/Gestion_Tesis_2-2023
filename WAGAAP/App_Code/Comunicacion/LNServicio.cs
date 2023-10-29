@@ -119,6 +119,20 @@ public class LNServicio
             throw;
         }
     }
+    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Eliminar_GUsuarioRol_E(CodigoUsuarioRol);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
@@ -191,6 +205,21 @@ public class LNServicio
             {
                 clienteSWLNGAAP.Actualizar_GUsuarioProyecto_A(CodigoUsuarioProyecto, CodigoProyecto, CodigoUsuario, CodigoRol, EstadoUsuarioProyecto);
             }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    {
+        using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+        {
+            clienteSWLNGAAP.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
+        }
+        try
+        {
+            
         }
         catch (Exception)
         {

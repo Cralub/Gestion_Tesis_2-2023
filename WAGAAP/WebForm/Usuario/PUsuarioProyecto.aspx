@@ -32,6 +32,11 @@
                         <asp:Button ID="btnEditarRol" runat="server" Text="Editar Rol" CommandName="Editar"  PostBackUrl='<%# "PEditarRolUsuarioProyecto.aspx?CodigoUsuarioProyecto=" + Eval("CodigoUsuarioProyecto") + "&CodigoRol=" + Eval("CodigoRol") + "&CodigoUsuario="+Eval("CodigoUsuario") + "&CodigoProyecto=" + Eval("CodigoProyecto")%>'/>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button ID="btnEliminarUsuarioProyecto" runat="server" Text="Eliminar Usuario Proyecto" CommandName="Eliminar" PostBackUrl='<%#"PEliminarUsuarioProyecto.aspx?CodigoUsuarioProyecto=" + Eval("CodigoUsuarioProyecto") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </div>

@@ -38,6 +38,11 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
         cGUsuarioRol.Actualizar_GUsuarioRol_A(eGUsuarioRol);
     }
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
+    {
+        CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
+        cGUsuarioRol.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
+    }
     #endregion
     #region Tabla: GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(EGUsuarioProyecto eGUsuarioProyecto)
@@ -73,6 +78,11 @@ public class SWADNETGAAP : ISWADNETGAAP
     {
         CGUsuarioProyecto cGUsuarioProyecto = new CGUsuarioProyecto();
         cGUsuarioProyecto.Actualizar_GUsuarioProyecto_A(eGUsuarioProyecto);
+    }
+    public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
+    {
+        CGUsuarioProyecto cGUsuarioProyecto = new CGUsuarioProyecto();
+        cGUsuarioProyecto.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
     }
     #endregion
     #region Tabla: GProyecto

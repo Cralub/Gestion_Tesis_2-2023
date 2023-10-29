@@ -40,6 +40,11 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_GUsuarioRol_A(CodigoUsuario, CodigoRol, CodigoUsuarioRol);
     }
+    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Eliminar_GusuarioRol_E(CodigoUsuarioRol);
+    }
     #endregion
     #region GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
@@ -70,6 +75,11 @@ public class SWLNGAAP : ISWLNGAAP
     {
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_GUsuarioProyecto_A(CodigoUsuarioProyecto, CodigoProyecto, CodigoUsuario, CodigoRol,EstadoUsuarioProyecto);
+    }
+    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Eliminar_GusuarioRol_E(CodigoUsuarioProyecto);
     }
     #endregion
     #region GProyecto

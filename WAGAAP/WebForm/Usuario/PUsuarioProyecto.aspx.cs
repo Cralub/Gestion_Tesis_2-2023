@@ -129,6 +129,16 @@ public partial class WebForm_Usuario_PInsertarUsuario : System.Web.UI.Page
 
     protected void gvListaUsuariosProyecto_RowCommandbtn(object sender, GridViewCommandEventArgs e)
     {
+        //when command name Eliminar, take the codigoUsuarioProyecto from the row and delete it
+        if (e.CommandName == "Eliminar")
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = gvListaUsuariosProyecto.Rows[index];
+            string codigoUsuarioProyecto = row.Cells[0].Text;
+            cUsuarioProyecto.Eliminar_GUsuarioProyecto_E(int.Parse(codigoUsuarioProyecto));
+            Response.Redirect("PUsuarioProyecto.aspx");
+        }
         
     }
+
 }

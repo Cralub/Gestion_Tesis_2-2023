@@ -100,6 +100,17 @@ public class CGAAP
             throw;
         }
     }
+    public void Eliminar_GusuarioRol_E(int codigoUsuarioRol)
+    {
+        try
+        {
+            asNetGAAP.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
    
     #endregion
     #region GUsuarioProyecto
@@ -181,6 +192,17 @@ public class CGAAP
             eGProyectoUsuario.CodigoRol = CodigoRol;
             eGProyectoUsuario.EstadoUsuarioProyecto = EstadoUsuarioProyecto;
             asNetGAAP.Actualizar_GUsuarioProyecto_A(eGProyectoUsuario);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    {
+        try
+        {
+            asNetGAAP.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
         }
         catch (Exception)
         {

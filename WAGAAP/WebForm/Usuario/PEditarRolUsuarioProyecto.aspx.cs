@@ -50,6 +50,7 @@ public partial class WebForm_Usuario_EditarRolUsuarioProyecto : System.Web.UI.Pa
 
         cUsuarioProyecto.Actualizar_GUsuarioProyecto_A(int.Parse(lblCodigoUsuarioProyecto.Text), lblCodigoProyecto.Text, lblCodigoUsuario.Text, codigoRol, char.Parse("A"));
 
+        Response.Redirect("PUsuarioProyecto.aspx");
 
     }
 }

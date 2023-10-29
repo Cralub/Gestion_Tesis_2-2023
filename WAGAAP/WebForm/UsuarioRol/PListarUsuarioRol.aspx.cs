@@ -11,13 +11,28 @@ public partial class WebForm_Usuario_Default : System.Web.UI.Page
 {
     #region Controladoras
     CUsuarioRol cUsuarioRol = new CUsuarioRol();
+    CRol cRol = new CRol();
     #endregion
     public static List<EGUsuarioRol> listaUsuarioRol = new List<EGUsuarioRol>();
+    public static List<EGRol> listaRol = new List<EGRol>();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if(!IsPostBack)
+        {
+            cargarListaRoles();
+        }
     }
+
+    void cargarListaRoles()
+    {
+        listaRol = cRol.Obtener_GRol_O_Todo().ToList();
+        ddlCodigoRol.DataSource = listaRol;
+        ddlCodigoRol.DataTextField = "DescripcionRol";
+        ddlCodigoRol.DataValueField = "CodigoRol";
+        ddlCodigoRol.DataBind();
+    }
+    
 
     void cargarListaUsuarioRol()
     {
@@ -44,6 +59,14 @@ public partial class WebForm_Usuario_Default : System.Web.UI.Page
 
     protected void gvListaUsuarioRol_RowEditing(object sender, GridViewEditEventArgs e)
     {
+
+    }
+
+    protected void btnInsertar_Click(object sender, EventArgs e)
+    {
+        string codigoUsuario = txtCodigoUsuarioRol.Text;
+        string codigoRol = ddlCodigoRol.SelectedValue;
+        cUsuarioRol.Insertar_GUsuarioRol_I(int.Parse(txbInsertarCodigoUsuarioRol.Text), codigoRol, codigoUsuario);
 
     }
 }

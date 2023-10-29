@@ -91,6 +91,17 @@ public class ASNETGAAP
             throw;
         }
     }
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
+    {
+        try
+        {
+            SWADNETGAAP.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(EGUsuarioProyecto eGUsuarioProyecto)
@@ -166,6 +177,17 @@ public class ASNETGAAP
         catch (Exception)
         {
 
+            throw;
+        }
+    }
+    public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
+    {
+        try
+        {
+            SWADNETGAAP.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
+        }
+        catch (Exception)
+        {
             throw;
         }
     }

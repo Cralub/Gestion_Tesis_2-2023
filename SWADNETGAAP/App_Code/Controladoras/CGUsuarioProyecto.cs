@@ -80,9 +80,13 @@ public class CGUsuarioProyecto
         }
         return eGUsuarioProyecto;
     }
-     public void Actualizar_GUsuarioProyecto_A(EGUsuarioProyecto eGUsuarioProyecto)
+    public void Actualizar_GUsuarioProyecto_A(EGUsuarioProyecto eGUsuarioProyecto)
     {
         adGUsuarioProyecto.Actualizar_GUsuarioProyecto_A(eGUsuarioProyecto);
+    }
+    public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
+    {
+        adGUsuarioProyecto.Eliminar_UsuarioProyecto_E(codigoUsuarioProyecto);
     }
 
 

@@ -18,6 +18,8 @@ public interface ISWADNETGAAP
     EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol);
     [OperationContract]
     void Actualizar_GUsuarioRol_A(EGUsuarioRol eGUsuarioRol);
+    [OperationContract]
+    void Eliminar_GUsuarioRol_E(int codigoUsuarioRol);
     #endregion
     #region Tabla: GUsuarioProyecto
     [OperationContract]
@@ -32,6 +34,8 @@ public interface ISWADNETGAAP
     EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string CodigoUsuario, string CodigoProyecto);
     [OperationContract]
     void Actualizar_GUsuarioProyecto_A(EGUsuarioProyecto eGUsuarioProyecto);
+    [OperationContract]
+    void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto);
     #endregion
     #region Tabla: GProyecto
     [OperationContract]

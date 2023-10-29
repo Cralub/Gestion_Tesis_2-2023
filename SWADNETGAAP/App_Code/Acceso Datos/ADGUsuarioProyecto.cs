@@ -117,5 +117,20 @@ public class ADGUsuarioProyecto
             throw;
         }
     }
+    public void Eliminar_UsuarioProyecto_E(int codigoUsuarioProyecto)
+    {
+        try
+        {
+            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuarioProyecto_E");
+            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuarioProyecto", DbType.Int32, codigoUsuarioProyecto);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Inactivo);
+            BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
 }

@@ -81,6 +81,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Eliminar_GUsuarioRol_E">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUsuarioRol" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Eliminar_GUsuarioRol_EResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insertar_GUsuarioProyecto_I">
     <xs:complexType>
       <xs:sequence>
@@ -156,6 +168,18 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="Actualizar_GUsuarioProyecto_AResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Eliminar_GUsuarioProyecto_E">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUsuarioProyecto" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Eliminar_GUsuarioProyecto_EResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

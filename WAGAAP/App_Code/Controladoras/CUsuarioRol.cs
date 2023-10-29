@@ -109,6 +109,17 @@ public class CUsuarioRol
             throw;
         }
     }
+    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    {
+        try
+        {
+            lNServicio.Eliminar_GUsuarioRol_E(CodigoUsuarioRol);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
 
     #endregion

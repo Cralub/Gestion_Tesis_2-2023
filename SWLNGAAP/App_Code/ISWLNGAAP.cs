@@ -19,6 +19,8 @@ public interface ISWLNGAAP
     EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol);
     [OperationContract]
     void Actualizar_GUsuarioRol_A(string CodigoUsuario, string CodigoRol, int CodigoUsuarioRol);
+    [OperationContract]
+    void Eliminar_GUsuarioRol_E(int codigoUsuario);
     #endregion
     #region GUsuarioProyecto
     [OperationContract]
@@ -31,6 +33,8 @@ public interface ISWLNGAAP
     List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string CodigoUsuario);
     [OperationContract]
     void Actualizar_GUsuarioProyecto_A(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto);
+    [OperationContract]
+    void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto);
     #endregion
     #region GProyecto
     [OperationContract]
