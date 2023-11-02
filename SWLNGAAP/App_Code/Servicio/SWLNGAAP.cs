@@ -6,44 +6,44 @@ using System.Collections.Generic;
 public class SWLNGAAP : ISWLNGAAP
 {
     #region GUsuarioRol
-    public void Insertar_GUsuarioRol_I(int CodigoUsuarioRol, string CodigoRol, string CodigoUsuario)
+    public void Insertar_GUsuarioRol_I(int codigoUsuarioRol, string codigoRol, string codigoUsuario)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Insertar_GUsuarioRol_I(CodigoUsuarioRol, CodigoRol, CodigoUsuario);
+        cGAAP.Insertar_GUsuarioRol_I(codigoUsuarioRol, codigoRol, codigoUsuario);
     }
     public int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
     {
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string CodigoRol)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
     {
         CGAAP cGAAP = new CGAAP();
         List<EGUsuarioRol> lstEgUsuarioRol = new List<EGUsuarioRol>();
-        lstEgUsuarioRol = cGAAP.Obtener_GUsuarioRol_O_CodigoRol(CodigoRol);
+        lstEgUsuarioRol = cGAAP.Obtener_GUsuarioRol_O_CodigoRol(codigoRol);
         return lstEgUsuarioRol;
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string codigoUsuario)
     {
         CGAAP cGAAP = new CGAAP();
         List<EGUsuarioRol> lstEgUsuarioRol = new List<EGUsuarioRol>();
-        lstEgUsuarioRol = cGAAP.Obtener_GUsuarioRol_O_CodigoUsuario(CodigoUsuario);
+        lstEgUsuarioRol = cGAAP.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario);
         return lstEgUsuarioRol;
     }
-    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol)
+    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string codigoUsuario, string codigoRol)
     {
         CGAAP cGAAP = new CGAAP();
-        return cGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(CodigoUsuario, CodigoRol);
+        return cGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
     }
-    public void Actualizar_GUsuarioRol_A(string CodigoUsuario, string CodigoRol, int CodigoUsuarioRol)
+    public void Actualizar_GUsuarioRol_A(string codigoUsuario, string codigoRol, int codigoUsuarioRol)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Actualizar_GUsuarioRol_A(CodigoUsuario, CodigoRol, CodigoUsuarioRol);
+        cGAAP.Actualizar_GUsuarioRol_A(codigoUsuario, codigoRol, codigoUsuarioRol);
     }
-    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Eliminar_GusuarioRol_E(CodigoUsuarioRol);
+        cGAAP.Eliminar_GusuarioRol_E(codigoUsuarioRol);
     }
     #endregion
     #region GUsuarioProyecto
@@ -255,10 +255,10 @@ public class SWLNGAAP : ISWLNGAAP
     }
     #endregion
     #region GRol
-    public List<EGRol> Obtener_GRol_O_Todo()
+    public List<EGRol> Obtener_GRol_O()
     {
         CGAAP cGAAP = new CGAAP();
-        return cGAAP.Obtener_GRol_O_Todo();
+        return cGAAP.Obtener_GRol_O();
     }
     public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
     {
@@ -282,7 +282,7 @@ public class SWLNGAAP : ISWLNGAAP
     public EGCelular Obtener_GCelular_O(int codigoCelular)
     {
         CGAAP cGAAP = new CGAAP();
-        return cGAAP.Obtener_GCelular_O(codigoCelular);
+        return cGAAP.Obtener_GCelular_O_CodigoUsuario(codigoCelular);
     }
     public void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular)
     {
@@ -296,10 +296,10 @@ public class SWLNGAAP : ISWLNGAAP
     }
     #endregion
     #region GTutorExterno
-    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    public List<EGTutorExterno> Obtener_GTutorExterno_O()
     {
         CGAAP cGAAP = new CGAAP();
-        return cGAAP.Obtener_GTutorExterno_O_Todo();
+        return cGAAP.Obtener_GTutorExterno_O();
     }
 
     public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
@@ -322,10 +322,10 @@ public class SWLNGAAP : ISWLNGAAP
     }
 
 
-    public void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado)
+    public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estado);
+        cGAAP.Eliminar_GTutorExterno_E(codigoTutorExterno);
     }
 
 

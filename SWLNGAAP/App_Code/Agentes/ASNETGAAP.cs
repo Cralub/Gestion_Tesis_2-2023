@@ -8,12 +8,12 @@ using System.Linq;
 public class ASNETGAAP
 {
     #region Atributos
-    private SWADNETGAAPClient SWADNETGAAP;
+    private SWADNETGAAPClient sWADNETGAAPClient;
     #endregion
     #region Constructor
     public ASNETGAAP()
     {
-        SWADNETGAAP = new SWADNETGAAPClient();
+        sWADNETGAAPClient = new SWADNETGAAPClient();
     }
     #endregion
     #region GUsuarioRol
@@ -21,7 +21,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GUsuarioRol_I(eGUsuarioRol);
+            sWADNETGAAPClient.Insertar_GUsuarioRol_I(eGUsuarioRol);
         }
         catch (Exception)
         {
@@ -33,7 +33,7 @@ public class ASNETGAAP
         int ultimoCodigo = 0;
         try
         {
-            ultimoCodigo = SWADNETGAAP.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
+            ultimoCodigo = sWADNETGAAPClient.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
             return ultimoCodigo;
         }
         catch (Exception)
@@ -41,12 +41,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string CodigoRol)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
     {
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
         try
         {
-            lstEGUsuarioRol = SWADNETGAAP.Obtener_GUsuarioRol_O_CodigoRol(CodigoRol).ToList();
+            lstEGUsuarioRol = sWADNETGAAPClient.Obtener_GUsuarioRol_O_CodigoRol(codigoRol).ToList();
             return lstEGUsuarioRol;
         }
         catch (Exception)
@@ -54,12 +54,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string codigoUsuario)
     {
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
         try
         {
-            lstEGUsuarioRol = SWADNETGAAP.Obtener_GUsuarioRol_O_CodigoUsuario(CodigoUsuario).ToList();
+            lstEGUsuarioRol = sWADNETGAAPClient.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario).ToList();
             return lstEGUsuarioRol;
         }
         catch (Exception)
@@ -67,12 +67,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol)
+    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string codigoUsuario, string codigoRol)
     {
         EGUsuarioRol eGUsuarioRol = new EGUsuarioRol();
         try
         {
-            eGUsuarioRol = SWADNETGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(CodigoUsuario,CodigoRol);
+            eGUsuarioRol = sWADNETGAAPClient.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
             return eGUsuarioRol;
         }
         catch (Exception)
@@ -84,7 +84,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Actualizar_GUsuarioRol_A(eGUsuarioRol);
+            sWADNETGAAPClient.Actualizar_GUsuarioRol_A(eGUsuarioRol);
         }
         catch (Exception)
         {
@@ -95,7 +95,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
+            sWADNETGAAPClient.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
         }
         catch (Exception)
         {
@@ -108,7 +108,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyecto);
+            sWADNETGAAPClient.Insertar_GUsuarioProyecto_I(eGUsuarioProyecto);
         }
         catch (Exception)
         {
@@ -121,7 +121,7 @@ public class ASNETGAAP
         int ultimoCodigo = 0;
         try
         {
-            ultimoCodigo = SWADNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
+            ultimoCodigo = sWADNETGAAPClient.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
             return ultimoCodigo;
         }
         catch (Exception)
@@ -129,12 +129,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
         try
         {
-            lstEGUsuarioProyecto = SWADNETGAAP.Obtener_GUsuarioProyecto_O_CodigoProyecto(CodigoProyecto).ToList();
+            lstEGUsuarioProyecto = sWADNETGAAPClient.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).ToList();
             return lstEGUsuarioProyecto;
         }
         catch (Exception)
@@ -143,12 +143,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string codigoUsuario)
     {
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
         try
         {
-            lstEGUsuarioProyecto = SWADNETGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(CodigoUsuario).ToList();
+            lstEGUsuarioProyecto = sWADNETGAAPClient.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
             return lstEGUsuarioProyecto;
         }
         catch (Exception)
@@ -157,11 +157,11 @@ public class ASNETGAAP
             throw;
         }
     }
-    public EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string CodigoUsuario, string CodigoProyecto)
+    public EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string codigoUsuario, string codigoProyecto)
     {
         try
         {
-            return SWADNETGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(CodigoUsuario, CodigoProyecto);
+            return sWADNETGAAPClient.Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(codigoUsuario, codigoProyecto);
         }
         catch (Exception)
         {
@@ -172,7 +172,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Actualizar_GUsuarioProyecto_A(eGProyectoUsuario);
+            sWADNETGAAPClient.Actualizar_GUsuarioProyecto_A(eGProyectoUsuario);
         }
         catch (Exception)
         {
@@ -184,7 +184,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
+            sWADNETGAAPClient.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
         }
         catch (Exception)
         {
@@ -197,7 +197,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GProyecto_I(eGProyecto);
+            sWADNETGAAPClient.Insertar_GProyecto_I(eGProyecto);
         }
         catch (Exception)
         {
@@ -206,10 +206,10 @@ public class ASNETGAAP
     }
     public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
     {
-        List <EGProyecto> lstEGProyecto = new List<EGProyecto>();
+        List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
         try
         {
-            lstEGProyecto = SWADNETGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
+            lstEGProyecto = sWADNETGAAPClient.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
             return lstEGProyecto;
         }
         catch (Exception)
@@ -217,12 +217,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
         try
         {
-            eGProyecto = SWADNETGAAP.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto);
+            eGProyecto = sWADNETGAAPClient.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto);
             return eGProyecto;
         }
         catch (Exception)
@@ -234,7 +234,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Actualizar_GProyecto_A(eGProyecto);
+            sWADNETGAAPClient.Actualizar_GProyecto_A(eGProyecto);
         }
         catch (Exception)
         {
@@ -247,18 +247,18 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GEtapa_I(eGEtapa);
+            sWADNETGAAPClient.Insertar_GEtapa_I(eGEtapa);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public List<EGEtapa> Obtener_GEtapa_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGEtapa> Obtener_GEtapa_O_CodigoProyecto(string codigoProyecto)
     {
         try
         {
-            return SWADNETGAAP.Obtener_GEtapa_O_CodigoProyecto(CodigoProyecto).ToList();
+            return sWADNETGAAPClient.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto).ToList();
         }
         catch (Exception)
         {
@@ -270,7 +270,7 @@ public class ASNETGAAP
         int ultimoCodigo = 0;
         try
         {
-            ultimoCodigo = SWADNETGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
+            ultimoCodigo = sWADNETGAAPClient.Obtener_GEtapa_O_SiguienteCodigoEtapa();
             return ultimoCodigo;
         }
         catch (Exception)
@@ -279,12 +279,12 @@ public class ASNETGAAP
         }
 
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string codigoProyecto, char estadoEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
         try
         {
-            eGEtapa = SWADNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto, EstadoEtapa);
+            eGEtapa = sWADNETGAAPClient.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, estadoEtapa);
             return eGEtapa;
         }
         catch (Exception)
@@ -292,12 +292,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string codigoProyecto, byte numeroSubEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
         try
         {
-            eGEtapa = SWADNETGAAP.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(CodigoProyecto, NumeroSubEtapa);
+            eGEtapa = sWADNETGAAPClient.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto, numeroSubEtapa);
             return eGEtapa;
         }
         catch (Exception)
@@ -305,11 +305,11 @@ public class ASNETGAAP
             throw;
         }
     }
-    public void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa)
+    public void Actualizar_GEtapa_A_EstadoEtapa(int codigoEtapa, char estadoEtapa)
     {
         try
         {
-            SWADNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(CodigoEtapa, EstadoEtapa);
+            sWADNETGAAPClient.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
         }
         catch (Exception)
         {
@@ -322,19 +322,19 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
+            sWADNETGAAPClient.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
     {
-        List<EGFormularioAceptacion> lstFormularioAceptacion = new List<EGFormularioAceptacion>(); 
+        List<EGFormularioAceptacion> lstFormularioAceptacion = new List<EGFormularioAceptacion>();
         try
         {
-            lstFormularioAceptacion = SWADNETGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto).ToList();
+            lstFormularioAceptacion = sWADNETGAAPClient.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto).ToList();
             return lstFormularioAceptacion;
         }
         catch (Exception)
@@ -348,18 +348,18 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
+            sWADNETGAAPClient.Insertar_GSubEtapa_I(eGSubEtapa);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int CodigoEtapa)
+    public List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int codigoEtapa)
     {
         try
         {
-            return SWADNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa(CodigoEtapa).ToList();
+            return sWADNETGAAPClient.Obtener_GSubEtapa_O_CodigoEtapa(codigoEtapa).ToList();
         }
         catch (Exception)
         {
@@ -371,7 +371,7 @@ public class ASNETGAAP
         int ultimoCodigo = 0;
         try
         {
-            ultimoCodigo = SWADNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+            ultimoCodigo = sWADNETGAAPClient.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
             return ultimoCodigo;
         }
         catch (Exception)
@@ -379,12 +379,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int codigoEtapa, char estadoSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
-            eGSubEtapa = SWADNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(CodigoEtapa, EstadoSubEtapa);
+            eGSubEtapa = sWADNETGAAPClient.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(codigoEtapa, estadoSubEtapa);
             return eGSubEtapa;
         }
         catch (Exception)
@@ -392,12 +392,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int codigoEtapa, byte numeroSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
-            eGSubEtapa = SWADNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(CodigoEtapa, NumeroSubEtapa);
+            eGSubEtapa = sWADNETGAAPClient.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(codigoEtapa, numeroSubEtapa);
             return eGSubEtapa;
         }
         catch (Exception)
@@ -405,11 +405,11 @@ public class ASNETGAAP
             throw;
         }
     }
-    public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa)
+    public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {
         try
         {
-            SWADNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(CodigoSubEtapa, EstadoSubEtapa);
+            sWADNETGAAPClient.Actualizar_GSubEtapa_A_EstadoSubEtapa(codigoSubEtapa, estadoSubEtapa);
         }
         catch (Exception)
         {
@@ -422,7 +422,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GObservacion_I(eGObservacion);
+            sWADNETGAAPClient.Insertar_GObservacion_I(eGObservacion);
         }
         catch (Exception)
         {
@@ -430,12 +430,12 @@ public class ASNETGAAP
             throw;
         }
     }
-    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGObservacion> lstObservacion = new List<EGObservacion>();
         try
         {
-            lstObservacion = SWADNETGAAP.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto).ToList();
+            lstObservacion = sWADNETGAAPClient.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto).ToList();
             return lstObservacion;
         }
         catch (Exception)
@@ -443,25 +443,13 @@ public class ASNETGAAP
             throw;
         }
     }
-    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
-    {
-        List<EGObservacion> lstObservacion = new List<EGObservacion>();
-        try
-        {
-            lstObservacion = SWADNETGAAP.Obtener_GObservacion_O_TipoObservacion(TipoObservacion).ToList();
-            return lstObservacion;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-    }
-    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
+
+    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int codigoObservacion)
     {
         EGObservacion eGObservacion = new EGObservacion();
         try
         {
-            eGObservacion = SWADNETGAAP.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
+            eGObservacion = sWADNETGAAPClient.Obtener_GObservacion_O_CodigoObservacion(codigoObservacion);
             return eGObservacion;
         }
         catch (Exception)
@@ -473,18 +461,18 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Actualizar_GObservacion_A(eGObservacion);
+            sWADNETGAAPClient.Actualizar_GObservacion_A(eGObservacion);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public void Actualizar_GObservacion_A_EstadoObservacion(int CodigoObservacion, char EstadoObservacion)
+    public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
     {
         try
         {
-            SWADNETGAAP.Actualizar_GObservacion_A_EstadoObservacion(CodigoObservacion, EstadoObservacion);
+            sWADNETGAAPClient.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
         }
         catch (Exception)
         {
@@ -496,7 +484,7 @@ public class ASNETGAAP
         int ultimoCodigo = 0;
         try
         {
-            ultimoCodigo = SWADNETGAAP.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
+            ultimoCodigo = sWADNETGAAPClient.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
             return ultimoCodigo;
         }
         catch (Exception)
@@ -510,18 +498,18 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GUsuario_I(eGUsuario);
+            sWADNETGAAPClient.Insertar_GUsuario_I(eGUsuario);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario)
+    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
     {
         try
         {
-            return SWADNETGAAP.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
+            return sWADNETGAAPClient.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
         }
         catch (Exception)
         {
@@ -532,7 +520,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Actualizar_GUsuario_A(eGUsuario);
+            sWADNETGAAPClient.Actualizar_GUsuario_A(eGUsuario);
         }
         catch (Exception)
         {
@@ -541,23 +529,23 @@ public class ASNETGAAP
     }
     #endregion
     #region GRol
-    public List<EGRol> Obtener_GRol_O_Todo()
+    public List<EGRol> Obtener_GRol_O()
     {
         try
         {
-            return SWADNETGAAP.Obtener_GRol_O_Todo().ToList();
+            return sWADNETGAAPClient.Obtener_GRol_O().ToList();
         }
         catch (Exception)
         {
             throw;
         }
     }
-    
-    public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol) 
-    { 
+
+    public EGRol Obtener_GRol_O_CodigoRol(string codigoRol)
+    {
         try
         {
-        return SWADNETGAAP.Obtener_GRol_O_CodigoRol(CodigoRol);
+            return sWADNETGAAPClient.Obtener_GRol_O_CodigoRol(codigoRol);
         }
         catch (Exception)
         {
@@ -566,11 +554,11 @@ public class ASNETGAAP
     }
     #endregion
     #region UsuarioNetvalle
-    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string codigoUsuario)
     {
         try
         {
-            return SWADNETGAAP.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
+            return sWADNETGAAPClient.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
         }
         catch (Exception)
         {
@@ -581,42 +569,44 @@ public class ASNETGAAP
     #region Tabla: GCelular
     public int Obtener_GCelular_O_SiguienteCodigoCelular()
     {
+        int ultimoCodigo = 0;
         try
         {
-            return SWADNETGAAP.Obtener_GCelular_O_SiguienteCodigoCelular();
+            ultimoCodigo = sWADNETGAAPClient.Obtener_GCelular_O_SiguienteCodigoCelular();
+            return ultimoCodigo;
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public void Insertar_GCelular_I(EGCelular celular)
+    public void Insertar_GCelular_I(EGCelular eGCelular)
     {
         try
         {
-            SWADNETGAAP.Insertar_GCelular_I(celular);
+            sWADNETGAAPClient.Insertar_GCelular_I(eGCelular);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    public EGCelular Obtener_GCelular_O_CodigoUsuario(string codigoUsuario)
     {
         try
         {
-            return SWADNETGAAP.Obtener_GCelular_O(codigoCelular);
+            return sWADNETGAAPClient.Obtener_GCelular_O_CodigoUsuario(codigoUsuario);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public void Actualizar_GCelular_A(EGCelular celular)
+    public void Actualizar_GCelular_A(EGCelular eGCelular)
     {
         try
         {
-            SWADNETGAAP.Actualizar_GCelular_A(celular);
+            sWADNETGAAPClient.Actualizar_GCelular_A(eGCelular);
         }
         catch (Exception)
         {
@@ -627,7 +617,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Eliminar_GCelular_E(codigoCelular);
+            sWADNETGAAPClient.Eliminar_GCelular_E(codigoCelular);
         }
         catch (Exception)
         {
@@ -640,7 +630,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Insertar_GTutorExterno_I(eGTutorExterno);
+            sWADNETGAAPClient.Insertar_GTutorExterno_I(eGTutorExterno);
         }
         catch (Exception)
         {
@@ -648,11 +638,11 @@ public class ASNETGAAP
         }
     }
 
-    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    public List<EGTutorExterno> Obtener_GTutorExterno_O()
     {
         try
         {
-            return SWADNETGAAP.Obtener_GTutorExterno_O_Todo().ToList();
+            return sWADNETGAAPClient.Obtener_GTutorExterno_O().ToList();
         }
         catch (Exception)
         {
@@ -666,7 +656,7 @@ public class ASNETGAAP
         {
             EGTutorExterno eGTutorExterno = new EGTutorExterno();
 
-            eGTutorExterno = SWADNETGAAP.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
+            eGTutorExterno = sWADNETGAAPClient.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
             return eGTutorExterno;
 
         }
@@ -680,7 +670,7 @@ public class ASNETGAAP
     {
         try
         {
-            SWADNETGAAP.Actualizar_GTutorExterno_A(eGTutorExterno);
+            sWADNETGAAPClient.Actualizar_GTutorExterno_A(eGTutorExterno);
         }
         catch (Exception)
         {
@@ -688,11 +678,11 @@ public class ASNETGAAP
         }
     }
 
-    public void Actualizar_GTutorExterno_A_EstadoTutorExterno(int codigoTutorExterno, string estadoTutorExterno)
+    public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
     {
         try
         {
-            SWADNETGAAP.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estadoTutorExterno);
+            sWADNETGAAPClient.Eliminar_GTutorExterno_E(codigoTutorExterno);
         }
         catch (Exception)
         {

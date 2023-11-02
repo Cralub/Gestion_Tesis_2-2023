@@ -43,10 +43,14 @@ public static class SDatos
     #endregion
 
     #region Modalidades de titulación
-    public const char TRABAJO_DIRIGIDO = 'D';
-    public const char TESIS = 'T';
-    public const char PROYECTO_DE_GRADO = 'P';
-    public const char SIN_MODALIDAD = '-';
+    public const char CHAR_MODALIDAD_TRABAJO_DIRIGIDO = 'D';
+    public const char CHAR_MODALIDAD_TESIS = 'T';
+    public const char CHAR_MODALIDAD_PROYECTO_DE_GRADO = 'P';
+    public const char CHAR_SIN_MODALIDAD = '-';
+    public const string STRING_MODALIDAD_TRABAJO_DIRIGIDO = "Trabajo Dirigido";
+    public const string STRING_MODALIDAD_TESIS = "Tesis";
+    public const string STRING_MODALIDAD_PROYECTO_DE_GRADO = "Proyecto de Grado";
+    public const string STRING_SIN_MODALIDAD = "Sin Modalidad";
     #endregion
 
     #region Datos base de un Proyecto
@@ -58,6 +62,10 @@ public static class SDatos
     public const byte NUMERO_REVISIONES_POR_DEFECTO = 0;
     #endregion
     #region Base SubEtapa
+    public const int N_SUB_ETAPAS_ETAPA_1 = 4;
+    public const int N_SUB_ETAPAS_ETAPA_2 = 7;
+    public const int N_SUB_ETAPAS_ETAPA_3 = 7;
+    public const int N_SUB_ETAPAS_ETAPA_4 = 7;
     public const string FIRMA_POR_DEFECTO = "-/-/-/-/-/";
     #endregion
     #region Manejo de Fechas

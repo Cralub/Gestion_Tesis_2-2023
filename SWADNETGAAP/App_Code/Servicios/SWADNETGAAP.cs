@@ -15,24 +15,24 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
         return cGUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string CodigoRol)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
     {
         CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
-        lstEGUsuarioRol = cGUsuarioRol.Obtener_GUsuarioRol_O_CodigoRol(CodigoRol);
+        lstEGUsuarioRol = cGUsuarioRol.Obtener_GUsuarioRol_O_CodigoRol(codigoRol);
         return lstEGUsuarioRol;
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string codigoUsuario)
     {
         CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
-        lstEGUsuarioRol = cGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario(CodigoUsuario);
+        lstEGUsuarioRol = cGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario);
         return lstEGUsuarioRol;
     }
-    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol)
+    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string codigoUsuario, string codigoRol)
     {
         CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
-        return cGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(CodigoUsuario, CodigoRol);
+        return cGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
     }
     public void Actualizar_GUsuarioRol_A(EGUsuarioRol eGUsuarioRol)
     {
@@ -56,24 +56,24 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGUsuarioProyecto cGProyectoUsuario = new CGUsuarioProyecto();
         return cGProyectoUsuario.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         CGUsuarioProyecto cGUsuarioProyecto = new CGUsuarioProyecto();
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
-        lstEGUsuarioProyecto = cGUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(CodigoProyecto);
+        lstEGUsuarioProyecto = cGUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto);
         return lstEGUsuarioProyecto;
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string codigoUsuario)
     {
         CGUsuarioProyecto cGUsuarioProyecto = new CGUsuarioProyecto();
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
-        lstEGUsuarioProyecto = cGUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoUsuario(CodigoUsuario);
+        lstEGUsuarioProyecto = cGUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario);
         return lstEGUsuarioProyecto;
     }
-    public EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string CodigoUsuario, string CodigoProyecto)
+    public EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string codigoUsuario, string codigoProyecto)
     {
         CGUsuarioProyecto cGProyectoUsuario = new CGUsuarioProyecto();
-        return cGProyectoUsuario.Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(CodigoUsuario, CodigoProyecto);
+        return cGProyectoUsuario.Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(codigoUsuario, codigoProyecto);
     }
     public void Actualizar_GUsuarioProyecto_A(EGUsuarioProyecto eGUsuarioProyecto)
     {
@@ -97,11 +97,11 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGProyecto cGProyecto = new CGProyecto();
         return cGProyecto.Obtener_GProyecto_O(fechaInicio, fechaFin);
     }
-    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         CGProyecto cGProyecto = new CGProyecto();
         EGProyecto eGProyecto = new EGProyecto();
-        eGProyecto = cGProyecto.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto);
+        eGProyecto = cGProyecto.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto);
         return eGProyecto;
     }
     public void Actualizar_GProyecto_A(EGProyecto egProyecto)
@@ -111,53 +111,53 @@ public class SWADNETGAAP : ISWADNETGAAP
     }
     #endregion
     #region Tabla: GEtapa
-    public void Insertar_GEtapa_I(EGEtapa etapa)
+    public void Insertar_GEtapa_I(EGEtapa eGEtapa)
     {
         CGEtapa cGEtapa = new CGEtapa();
-        cGEtapa.Insertar_GEtapa_I(etapa);
+        cGEtapa.Insertar_GEtapa_I(eGEtapa);
     }
-    public List<EGEtapa> Obtener_GEtapa_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGEtapa> Obtener_GEtapa_O_CodigoProyecto(string codigoProyecto)
     {
         CGEtapa cGEtapa = new CGEtapa();
-        return cGEtapa.Obtener_GEtapa_O_CodigoProyecto(CodigoProyecto);
+        return cGEtapa.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto);
     }
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
     {
         CGEtapa cGEtapa = new CGEtapa();
         return cGEtapa.Obtener_GEtapa_O_SiguienteCodigoEtapa();
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string codigoProyecto, char estadoEtapa)
     {
         CGEtapa cGEtapa = new CGEtapa();
         EGEtapa eGEtapa = new EGEtapa();
-        eGEtapa = cGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto, EstadoEtapa);
+        eGEtapa = cGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, estadoEtapa);
         return eGEtapa;
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string codigoProyecto, byte numeroEtapa)
     {
         CGEtapa cGEtapa = new CGEtapa();
         EGEtapa eGEtapa = new EGEtapa();
-        eGEtapa = cGEtapa.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(CodigoProyecto, NumeroEtapa);
+        eGEtapa = cGEtapa.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto, numeroEtapa);
         return eGEtapa;
     }
-    public void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa)
+    public void Actualizar_GEtapa_A_EstadoEtapa(int codigoEtapa, char estadoEtapa)
     {
         CGEtapa cGEtapa = new CGEtapa();
-        cGEtapa.Actualizar_GEtapa_A_EstadoEtapa(CodigoEtapa, EstadoEtapa);
+        cGEtapa.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
     }
 
     #endregion
     #region Tabla: GFormularioAceptacion
-    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion formularioAceptacion)
+    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
     {
         CGFormularioAceptacion cGFormularioAceptacion = new CGFormularioAceptacion();
-        cGFormularioAceptacion.Insertar_GFormularioAceptacion_I(formularioAceptacion);
+        cGFormularioAceptacion.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
     }
-    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
     {
         CGFormularioAceptacion cGFormularioAceptacion = new CGFormularioAceptacion();
         List<EGFormularioAceptacion> lstEGFormularioAceptacion = new List<EGFormularioAceptacion>();
-        lstEGFormularioAceptacion = cGFormularioAceptacion.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto);
+        lstEGFormularioAceptacion = cGFormularioAceptacion.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto);
         return lstEGFormularioAceptacion;
     }
 
@@ -168,33 +168,33 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
         cGSubEtapa.Insertar_GSubEtapa_I(eGSubEtapa);
     }
-    public List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int CodigoEtapa)
+    public List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int codigoEtapa)
     {
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
-        return cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa(CodigoEtapa);
+        return cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa(codigoEtapa);
     }
     public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
     {
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
         return cGSubEtapa.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int codigoEtapa, char estadoSubEtapa)
     {
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
-        eGSubEtapa = cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(CodigoEtapa, EstadoSubEtapa);
+        eGSubEtapa = cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(codigoEtapa, estadoSubEtapa);
         return eGSubEtapa;
     }
-    public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa)
+    public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
-        cGSubEtapa.Actualizar_GSubEtapa_A_EstadoSubEtapa(CodigoSubEtapa, EstadoSubEtapa);
+        cGSubEtapa.Actualizar_GSubEtapa_A_EstadoSubEtapa(codigoSubEtapa, estadoSubEtapa);
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int codigoEtapa, byte numeroSubEtapa)
     {
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
-        eGSubEtapa = cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(CodigoEtapa, NumeroSubEtapa);
+        eGSubEtapa = cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(codigoEtapa, numeroSubEtapa);
         return eGSubEtapa;
     }
     #endregion
@@ -204,25 +204,19 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGObservacion cGObservacion = new CGObservacion();
         cGObservacion.Insertar_GObservacion_I(eGObservacion);
     }
-    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string codigoProyecto)
     {
         CGObservacion cGObservacion = new CGObservacion();
         List<EGObservacion> lstEGObservaciones = new List<EGObservacion>();
-        lstEGObservaciones = cGObservacion.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto);
+        lstEGObservaciones = cGObservacion.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto);
         return lstEGObservaciones;
     }
 
-    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
+    
+    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int codigoObservacion)
     {
         CGObservacion cGObservacion = new CGObservacion();
-        List<EGObservacion> lstEGObservaciones = new List<EGObservacion>();
-        lstEGObservaciones = cGObservacion.Obtener_GObservacion_O_TipoObservacion(TipoObservacion);
-        return lstEGObservaciones;
-    }
-    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
-    {
-        CGObservacion cGObservacion = new CGObservacion();
-        return cGObservacion.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
+        return cGObservacion.Obtener_GObservacion_O_CodigoObservacion(codigoObservacion);
     }
 
     public void Actualizar_GObservacion_A(EGObservacion eGObservacion)
@@ -231,10 +225,10 @@ public class SWADNETGAAP : ISWADNETGAAP
         cGObservacion.Actualizar_GObservacion_A(eGObservacion);
     }
 
-    public void Actualizar_GObservacion_A_EstadoObservacion(int CodigoObservacion, char EstadoObservacion)
+    public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
     {
         CGObservacion cGObservacion = new CGObservacion();
-        cGObservacion.Actualizar_GObservacion_A_EstadoObservacion(CodigoObservacion, EstadoObservacion);
+        cGObservacion.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
     }
     public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
     {
@@ -248,10 +242,10 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGUsuario cGUsuario = new CGUsuario();
         cGUsuario.Insertar_GUsuario_I(eGUsuario);
     }
-    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario)
+    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
     {
         CGUsuario cGUsuario = new CGUsuario();
-        return cGUsuario.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
+        return cGUsuario.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
     }
     public void Actualizar_GUsuario_A(EGUsuario eGUsuario)
     {
@@ -260,22 +254,22 @@ public class SWADNETGAAP : ISWADNETGAAP
     }
     #endregion
     #region Tabla: GRol
-    public List<EGRol> Obtener_GRol_O_Todo()
+    public List<EGRol> Obtener_GRol_O()
     {
         CGRol cGRol = new CGRol();
-        return cGRol.Obtener_GRol_O_Todo();
+        return cGRol.Obtener_GRol_O();
     }
-    public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
+    public EGRol Obtener_GRol_O_CodigoRol(string codigoRol)
     {
         CGRol cGRol = new CGRol();
-        return cGRol.Obtener_GRol_O_CodigoRol(CodigoRol);
+        return cGRol.Obtener_GRol_O_CodigoRol(codigoRol);
     }
     #endregion
     #region Tabla: UsuarioNetvalle
-    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string codigoUsuario)
     {
         CUsuarioNetvalle cUsuarioNetvalle = new CUsuarioNetvalle();
-        return cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
+        return cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
     }
     #endregion
     #region Tabla: GCelular
@@ -284,20 +278,20 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGCelular cGCelular = new CGCelular();
         return cGCelular.Obtener_GCelular_O_SiguienteCodigoCelular();
     }
-    public void Insertar_GCelular_I(EGCelular celular)
+    public void Insertar_GCelular_I(EGCelular eGCelular)
     {
         CGCelular cGCelular = new CGCelular();
-        cGCelular.Insertar_GCelular_I(celular);
+        cGCelular.Insertar_GCelular_I(eGCelular);
     }
-    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    public EGCelular Obtener_GCelular_O_CodigoUsuario(string codigoUsuario)
     {
         CGCelular cGCelular = new CGCelular();
-        return cGCelular.Obtener_GCelular_O(codigoCelular);
+        return cGCelular.Obtener_GCelular_O_CodigoUsuario(codigoUsuario);
     }
-    public void Actualizar_GCelular_A(EGCelular celular)
+    public void Actualizar_GCelular_A(EGCelular eGCelular)
     {
         CGCelular cGCelular = new CGCelular();
-        cGCelular.Actualizar_GCelular_A(celular);
+        cGCelular.Actualizar_GCelular_A(eGCelular);
     }
     public void Eliminar_GCelular_E(int codigoCelular)
     {
@@ -306,29 +300,27 @@ public class SWADNETGAAP : ISWADNETGAAP
     }
     #endregion
     #region Tabla: GTutorExterno
-    public void Insertar_GTutorExterno_I(EGTutorExterno tutorExterno)
+    public void Insertar_GTutorExterno_I(EGTutorExterno eGTutorExterno)
     {
         CGTutorExterno cGTutorExterno = new CGTutorExterno();
-        cGTutorExterno.Insertar_GTutorExterno_I(tutorExterno);
-
+        cGTutorExterno.Insertar_GTutorExterno_I(eGTutorExterno);
+    }
+    public void Actualizar_GTutorExterno_A(EGTutorExterno eGTutorExterno)
+    {
+        CGTutorExterno cGTutorExterno = new CGTutorExterno();
+        cGTutorExterno.Actualizar_GTutorExterno_A(eGTutorExterno);
     }
 
-    public void Actualizar_GTutorExterno_A(EGTutorExterno tutorExterno)
+    public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
     {
         CGTutorExterno cGTutorExterno = new CGTutorExterno();
-        cGTutorExterno.Actualizar_GTutorExterno_A(tutorExterno);
+        cGTutorExterno.Eliminar_GTutorExterno_E(codigoTutorExterno);
     }
 
-    public void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado)
+    public List<EGTutorExterno> Obtener_GTutorExterno_O()
     {
         CGTutorExterno cGTutorExterno = new CGTutorExterno();
-        cGTutorExterno.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estado);
-    }
-
-    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
-    {
-        CGTutorExterno cGTutorExterno = new CGTutorExterno();
-        return cGTutorExterno.Obtener_GTutorExterno_O_Todo();
+        return cGTutorExterno.Obtener_GTutorExterno_O();
     }
 
     public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)

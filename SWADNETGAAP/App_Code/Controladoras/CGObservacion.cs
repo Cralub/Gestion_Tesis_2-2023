@@ -6,90 +6,71 @@
 public class CGObservacion
 {
     #region Metodos Privados
-    private ADGObservacion adGObservacion;
+    private ADGObservacion aDGObservacion;
     #endregion
     #region Constructor
     public CGObservacion()
     {
-        adGObservacion = new ADGObservacion();
+        aDGObservacion = new ADGObservacion();
     }
     #endregion
     #region Metodos Publicos
 
-    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string codigoProyecto)
     {
         EGObservacion eGObservacion = new EGObservacion();
         List<EGObservacion> lstEGObservaciones = new List<EGObservacion>();
-        DTOGObservacion dtoGObservacion = adGObservacion.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto);
-        foreach (DTOGObservacion.GObservacionRow gObservacionRow in dtoGObservacion.GObservacion.Rows)
+        DTOGObservacion dTOGObservacion = aDGObservacion.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto);
+        foreach (DTOGObservacion.GObservacionRow dRGObservacionRow in dTOGObservacion.GObservacion.Rows)
         {
             eGObservacion = new EGObservacion();
-            eGObservacion.CodigoObservacion = gObservacionRow.CodigoObservacion;
-            eGObservacion.CodigoProyecto = gObservacionRow.CodigoProyecto;
-            eGObservacion.CodigoSubEtapa = gObservacionRow.CodigoSubEtapa;
-            eGObservacion.CodigoUsuarioObservacion = gObservacionRow.CodigoUsuarioObservacion;
-            eGObservacion.ComentarioObservacion = gObservacionRow.ComentarioObservacion;
-            eGObservacion.TipoObservacion = char.Parse(gObservacionRow.TipoObservacion);
-            eGObservacion.EstadoObservacion = char.Parse(gObservacionRow.EstadoObservacion);
+            eGObservacion.CodigoObservacion = dRGObservacionRow.CodigoObservacion;
+            eGObservacion.CodigoProyecto = dRGObservacionRow.CodigoProyecto;
+            eGObservacion.CodigoSubEtapa = dRGObservacionRow.CodigoSubEtapa;
+            eGObservacion.CodigoUsuarioObservacion = dRGObservacionRow.CodigoUsuarioObservacion;
+            eGObservacion.ComentarioObservacion = dRGObservacionRow.ComentarioObservacion;
+            eGObservacion.TipoObservacion = char.Parse(dRGObservacionRow.TipoObservacion);
+            eGObservacion.EstadoObservacion = char.Parse(dRGObservacionRow.EstadoObservacion);
             lstEGObservaciones.Add(eGObservacion);
         }
         return lstEGObservaciones;
     }
-
-    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
-    {
-        EGObservacion eGObservacion;
-        List<EGObservacion> lstEGObservaciones = new List<EGObservacion>();
-        DTOGObservacion dtoGObservacion = adGObservacion.Obtener_GObservacion_O_TipoObservacion(TipoObservacion);
-        foreach (DTOGObservacion.GObservacionRow dgObservacionRow in dtoGObservacion.GObservacion.Rows)
-        {
-            eGObservacion = new EGObservacion();
-            eGObservacion.CodigoObservacion = dgObservacionRow.CodigoObservacion;
-            eGObservacion.CodigoProyecto = dgObservacionRow.CodigoProyecto;
-            eGObservacion.CodigoSubEtapa = dgObservacionRow.CodigoSubEtapa;
-            eGObservacion.CodigoUsuarioObservacion = dgObservacionRow.CodigoUsuarioObservacion;
-            eGObservacion.ComentarioObservacion = dgObservacionRow.ComentarioObservacion;
-            eGObservacion.TipoObservacion = char.Parse(dgObservacionRow.TipoObservacion);
-            eGObservacion.EstadoObservacion = char.Parse(dgObservacionRow.EstadoObservacion);
-            lstEGObservaciones.Add(eGObservacion);
-        }
-        return lstEGObservaciones;
-    }
-    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
+    
+    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int codigoObservacion)
     {
         EGObservacion eGObservacion = new EGObservacion();
-        DTOGObservacion dtoGObservacion = adGObservacion.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
-        foreach (DTOGObservacion.GObservacionRow drObservacionRow in dtoGObservacion.GObservacion.Rows)
+        DTOGObservacion dTOGObservacion = aDGObservacion.Obtener_GObservacion_O_CodigoObservacion(codigoObservacion);
+        foreach (DTOGObservacion.GObservacionRow drGObservacionRow in dTOGObservacion.GObservacion.Rows)
         {
-            eGObservacion.CodigoObservacion = drObservacionRow.CodigoObservacion;
-            eGObservacion.CodigoProyecto = drObservacionRow.CodigoProyecto;
-            eGObservacion.CodigoSubEtapa = drObservacionRow.CodigoSubEtapa;
-            eGObservacion.CodigoUsuarioObservacion = drObservacionRow.CodigoUsuarioObservacion;
-            eGObservacion.ComentarioObservacion = drObservacionRow.ComentarioObservacion;
-            eGObservacion.TipoObservacion = char.Parse(drObservacionRow.TipoObservacion);
-            eGObservacion.EstadoObservacion = char.Parse(drObservacionRow.EstadoObservacion);
-            eGObservacion.FechaRegistro = drObservacionRow.FechaRegistro;
+            eGObservacion.CodigoObservacion = drGObservacionRow.CodigoObservacion;
+            eGObservacion.CodigoProyecto = drGObservacionRow.CodigoProyecto;
+            eGObservacion.CodigoSubEtapa = drGObservacionRow.CodigoSubEtapa;
+            eGObservacion.CodigoUsuarioObservacion = drGObservacionRow.CodigoUsuarioObservacion;
+            eGObservacion.ComentarioObservacion = drGObservacionRow.ComentarioObservacion;
+            eGObservacion.TipoObservacion = char.Parse(drGObservacionRow.TipoObservacion);
+            eGObservacion.EstadoObservacion = char.Parse(drGObservacionRow.EstadoObservacion);
+            eGObservacion.FechaRegistro = drGObservacionRow.FechaRegistro;
         }
         return eGObservacion;
 
     }
     public void Insertar_GObservacion_I(EGObservacion eGObservacion)
     {
-        adGObservacion.Insertar_GObservacion_I(eGObservacion);
+        aDGObservacion.Insertar_GObservacion_I(eGObservacion);
     }
     public void Actualizar_GObservacion_A(EGObservacion eGObservacion)
     {
-        adGObservacion.Actualizar_GObservacion_A(eGObservacion);
+        aDGObservacion.Actualizar_GObservacion_A(eGObservacion);
     }
 
-    public void Actualizar_GObservacion_A_EstadoObservacion(int CodigoObservacion, char EstadoObservacion)
+    public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
     {
-        adGObservacion.Actualizar_GObservacion_A_EstadoObservacion(CodigoObservacion, EstadoObservacion);
+        aDGObservacion.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
     }
     public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
     {
-        object res = adGObservacion.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
-        return (int)res + 1;
+        object ultimoCodigo = aDGObservacion.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
+        return (int)ultimoCodigo + 1;
     }
     #endregion
 }

@@ -6,52 +6,52 @@
 public class CGFormularioAceptacion
 {
     #region Atributos
-    private ADGFormularioAceptacion adGFormularioAceptacion;
+    private ADGFormularioAceptacion aDGFormularioAceptacion;
     #endregion
 
     #region Constructor
     public CGFormularioAceptacion()
     {
-        adGFormularioAceptacion = new ADGFormularioAceptacion();
+        aDGFormularioAceptacion = new ADGFormularioAceptacion();
     }
     #endregion
     #region Métodos públicos
-    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion formularioAceptacion)
+    public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
     {
-        adGFormularioAceptacion.Insertar_GFormularioAceptacion_I(formularioAceptacion);
+        aDGFormularioAceptacion.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
     }
-    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
     {
         EGFormularioAceptacion eGFormularioAceptacion;
         List<EGFormularioAceptacion> lstEGFormularioAceptacion = new List<EGFormularioAceptacion>();
-        DTOGFormularioAceptacion dtoGFormularioAceptacion = adGFormularioAceptacion.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto);
-        foreach (DTOGFormularioAceptacion.GFormularioAceptacionRow dgFormularioAceptacion in dtoGFormularioAceptacion.GFormularioAceptacion.Rows)
+        DTOGFormularioAceptacion dTOGFormularioAceptacion = aDGFormularioAceptacion.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto);
+        foreach (DTOGFormularioAceptacion.GFormularioAceptacionRow dRGFormularioAceptacion in dTOGFormularioAceptacion.GFormularioAceptacion.Rows)
         {
             eGFormularioAceptacion = new EGFormularioAceptacion();
-            eGFormularioAceptacion.CodigoFormularioAceptacion = dgFormularioAceptacion.CodigoFormularioAceptacion;
-            eGFormularioAceptacion.CodigoProyecto = dgFormularioAceptacion.CodigoProyecto;
-            eGFormularioAceptacion.CodigoEstudiante = dgFormularioAceptacion.CodigoEstudiante;
-            eGFormularioAceptacion.CodigoTribunal = dgFormularioAceptacion.CodigoTribunal;
-            eGFormularioAceptacion.PreguntaFormatoYForma1 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma1);
-            eGFormularioAceptacion.PreguntaFormatoYForma2 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma2);
-            eGFormularioAceptacion.PreguntaFormatoYForma3 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma3);
-            eGFormularioAceptacion.PreguntaFormatoYForma4 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma4);
-            eGFormularioAceptacion.PreguntaFormatoYForma5 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma5);
-            eGFormularioAceptacion.PreguntaFormatoYForma6 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma6);
-            eGFormularioAceptacion.PreguntaFormatoYForma7 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma7);
-            eGFormularioAceptacion.PreguntaFormatoYForma8 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma8);
-            eGFormularioAceptacion.PreguntaFormatoYForma9 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma9);
-            eGFormularioAceptacion.PreguntaFormatoYForma10 = char.Parse(dgFormularioAceptacion.PreguntaFormatoYForma10);
-            eGFormularioAceptacion.PreguntaFondo1 = char.Parse(dgFormularioAceptacion.PreguntaFondo1);
-            eGFormularioAceptacion.PreguntaFondo2 = char.Parse(dgFormularioAceptacion.PreguntaFondo2);
-            eGFormularioAceptacion.PreguntaFondo3 = char.Parse(dgFormularioAceptacion.PreguntaFondo3);
-            eGFormularioAceptacion.PreguntaFondo4 = char.Parse(dgFormularioAceptacion.PreguntaFondo4);
-            eGFormularioAceptacion.PreguntaFondo5 = char.Parse(dgFormularioAceptacion.PreguntaFondo5);
-            eGFormularioAceptacion.PreguntaFondo6 = char.Parse(dgFormularioAceptacion.PreguntaFondo6);
-            eGFormularioAceptacion.PreguntaFondo7 = char.Parse(dgFormularioAceptacion.PreguntaFondo7);
-            eGFormularioAceptacion.PreguntaFondo8 = char.Parse(dgFormularioAceptacion.PreguntaFondo8);
-            eGFormularioAceptacion.PreguntaFondo9 = char.Parse(dgFormularioAceptacion.PreguntaFondo9);
-            eGFormularioAceptacion.PreguntaFondo10 = char.Parse(dgFormularioAceptacion.PreguntaFondo10);
+            eGFormularioAceptacion.CodigoFormularioAceptacion = dRGFormularioAceptacion.CodigoFormularioAceptacion;
+            eGFormularioAceptacion.CodigoProyecto = dRGFormularioAceptacion.CodigoProyecto;
+            eGFormularioAceptacion.CodigoEstudiante = dRGFormularioAceptacion.CodigoEstudiante;
+            eGFormularioAceptacion.CodigoTribunal = dRGFormularioAceptacion.CodigoTribunal;
+            eGFormularioAceptacion.PreguntaFormatoYForma1 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma1);
+            eGFormularioAceptacion.PreguntaFormatoYForma2 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma2);
+            eGFormularioAceptacion.PreguntaFormatoYForma3 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma3);
+            eGFormularioAceptacion.PreguntaFormatoYForma4 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma4);
+            eGFormularioAceptacion.PreguntaFormatoYForma5 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma5);
+            eGFormularioAceptacion.PreguntaFormatoYForma6 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma6);
+            eGFormularioAceptacion.PreguntaFormatoYForma7 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma7);
+            eGFormularioAceptacion.PreguntaFormatoYForma8 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma8);
+            eGFormularioAceptacion.PreguntaFormatoYForma9 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma9);
+            eGFormularioAceptacion.PreguntaFormatoYForma10 = char.Parse(dRGFormularioAceptacion.PreguntaFormatoYForma10);
+            eGFormularioAceptacion.PreguntaFondo1 = char.Parse(dRGFormularioAceptacion.PreguntaFondo1);
+            eGFormularioAceptacion.PreguntaFondo2 = char.Parse(dRGFormularioAceptacion.PreguntaFondo2);
+            eGFormularioAceptacion.PreguntaFondo3 = char.Parse(dRGFormularioAceptacion.PreguntaFondo3);
+            eGFormularioAceptacion.PreguntaFondo4 = char.Parse(dRGFormularioAceptacion.PreguntaFondo4);
+            eGFormularioAceptacion.PreguntaFondo5 = char.Parse(dRGFormularioAceptacion.PreguntaFondo5);
+            eGFormularioAceptacion.PreguntaFondo6 = char.Parse(dRGFormularioAceptacion.PreguntaFondo6);
+            eGFormularioAceptacion.PreguntaFondo7 = char.Parse(dRGFormularioAceptacion.PreguntaFondo7);
+            eGFormularioAceptacion.PreguntaFondo8 = char.Parse(dRGFormularioAceptacion.PreguntaFondo8);
+            eGFormularioAceptacion.PreguntaFondo9 = char.Parse(dRGFormularioAceptacion.PreguntaFondo9);
+            eGFormularioAceptacion.PreguntaFondo10 = char.Parse(dRGFormularioAceptacion.PreguntaFondo10);
             lstEGFormularioAceptacion.Add(eGFormularioAceptacion);
         }
         return lstEGFormularioAceptacion;
@@ -59,7 +59,7 @@ public class CGFormularioAceptacion
 
     public int Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion()
     {
-        object ultimoCodigo = adGFormularioAceptacion.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
+        object ultimoCodigo = aDGFormularioAceptacion.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
         return (int)ultimoCodigo + 1;
     }
     #endregion

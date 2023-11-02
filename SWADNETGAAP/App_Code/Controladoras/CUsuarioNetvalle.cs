@@ -4,32 +4,32 @@
 public class CUsuarioNetvalle
 {
     #region Atributos
-    private ADUsuarioNetvalle adUsuarioNetvalle;
+    private ADUsuarioNetvalle aDUsuarioNetvalle;
     #endregion
 
     #region Constructor
     public CUsuarioNetvalle()
     {
-        adUsuarioNetvalle = new ADUsuarioNetvalle();
+        aDUsuarioNetvalle = new ADUsuarioNetvalle();
     }
     #endregion
 
     #region Métodos públicos
-    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string codigoUsuario)
     {
         EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
-        DTOGUsuarioNetvalle dtoUsuarioNetvalle = adUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
-        foreach (DTOGUsuarioNetvalle.UsuarioNetvalleRow dgUsuarioNetvalle in dtoUsuarioNetvalle.UsuarioNetvalle.Rows)
+        DTOGUsuarioNetvalle dTOUsuarioNetvalle = aDUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
+        foreach (DTOGUsuarioNetvalle.UsuarioNetvalleRow dRUsuarioNetvalle in dTOUsuarioNetvalle.UsuarioNetvalle.Rows)
         {
             eUsuarioNetvalle = new EUsuarioNetvalle();
-            eUsuarioNetvalle.CodigoUsuarioNetvalle = dgUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.NombreCompletoUsuarioNetvalle = dgUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.RolUsuarioNetvalle = dgUsuarioNetvalle.RolUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.CarreraUsuarioNetvalle = dgUsuarioNetvalle.CarreraUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.FacultadUsuarioNetvalle = dgUsuarioNetvalle.FacultadUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.SedeUsuarioNetvalle = dgUsuarioNetvalle.SedeUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.DireccionUsuarioNetvalle = dgUsuarioNetvalle.DireccionUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle = dgUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle.TrimEnd();            
+            eUsuarioNetvalle.CodigoUsuarioNetvalle = dRUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.NombreCompletoUsuarioNetvalle = dRUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.RolUsuarioNetvalle = dRUsuarioNetvalle.RolUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.CarreraUsuarioNetvalle = dRUsuarioNetvalle.CarreraUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.FacultadUsuarioNetvalle = dRUsuarioNetvalle.FacultadUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.SedeUsuarioNetvalle = dRUsuarioNetvalle.SedeUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.DireccionUsuarioNetvalle = dRUsuarioNetvalle.DireccionUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle = dRUsuarioNetvalle.DireccionTrabajoUsuarioNetvalle.TrimEnd();            
         }
         return eUsuarioNetvalle;
     }

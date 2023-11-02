@@ -211,12 +211,6 @@
   <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoProyectoResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_TipoObservacion" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_TipoObservacionResponse" />
-  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GObservacion_O_CodigoObservacion" />
   </wsdl:message>
@@ -259,11 +253,11 @@
   <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuario_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_AResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_Todo_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GRol_O_Todo" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GRol_O" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_Todo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GRol_O_TodoResponse" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GRol_OResponse" />
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GRol_O_CodigoRol_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GRol_O_CodigoRol" />
@@ -289,11 +283,11 @@
   <wsdl:message name="ISWADNETGAAP_Insertar_GCelular_I_OutputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GCelular_IResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GCelular_O_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_GCelular_O_CodigoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O_CodigoUsuario" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GCelular_O_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GCelular_OResponse" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_GCelular_O_CodigoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O_CodigoUsuarioResponse" />
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Actualizar_GCelular_A_InputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GCelular_A" />
@@ -325,17 +319,17 @@
   <wsdl:message name="ISWADNETGAAP_Actualizar_GTutorExterno_A_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GTutorExterno_AResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GTutorExterno_A_Estado_InputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GTutorExterno_A_Estado" />
+  <wsdl:message name="ISWADNETGAAP_Eliminar_GTutorExterno_E_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GTutorExterno_E" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Actualizar_GTutorExterno_A_Estado_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GTutorExterno_A_EstadoResponse" />
+  <wsdl:message name="ISWADNETGAAP_Eliminar_GTutorExterno_E_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar_GTutorExterno_EResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GTutorExterno_O_Todo_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_O_Todo" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_GTutorExterno_O_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_O" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GTutorExterno_O_Todo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_O_TodoResponse" />
+  <wsdl:message name="ISWADNETGAAP_Obtener_GTutorExterno_O_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GTutorExterno_OResponse" />
   </wsdl:message>
   <wsdl:portType name="ISWADNETGAAP">
     <wsdl:operation name="Insertar_GUsuarioRol_I">
@@ -474,10 +468,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoProyecto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GObservacion_O_TipoObservacion">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_TipoObservacion" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_TipoObservacionResponse" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_TipoObservacion_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Obtener_GObservacion_O_CodigoObservacion">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoObservacion" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoObservacionResponse" message="tns:ISWADNETGAAP_Obtener_GObservacion_O_CodigoObservacion_OutputMessage" />
@@ -506,9 +496,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuario_A" message="tns:ISWADNETGAAP_Actualizar_GUsuario_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuario_AResponse" message="tns:ISWADNETGAAP_Actualizar_GUsuario_A_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GRol_O_Todo">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_Todo" message="tns:ISWADNETGAAP_Obtener_GRol_O_Todo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_TodoResponse" message="tns:ISWADNETGAAP_Obtener_GRol_O_Todo_OutputMessage" />
+    <wsdl:operation name="Obtener_GRol_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O" message="tns:ISWADNETGAAP_Obtener_GRol_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_OResponse" message="tns:ISWADNETGAAP_Obtener_GRol_O_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Obtener_GRol_O_CodigoRol">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_CodigoRol" message="tns:ISWADNETGAAP_Obtener_GRol_O_CodigoRol_InputMessage" />
@@ -526,9 +516,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GCelular_I" message="tns:ISWADNETGAAP_Insertar_GCelular_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GCelular_IResponse" message="tns:ISWADNETGAAP_Insertar_GCelular_I_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GCelular_O">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O" message="tns:ISWADNETGAAP_Obtener_GCelular_O_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_OResponse" message="tns:ISWADNETGAAP_Obtener_GCelular_O_OutputMessage" />
+    <wsdl:operation name="Obtener_GCelular_O_CodigoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O_CodigoUsuario" message="tns:ISWADNETGAAP_Obtener_GCelular_O_CodigoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O_CodigoUsuarioResponse" message="tns:ISWADNETGAAP_Obtener_GCelular_O_CodigoUsuario_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GCelular_A">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GCelular_A" message="tns:ISWADNETGAAP_Actualizar_GCelular_A_InputMessage" />
@@ -550,13 +540,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GTutorExterno_A" message="tns:ISWADNETGAAP_Actualizar_GTutorExterno_A_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GTutorExterno_AResponse" message="tns:ISWADNETGAAP_Actualizar_GTutorExterno_A_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Actualizar_GTutorExterno_A_Estado">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GTutorExterno_A_Estado" message="tns:ISWADNETGAAP_Actualizar_GTutorExterno_A_Estado_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GTutorExterno_A_EstadoResponse" message="tns:ISWADNETGAAP_Actualizar_GTutorExterno_A_Estado_OutputMessage" />
+    <wsdl:operation name="Eliminar_GTutorExterno_E">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GTutorExterno_E" message="tns:ISWADNETGAAP_Eliminar_GTutorExterno_E_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Eliminar_GTutorExterno_EResponse" message="tns:ISWADNETGAAP_Eliminar_GTutorExterno_E_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GTutorExterno_O_Todo">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GTutorExterno_O_Todo" message="tns:ISWADNETGAAP_Obtener_GTutorExterno_O_Todo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GTutorExterno_O_TodoResponse" message="tns:ISWADNETGAAP_Obtener_GTutorExterno_O_Todo_OutputMessage" />
+    <wsdl:operation name="Obtener_GTutorExterno_O">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GTutorExterno_O" message="tns:ISWADNETGAAP_Obtener_GTutorExterno_O_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GTutorExterno_OResponse" message="tns:ISWADNETGAAP_Obtener_GTutorExterno_O_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISWADNETGAAP" type="tns:ISWADNETGAAP">
@@ -867,15 +857,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GObservacion_O_TipoObservacion">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_TipoObservacion" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Obtener_GObservacion_O_CodigoObservacion">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GObservacion_O_CodigoObservacion" style="document" />
       <wsdl:input>
@@ -939,8 +920,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GRol_O_Todo">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O_Todo" style="document" />
+    <wsdl:operation name="Obtener_GRol_O">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GRol_O" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -984,8 +965,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GCelular_O">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O" style="document" />
+    <wsdl:operation name="Obtener_GCelular_O_CodigoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GCelular_O_CodigoUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1038,8 +1019,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Actualizar_GTutorExterno_A_Estado">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GTutorExterno_A_Estado" style="document" />
+    <wsdl:operation name="Eliminar_GTutorExterno_E">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Eliminar_GTutorExterno_E" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1047,8 +1028,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GTutorExterno_O_Todo">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GTutorExterno_O_Todo" style="document" />
+    <wsdl:operation name="Obtener_GTutorExterno_O">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GTutorExterno_O" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

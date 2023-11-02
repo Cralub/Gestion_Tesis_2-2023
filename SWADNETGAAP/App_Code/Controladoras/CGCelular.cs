@@ -4,50 +4,50 @@
 public class CGCelular
 {
     #region Atributo
-    private ADGCelular adGCelular;
+    private ADGCelular aDGCelular;
     #endregion
 
     #region Constructor
     public CGCelular()
     {
-        adGCelular = new ADGCelular();
+        aDGCelular = new ADGCelular();
     }
     #endregion
 
     #region Métodos públicos
     public int Obtener_GCelular_O_SiguienteCodigoCelular()
     {
-        object ultimoCodigo = adGCelular.Obtener_GCelular_O_SiguienteCodigoCelular();
+        object ultimoCodigo = aDGCelular.Obtener_GCelular_O_SiguienteCodigoCelular();
         return (int)ultimoCodigo + 1;
     }
-    public void Insertar_GCelular_I(EGCelular celular)
+    public void Insertar_GCelular_I(EGCelular eGCelular)
     {
-        adGCelular.Insertar_GCelular_I(celular);
+        aDGCelular.Insertar_GCelular_I(eGCelular);
     }
-    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    public EGCelular Obtener_GCelular_O_CodigoUsuario(string codigoUsuario)
     {
-        EGCelular celular = null;
-        DTOGCelular dtoGCelular = adGCelular.Obtener_GCelular_O(codigoCelular);
-        foreach (DTOGCelular.GCelularRow gCelular in dtoGCelular.GCelular.Rows)
+        EGCelular eGCelular = null;
+        DTOGCelular dTOGCelular = aDGCelular.Obtener_GCelular_O_CodigoUsuario(codigoUsuario);
+        foreach (DTOGCelular.GCelularRow dRGCelular in dTOGCelular.GCelular.Rows)
         {
-            celular = new EGCelular();
-            celular.CodigoCelular = gCelular.CodigoCelular;
-            celular.CodigoUsuario = gCelular.CodigoUsuario;
-            celular.NumeroCelular = gCelular.NumeroCelular;
-            celular.CodigoAreaCelular = gCelular.CodigoAreaCelular;
-            celular.Estado = gCelular.Estado;
-            celular.FechaRegistro = gCelular.FechaRegistro;
-            celular.FechaModificacion = gCelular.FechaModificacion;
+            eGCelular = new EGCelular();
+            eGCelular.CodigoCelular = dRGCelular.CodigoCelular;
+            eGCelular.CodigoUsuario = dRGCelular.CodigoUsuario;
+            eGCelular.NumeroCelular = dRGCelular.NumeroCelular;
+            eGCelular.CodigoAreaCelular = dRGCelular.CodigoAreaCelular;
+            eGCelular.Estado = dRGCelular.Estado;
+            eGCelular.FechaRegistro = dRGCelular.FechaRegistro;
+            eGCelular.FechaModificacion = dRGCelular.FechaModificacion;
         }
-        return celular;
+        return eGCelular;
     }
-    public void Actualizar_GCelular_A(EGCelular celular)
+    public void Actualizar_GCelular_A(EGCelular eGCelular)
     {
-        adGCelular.Actualizar_GCelular_A(celular);
+        aDGCelular.Actualizar_GCelular_A(eGCelular);
     }
     public void Eliminar_GCelular_E(int codigoCelular)
     {
-        adGCelular.Eliminar_GCelular_E(codigoCelular);
+        aDGCelular.Eliminar_GCelular_E(codigoCelular);
     }
     #endregion
 }

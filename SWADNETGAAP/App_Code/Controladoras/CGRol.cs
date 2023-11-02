@@ -6,40 +6,40 @@
 public class CGRol
 {
     #region Atributos
-    private ADGRol adGRol;
+    private ADGRol aDGRol;
     #endregion
 
     #region Constructor
     public CGRol()
     {
-        adGRol = new ADGRol();
+        aDGRol = new ADGRol();
     }
     #endregion
 
     #region Métodos públicos
-    public List<EGRol> Obtener_GRol_O_Todo()
+    public List<EGRol> Obtener_GRol_O()
     {
         EGRol eGRol;
         List<EGRol> lstEGRol = new List<EGRol>();
-        DTOGRol dTOGRol = adGRol.Obtener_GRol_O_Todo();
-        foreach (DTOGRol.GRolRow drtoGRol in dTOGRol.GRol.Rows)
+        DTOGRol dTOGRol = aDGRol.Obtener_GRol_O();
+        foreach (DTOGRol.GRolRow dRGRol in dTOGRol.GRol.Rows)
         {
             eGRol = new EGRol();
-            eGRol.CodigoRol = drtoGRol.CodigoRol;
-            eGRol.DescripcionRol = drtoGRol.DescripcionRol;
+            eGRol.CodigoRol = dRGRol.CodigoRol;
+            eGRol.DescripcionRol = dRGRol.DescripcionRol;
             lstEGRol.Add(eGRol);
         }
         return lstEGRol;
     }
-    public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
+    public EGRol Obtener_GRol_O_CodigoRol(string codigoRol)
     {
         EGRol eGRol = new EGRol();
-        DTOGRol dTOGRol = adGRol.Obtener_GRol_O_CodigoRol(CodigoRol);
-        foreach (DTOGRol.GRolRow drtoGRol in dTOGRol.GRol.Rows)
+        DTOGRol dTOGRol = aDGRol.Obtener_GRol_O_CodigoRol(codigoRol);
+        foreach (DTOGRol.GRolRow dRGRol in dTOGRol.GRol.Rows)
         {
             eGRol = new EGRol();
-            eGRol.CodigoRol = drtoGRol.CodigoRol;
-            eGRol.DescripcionRol = drtoGRol.DescripcionRol;
+            eGRol.CodigoRol = dRGRol.CodigoRol;
+            eGRol.DescripcionRol = dRGRol.DescripcionRol;
         }
         return eGRol;
     }

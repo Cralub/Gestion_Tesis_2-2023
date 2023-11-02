@@ -5,80 +5,80 @@
 public class CGEtapa
 {
     #region Atributos
-    private ADGEtapa adGEtapa;
+    private ADGEtapa aDGEtapa;
     #endregion
 
     #region Constructor
     public CGEtapa()
     {
-        adGEtapa = new ADGEtapa();
+        aDGEtapa = new ADGEtapa();
     }
     #endregion
     #region Métodos públicos
-    public void Insertar_GEtapa_I(EGEtapa etapa)
+    public void Insertar_GEtapa_I(EGEtapa eGEtapa)
     {
-        adGEtapa.Insertar_GEtapa_I(etapa);
+        aDGEtapa.Insertar_GEtapa_I(eGEtapa);
     }
-    public List<EGEtapa> Obtener_GEtapa_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGEtapa> Obtener_GEtapa_O_CodigoProyecto(string codigoProyecto)
     {
         EGEtapa eGEtapa;
         List<EGEtapa> lstEGEtapa = new List<EGEtapa>();
-        DTOGEtapa dtoGEtapa = adGEtapa.Obtener_GEtapa_O_CodigoProyecto(CodigoProyecto);
-        foreach (DTOGEtapa.GEtapaRow dgGEtapa in dtoGEtapa.GEtapa.Rows)
+        DTOGEtapa dTOGEtapa = aDGEtapa.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto);
+        foreach (DTOGEtapa.GEtapaRow dRGEtapa in dTOGEtapa.GEtapa.Rows)
         {
             eGEtapa = new EGEtapa();
-            eGEtapa.CodigoEtapa = dgGEtapa.CodigoEtapa;
-            eGEtapa.CodigoProyecto = dgGEtapa.CodigoProyecto;
-            eGEtapa.NumeroEtapa = dgGEtapa.NumeroEtapa;
-            eGEtapa.FechaInicioEtapa = dgGEtapa.FechaInicioEtapa;
-            eGEtapa.FechaDefinidaEtapa = dgGEtapa.FechaDefinidaEtapa;
-            eGEtapa.FechaFinEtapa = dgGEtapa.FechaFinEtapa;
-            eGEtapa.EstadoEtapa = char.Parse(dgGEtapa.EstadoEtapa);
+            eGEtapa.CodigoEtapa = dRGEtapa.CodigoEtapa;
+            eGEtapa.CodigoProyecto = dRGEtapa.CodigoProyecto;
+            eGEtapa.NumeroEtapa = dRGEtapa.NumeroEtapa;
+            eGEtapa.FechaInicioEtapa = dRGEtapa.FechaInicioEtapa;
+            eGEtapa.FechaDefinidaEtapa = dRGEtapa.FechaDefinidaEtapa;
+            eGEtapa.FechaFinEtapa = dRGEtapa.FechaFinEtapa;
+            eGEtapa.EstadoEtapa = char.Parse(dRGEtapa.EstadoEtapa);
             lstEGEtapa.Add(eGEtapa);
         }
         return lstEGEtapa;
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string codigoProyecto, char estadoEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
-        DTOGEtapa dTOGEtapa = adGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto, EstadoEtapa);
-        foreach (DTOGEtapa.GEtapaRow dgGEtapa in dTOGEtapa.GEtapa.Rows)
+        DTOGEtapa dTOGEtapa = aDGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, estadoEtapa);
+        foreach (DTOGEtapa.GEtapaRow dRGEtapa in dTOGEtapa.GEtapa.Rows)
         {
             eGEtapa = new EGEtapa();
-            eGEtapa.CodigoEtapa = dgGEtapa.CodigoEtapa;
-            eGEtapa.CodigoProyecto = dgGEtapa.CodigoProyecto;
-            eGEtapa.NumeroEtapa = dgGEtapa.NumeroEtapa;
-            eGEtapa.FechaInicioEtapa = dgGEtapa.FechaInicioEtapa;
-            eGEtapa.FechaDefinidaEtapa = dgGEtapa.FechaDefinidaEtapa;
-            eGEtapa.FechaFinEtapa = dgGEtapa.FechaFinEtapa;
-            eGEtapa.EstadoEtapa = char.Parse(dgGEtapa.EstadoEtapa);
+            eGEtapa.CodigoEtapa = dRGEtapa.CodigoEtapa;
+            eGEtapa.CodigoProyecto = dRGEtapa.CodigoProyecto;
+            eGEtapa.NumeroEtapa = dRGEtapa.NumeroEtapa;
+            eGEtapa.FechaInicioEtapa = dRGEtapa.FechaInicioEtapa;
+            eGEtapa.FechaDefinidaEtapa = dRGEtapa.FechaDefinidaEtapa;
+            eGEtapa.FechaFinEtapa = dRGEtapa.FechaFinEtapa;
+            eGEtapa.EstadoEtapa = char.Parse(dRGEtapa.EstadoEtapa);
         }
         return eGEtapa;
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string codigoProyecto, byte numeroEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
-        DTOGEtapa dTOGEtapa = adGEtapa.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(CodigoProyecto, NumeroEtapa);
-        foreach (DTOGEtapa.GEtapaRow dgGEtapa in dTOGEtapa.GEtapa.Rows)
+        DTOGEtapa dTOGEtapa = aDGEtapa.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto, numeroEtapa);
+        foreach (DTOGEtapa.GEtapaRow dRGEtapa in dTOGEtapa.GEtapa.Rows)
         {
             eGEtapa = new EGEtapa();
-            eGEtapa.CodigoEtapa = dgGEtapa.CodigoEtapa;
-            eGEtapa.CodigoProyecto = dgGEtapa.CodigoProyecto;
-            eGEtapa.NumeroEtapa = dgGEtapa.NumeroEtapa;
-            eGEtapa.FechaInicioEtapa = dgGEtapa.FechaInicioEtapa;
-            eGEtapa.FechaDefinidaEtapa = dgGEtapa.FechaDefinidaEtapa;
-            eGEtapa.FechaFinEtapa = dgGEtapa.FechaFinEtapa;
-            eGEtapa.EstadoEtapa = char.Parse(dgGEtapa.EstadoEtapa);
+            eGEtapa.CodigoEtapa = dRGEtapa.CodigoEtapa;
+            eGEtapa.CodigoProyecto = dRGEtapa.CodigoProyecto;
+            eGEtapa.NumeroEtapa = dRGEtapa.NumeroEtapa;
+            eGEtapa.FechaInicioEtapa = dRGEtapa.FechaInicioEtapa;
+            eGEtapa.FechaDefinidaEtapa = dRGEtapa.FechaDefinidaEtapa;
+            eGEtapa.FechaFinEtapa = dRGEtapa.FechaFinEtapa;
+            eGEtapa.EstadoEtapa = char.Parse(dRGEtapa.EstadoEtapa);
         }
         return eGEtapa;
     }
-    public void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa)
+    public void Actualizar_GEtapa_A_EstadoEtapa(int codigoEtapa, char estadoEtapa)
     {
-        adGEtapa.Actualizar_GEtapa_A_EstadoEtapa(CodigoEtapa, EstadoEtapa);
+        aDGEtapa.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
     }
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
     {
-        object ultimoCodigo = adGEtapa.Obtener_GEtapa_O_SiguienteCodigoEtapa();
+        object ultimoCodigo = aDGEtapa.Obtener_GEtapa_O_SiguienteCodigoEtapa();
         return (int)ultimoCodigo + 1;        
     }
     #endregion

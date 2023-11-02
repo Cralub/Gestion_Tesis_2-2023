@@ -19,46 +19,46 @@ public class CGUsuarioRol
     {
         aDGUsuarioRol.Insertar_GUsuarioRol_I(eGUsuarioRol);
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string CodigoRol)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
     {
         EGUsuarioRol eGUsuarioRol = new EGUsuarioRol();
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
-        DTOGUsuarioRol dtoGUsuarioRol = aDGUsuarioRol.Obtener_GUsuarioRol_O_CodigoRol(CodigoRol);
-        foreach (DTOGUsuarioRol.GUsuarioRolRow gUsuarioRow in dtoGUsuarioRol.GUsuarioRol.Rows)
+        DTOGUsuarioRol dTOGUsuarioRol = aDGUsuarioRol.Obtener_GUsuarioRol_O_CodigoRol(codigoRol);
+        foreach (DTOGUsuarioRol.GUsuarioRolRow dRGUsuarioRow in dTOGUsuarioRol.GUsuarioRol.Rows)
         {
             eGUsuarioRol = new EGUsuarioRol();
-            eGUsuarioRol.CodigoUsuarioRol = gUsuarioRow.CodigoUsuarioRol;
-            eGUsuarioRol.CodigoUsuario = gUsuarioRow.CodigoUsuario;
-            eGUsuarioRol.CodigoRol = gUsuarioRow.CodigoRol;
+            eGUsuarioRol.CodigoUsuarioRol = dRGUsuarioRow.CodigoUsuarioRol;
+            eGUsuarioRol.CodigoUsuario = dRGUsuarioRow.CodigoUsuario;
+            eGUsuarioRol.CodigoRol = dRGUsuarioRow.CodigoRol;
             lstEGUsuarioRol.Add(eGUsuarioRol);
         }
         return lstEGUsuarioRol;
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string codigoUsuario)
     {
         EGUsuarioRol eGUsuarioRol = new EGUsuarioRol();
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
-        DTOGUsuarioRol dtoGUsuarioRol = aDGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario(CodigoUsuario);
-        foreach (DTOGUsuarioRol.GUsuarioRolRow gUsuarioRow in dtoGUsuarioRol.GUsuarioRol.Rows)
+        DTOGUsuarioRol dTOGUsuarioRol = aDGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario);
+        foreach (DTOGUsuarioRol.GUsuarioRolRow dRGUsuarioRow in dTOGUsuarioRol.GUsuarioRol.Rows)
         {
             eGUsuarioRol = new EGUsuarioRol();
-            eGUsuarioRol.CodigoUsuarioRol = gUsuarioRow.CodigoUsuarioRol;
-            eGUsuarioRol.CodigoUsuario = gUsuarioRow.CodigoUsuario;
-            eGUsuarioRol.CodigoRol = gUsuarioRow.CodigoRol;
+            eGUsuarioRol.CodigoUsuarioRol = dRGUsuarioRow.CodigoUsuarioRol;
+            eGUsuarioRol.CodigoUsuario = dRGUsuarioRow.CodigoUsuario;
+            eGUsuarioRol.CodigoRol = dRGUsuarioRow.CodigoRol;
             lstEGUsuarioRol.Add(eGUsuarioRol);
         }
         return lstEGUsuarioRol;
     }
-    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol)
+    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string codigoUsuario, string codigoRol)
     {
         EGUsuarioRol eGUsuarioRol = new EGUsuarioRol();
-        DTOGUsuarioRol dtoGUsuarioRol = aDGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(CodigoUsuario, CodigoRol);
-        foreach (DTOGUsuarioRol.GUsuarioRolRow gUsuarioRow in dtoGUsuarioRol.GUsuarioRol.Rows)
+        DTOGUsuarioRol dTOGUsuarioRol = aDGUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
+        foreach (DTOGUsuarioRol.GUsuarioRolRow dRGUsuarioRow in dTOGUsuarioRol.GUsuarioRol.Rows)
         {
             eGUsuarioRol = new EGUsuarioRol();
-            eGUsuarioRol.CodigoUsuarioRol = gUsuarioRow.CodigoUsuarioRol;
-            eGUsuarioRol.CodigoUsuario = gUsuarioRow.CodigoUsuario;
-            eGUsuarioRol.CodigoRol = gUsuarioRow.CodigoRol;
+            eGUsuarioRol.CodigoUsuarioRol = dRGUsuarioRow.CodigoUsuarioRol;
+            eGUsuarioRol.CodigoUsuario = dRGUsuarioRow.CodigoUsuario;
+            eGUsuarioRol.CodigoRol = dRGUsuarioRow.CodigoRol;
         }
         return eGUsuarioRol;
     }
@@ -73,7 +73,7 @@ public class CGUsuarioRol
     }
     public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
     {
-        aDGUsuarioRol.Eliminar_GusuarioRol_E(codigoUsuarioRol);
+        aDGUsuarioRol.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
     }
     #endregion
 

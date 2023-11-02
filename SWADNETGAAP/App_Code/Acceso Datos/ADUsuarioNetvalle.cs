@@ -12,16 +12,16 @@ using System.Web;
 public class ADUsuarioNetvalle
 {
     #region Metodos públicos
-    public DTOGUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    public DTOGUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string codigoUsuario)
     {
         DTOGUsuarioNetvalle dTOGUsuarioNetvalle = new DTOGUsuarioNetvalle();
         try
         {
             Database BDSWADNETUSR = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETUSR.GetStoredProcCommand("UsuarioNetvalle_O_CodigoUsuario");
-            BDSWADNETUSR.AddInParameter(dbCommand, "CodigoUsuarioNetvalle", DbType.String, CodigoUsuario);
-            BDSWADNETUSR.AddInParameter(dbCommand, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            BDSWADNETUSR.LoadDataSet(dbCommand, dTOGUsuarioNetvalle, "UsuarioNetvalle");
+            DbCommand comandoBD = BDSWADNETUSR.GetStoredProcCommand("UsuarioNetvalle_O_CodigoUsuario");
+            BDSWADNETUSR.AddInParameter(comandoBD, "CodigoUsuarioNetvalle", DbType.String, codigoUsuario);
+            BDSWADNETUSR.AddInParameter(comandoBD, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            BDSWADNETUSR.LoadDataSet(comandoBD, dTOGUsuarioNetvalle, "UsuarioNetvalle");
         }
         catch (Exception)
         {

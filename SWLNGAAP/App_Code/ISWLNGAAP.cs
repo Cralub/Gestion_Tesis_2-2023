@@ -104,7 +104,7 @@ public interface ISWLNGAAP
     #endregion
     #region GRol
     [OperationContract]
-    List<EGRol> Obtener_GRol_O_Todo();
+    List<EGRol> Obtener_GRol_O();
     [OperationContract]
     EGRol Obtener_GRol_O_CodigoRol(string CodigoRol);
     #endregion
@@ -131,13 +131,13 @@ public interface ISWLNGAAP
     void Actualizar_GTutorExterno_A(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno);
 
     [OperationContract]
-    List<EGTutorExterno> Obtener_GTutorExterno_O_Todo();
+    List<EGTutorExterno> Obtener_GTutorExterno_O();
 
     [OperationContract]
     EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno);
 
     [OperationContract]
-    void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado);
+    void Eliminar_GTutorExterno_E(int codigoTutorExterno);
 
     #endregion
     #region GProyectoComplejo

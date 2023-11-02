@@ -4,36 +4,36 @@
 public class CGUsuario
 {
     #region Atributos
-    private ADGUsuario adGUsuario;
+    private ADGUsuario aDGUsuario;
     #endregion
     #region Constructor
     public CGUsuario()
     {
-        adGUsuario = new ADGUsuario();
+        aDGUsuario = new ADGUsuario();
     }
     #endregion
     #region Métodos públicos
     public void Insertar_GUsuario_I(EGUsuario eGUsuario)
     {
-        adGUsuario.Insertar_GUsuario_I(eGUsuario);
+        aDGUsuario.Insertar_GUsuario_I(eGUsuario);
     }
    
-    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario)
+    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
     {
         EGUsuario eGUsuario = new EGUsuario();
-        DTOGUsuario dtoGUsuario = adGUsuario.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
-        foreach (DTOGUsuario.GUsuarioRow drGUsuario in dtoGUsuario.GUsuario.Rows)
+        DTOGUsuario dTOGUsuario = aDGUsuario.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
+        foreach (DTOGUsuario.GUsuarioRow dRGUsuario in dTOGUsuario.GUsuario.Rows)
         {
 
-            eGUsuario.CodigoUsuario = drGUsuario.CodigoUsuario;
-            eGUsuario.NombreCompletoUsuario = drGUsuario.NombreCompletoUsuario;
-            eGUsuario.SedeUsuario = drGUsuario.SedeUsuario;
+            eGUsuario.CodigoUsuario = dRGUsuario.CodigoUsuario;
+            eGUsuario.NombreCompletoUsuario = dRGUsuario.NombreCompletoUsuario;
+            eGUsuario.SedeUsuario = dRGUsuario.SedeUsuario;
         }
         return eGUsuario;
     }
     public void Actualizar_GUsuario_A(EGUsuario eGUsuario)
     {
-        adGUsuario.Actualizar_GUsuario_A(eGUsuario);
+        aDGUsuario.Actualizar_GUsuario_A(eGUsuario);
     }
     #endregion
 }

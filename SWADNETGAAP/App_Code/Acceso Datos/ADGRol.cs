@@ -11,15 +11,15 @@ using System.Web;
 /// </summary>
 public class ADGRol
 {
-    public DTOGRol Obtener_GRol_O_Todo()
+    public DTOGRol Obtener_GRol_O()
     {
         DTOGRol dTOGRol = new DTOGRol();
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GRol_O_Todo");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGRol, "GRol");
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GRol_O");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGRol, "GRol");
 
         }
         catch (Exception)
@@ -28,16 +28,16 @@ public class ADGRol
         }
         return dTOGRol;
     }
-    public DTOGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
+    public DTOGRol Obtener_GRol_O_CodigoRol(string codigoRol)
     {
         DTOGRol dTOGRol = new DTOGRol();
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GRol_O_CodigoRol");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoRol", DbType.StringFixedLength, CodigoRol);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGRol, "GRol");
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GRol_O_CodigoRol");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoRol", DbType.StringFixedLength, codigoRol);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGRol, "GRol");
 
         }
         catch (Exception)

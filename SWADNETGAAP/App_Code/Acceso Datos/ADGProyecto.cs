@@ -13,21 +13,21 @@ public class ADGProyecto
     {
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GProyecto_I");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoProyecto", DbType.StringFixedLength, eGProyecto.CodigoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ModalidadProyecto", DbType.StringFixedLength, eGProyecto.ModalidadProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "TituloProyecto", DbType.String, eGProyecto.TituloProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivoGeneralProyecto", DbType.String, eGProyecto.ObjetivoGeneralProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivosEspecificosProyecto", DbType.String, eGProyecto.ObjetivosEspecificosProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "AlcanceProyecto", DbType.String, eGProyecto.AlcanceProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "EnlaceDocumentoProyecto", DbType.String, eGProyecto.EnlaceDocumentoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoProyecto", DbType.StringFixedLength, eGProyecto.EstadoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "NumeroRevisiones", DbType.Int32, eGProyecto.NumeroRevisiones);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
-            BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GProyecto_I");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, eGProyecto.CodigoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "ModalidadProyecto", DbType.StringFixedLength, eGProyecto.ModalidadProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "TituloProyecto", DbType.String, eGProyecto.TituloProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "ObjetivoGeneralProyecto", DbType.String, eGProyecto.ObjetivoGeneralProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "ObjetivosEspecificosProyecto", DbType.String, eGProyecto.ObjetivosEspecificosProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "AlcanceProyecto", DbType.String, eGProyecto.AlcanceProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "EnlaceDocumentoProyecto", DbType.String, eGProyecto.EnlaceDocumentoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoProyecto", DbType.StringFixedLength, eGProyecto.EstadoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "NumeroRevisiones", DbType.Int32, eGProyecto.NumeroRevisiones);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (Exception ex)
         {
@@ -39,12 +39,12 @@ public class ADGProyecto
         DTOGProyecto dtoGProyecto = new DTOGProyecto();
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GProyecto_O");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaInicio", DbType.DateTime, fechaInicio);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaFin", DbType.DateTime, fechaFin);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            BDSWADNETGAAP.LoadDataSet(dbCommand, dtoGProyecto, "GProyecto");
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GProyecto_O");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaInicio", DbType.DateTime, fechaInicio);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaFin", DbType.DateTime, fechaFin);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGProyecto, "GProyecto");
         }
         catch (Exception ex)
         {
@@ -52,16 +52,16 @@ public class ADGProyecto
         }
         return dtoGProyecto;
     }
-    public DTOGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public DTOGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         DTOGProyecto dTOGProyecto = new DTOGProyecto();
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GProyecto_O_CodigoProyecto");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoProyecto", DbType.StringFixedLength, CodigoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGProyecto, "GProyecto");
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GProyecto_O_CodigoProyecto");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, codigoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGProyecto, "GProyecto");
         }
         catch (Exception ex)
         {
@@ -73,17 +73,17 @@ public class ADGProyecto
     {
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GProyecto_A");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoProyecto", DbType.StringFixedLength, eGProyecto.CodigoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ModalidadProyecto", DbType.StringFixedLength, eGProyecto.ModalidadProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "TituloProyecto", DbType.String, eGProyecto.TituloProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivoGeneralProyecto", DbType.String, eGProyecto.ObjetivoGeneralProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "ObjetivosEspecificosProyecto", DbType.String, eGProyecto.ObjetivosEspecificosProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "AlcanceProyecto", DbType.String, eGProyecto.AlcanceProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "EnlaceDocumentoProyecto", DbType.String, eGProyecto.EnlaceDocumentoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
-            BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GProyecto_A");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, eGProyecto.CodigoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "ModalidadProyecto", DbType.StringFixedLength, eGProyecto.ModalidadProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "TituloProyecto", DbType.String, eGProyecto.TituloProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "ObjetivoGeneralProyecto", DbType.String, eGProyecto.ObjetivoGeneralProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "ObjetivosEspecificosProyecto", DbType.String, eGProyecto.ObjetivosEspecificosProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "AlcanceProyecto", DbType.String, eGProyecto.AlcanceProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "EnlaceDocumentoProyecto", DbType.String, eGProyecto.EnlaceDocumentoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (Exception ex)
         {
