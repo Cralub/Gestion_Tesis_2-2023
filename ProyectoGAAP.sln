@@ -23,6 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SWADNETGAAP", "SWADNETGAAP\
 		VWDPort = "51634"
 		SlnRelativePath = "SWADNETGAAP\"
 		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SWLNGAAP", "SWLNGAAP\", "{F1420190-4A8F-443A-8C8A-3DDD111A7ED2}"
@@ -48,6 +49,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SWLNGAAP", "SWLNGAAP\", "{F
 		VWDPort = "51705"
 		SlnRelativePath = "SWLNGAAP\"
 		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WAGAAP", "WAGAAP\", "{62906527-E050-45D7-B7E4-41FF793D67CC}"
@@ -73,6 +75,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WAGAAP", "WAGAAP\", "{62906
 		VWDPort = "56440"
 		SlnRelativePath = "WAGAAP\"
 		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
 	EndProjectSection
 EndProject
 Global

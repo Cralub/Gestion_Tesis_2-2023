@@ -42,7 +42,7 @@ public class ADGFormularioAceptacion
             BDSWADNETGAAP.AddInParameter(dbCommand, "PreguntaFondo8", DbType.StringFixedLength, formularioAceptacion.PreguntaFondo8);
             BDSWADNETGAAP.AddInParameter(dbCommand, "PreguntaFondo9", DbType.StringFixedLength, formularioAceptacion.PreguntaFondo9);
             BDSWADNETGAAP.AddInParameter(dbCommand, "PreguntaFondo10", DbType.StringFixedLength, formularioAceptacion.PreguntaFondo10);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
             BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
         }
         catch (Exception ex)
@@ -50,20 +50,21 @@ public class ADGFormularioAceptacion
             throw ex;
         }
     }
-    public Object Obtener_GFormularioAceptacion_O_UltimoCodigoFormularioAceptacion()
+    public object Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion()
     {
-        Object res = null;
+        object ultimoCodigo;
         try
         {
-            Database database = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = database.GetStoredProcCommand("GFormularioAceptacion_O_UltimoCodigoFormularioAceptacion");
-            res = database.ExecuteScalar(dbCommand);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
+            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GFormularioAceptacion");
+            ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            throw ex;
+            throw;
         }
-        return res;
+        return ultimoCodigo;
     }
     public DTOGFormularioAceptacion Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyect)
     {

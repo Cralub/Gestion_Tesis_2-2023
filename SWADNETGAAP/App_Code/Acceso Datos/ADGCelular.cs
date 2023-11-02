@@ -12,20 +12,21 @@ using System.Web;
 public class ADGCelular
 {
     #region Métodos públicos
-    public Object Obtener_GCelular_O_UltimoCodigoCelular()
+    public object Obtener_GCelular_O_SiguienteCodigoCelular()
     {
-        Object res = null;
+        object ultimoCodigo;
         try
         {
             Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GCelular_O_UltimoCodigoCelular");
-            res = bdNETGAAP.ExecuteScalar(comandoBD);
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
+            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GCelular");
+            ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)
         {
             throw;
         }
-        return res;
+        return ultimoCodigo;
     }
     public void Insertar_GCelular_I(EGCelular celular)
     {
@@ -37,9 +38,9 @@ public class ADGCelular
             bdNETGAAP.AddInParameter(comandoBD, "CodigoUsuario", DbType.String, celular.CodigoUsuario);
             bdNETGAAP.AddInParameter(comandoBD, "CodigoAreaCelular", DbType.String, celular.CodigoAreaCelular);
             bdNETGAAP.AddInParameter(comandoBD, "NumeroCelular", DbType.Int32, celular.NumeroCelular);
-            bdNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-            bdNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
-            bdNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            bdNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (Exception)
@@ -73,7 +74,7 @@ public class ADGCelular
             bdNETGAAP.AddInParameter(comandoBD, "CodigoUsuario", DbType.String, celular.CodigoUsuario);
             bdNETGAAP.AddInParameter(comandoBD, "CodigoAreaCelular", DbType.String, celular.CodigoAreaCelular);
             bdNETGAAP.AddInParameter(comandoBD, "NumeroCelular", DbType.String, celular.NumeroCelular);
-            bdNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            bdNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (Exception)

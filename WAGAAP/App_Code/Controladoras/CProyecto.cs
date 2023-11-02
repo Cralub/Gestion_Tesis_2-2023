@@ -48,12 +48,12 @@ public class CProyecto
             throw;
         }
     }
-    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
     {
         List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
         try
         {
-            lstEGProyecto = lNServicio.Obtener_GProyecto_O_Todo();
+            lstEGProyecto = lNServicio.Obtener_GProyecto_O(fechaInicio, fechaFin);
         }
         catch (Exception)
         {

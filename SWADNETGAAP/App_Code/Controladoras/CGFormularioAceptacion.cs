@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 /// <summary>
 /// Descripción breve de CGFormularioAceptacion
@@ -58,6 +55,12 @@ public class CGFormularioAceptacion
             lstEGFormularioAceptacion.Add(eGFormularioAceptacion);
         }
         return lstEGFormularioAceptacion;
+    }
+
+    public int Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion()
+    {
+        object ultimoCodigo = adGFormularioAceptacion.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
+        return (int)ultimoCodigo + 1;
     }
     #endregion
 }

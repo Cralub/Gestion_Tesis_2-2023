@@ -1,6 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 /// <summary>
 /// Descripción breve de CGUsuarioRol
@@ -66,15 +64,16 @@ public class CGUsuarioRol
     }
     public int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
     {
-        Object res = aDGUsuarioRol.Obtener_GUsuarioRol_O_UltimoCodigoUsuarioRol();
-        if (res.ToString().IsNullOrEmpty())
-            return 1;
-        else
-            return (int)res + 1;
+        object res = aDGUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
+        return (int)res + 1;
     }
     public void Actualizar_GUsuarioRol_A(EGUsuarioRol eGUsuarioRol)
     {
         aDGUsuarioRol.Actualizar_GUsuarioRol_A(eGUsuarioRol);
+    }
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
+    {
+        aDGUsuarioRol.Eliminar_GusuarioRol_E(codigoUsuarioRol);
     }
     #endregion
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="98733c93-585e-4b55-8898-07f33bbecbef" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="9066e48e-c3e1-44ba-95c0-bce893f47ff7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:51634/SWADNETGAAP.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SWADNETGAAP.xsd" MetadataType="Schema" ID="fd5ccac0-1c3c-49de-ad7a-00c1b4235638" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd2" />
-    <MetadataFile FileName="SWADNETGAAP1.xsd" MetadataType="Schema" ID="b3df32ef-8546-42ec-8702-6e5c612e6cfb" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd1" />
-    <MetadataFile FileName="SWADNETGAAP2.xsd" MetadataType="Schema" ID="b857b80d-271b-41ac-9336-08e5cd195774" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd0" />
-    <MetadataFile FileName="SWADNETGAAP.disco" MetadataType="Disco" ID="ca3911fa-04ab-4ad0-8996-d3680012fbf6" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?disco" />
-    <MetadataFile FileName="SWADNETGAAP.wsdl" MetadataType="Wsdl" ID="3bef9a2b-bcd3-4e1c-949e-8dcfec9332f7" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?wsdl" />
+    <MetadataFile FileName="SWADNETGAAP.xsd" MetadataType="Schema" ID="1778e610-98cd-48cf-ab20-c1dc132fab70" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd2" />
+    <MetadataFile FileName="SWADNETGAAP1.xsd" MetadataType="Schema" ID="b8a4a00f-00f0-491b-85e5-e44c7ce17e17" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd1" />
+    <MetadataFile FileName="SWADNETGAAP2.xsd" MetadataType="Schema" ID="73e78205-7401-4edf-b9e0-89096dcef5d3" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd0" />
+    <MetadataFile FileName="SWADNETGAAP.disco" MetadataType="Disco" ID="49361c67-7b05-4232-a49e-c3f4df2b186f" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?disco" />
+    <MetadataFile FileName="SWADNETGAAP.wsdl" MetadataType="Wsdl" ID="8de11df1-18fd-4c4f-9acf-e9a868ea27ed" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

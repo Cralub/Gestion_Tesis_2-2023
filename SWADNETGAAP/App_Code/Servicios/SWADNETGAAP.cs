@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
 public class SWADNETGAAP : ISWADNETGAAP
@@ -38,6 +39,11 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
         cGUsuarioRol.Actualizar_GUsuarioRol_A(eGUsuarioRol);
     }
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
+    {
+        CGUsuarioRol cGUsuarioRol = new CGUsuarioRol();
+        cGUsuarioRol.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
+    }
     #endregion
     #region Tabla: GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(EGUsuarioProyecto eGUsuarioProyecto)
@@ -74,6 +80,11 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGUsuarioProyecto cGUsuarioProyecto = new CGUsuarioProyecto();
         cGUsuarioProyecto.Actualizar_GUsuarioProyecto_A(eGUsuarioProyecto);
     }
+    public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
+    {
+        CGUsuarioProyecto cGUsuarioProyecto = new CGUsuarioProyecto();
+        cGUsuarioProyecto.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
+    }
     #endregion
     #region Tabla: GProyecto
     public void Insertar_GProyecto_I(EGProyecto eGProyecto)
@@ -81,10 +92,10 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGProyecto cGProyecto = new CGProyecto();
         cGProyecto.Insertar_GProyecto_I(eGProyecto);
     }
-    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
     {
         CGProyecto cGProyecto = new CGProyecto();
-        return cGProyecto.Obtener_GProyecto_O_Todo();
+        return cGProyecto.Obtener_GProyecto_O(fechaInicio, fechaFin);
     }
     public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto)
     {
@@ -115,11 +126,11 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGEtapa cGEtapa = new CGEtapa();
         return cGEtapa.Obtener_GEtapa_O_SiguienteCodigoEtapa();
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa)
     {
         CGEtapa cGEtapa = new CGEtapa();
         EGEtapa eGEtapa = new EGEtapa();
-        eGEtapa = cGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto);
+        eGEtapa = cGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto, EstadoEtapa);
         return eGEtapa;
     }
     public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroEtapa)
@@ -167,11 +178,11 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
         return cGSubEtapa.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa)
     {
         CGSubEtapa cGSubEtapa = new CGSubEtapa();
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
-        eGSubEtapa = cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoEtapa);
+        eGSubEtapa = cGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(CodigoEtapa, EstadoSubEtapa);
         return eGSubEtapa;
     }
     public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa)
@@ -260,7 +271,7 @@ public class SWADNETGAAP : ISWADNETGAAP
         return cGRol.Obtener_GRol_O_CodigoRol(CodigoRol);
     }
     #endregion
-    #region Tabla : UsuarioNetvalle
+    #region Tabla: UsuarioNetvalle
     public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
     {
         CUsuarioNetvalle cUsuarioNetvalle = new CUsuarioNetvalle();

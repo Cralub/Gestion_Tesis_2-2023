@@ -1,6 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 /// <summary>
 /// Descripción breve de CGEtapa
 /// </summary>
@@ -40,10 +38,10 @@ public class CGEtapa
         }
         return lstEGEtapa;
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
-        DTOGEtapa dTOGEtapa = adGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto);
+        DTOGEtapa dTOGEtapa = adGEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto, EstadoEtapa);
         foreach (DTOGEtapa.GEtapaRow dgGEtapa in dTOGEtapa.GEtapa.Rows)
         {
             eGEtapa = new EGEtapa();
@@ -80,11 +78,8 @@ public class CGEtapa
     }
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
     {
-        Object res = adGEtapa.Obtener_GEtapa_O_UltimoCodigoEtapa();
-        if (res.ToString().IsNullOrEmpty())        
-            return 1;        
-        else        
-            return (int)res + 1;        
+        object ultimoCodigo = adGEtapa.Obtener_GEtapa_O_SiguienteCodigoEtapa();
+        return (int)ultimoCodigo + 1;        
     }
     #endregion
 }

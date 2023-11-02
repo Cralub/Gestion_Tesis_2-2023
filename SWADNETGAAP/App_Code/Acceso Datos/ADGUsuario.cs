@@ -17,9 +17,9 @@ public class ADGUsuario
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuario_I");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuario", DbType.StringFixedLength, eGUsuario.CodigoUsuario);
             BDSWADNETGAAP.AddInParameter(dbCommand, "SedeUsuario", DbType.StringFixedLength, eGUsuario.SedeUsuario);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
         }
         catch (Exception)
@@ -35,7 +35,7 @@ public class ADGUsuario
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuario_O_CodigoUsuario");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuario", DbType.StringFixedLength, CodigoUsuario);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dtoGUsuario, "GUsuario");
         }
         catch (Exception ex)
@@ -52,7 +52,7 @@ public class ADGUsuario
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuario_A");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuario", DbType.String, eGUsuario.CodigoUsuario);
             BDSWADNETGAAP.AddInParameter(dbCommand, "SedeUsuario", DbType.String, eGUsuario.SedeUsuario);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
         }
         catch (Exception)

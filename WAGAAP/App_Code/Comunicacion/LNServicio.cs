@@ -163,6 +163,20 @@ public class LNServicio
             throw;
         }
     }
+    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Eliminar_GUsuarioRol_E(CodigoUsuarioRol);
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
@@ -241,6 +255,21 @@ public class LNServicio
             throw;
         }
     }
+    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    {
+        using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+        {
+            clienteSWLNGAAP.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
+        }
+        try
+        {
+
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GProyecto
     public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
@@ -257,14 +286,14 @@ public class LNServicio
             throw;
         }
     }
-    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
     {
         List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O_Todo().ToList();
+                lstEGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
             }
         }
         catch (Exception)

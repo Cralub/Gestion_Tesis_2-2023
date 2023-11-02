@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 /// <summary>
 /// Descripción breve de CGProyecto
 /// </summary>
@@ -20,11 +21,11 @@ public class CGProyecto
     {
         adGProyecto.Insertar_GProyecto_I(eGProyecto);
     }
-    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
     {
         EGProyecto eGProyecto;
         List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
-        DTOGProyecto dtoGProyecto = adGProyecto.Obtener_GProyecto_O_Todo();
+        DTOGProyecto dtoGProyecto = adGProyecto.Obtener_GProyecto_O(fechaInicio, fechaFin);
         foreach (DTOGProyecto.GProyectoRow drGProyecto in dtoGProyecto.GProyecto.Rows)
         {
             eGProyecto = new EGProyecto();
@@ -54,6 +55,10 @@ public class CGProyecto
             eGProyecto.AlcanceProyecto = drGProyecto.AlcanceProyecto;
             eGProyecto.EnlaceDocumentoProyecto = drGProyecto.EnlaceDocumentoProyecto;
             eGProyecto.EstadoProyecto = char.Parse(drGProyecto.EstadoProyecto);
+            eGProyecto.NumeroRevisiones = drGProyecto.NumeroRevisiones;
+            eGProyecto.Estado = drGProyecto.Estado;
+            eGProyecto.FechaRegistro = drGProyecto.FechaRegistro;
+            eGProyecto.FechaModificacion = drGProyecto.FechaModificacion;
         }
         return eGProyecto;
     }

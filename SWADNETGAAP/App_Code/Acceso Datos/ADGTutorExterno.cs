@@ -26,9 +26,9 @@ public class ADGTutorExterno
 			BDSWADNETGAAP.AddInParameter(dbCommand, "DireccionTrabajoTutorExterno", DbType.String, tutorExterno.DireccionTrabajoTutorExterno);
 			BDSWADNETGAAP.AddInParameter(dbCommand, "DescripcionTutorExterno", DbType.String, tutorExterno.DescripcionTutorExterno);
 			BDSWADNETGAAP.AddInParameter(dbCommand, "SedeTutorExterno", DbType.String, tutorExterno.SedeTutorExterno);
-			BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-			BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
-			BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+			BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+			BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
+			BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
 			BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
 
 		}
@@ -47,7 +47,7 @@ public class ADGTutorExterno
 			Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
 			DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GTutorExterno_O_CodigoTutorExterno");
 			BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoTutorExterno", DbType.Int32, codigoTutorExterno);
-            //BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
 			BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGTutorExterno, "GTutorExterno");
 
 
@@ -90,7 +90,7 @@ public class ADGTutorExterno
             BDSWADNETGAAP.AddInParameter(dbCommand, "DireccionTrabajoTutorExterno", DbType.String, tutorExterno.DireccionTrabajoTutorExterno);
             BDSWADNETGAAP.AddInParameter(dbCommand, "DescripcionTutorExterno", DbType.String, tutorExterno.DescripcionTutorExterno);
             BDSWADNETGAAP.AddInParameter(dbCommand, "SedeTutorExterno", DbType.String, tutorExterno.SedeTutorExterno);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
         }
         catch (Exception ex)
@@ -108,7 +108,7 @@ public class ADGTutorExterno
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GTutorExterno_A_Estado");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoTutorExterno", DbType.Int32, codigoTutorExterno);
             BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, estado);
-			BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+			BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
         }
         catch (Exception ex)

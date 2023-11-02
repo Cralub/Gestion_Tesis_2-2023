@@ -95,6 +95,17 @@ public class CUsuarioProyecto
             throw;
         }
     }
+    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    {
+        try
+        {
+            lNServicio.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
 
     #endregion

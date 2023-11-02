@@ -40,6 +40,11 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_GUsuarioRol_A(CodigoUsuario, CodigoRol, CodigoUsuarioRol);
     }
+    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Eliminar_GusuarioRol_E(CodigoUsuarioRol);
+    }
     #endregion
     #region GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
@@ -71,6 +76,11 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_GUsuarioProyecto_A(CodigoUsuarioProyecto, CodigoProyecto, CodigoUsuario, CodigoRol,EstadoUsuarioProyecto);
     }
+    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
+    }
     #endregion
     #region GProyecto
     public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
@@ -78,10 +88,10 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Insertar_GProyecto_I(CodigoProyecto,  ModalidadProyecto,  TituloProyecto,  ObjetivoGeneralProyecto,  EnlaceDocumentoProyecto,  EstadoProyecto);
     }
-    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
     {
         CGAAP cGAAP = new CGAAP();
-        return cGAAP.Obtener_GProyecto_O_Todo();
+        return cGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin);
     }
     public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto)
     {
@@ -107,11 +117,11 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa)
     {
         CGAAP cGAAP = new CGAAP();
         EGEtapa eGEtapa = new EGEtapa();
-        eGEtapa = cGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto);
+        eGEtapa = cGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto, EstadoEtapa);
         return eGEtapa;
     }
     public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa)
@@ -154,11 +164,11 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa)
     {
         CGAAP cGAAP = new CGAAP();
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
-        eGSubEtapa = cGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoEtapa); 
+        eGSubEtapa = cGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(CodigoEtapa, EstadoSubEtapa); 
         return eGSubEtapa;
     }
     public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa)

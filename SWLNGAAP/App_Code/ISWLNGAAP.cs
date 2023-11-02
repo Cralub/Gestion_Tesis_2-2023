@@ -19,6 +19,8 @@ public interface ISWLNGAAP
     EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol);
     [OperationContract]
     void Actualizar_GUsuarioRol_A(string CodigoUsuario, string CodigoRol, int CodigoUsuarioRol);
+    [OperationContract]
+    void Eliminar_GUsuarioRol_E(int codigoUsuario);
     #endregion
     #region GUsuarioProyecto
     [OperationContract]
@@ -31,12 +33,14 @@ public interface ISWLNGAAP
     List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string CodigoUsuario);
     [OperationContract]
     void Actualizar_GUsuarioProyecto_A(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto);
+    [OperationContract]
+    void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto);
     #endregion
     #region GProyecto
     [OperationContract]
     void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto);
     [OperationContract]
-    List<EGProyecto> Obtener_GProyecto_O_Todo();
+    List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin);
     [OperationContract]
     EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto);
     [OperationContract]
@@ -48,7 +52,7 @@ public interface ISWLNGAAP
     [OperationContract]
     int Obtener_GEtapa_O_SiguienteCodigoEtapa();
     [OperationContract]
-    EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto);
+    EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa);
     [OperationContract]
     EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa);
     [OperationContract]
@@ -66,11 +70,11 @@ public interface ISWLNGAAP
     [OperationContract]
     int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
     [OperationContract]
-    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa);
+    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa);
     [OperationContract]
     EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa);
     [OperationContract]
-    void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char Estado);
+    void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa);
     #endregion
     #region GObservacion
     [OperationContract]

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IService1" en el código y en el archivo de configuración a la vez.
@@ -18,6 +19,8 @@ public interface ISWADNETGAAP
     EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol);
     [OperationContract]
     void Actualizar_GUsuarioRol_A(EGUsuarioRol eGUsuarioRol);
+    [OperationContract]
+    void Eliminar_GUsuarioRol_E(int codigoUsuarioRol);
     #endregion
     #region Tabla: GUsuarioProyecto
     [OperationContract]
@@ -32,12 +35,14 @@ public interface ISWADNETGAAP
     EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string CodigoUsuario, string CodigoProyecto);
     [OperationContract]
     void Actualizar_GUsuarioProyecto_A(EGUsuarioProyecto eGUsuarioProyecto);
+    [OperationContract]
+    void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto);
     #endregion
     #region Tabla: GProyecto
     [OperationContract]
     void Insertar_GProyecto_I(EGProyecto eGProyecto);
     [OperationContract]
-    List<EGProyecto> Obtener_GProyecto_O_Todo();
+    List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin);
     [OperationContract]
     EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto);
 
@@ -53,7 +58,7 @@ public interface ISWADNETGAAP
     [OperationContract]
     int Obtener_GEtapa_O_SiguienteCodigoEtapa();
     [OperationContract]
-    EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto);
+    EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa);
     [OperationContract]
     EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa);
 
@@ -74,7 +79,7 @@ public interface ISWADNETGAAP
     [OperationContract]
     int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
     [OperationContract]
-    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa);
+    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa);
     [OperationContract]
     EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa);
     [OperationContract]

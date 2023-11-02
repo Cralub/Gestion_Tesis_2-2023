@@ -18,9 +18,9 @@ public class ADGUsuarioRol
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuarioRol", DbType.Int32, eGUsuarioRol.CodigoUsuarioRol);
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuario", DbType.StringFixedLength, eGUsuarioRol.CodigoUsuario);
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoRol", DbType.StringFixedLength, eGUsuarioRol.CodigoRol);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
         }
         catch (Exception ex)
@@ -36,7 +36,7 @@ public class ADGUsuarioRol
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuarioRol_O_CodigoRol");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoRol", DbType.StringFixedLength, CodigoRol);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGUsuarioRol, "GUsuarioRol");
         }
         catch (Exception)
@@ -54,7 +54,7 @@ public class ADGUsuarioRol
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuarioRol_O_CodigoUsuario");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuario", DbType.StringFixedLength, CodigoUsuario);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGUsuarioRol, "GUsuarioRol");
         }
         catch (Exception)
@@ -72,7 +72,7 @@ public class ADGUsuarioRol
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuarioRol_O_CodigoUsuario_CodigoRol");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuario", DbType.StringFixedLength, CodigoUsuario);
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoRol", DbType.StringFixedLength, CodigoRol);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGUsuarioRol, "GUsuarioRol");
         }
         catch (Exception)
@@ -81,20 +81,21 @@ public class ADGUsuarioRol
         }
         return dTOGUsuarioRol;
     }
-    public Object Obtener_GUsuarioRol_O_UltimoCodigoUsuarioRol()
+    public object Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
     {
-        Object res = null;
+        object ultimoCodigo;
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuarioRol_O_UltimoCodigoUsuarioRol");
-            res = BDSWADNETGAAP.ExecuteScalar(dbCommand);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
+            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GUsuarioRol");
+            ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            throw ex;
+            throw;
         }
-        return res;
+        return ultimoCodigo;
     }
     public DTOGUsuarioRol Actualizar_GUsuarioRol_A(EGUsuarioRol eGUsuarioRol)
     {
@@ -106,7 +107,7 @@ public class ADGUsuarioRol
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuarioRol", DbType.Int32, eGUsuarioRol.CodigoUsuarioRol);
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoRol", DbType.StringFixedLength, eGUsuarioRol.CodigoRol);
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuario", DbType.StringFixedLength, eGUsuarioRol.CodigoUsuario);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dtoGUsuarioRol, "GUsuarioRol");
         }
         catch (Exception)
@@ -114,6 +115,22 @@ public class ADGUsuarioRol
             throw;
         }
         return dtoGUsuarioRol;
+    }
+    public void Eliminar_GusuarioRol_E(int CodigoUsuarioRol)
+    {
+        try
+        {
+            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GUsuarioRol_E");
+            BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoUsuarioRol", DbType.Int32, CodigoUsuarioRol);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_INACTIVO);
+            BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+
     }
     #endregion
 

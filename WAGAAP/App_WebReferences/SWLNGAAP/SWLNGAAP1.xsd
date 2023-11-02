@@ -86,6 +86,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Eliminar_GUsuarioRol_E">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Eliminar_GUsuarioRol_EResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insertar_GUsuarioProyecto_I">
     <xs:complexType>
       <xs:sequence>
@@ -158,6 +170,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Eliminar_GUsuarioProyecto_E">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUsuarioProyecto" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Eliminar_GUsuarioProyecto_EResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insertar_GProyecto_I">
     <xs:complexType>
       <xs:sequence>
@@ -175,15 +199,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Obtener_GProyecto_O_Todo">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Obtener_GProyecto_O_TodoResponse">
+  <xs:element name="Obtener_GProyecto_O">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_O_TodoResult" nillable="true" type="q10:ArrayOfEGProyecto" />
+        <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Obtener_GProyecto_OResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="Obtener_GProyecto_OResult" nillable="true" type="q10:ArrayOfEGProyecto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

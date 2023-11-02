@@ -10,28 +10,15 @@ using System.Web;
 public static class SDatosPA
 {
     #region Estados Auditoria Base de Datos
-    public const string Auditoria_Activo = "AC";
-    public const string Auditoria_Inactivo = "IN";
+    public const string AUDITORIA_ACTIVO = "AC";
+    public const string AUDITORIA_INACTIVO = "IN";
     #region Fechas Auditoria Base de Datos
-    public static readonly DateTime Auditoria_FechaModificacion = DateTime.Now;
-    public static readonly DateTime Auditoria_FechaRegistro = DateTime.Now;
+    public static readonly DateTime AUDITORIA_FECHA_MODIFICACION = DateTime.Now;
+    public static readonly DateTime AUDITORIA_FECHA_REGISTRO = DateTime.Now;
     #endregion
+    #endregion    
+    #region Procedimientos Almacenados
+    public const string PROC_OBTENER_ULTIMO_CODIGO = "GAAP_O_UltimoCodigoEntero";//Nombre de procedimieto almacenado
     #endregion
-
-    #region Estados Especificos 
-    public const char Activo = 'A';
-    public const char En_Espera = 'E';
-    public const char Rechazado = 'R';
-    public const char Finalizado = 'F';
-    #endregion
-
-    #region Base Proyecto
-    public const string TituloPorDefecto = "Titulo no definido";
-    public const char ModalidadPorDefecto = '-';
-    public const string ObjetivoPorDefecto = "Objetivo no definido";
-    public const string EnlacePorDefecto = "Enlace no definido";
-    #endregion
-    #region Base SubEtapa
-    public const string FirmaPorDefecto = "-/-/-/-/-/";
-    #endregion
+    
 }

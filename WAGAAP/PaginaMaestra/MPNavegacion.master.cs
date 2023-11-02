@@ -19,7 +19,7 @@ public partial class PaginaMaestra_MPNavegacion : System.Web.UI.MasterPage
             //if (Session["UsuarioSesion"] != null)
             //{
             //    EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
-            //    txbCodigoUsuarioSesion.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
+            //    lblUsuarioLogueado.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
             //}
         }
     }

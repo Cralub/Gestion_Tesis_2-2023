@@ -22,9 +22,9 @@ public class ADGObservacion
             BDSWADNETGAAP.AddInParameter(dbCommand, "ComentarioObservacion", DbType.String, eGObservacion.ComentarioObservacion);
             BDSWADNETGAAP.AddInParameter(dbCommand, "TipoObservacion", DbType.String, eGObservacion.TipoObservacion);
             BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoObservacion", DbType.StringFixedLength, eGObservacion.EstadoObservacion);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.Auditoria_FechaRegistro);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
         }
         catch (Exception)
@@ -40,7 +40,7 @@ public class ADGObservacion
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GObservacion_O_CodigoProyecto");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoProyecto", DbType.String, CodigoProyecto);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dtoGObservacion, "GObservacion");
         }
         catch (Exception)
@@ -57,7 +57,7 @@ public class ADGObservacion
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GObservacion_O_CodigoObservacion");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoObservacion", DbType.String, CodigoObservacion);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dtoGObservacion, "GObservacion");
         }
         catch (Exception)
@@ -77,7 +77,7 @@ public class ADGObservacion
         BDSWADNETGAAP.AddInParameter(dbCommand, "ComentarioObservacion", DbType.String, eGObservacion.ComentarioObservacion);
         BDSWADNETGAAP.AddInParameter(dbCommand, "TipoObservacion", DbType.String, eGObservacion.TipoObservacion);
         BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoObservacion", DbType.StringFixedLength, eGObservacion.EstadoObservacion);
-        BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+        BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
         BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
     }
     public void Actualizar_GObservacion_A_EstadoObservacion(int CodigoObservacion, char EstadoObservacion)
@@ -86,23 +86,24 @@ public class ADGObservacion
         DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GObservacion_A_EstadoObservacion");
         BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoObservacion", DbType.Int32, CodigoObservacion);
         BDSWADNETGAAP.AddInParameter(dbCommand, "EstadoObservacion", DbType.StringFixedLength, EstadoObservacion);
-        BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.Auditoria_FechaModificacion);
+        BDSWADNETGAAP.AddInParameter(dbCommand, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
         BDSWADNETGAAP.ExecuteNonQuery(dbCommand);
     }
-    public Object Obtener_GObsevacion_O_UltimoCodigoObservacion()
+    public object Obtener_GObsevacion_O_SiguienteCodigoObservacion()
     {
-        Object res = null;
+        object ultimoCodigo;
         try
         {
-            Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GObservacion_O_UltimoCodigoObservacion");
-            res = BDSWADNETGAAP.ExecuteScalar(dbCommand);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
+            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GObservacion");
+            ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             throw;
         }
-        return res;
+        return ultimoCodigo;
     }
 
     internal DTOGObservacion Obtener_GObservacion_O_TipoObservacion(char tipoObservacion)

@@ -1,6 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 /// <summary>
 /// Descripción breve de CGObservacion
@@ -32,7 +30,7 @@ public class CGObservacion
             eGObservacion.CodigoUsuarioObservacion = gObservacionRow.CodigoUsuarioObservacion;
             eGObservacion.ComentarioObservacion = gObservacionRow.ComentarioObservacion;
             eGObservacion.TipoObservacion = char.Parse(gObservacionRow.TipoObservacion);
-            eGObservacion.EstadoObservacion = Convert.ToChar(gObservacionRow.EstadoObservacion);
+            eGObservacion.EstadoObservacion = char.Parse(gObservacionRow.EstadoObservacion);
             lstEGObservaciones.Add(eGObservacion);
         }
         return lstEGObservaciones;
@@ -68,8 +66,8 @@ public class CGObservacion
             eGObservacion.CodigoSubEtapa = drObservacionRow.CodigoSubEtapa;
             eGObservacion.CodigoUsuarioObservacion = drObservacionRow.CodigoUsuarioObservacion;
             eGObservacion.ComentarioObservacion = drObservacionRow.ComentarioObservacion;
-            eGObservacion.TipoObservacion = Convert.ToChar(drObservacionRow.TipoObservacion);
-            eGObservacion.EstadoObservacion = Convert.ToChar(drObservacionRow.EstadoObservacion);
+            eGObservacion.TipoObservacion = char.Parse(drObservacionRow.TipoObservacion);
+            eGObservacion.EstadoObservacion = char.Parse(drObservacionRow.EstadoObservacion);
             eGObservacion.FechaRegistro = drObservacionRow.FechaRegistro;
         }
         return eGObservacion;
@@ -90,11 +88,8 @@ public class CGObservacion
     }
     public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
     {
-        Object res = adGObservacion.Obtener_GObsevacion_O_UltimoCodigoObservacion();
-        if (res.ToString().IsNullOrEmpty())
-            return 1;
-        else
-            return (int)res + 1;
+        object res = adGObservacion.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
+        return (int)res + 1;
     }
     #endregion
 }

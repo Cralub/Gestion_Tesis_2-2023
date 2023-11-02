@@ -1,6 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 /// <summary>
 /// Descripción breve de CGUsuarioProyecto
@@ -23,15 +21,12 @@ public class CGUsuarioProyecto
     }
     public int Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto()
     {
-        Object res = adGUsuarioProyecto.Obtener_GUsuarioProyecto_O_UltimoCodigoUsuarioProyecto();
-        if (res.ToString().IsNullOrEmpty())
-            return 1;
-        else
-            return (int)res + 1;
+        object res = adGUsuarioProyecto.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
+        return (int)res + 1;
     }
     public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string CodigoProyecto)
     {
-        
+
 
         EGUsuarioProyecto eGUsuarioProyecto;
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
@@ -80,11 +75,14 @@ public class CGUsuarioProyecto
         }
         return eGUsuarioProyecto;
     }
-     public void Actualizar_GUsuarioProyecto_A(EGUsuarioProyecto eGUsuarioProyecto)
+    public void Actualizar_GUsuarioProyecto_A(EGUsuarioProyecto eGUsuarioProyecto)
     {
         adGUsuarioProyecto.Actualizar_GUsuarioProyecto_A(eGUsuarioProyecto);
     }
-
+    public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
+    {
+        adGUsuarioProyecto.Eliminar_UsuarioProyecto_E(codigoUsuarioProyecto);
+    }
 
     #endregion
 }

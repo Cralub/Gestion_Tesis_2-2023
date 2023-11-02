@@ -18,6 +18,9 @@
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            <%--<div>
+                <asp:Label ID="lblUsuarioLogueado" runat="server"> </asp:Label>
+            </div>--%>
     <%--<div>
             <div>
                 <asp:Button ID="btnCodigoUsuarioSesion" runat="server" Text="ID Usuario" OnClick="btnCodigoUsuarioSesion_Click" />

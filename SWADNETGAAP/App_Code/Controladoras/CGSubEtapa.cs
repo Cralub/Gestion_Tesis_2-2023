@@ -1,6 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 /// <summary>
 /// Descripción breve de CGSubEtapa
 /// </summary>
@@ -43,16 +41,13 @@ public class CGSubEtapa
     }
     public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
     {
-        Object res = adGSubEtapa.Obtener_GSubEtapa_O_UltimoCodigoSubEtapa();
-        if (res.ToString().IsNullOrEmpty())
-            return 1;
-        else
-            return (int)res + 1;
+        object res = adGSubEtapa.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+        return (int)res + 1;
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoSubEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
-        DTOGSubEtapa dTOGSubEtapa = adGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoSubEtapa);
+        DTOGSubEtapa dTOGSubEtapa = adGSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(CodigoSubEtapa , EstadoSubEtapa);
         foreach (DTOGSubEtapa.GSubEtapaRow dgGSubEtapa in dTOGSubEtapa.GSubEtapa.Rows)
         {
             eGSubEtapa = new EGSubEtapa();

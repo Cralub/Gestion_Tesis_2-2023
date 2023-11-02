@@ -100,7 +100,17 @@ public class CGAAP
             throw;
         }
     }
-   
+    public void Eliminar_GusuarioRol_E(int codigoUsuarioRol)
+    {
+        try
+        {
+            asNetGAAP.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GUsuarioProyecto
     public void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
@@ -187,6 +197,17 @@ public class CGAAP
             throw;
         }
     }
+    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    {
+        try
+        {
+            asNetGAAP.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
     #endregion
     #region GProyecto
     public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
@@ -207,11 +228,11 @@ public class CGAAP
             throw;
         }
     }
-    public List<EGProyecto> Obtener_GProyecto_O_Todo()
+    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
     {
         try
         {
-            return asNetGAAP.Obtener_GProyecto_O_Todo();
+            return asNetGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin);
         }
         catch (Exception)
         {
@@ -312,12 +333,12 @@ public class CGAAP
         }
     }
    
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoSubEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
         try
         {
-            eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto.ToUpper());
+            eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto.ToUpper(), EstadoSubEtapa);
             return eGEtapa;
         }
         catch (Exception)
@@ -421,12 +442,12 @@ public class CGAAP
             throw;
         }
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
-            eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoEtapa);
+            eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(CodigoEtapa, EstadoSubEtapa);
             return eGSubEtapa;
         }
         catch (Exception)
@@ -572,8 +593,8 @@ public class CGAAP
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
-            eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto);
-            eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(eGSubEtapa.CodigoEtapa);
+            eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto,SDatos.ESTADO_ACTIVO);
+            eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGSubEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
             byte NumeroSubEtapa = eGSubEtapa.NumeroSubEtapa;
 
             
@@ -899,7 +920,11 @@ public class CGAAP
                 eEProyectoTiempoEntrega.Titulo = entrega.TituloProyecto;
                 eEProyectoTiempoEntrega.Objetivo = entrega.ObjetivoGeneralProyecto;
                 eEProyectoTiempoEntrega.Documento = entrega.EnlaceDocumentoProyecto;
-                eEProyectoTiempoEntrega.FechaEntrega = Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(entrega.CodigoProyecto).CodigoEtapa).FechaDefinidaSubEtapa;
+                eEProyectoTiempoEntrega.FechaEntrega = Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(
+                                                            Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(
+                                                                entrega.CodigoProyecto, SDatos.ESTADO_ACTIVO)
+                                                                    .CodigoEtapa,SDatos.ESTADO_ACTIVO)
+                                                                    .FechaDefinidaSubEtapa;
                 lstEProyectoTiempoEntrega.Add(eEProyectoTiempoEntrega);
             }
             return lstEProyectoTiempoEntrega;
@@ -926,8 +951,8 @@ public class CGAAP
             {
                 EGEtapa eGEtapa = new EGEtapa();
                 EGSubEtapa eGSubEtapa = new EGSubEtapa();
-                eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(usuarioProyecto.CodigoProyecto);
-                eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(eGEtapa.CodigoEtapa);
+                eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(usuarioProyecto.CodigoProyecto, SDatos.ESTADO_ACTIVO);
+                eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
 
                 //Verificamos si en ese momento(etapa y subetapa) y con ese rol le corresponde revisar el proyecto(s)
                 if (Verificar_GProyecto_CorrespondeRevision(usuarioProyecto.CodigoRol, eGEtapa.NumeroEtapa, eGSubEtapa.NumeroSubEtapa))
@@ -1065,8 +1090,8 @@ public class CGAAP
     }
     public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string CodigoProyecto)
     {
-        EGEtapa eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto);
-        EGSubEtapa eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(eGEtapa.CodigoEtapa);
+        EGEtapa eGEtapa = asNetGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto, SDatos.ESTADO_ACTIVO);
+        EGSubEtapa eGSubEtapa = asNetGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
         switch (eGEtapa.NumeroEtapa)
         {
             case 1:
@@ -1114,14 +1139,17 @@ public class CGAAP
     {
         try
         {
-            DateTime FechaActual = DateTime.Now;
+            DateTime fechaActual = DateTime.Now;
             #region Insertar GProyecto
             EGProyecto eGProyecto = new EGProyecto();
             eGProyecto.CodigoProyecto = CodigoProyecto;
-            eGProyecto.TituloProyecto = "No definido";
-            eGProyecto.ObjetivoGeneralProyecto = "No definido";
-            eGProyecto.EnlaceDocumentoProyecto = "No definido";
-            eGProyecto.ModalidadProyecto ='T';
+            eGProyecto.ModalidadProyecto = SDatos.SIN_MODALIDAD;
+            eGProyecto.TituloProyecto = SDatos.TITULO_POR_DEFECTO;
+            eGProyecto.ObjetivoGeneralProyecto = SDatos.OBJETIVO_GENERAL_POR_DEFECTO;
+            eGProyecto.ObjetivosEspecificosProyecto = SDatos.OBJETIVOS_ESPECIFICOS_POR_DEFECTO;
+            eGProyecto.AlcanceProyecto = SDatos.ALCANCE_POR_DEFECTO;
+            eGProyecto.EnlaceDocumentoProyecto = SDatos.ENLACE_DOCUMENTO_POR_DEFECTO;
+            eGProyecto.NumeroRevisiones = SDatos.NUMERO_REVISIONES_POR_DEFECTO;
             asNetGAAP.Insertar_GProyecto_I(eGProyecto);
             #endregion
             #region Insertar GEtapas, GSubEtapas cascada
@@ -1133,13 +1161,13 @@ public class CGAAP
                 eGEtapa.CodigoEtapa = CodigoEtapa;
                 eGEtapa.CodigoProyecto = CodigoProyecto;
                 eGEtapa.NumeroEtapa = (byte)indice;
-                eGEtapa.FechaInicioEtapa = FechaActual;
-                eGEtapa.FechaDefinidaEtapa = FechaActual.AddDays(DiasEtapa);
-                eGEtapa.FechaFinEtapa = FechaActual.AddDays(DiasEtapa);
-                eGEtapa.EstadoEtapa = (indice == 1) ? 'A' : 'P';
+                eGEtapa.FechaInicioEtapa = fechaActual;
+                eGEtapa.FechaDefinidaEtapa = fechaActual.AddDays(DiasEtapa);
+                eGEtapa.FechaFinEtapa = fechaActual.AddDays(DiasEtapa);
+                eGEtapa.EstadoEtapa = (indice == 1) ? SDatos.ESTADO_ACTIVO : SDatos.ESTADO_PAUSADO;
                 asNetGAAP.Insertar_GEtapa_I(eGEtapa);
                 //Crear SubEtapas
-                AgregarSubEtapas(indice, CodigoEtapa, FechaActual, DiasSubEtapa);
+                AgregarSubEtapas(indice, CodigoEtapa, fechaActual, DiasSubEtapa);
             }
             #endregion
             #region Insertar GUsuarioProyectos
@@ -1148,8 +1176,8 @@ public class CGAAP
             eGUsuarioProyectoEstudiante.CodigoUsuarioProyecto = asNetGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
             eGUsuarioProyectoEstudiante.CodigoProyecto = CodigoProyecto;
             eGUsuarioProyectoEstudiante.CodigoUsuario = CodigoUsuario;
-            eGUsuarioProyectoEstudiante.CodigoRol = "ES";
-            eGUsuarioProyectoEstudiante.EstadoUsuarioProyecto = 'A';
+            eGUsuarioProyectoEstudiante.CodigoRol = SDatos.ROL_ESTUDIANTE;
+            eGUsuarioProyectoEstudiante.EstadoUsuarioProyecto = SDatos.ESTADO_ACTIVO;
             asNetGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyectoEstudiante);
 
             //Conectar el director al proyecto

@@ -18,7 +18,7 @@ public class ADGRol
         {
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GRol_O_Todo");
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGRol, "GRol");
 
         }
@@ -36,7 +36,7 @@ public class ADGRol
             Database BDSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETGAAP.GetStoredProcCommand("GRol_O_CodigoRol");
             BDSWADNETGAAP.AddInParameter(dbCommand, "CodigoRol", DbType.StringFixedLength, CodigoRol);
-            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETGAAP.AddInParameter(dbCommand, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETGAAP.LoadDataSet(dbCommand, dTOGRol, "GRol");
 
         }

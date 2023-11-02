@@ -20,7 +20,7 @@ public class ADUsuarioNetvalle
             Database BDSWADNETUSR = SBaseDatos.BDSWADNETGAAP;
             DbCommand dbCommand = BDSWADNETUSR.GetStoredProcCommand("UsuarioNetvalle_O_CodigoUsuario");
             BDSWADNETUSR.AddInParameter(dbCommand, "CodigoUsuarioNetvalle", DbType.String, CodigoUsuario);
-            BDSWADNETUSR.AddInParameter(dbCommand, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.Auditoria_Activo);
+            BDSWADNETUSR.AddInParameter(dbCommand, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETUSR.LoadDataSet(dbCommand, dTOGUsuarioNetvalle, "UsuarioNetvalle");
         }
         catch (Exception)

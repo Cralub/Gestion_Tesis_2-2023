@@ -1,10 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-/// <summary>
+﻿/// <summary>
 /// Summary description for CGCelular
 /// </summary>
 public class CGCelular
@@ -23,11 +17,8 @@ public class CGCelular
     #region Métodos públicos
     public int Obtener_GCelular_O_SiguienteCodigoCelular()
     {
-        Object res = adGCelular.Obtener_GCelular_O_UltimoCodigoCelular();
-        if (res.ToString().IsNullOrEmpty())
-            return 1;
-        else
-            return (int)res + 1;
+        object ultimoCodigo = adGCelular.Obtener_GCelular_O_SiguienteCodigoCelular();
+        return (int)ultimoCodigo + 1;
     }
     public void Insertar_GCelular_I(EGCelular celular)
     {
