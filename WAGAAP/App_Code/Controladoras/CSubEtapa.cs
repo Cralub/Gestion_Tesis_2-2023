@@ -63,7 +63,7 @@ public class CSubEtapa
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
-            eGSubEtapa = lNServicio.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoEtapa);
+            eGSubEtapa = lNServicio.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(CodigoEtapa);
         }
         catch (Exception)
         {

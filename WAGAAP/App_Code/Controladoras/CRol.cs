@@ -36,12 +36,12 @@ public class CRol
     #region Metodos Publicos
 
     #region GRol
-    public List<EGRol> Obtener_GRol_O_Todo()
+    public List<EGRol> Obtener_GRol_O()
     {
         List<EGRol> lstEGRol = new List<EGRol>();
         try
         {
-            lstEGRol = lNServicio.Obtener_GRol_O_Todo().ToList();
+            lstEGRol = lNServicio.Obtener_GRol_O().ToList();
         }
         catch (Exception)
         {

@@ -59,11 +59,11 @@ public class CTutorExterno
         }
     }
 
-    public void Actualizar_GTutorExterno_A_Estado(int CodigoTutorExterno, string EstadoTutorExterno)
+    public void Eliminar_GTutorExterno_E(int CodigoTutorExterno)
     {
         try
         {
-            lNServicio.Actualizar_GTutorExterno_A_Estado(CodigoTutorExterno, EstadoTutorExterno);
+            lNServicio.Eliminar_GTutorExterno_E(CodigoTutorExterno);
         }
         catch (Exception)
         {
@@ -75,7 +75,7 @@ public class CTutorExterno
     {
         try
         {
-            return lNServicio.Obtener_GTutorExterno_O_Todo();
+            return lNServicio.Obtener_GTutorExterno_O();
         }
         catch (Exception)
         {

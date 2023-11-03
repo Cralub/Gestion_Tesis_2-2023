@@ -39,11 +39,11 @@ public class CCelular
             throw;
         }
     }
-    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    public EGCelular Obtener_GCelular_O(string codigoUsuario)
     {
         try
         {
-            return lnServicio.Obtener_GCelular_O(codigoCelular);
+            return lnServicio.Obtener_GCelular_O(codigoUsuario);
         }
         catch (Exception)
         {

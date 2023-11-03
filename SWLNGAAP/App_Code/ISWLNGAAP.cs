@@ -8,115 +8,113 @@ public interface ISWLNGAAP
 {
     #region GUsuarioRol
     [OperationContract]
-    void Insertar_GUsuarioRol_I(int CodigoUsuarioRol, string CodigoRol, string CodigoUsuario);
+    void Insertar_GUsuarioRol_I(int codigoUsuarioRol, string codigoRol, string codigoUsuario);
     [OperationContract]
     int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
     [OperationContract]
-    List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string CodigoRol);
+    List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol);
     [OperationContract]
-    List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string CodigoUsuario);
+    List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string codigoUsuario);
     [OperationContract]
-    EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol);
+    EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string codigoUsuario, string codigoRol);
     [OperationContract]
-    void Actualizar_GUsuarioRol_A(string CodigoUsuario, string CodigoRol, int CodigoUsuarioRol);
+    void Actualizar_GUsuarioRol_A(string codigoUsuario, string codigoRol, int codigoUsuarioRol);
     [OperationContract]
     void Eliminar_GUsuarioRol_E(int codigoUsuario);
     #endregion
     #region GUsuarioProyecto
     [OperationContract]
-    void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto);
+    void Insertar_GUsuarioProyecto_I(int codigoUsuarioProyecto, string codigoProyecto, string codigoUsuario, string codigoRol, char estadoUsuarioProyecto);
     [OperationContract]
     int Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
     [OperationContract]
-    List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string CodigoProyecto);
+    List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string codigoProyecto);
     [OperationContract]
-    List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string CodigoUsuario);
+    List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string codigoUsuario);
     [OperationContract]
-    void Actualizar_GUsuarioProyecto_A(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto);
+    void Actualizar_GUsuarioProyecto_A(int codigoUsuarioProyecto, string codigoProyecto, string codigoUsuario, string codigoRol, char estadoUsuarioProyecto);
     [OperationContract]
     void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto);
     #endregion
     #region GProyecto
     [OperationContract]
-    void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto);
+    void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto, char estadoProyecto);
     [OperationContract]
     List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin);
     [OperationContract]
-    EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto);
+    EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto);
     [OperationContract]
-    void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto);
+    void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto);
     #endregion
     #region GEtapa
     [OperationContract]
-    void Insertar_GEtapa_I(int CodigoEtapa, byte NumeroEtapa, DateTime FechaInicioEtapa, DateTime FechaDefinidaEtapa, DateTime FechaFinEtapa, string CodigoProyecto, char EstadoEtapa);
+    void Insertar_GEtapa_I(int codigoEtapa, byte numeroEtapa, DateTime fechaInicioEtapa, DateTime fechaDefinidaEtapa, DateTime fechaFinEtapa, string codigoProyecto, char estadoEtapa);
     [OperationContract]
     int Obtener_GEtapa_O_SiguienteCodigoEtapa();
     [OperationContract]
-    EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char EstadoEtapa);
+    EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string codigoProyecto, char estadoEtapa);
     [OperationContract]
-    EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa);
+    EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string codigoProyecto, byte numeroSubEtapa);
     [OperationContract]
-    void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa);
+    void Actualizar_GEtapa_A_EstadoEtapa(int codigoEtapa, char estadoEtapa);
     #endregion
     #region GFormularioAceptacion
     [OperationContract]
     void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion);
     [OperationContract]
-    List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto);
+    List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto);
     #endregion
     #region GSubEtapa
     [OperationContract]
-    void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa);
+    void Insertar_GSubEtapa_I(int codigoSubEtapa, byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa);
     [OperationContract]
     int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
     [OperationContract]
-    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int CodigoEtapa, char EstadoSubEtapa);
+    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int codigoEtapa, char estadoSubEtapa);
     [OperationContract]
-    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa);
+    EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int codigoEtapa, byte numeroSubEtapa);
     [OperationContract]
-    void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa);
+    void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa);
     #endregion
     #region GObservacion
     [OperationContract]
-    void Insertar_GObservacion_I(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion);
+    void Insertar_GObservacion_I(int codigoObservacion, string codigoProyecto, int codigoSubEtapa, string codigoUsuarioObservacion, string comentarioObservacion, char tipoObservacion, char estadoObservacion);
     [OperationContract]
-    List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto);
+    List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string codigoProyecto);    
     [OperationContract]
-    List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion);
+    EGObservacion Obtener_GObservacion_O_CodigoObservacion(int codigoObservacion);
     [OperationContract]
-    EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion);
+    void Actualizar_GObservacion_A(int codigoObservacion, string codigoProyecto, int codigoSubEtapa, string codigoUsuarioObservacion, string comentarioObservacion, char tipoObservacion, char estadoObservacion);
     [OperationContract]
-    void Actualizar_GObservacion_A(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion);
-    [OperationContract]
-    void Actualizar_GObservacion_A_EstadoObservacion(int CodigoObservacion, char EstadoObservacion);
+    void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion);
     [OperationContract]
     int Obtener_GObsevacion_O_SiguienteCodigoObservacion();
     #endregion
     #region GUsuario
     [OperationContract]
-    void Insertar_GUsuario_I(string CodigoUsuario, string sede);
+    void Insertar_GUsuario_I(string codigoUsuario, string nombreCompletoUsuario, string sede);
     [OperationContract]
-    EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario);
+    EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario);
     [OperationContract]
-    void Actualizar_GUsuario_A(string codigoUsuario, string sede);
+    void Actualizar_GUsuario_A(string codigoUsuario, string nombreCompletoUsuario, string sede);
     [OperationContract]
-    List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto);
+    List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string codigoProyecto);
     #endregion
     #region GRol
     [OperationContract]
     List<EGRol> Obtener_GRol_O();
     [OperationContract]
-    EGRol Obtener_GRol_O_CodigoRol(string CodigoRol);
+    EGRol Obtener_GRol_O_CodigoRol(string codigoRol);
     #endregion
     #region UsuarioNetvalle
     [OperationContract]
-    EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario);
+    EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string codigoUsuario);
     #endregion
     #region GCelular
     [OperationContract]
     void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular);
     [OperationContract]
-    EGCelular Obtener_GCelular_O(int codigoCelular);
+    EGCelular Obtener_GCelular_O(string codigoUsuario);
     [OperationContract]
     void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular);
     [OperationContract]
@@ -144,36 +142,36 @@ public interface ISWLNGAAP
     [OperationContract]
     List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(string CodigoUsuario);
     [OperationContract]
-    List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(string CodigoUsuario);
+    List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(string codigoUsuario);
     #region Opciones Proyecto
     [OperationContract]
-    bool Verificar_GProyecto_CorrespondeRevision(string CodigoRol, byte NumeroEtapa, byte NumeroSubEtapa);
+    bool Verificar_GProyecto_CorrespondeRevision(string codigoRol, byte numeroEtapa, byte numeroSubEtapa);
     [OperationContract]
-    void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string CodigoProyecto);
+    void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string codigoProyecto);
     #endregion
     #endregion
     #region EProgresoEtapaSubEtapa
     [OperationContract]
-    List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string CodigoProyecto);
+    List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string codigoProyecto);
     [OperationContract]
-    void Insertar_ProyectoCompleto(string CodigoProyecto, string CodigoUsuario, string CodigoDirector, int DiasEtapa, int DiasSubEtapa);
+    void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa);
     #endregion
 
     #region EUsuarioCompleto
     [OperationContract]
-    EUsuarioCompleto Obtener_EUsuarioCompleto_O(string CodigoUsuario, string CodigoProyecto);
+    EUsuarioCompleto Obtener_EUsuarioCompleto_O(string codigoUsuario, string codigoProyecto);
     #endregion
 
     #region TiemposEntrega
     [OperationContract]
-    List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string CodigoUsuario);
+    List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string codigoUsuario);
     #endregion
 
     //Añadidas
     [OperationContract]
-    string Descifrado(string Texto, string Tipo);
+    string Descifrado(string texto, string tipo);
     [OperationContract]
-    string Cifrar_Cadena(string TextoACifrar);
+    string Cifrar_Cadena(string textoACifrar);
     [OperationContract]
     Tuple<EEmpleado, EMensajeError> Obtener_Empleado_Id_Emp_SedeAcademica(string IdEmp, string Sede);
     [OperationContract]

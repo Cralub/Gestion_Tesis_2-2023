@@ -59,12 +59,12 @@ public class CEtapa
             throw;
         }
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string codigoProyecto, char estadoEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
         try
         {
-            eGEtapa = lNServicio.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto.ToUpper());
+            eGEtapa = lNServicio.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto.ToUpper(),estadoEtapa);
         }
         catch (Exception)
         {
@@ -72,12 +72,12 @@ public class CEtapa
         }
         return eGEtapa;
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string codigoProyecto, byte numeroSubEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
         try
         {
-            eGEtapa = lNServicio.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(CodigoProyecto.ToUpper(), NumeroSubEtapa);
+            eGEtapa = lNServicio.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto.ToUpper(), numeroSubEtapa);
         }
         catch (Exception)
         {
@@ -86,11 +86,11 @@ public class CEtapa
         return eGEtapa;
     }
 
-    public void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa)
+    public void Actualizar_GEtapa_A_EstadoEtapa(int codigoEtapa, char estadoEtapa)
     {
         try
         {
-            lNServicio.Actualizar_GEtapa_A_EstadoEtapa(CodigoEtapa, EstadoEtapa);
+            lNServicio.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
 
         }
         catch (Exception)

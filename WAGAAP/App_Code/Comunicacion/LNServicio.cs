@@ -71,13 +71,13 @@ public class LNServicio
     #region Metodos Publicos
 
     #region GUsuarioRol
-    public void Insertar_GUsuarioRol_I(int CodigoUsuarioRol, string CodigoRol, string CodigoUsuario)
+    public void Insertar_GUsuarioRol_I(int codigoUsuarioRol, string codigoRol, string codigoUsuario)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient()) 
             {
-                clienteSWLNGAAP.Insertar_GUsuarioRol_I(CodigoUsuarioRol, CodigoRol, CodigoUsuario);
+                clienteSWLNGAAP.Insertar_GUsuarioRol_I(codigoUsuarioRol, codigoRol, codigoUsuario);
             }
         }
         catch (Exception)
@@ -87,28 +87,28 @@ public class LNServicio
     }
     public int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
     {
-        int resultado = 0;
+        int siguienteCodigo = 0;
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                resultado = clienteSWLNGAAP.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
+                siguienteCodigo = clienteSWLNGAAP.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
             }
         }
         catch (Exception)
         {
             throw;
         }
-        return resultado;
+        return siguienteCodigo;
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string CodigoRol)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
     {
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoRol(CodigoRol).ToList();
+                lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoRol(codigoRol).ToList();
             }
         }
         catch (Exception)
@@ -117,14 +117,14 @@ public class LNServicio
         }
         return lstEGUsuarioRol;
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string codigoUsuario)
     {
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario(CodigoUsuario).ToList();
+                lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario).ToList();
             }
         }
         catch (Exception)
@@ -133,14 +133,14 @@ public class LNServicio
         }
         return lstEGUsuarioRol;
     }
-    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol)
+    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string codigoUsuario, string codigoRol)
     {
         EGUsuarioRol eGUsuarioRol = new EGUsuarioRol();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(CodigoUsuario, CodigoRol);
+                eGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
             }
         }
         catch (Exception)
@@ -149,13 +149,13 @@ public class LNServicio
         }
         return eGUsuarioRol;
     }
-    public void Actualizar_GUsuarioRol_A(string CodigoUsuario, string CodigoRol, int CodigoUsuarioRol)
+    public void Actualizar_GUsuarioRol_A(string codigoUsuario, string codigoRol, int codigoUsuarioRol)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GUsuarioRol_A(CodigoUsuario, CodigoRol, CodigoUsuarioRol);
+                clienteSWLNGAAP.Actualizar_GUsuarioRol_A(codigoUsuario, codigoRol, codigoUsuarioRol);
             }
         }
         catch (Exception)
@@ -163,13 +163,13 @@ public class LNServicio
             throw;
         }
     }
-    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Eliminar_GUsuarioRol_E(CodigoUsuarioRol);
+                clienteSWLNGAAP.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
             }
         }
         catch (Exception)
@@ -179,13 +179,13 @@ public class LNServicio
     }
     #endregion
     #region GUsuarioProyecto
-    public void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
+    public void Insertar_GUsuarioProyecto_I(int codigoUsuarioProyecto, string codigoProyecto, string codigoUsuario, string codigoRol, char estadoUsuarioProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GUsuarioProyecto_I(CodigoUsuarioProyecto, CodigoProyecto, CodigoUsuario, CodigoRol, EstadoUsuarioProyecto);
+                clienteSWLNGAAP.Insertar_GUsuarioProyecto_I(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
             }
         }
         catch (Exception)
@@ -195,28 +195,28 @@ public class LNServicio
     }
     public int Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto()
     {
-        int resultado = 0;
+        int siguienteCodigo = 0;
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                resultado = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
+                siguienteCodigo = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
             }
         }
         catch (Exception)
         {
             throw;
         }
-        return resultado;
+        return siguienteCodigo;
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoProyecto(CodigoProyecto).ToList();
+                lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
         catch (Exception)
@@ -225,14 +225,14 @@ public class LNServicio
         }
         return lstEGUsuarioProyecto;
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string codigoUsuario)
     {
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(CodigoUsuario).ToList();
+                lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
             }
         }
         catch (Exception)
@@ -241,13 +241,13 @@ public class LNServicio
         }
         return lstEGUsuarioProyecto;
     }
-    public void Actualizar_GUsuarioProyecto_A(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
+    public void Actualizar_GUsuarioProyecto_A(int codigoUsuarioProyecto, string codigoProyecto, string codigoUsuario, string codigoRol, char estadoUsuarioProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GUsuarioProyecto_A(CodigoUsuarioProyecto, CodigoProyecto, CodigoUsuario, CodigoRol, EstadoUsuarioProyecto);
+                clienteSWLNGAAP.Actualizar_GUsuarioProyecto_A(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
             }
         }
         catch (Exception)
@@ -255,11 +255,11 @@ public class LNServicio
             throw;
         }
     }
-    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
     {
         using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
         {
-            clienteSWLNGAAP.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
+            clienteSWLNGAAP.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
         }
         try
         {
@@ -272,13 +272,13 @@ public class LNServicio
     }
     #endregion
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto, char estadoProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
+                clienteSWLNGAAP.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto, estadoProyecto);
             }
         }
         catch (Exception)
@@ -302,14 +302,14 @@ public class LNServicio
         }
         return lstEGProyecto;
     }
-    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto.ToUpper());
+                eGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto.ToUpper());
             }
         }
         catch (Exception)
@@ -318,13 +318,13 @@ public class LNServicio
         }
         return eGProyecto;
     }
-    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto);
+                clienteSWLNGAAP.Actualizar_GProyecto_A(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto);
             }
         }
         catch (Exception)
@@ -334,13 +334,13 @@ public class LNServicio
     }
     #endregion
     #region GEtapa
-    public void Insertar_GEtapa_I(int CodigoEtapa, byte NumeroEtapa, DateTime FechaInicioEtapa, DateTime FechaDefinidaEtapa, DateTime FechaFinEtapa, string CodigoProyecto, char EstadoEtapa)
+    public void Insertar_GEtapa_I(int codigoEtapa, byte numeroEtapa, DateTime fechaInicioEtapa, DateTime fechaDefinidaEtapa, DateTime fechaFinEtapa, string codigoProyecto, char estadoEtapa)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GEtapa_I(CodigoEtapa, NumeroEtapa, FechaInicioEtapa, FechaDefinidaEtapa, FechaFinEtapa, CodigoProyecto, EstadoEtapa);
+                clienteSWLNGAAP.Insertar_GEtapa_I(codigoEtapa, numeroEtapa, fechaInicioEtapa, fechaDefinidaEtapa, fechaFinEtapa, codigoProyecto, estadoEtapa);
             }
         }
         catch (Exception)
@@ -350,28 +350,28 @@ public class LNServicio
     }
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
     {
-        int resultado = 0;
+        int siguienteCodigo = 0;
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                resultado = clienteSWLNGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
+                siguienteCodigo = clienteSWLNGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
             }
         }
         catch (Exception)
         {
             throw;
         }
-        return resultado;
+        return siguienteCodigo;
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(string CodigoProyecto)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string CodigoProyecto, char estadoEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapaActivo(CodigoProyecto.ToUpper());
+                eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto.ToUpper(), estadoEtapa);
             }
         }
         catch (Exception)
@@ -380,14 +380,14 @@ public class LNServicio
         }
         return eGEtapa;
     }
-    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string CodigoProyecto, byte NumeroSubEtapa)
+    public EGEtapa Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(string codigoProyecto, byte numeroSubEtapa)
     {
         EGEtapa eGEtapa = new EGEtapa();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(CodigoProyecto.ToUpper(), NumeroSubEtapa);
+                eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto.ToUpper(), numeroSubEtapa);
             }
         }
         catch (Exception)
@@ -397,13 +397,13 @@ public class LNServicio
         return eGEtapa;
     }
 
-    public void Actualizar_GEtapa_A_EstadoEtapa(int CodigoEtapa, char EstadoEtapa)
+    public void Actualizar_GEtapa_A_EstadoEtapa(int codigoEtapa, char estadoEtapa)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GEtapa_A_EstadoEtapa(CodigoEtapa, EstadoEtapa);
+                clienteSWLNGAAP.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
             }
         }
         catch (Exception)
@@ -413,13 +413,13 @@ public class LNServicio
     }
     #endregion
     #region GSubEtapa
-    public void Insertar_GSubEtapa_I(int CodigoSubEtapa, byte NumeroSubEtapa, DateTime FechaInicioSubEtapa, DateTime FechaDefinidaSubEtapa, DateTime FechaFinSubEtapa, string CodigoUsuarioFirma, int CodigoEtapa, char EstadoSubEtapa)
+    public void Insertar_GSubEtapa_I(int codigoSubEtapa, byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GSubEtapa_I(CodigoSubEtapa, NumeroSubEtapa, FechaInicioSubEtapa, FechaDefinidaSubEtapa, FechaFinSubEtapa, CodigoUsuarioFirma, CodigoEtapa, EstadoSubEtapa);
+                clienteSWLNGAAP.Insertar_GSubEtapa_I(codigoSubEtapa, numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, codigoUsuarioFirma, codigoEtapa, estadoSubEtapa);
             }
         }
         catch (Exception)
@@ -429,28 +429,28 @@ public class LNServicio
     }
     public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
     {
-        int resultado = 0;
+        int siguienteCodigo = 0;
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                resultado = clienteSWLNGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+                siguienteCodigo = clienteSWLNGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
             }
         }
         catch (Exception)
         {
             throw;
         }
-        return resultado;
+        return siguienteCodigo;
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(int CodigoEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int codigoEtapa, char estadoSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo(CodigoEtapa);
+                eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(codigoEtapa, estadoSubEtapa);
             }
         }
         catch (Exception)
@@ -459,14 +459,14 @@ public class LNServicio
         }
         return eGSubEtapa;
     }
-    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int CodigoEtapa, byte NumeroSubEtapa)
+    public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int codigoEtapa, byte numeroSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(CodigoEtapa, NumeroSubEtapa);
+                eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(codigoEtapa, numeroSubEtapa);
             }
         }
         catch (Exception)
@@ -475,13 +475,13 @@ public class LNServicio
         }
         return eGSubEtapa;
     }
-    public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int CodigoSubEtapa, char EstadoSubEtapa)
+    public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(CodigoSubEtapa, EstadoSubEtapa);
+                clienteSWLNGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(codigoSubEtapa, estadoSubEtapa);
             }
         }
         catch (Exception)
@@ -505,14 +505,14 @@ public class LNServicio
             throw;
         }
     }
-    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGFormularioAceptacion> lstFormularioAceptacion = new List<EGFormularioAceptacion>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstFormularioAceptacion = clienteSWLNGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(CodigoProyecto).ToList();
+                lstFormularioAceptacion = clienteSWLNGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
         catch (Exception)
@@ -523,13 +523,13 @@ public class LNServicio
     }
     #endregion
     #region GObservacion
-    public void Insertar_GObservacion_I(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion)
+    public void Insertar_GObservacion_I(int codigoObservacion, string codigoProyecto, int codigoSubEtapa, string codigoUsuarioObservacion, string comentarioObservacion, char tipoObservacion, char estadoObservacion)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GObservacion_I(CodigoObservacion, CodigoProyecto, CodigoSubEtapa, CodigoUsuarioObservacion, ComentarioObservacion, TipoObservacion, EstadoObservacion);
+                clienteSWLNGAAP.Insertar_GObservacion_I(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
             }
         }
         catch (Exception)
@@ -539,45 +539,28 @@ public class LNServicio
     }
     public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
     {
-        int resultado = 0;
+        int siguienteCodigo = 0;
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                resultado = clienteSWLNGAAP.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
+                siguienteCodigo = clienteSWLNGAAP.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
             }
         }
         catch (Exception)
         {
             throw;
         }
-        return resultado;
+        return siguienteCodigo;
     }
-    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGObservacion> lstObservacion = new List<EGObservacion>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto).ToList();
-            }
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        return lstObservacion;
-    }
-
-    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
-    {
-        List<EGObservacion> lstObservacion = new List<EGObservacion>();
-        try
-        {
-            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
-            {
-                lstObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_TipoObservacion(TipoObservacion).ToList();
+                lstObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
         catch (Exception)
@@ -603,13 +586,13 @@ public class LNServicio
         }
         return eGObservacion;
     }
-    public void Actualizar_GObservacion_A(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion)
+    public void Actualizar_GObservacion_A(int codigoObservacion, string codigoProyecto, int codigoSubEtapa, string codigoUsuarioObservacion, string comentarioObservacion, char tipoObservacion, char estadoObservacion)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GObservacion_A(CodigoObservacion, CodigoProyecto, CodigoSubEtapa, CodigoUsuarioObservacion, ComentarioObservacion, TipoObservacion, EstadoObservacion);
+                clienteSWLNGAAP.Actualizar_GObservacion_A(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
             }
         }
         catch (Exception)
@@ -617,13 +600,13 @@ public class LNServicio
             throw;
         }
     }
-    public void Actualizar_GObservacion_A_EstadoObservacion(int CodigoObservacion, char EstadoObservacion)
+    public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GObservacion_A_EstadoObservacion(CodigoObservacion, EstadoObservacion);
+                clienteSWLNGAAP.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
             }
         }
         catch (Exception)
@@ -634,13 +617,13 @@ public class LNServicio
     }
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string CodigoUsuario,string nombreCompletoUsuario, string SedeUsuario)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, SedeUsuario);
+                clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, nombreCompletoUsuario, SedeUsuario);
             }
         }
         catch (Exception)
@@ -648,14 +631,14 @@ public class LNServicio
             throw;
         }
     }
-    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario)
+    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
     {
         EGUsuario eGUsuario = new EGUsuario();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eGUsuario = clienteSWLNGAAP.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
+                eGUsuario = clienteSWLNGAAP.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
             }
         }
         catch (Exception)
@@ -664,13 +647,13 @@ public class LNServicio
         }
         return eGUsuario;
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string SedeUsuario)
+    public void Actualizar_GUsuario_A(string codigoUsuario, string nombreCompletoUsuario, string sedeUsuario)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GUsuario_A(CodigoUsuario, SedeUsuario);
+                clienteSWLNGAAP.Actualizar_GUsuario_A(codigoUsuario, nombreCompletoUsuario, sedeUsuario);
             }
         }
         catch (Exception)
@@ -678,14 +661,14 @@ public class LNServicio
             throw;
         }
     }
-    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGUsuario> lstEGUsuarios = new List<EGUsuario>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGUsuarios = clienteSWLNGAAP.Obtener_GUsuarios_O_CodigoProyecto(CodigoProyecto).ToList();
+                lstEGUsuarios = clienteSWLNGAAP.Obtener_GUsuarios_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
         catch (Exception)
@@ -696,14 +679,14 @@ public class LNServicio
     }
     #endregion
     #region GRol
-    public List<EGRol> Obtener_GRol_O_Todo()
+    public List<EGRol> Obtener_GRol_O()
     {
         List<EGRol> lstEGRol = new List<EGRol>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGRol = clienteSWLNGAAP.Obtener_GRol_O_Todo().ToList();
+                lstEGRol = clienteSWLNGAAP.Obtener_GRol_O().ToList();
             }
         }
         catch (Exception)
@@ -712,32 +695,32 @@ public class LNServicio
         }
         return lstEGRol;
     }
-    public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
+    public EGRol Obtener_GRol_O_CodigoRol(string codigoRol)
     {
-        EGRol rol =new EGRol();
+        EGRol eGRol =new EGRol();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                rol = clienteSWLNGAAP.Obtener_GRol_O_CodigoRol(CodigoRol);
+                eGRol = clienteSWLNGAAP.Obtener_GRol_O_CodigoRol(codigoRol);
             }
         }
         catch (Exception)
         {
             throw;
         }
-        return rol;
+        return eGRol;
     }
     #endregion
     #region UsuarioNetvalle
-    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string codigoUsuario)
     {
         EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eUsuarioNetvalle = clienteSWLNGAAP.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
+                eUsuarioNetvalle = clienteSWLNGAAP.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
             }
         }
         catch (Exception)
@@ -750,14 +733,14 @@ public class LNServicio
     #region Metodos Complejos
 
     #region GProyectoCompleja
-    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(string CodigoUsuario)
+    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(string codigoUsuario)
     {
         List<EProyectoCompleja> lstEGProyectos = new List<EProyectoCompleja>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(CodigoUsuario).ToList();
+                lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(codigoUsuario).ToList();
             }
         }
         catch (Exception)
@@ -767,14 +750,14 @@ public class LNServicio
         }
         return lstEGProyectos;
     }
-    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(string CodigoUsuario)
+    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(string codigoUsuario)
     {
         List<EProyectoCompleja> lstEGProyectos = new List<EProyectoCompleja>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(CodigoUsuario).ToList();
+                lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(codigoUsuario).ToList();
             }
         }
         catch (Exception)
@@ -786,14 +769,14 @@ public class LNServicio
     }
     #endregion
     #region EProgresoEtapaSubEtapa
-    public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string CodigoProyecto)
+    public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string codigoProyecto)
     {
         List<EProgresoEtapaSubEtapa> lstEProgresoEtapaSubEtapa = new List<EProgresoEtapaSubEtapa>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEProgresoEtapaSubEtapa = clienteSWLNGAAP.Obtener_EProgresoEtapaSubEtapa_O(CodigoProyecto).ToList();
+                lstEProgresoEtapaSubEtapa = clienteSWLNGAAP.Obtener_EProgresoEtapaSubEtapa_O(codigoProyecto).ToList();
             }
         }
         catch (Exception)
@@ -804,14 +787,14 @@ public class LNServicio
     }
     #endregion
     #region EUsuarioCompleto
-    public EUsuarioCompleto Obtener_EUsuarioCompleto_O(string CodigoUsuario, string CodigoProyecto)
+    public EUsuarioCompleto Obtener_EUsuarioCompleto_O(string codigoUsuario, string codigoProyecto)
     {
         EUsuarioCompleto eEUsuarioCompleto = new EUsuarioCompleto();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                eEUsuarioCompleto = clienteSWLNGAAP.Obtener_EUsuarioCompleto_O(CodigoUsuario, CodigoProyecto);
+                eEUsuarioCompleto = clienteSWLNGAAP.Obtener_EUsuarioCompleto_O(codigoUsuario, codigoProyecto);
             }
         }
         catch (Exception)
@@ -822,14 +805,14 @@ public class LNServicio
     }
     #endregion
     #region EProyectoTiempoEntrega
-    public List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string CodigoUsuario)
+    public List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string codigoUsuario)
     {
         List<EProyectoTiempoEntrega> lstEProyectoTiempoEntrega = new List<EProyectoTiempoEntrega>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEProyectoTiempoEntrega = clienteSWLNGAAP.Obtener_EProyectoTiempoEntrega_O(CodigoUsuario).ToList();
+                lstEProyectoTiempoEntrega = clienteSWLNGAAP.Obtener_EProyectoTiempoEntrega_O(codigoUsuario).ToList();
             }
         }
         catch (Exception)
@@ -838,14 +821,14 @@ public class LNServicio
         }
         return lstEProyectoTiempoEntrega;
     }
-     public bool Verificar_GProyecto_CorrespondeRevision(string CodigoRol, byte NumeroEtapa, byte NumeroSubEtapa)
+     public bool Verificar_GProyecto_CorrespondeRevision(string codigoRol, byte numeroEtapa, byte numeroSubEtapa)
     {
         bool res;
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                res = clienteSWLNGAAP.Verificar_GProyecto_CorrespondeRevision(CodigoRol, NumeroEtapa, NumeroSubEtapa);
+                res = clienteSWLNGAAP.Verificar_GProyecto_CorrespondeRevision(codigoRol, numeroEtapa, numeroSubEtapa);
             }
         }
         catch (Exception)
@@ -855,13 +838,13 @@ public class LNServicio
         }
         return res;
     }
-    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string CodigoProyecto)
+    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string codigoProyecto)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(CodigoProyecto);
+                clienteSWLNGAAP.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto);
             }
         }
         catch (Exception)
@@ -870,11 +853,11 @@ public class LNServicio
             throw;
         }
     }
-    public void Insertar_ProyectoCompleto(string CodigoProyecto, string CodigoUsuario, string CodigoDirector, int DiasEtapa, int DiasSubEtapa)
+    public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
     {
         using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
         {
-            clienteSWLNGAAP.Insertar_ProyectoCompleto(CodigoProyecto, CodigoUsuario, CodigoDirector, DiasEtapa, DiasSubEtapa);
+            clienteSWLNGAAP.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuario, codigoDirector, diasEtapa, diasSubEtapa);
         }
     }
     #endregion
@@ -1092,14 +1075,14 @@ public class LNServicio
             throw;
         }
     }
-    public EGCelular Obtener_GCelular_O(int codigoCelular)
+    public EGCelular Obtener_GCelular_O(string codigoUsuario)
     {
         EGCelular celular = new EGCelular();
         try
         {
             using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
             {
-                celular = swlnGAAP.Obtener_GCelular_O(codigoCelular);
+                celular = swlnGAAP.Obtener_GCelular_O(codigoUsuario);
             }
         }
         catch (Exception)
@@ -1140,14 +1123,14 @@ public class LNServicio
 
     #region GTutorExterno
 
-    public List<EGTutorExterno> Obtener_GTutorExterno_O_Todo()
+    public List<EGTutorExterno> Obtener_GTutorExterno_O()
     {
         List<EGTutorExterno> lstEGTutorExterno = new List<EGTutorExterno>();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                lstEGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O_Todo().ToList();
+                lstEGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O().ToList();
             }
         }
         catch (Exception)
@@ -1204,13 +1187,13 @@ public class LNServicio
         }
     }
 
-    public void Actualizar_GTutorExterno_A_Estado(int codigoTutorExterno, string estado)
+    public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
     {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
-                clienteSWLNGAAP.Actualizar_GTutorExterno_A_Estado(codigoTutorExterno, estado);
+                clienteSWLNGAAP.Eliminar_GTutorExterno_E(codigoTutorExterno);
             }
         }
         catch (Exception)
