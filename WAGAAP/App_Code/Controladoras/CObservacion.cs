@@ -36,11 +36,11 @@ public class CObservacion
     #region Metodos Publicos
 
     #region GObservacion
-    public void Insertar_GObservacion_I(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion)
+    public void Insertar_GObservacion_I(int codigoObservacion, string codigoProyecto, int codigoSubEtapa, string codigoUsuarioObservacion, string comentarioObservacion, char tipoObservacion, char estadoObservacion)
     {
         try
         {
-            lNServicio.Insertar_GObservacion_I(CodigoObservacion, CodigoProyecto, CodigoSubEtapa, CodigoUsuarioObservacion, ComentarioObservacion, TipoObservacion, EstadoObservacion);
+            lNServicio.Insertar_GObservacion_I(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
         }
         catch (Exception)
         {
@@ -59,12 +59,12 @@ public class CObservacion
             throw;
         }
     }
-    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGObservacion> lstObservacion = new List<EGObservacion>();
         try
         {
-            lstObservacion = lNServicio.Obtener_GObservacion_O_CodigoProyecto(CodigoProyecto).ToList();
+            lstObservacion = lNServicio.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto).ToList();
         }
         catch (Exception)
         {
@@ -72,25 +72,13 @@ public class CObservacion
         }
         return lstObservacion;
     }
-    public List<EGObservacion> Obtener_GObservacion_O_TipoObservacion(char TipoObservacion)
-    {
-        List<EGObservacion> lstObservacion = new List<EGObservacion>();
-        try
-        {
-            lstObservacion = lNServicio.Obtener_GObservacion_O_TipoObservacion(TipoObservacion);
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        return lstObservacion;
-    }
-    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int CodigoObservacion)
+   
+    public EGObservacion Obtener_GObservacion_O_CodigoObservacion(int codigoObservacion)
     {
         EGObservacion eGObservacion = new EGObservacion();
         try
         {
-            eGObservacion = lNServicio.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
+            eGObservacion = lNServicio.Obtener_GObservacion_O_CodigoObservacion(codigoObservacion);
         }
         catch (Exception)
         {
@@ -98,22 +86,22 @@ public class CObservacion
         }
         return eGObservacion;
     }
-    public void Actualizar_GObservacion_A(int CodigoObservacion, string CodigoProyecto, int CodigoSubEtapa, string CodigoUsuarioObservacion, string ComentarioObservacion, char TipoObservacion, char EstadoObservacion)
+    public void Actualizar_GObservacion_A(int codigoObservacion, string codigoProyecto, int codigoSubEtapa, string codigoUsuarioObservacion, string comentarioObservacion, char tipoObservacion, char estadoObservacion)
     {
         try
         {
-            lNServicio.Actualizar_GObservacion_A(CodigoObservacion, CodigoProyecto, CodigoSubEtapa, CodigoUsuarioObservacion, ComentarioObservacion, TipoObservacion, EstadoObservacion);
+            lNServicio.Actualizar_GObservacion_A(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public void Actualizar_GObservacion_A_EstadoObservacion(int CodigoObservacion, char EstadoObservacion)
+    public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
     {
         try
         {
-            lNServicio.Actualizar_GObservacion_A_EstadoObservacion(CodigoObservacion, EstadoObservacion);
+            lNServicio.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
         }
         catch (Exception)
         {

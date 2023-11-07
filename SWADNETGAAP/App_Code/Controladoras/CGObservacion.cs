@@ -70,7 +70,7 @@ public class CGObservacion
     public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
     {
         object ultimoCodigo = aDGObservacion.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
-        return (int)ultimoCodigo + 1;
+        return int.Parse(ultimoCodigo.ToString()) + 1;
     }
     #endregion
 }

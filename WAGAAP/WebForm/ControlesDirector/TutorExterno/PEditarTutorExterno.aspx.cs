@@ -14,12 +14,12 @@ public partial class WebForm_TutorExterno_PEditarTutorExterno : System.Web.UI.Pa
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtCodigo.Enabled= false;
+        txbCodigo.Enabled= false;
 
         string CodigoTutorExterno = Request.QueryString["CodigoTutorExterno"];
         if (!IsPostBack)
         {
-            txtCodigo.Text = CodigoTutorExterno;
+            txbCodigo.Text = CodigoTutorExterno;
             CargarDatosTutorExterno();
         }
 
@@ -30,13 +30,13 @@ public partial class WebForm_TutorExterno_PEditarTutorExterno : System.Web.UI.Pa
     {
         try
         {
-            EGTutorExterno eTutorExterno = cTutorExterno.Obtener_GTutorExterno_O_CodigoTutorExterno(int.Parse(txtCodigo.Text));
-            txtNombres.Text = eTutorExterno.NombresTutorExterno;
-            txtApellidos.Text = eTutorExterno.ApellidosTutorExterno;
-            txtCarrera.Text = eTutorExterno.CarreraTutorExterno;
-            txtDireccionTrabajo.Text = eTutorExterno.DireccionTrabajoTutorExterno;
-            txtDescripcion.Text = eTutorExterno.DescripcionTutorExterno;
-            txtSede.Text = eTutorExterno.SedeTutorExterno;
+            EGTutorExterno eTutorExterno = cTutorExterno.Obtener_GTutorExterno_O_CodigoTutorExterno(int.Parse(txbCodigo.Text));
+            txbNombres.Text = eTutorExterno.NombresTutorExterno;
+            txbApellidos.Text = eTutorExterno.ApellidosTutorExterno;
+            txbCarrera.Text = eTutorExterno.CarreraTutorExterno;
+            txbDireccionTrabajo.Text = eTutorExterno.DireccionTrabajoTutorExterno;
+            txbDescripcion.Text = eTutorExterno.DescripcionTutorExterno;
+            txbSede.Text = eTutorExterno.SedeTutorExterno;
         }
         catch (Exception)
         {
@@ -49,7 +49,7 @@ public partial class WebForm_TutorExterno_PEditarTutorExterno : System.Web.UI.Pa
     {
         try
         {
-            cTutorExterno.Actualizar_GTutorExterno_A(int.Parse(txtCodigo.Text), txtNombres.Text, txtApellidos.Text, txtCarrera.Text, txtDireccionTrabajo.Text, txtDescripcion.Text, txtSede.Text);
+            cTutorExterno.Actualizar_GTutorExterno_A(int.Parse(txbCodigo.Text), txbNombres.Text, txbApellidos.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
             Response.Redirect("PListarTutoresExternos.aspx");
         }
         catch (Exception)

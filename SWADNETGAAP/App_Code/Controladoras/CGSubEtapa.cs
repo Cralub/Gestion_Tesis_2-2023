@@ -42,7 +42,7 @@ public class CGSubEtapa
     public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
     {
         object ultimoCodigo = aDGSubEtapa.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-        return (int)ultimoCodigo + 1;
+        return int.Parse(ultimoCodigo.ToString()) + 1;
     }
     public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {

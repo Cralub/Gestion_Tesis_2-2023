@@ -963,13 +963,13 @@ public class CGAAP
                 }
                 //Lista de GProyetoUsuario -> Todos los Usuarios que participan por GProyecto
                 List<EGUsuarioProyecto> lstUsuariosPorProyecto = new List<EGUsuarioProyecto>();
+                
                 EProyectoCompleja eGProyectoComplejo = new EProyectoCompleja();
                 //Obtener GProyecto por CodigoProyecto
                 EGProyecto eGProyecto = new EGProyecto();
                 eGProyecto = aSNETGAAP.Obtener_GProyecto_O_CodigoProyecto(eGUsuarioProyecto.CodigoProyecto);
-
-                lstUsuariosPorProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_CodigoProyecto(eGProyecto.CodigoProyecto);
-
+                lstUsuariosPorProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_CodigoProyecto(eGProyecto.CodigoProyecto);                
+                
                 //Crear eGProyectoFormularioCompleja con la informacion de GProyecto y GProyectoUsuario
                 eGProyectoComplejo.CodigoUsuario = eGUsuarioProyecto.CodigoUsuario;
                 eGProyectoComplejo.CodigoRol = eGUsuarioProyecto.CodigoRol;
@@ -981,8 +981,12 @@ public class CGAAP
                 eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
                 eGProyectoComplejo.EstadoProyecto = eGProyecto.EstadoProyecto;
                 eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == SDatos.ROL_ESTUDIANTE).Select(s => s.CodigoUsuario).ToList();
+                foreach (string codigoEstudiante in eGProyectoComplejo.CodigosEstudiantes)
+                {
+                    eGProyectoComplejo.NombresEstudiantes.Add(aSNETGAAP.Obtener_GUsuario_O_CodigoUsuario(codigoEstudiante).NombreCompletoUsuario);
+                }                
                 eGProyectoComplejo.CodigoTutor = lstUsuariosPorProyecto.Where(w => w.CodigoRol == SDatos.ROL_TUTOR).Select(s => s.CodigoUsuario).FirstOrDefault();
-
+                eGProyectoComplejo.NombreTutor = aSNETGAAP.Obtener_GUsuario_O_CodigoUsuario(eGProyectoComplejo.CodigoTutor).NombreCompletoUsuario;
                 //Si corresponde validar y no es valido, salta al siguiente y no se agrega a la lista
                 if (conValidacionDeRevision && !esValido)
                     continue;
@@ -1105,6 +1109,7 @@ public class CGAAP
 
     public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
     {
+
         try
         {
             DateTime fechaActual = DateTime.Now;
@@ -1139,7 +1144,7 @@ public class CGAAP
             }
             #endregion
             #region Insertar GUsuarioProyectos
-            //Conectar el estuante al proyecto
+            //Conectar el estudiante al proyecto
             EGUsuarioProyecto eGUsuarioProyectoEstudiante = new EGUsuarioProyecto();
             eGUsuarioProyectoEstudiante.CodigoUsuarioProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
             eGUsuarioProyectoEstudiante.CodigoProyecto = codigoProyecto;
@@ -1165,73 +1170,43 @@ public class CGAAP
     }
     public void AgregarSubEtapas(int numeroEtapa, int codigoEtapa, DateTime fechaActual, int diasSubEtapa)
     {
-        switch (numeroEtapa) //4+7+7+7=25
+        EGSubEtapa eGSubEtapa = new EGSubEtapa();
+
+        int numeroSubEtapaMaximo = 0;
+
+        switch (numeroEtapa)
         {
-            #region Etapa 1
-            case 1:
-                for (int indice = 1; indice <= 4; indice++) //4
-                {
-                    EGSubEtapa eGSubEtapa = new EGSubEtapa();
-                    eGSubEtapa.CodigoSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-                    eGSubEtapa.CodigoEtapa = codigoEtapa;
-                    eGSubEtapa.NumeroSubEtapa = (byte)indice;
-                    eGSubEtapa.FechaInicioSubEtapa = fechaActual;
-                    eGSubEtapa.FechaDefinidaSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.FechaFinSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.EstadoSubEtapa = (indice == 1) ? SDatos.ESTADO_ACTIVO : SDatos.ESTADO_PAUSADO;
-                    aSNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
-                }
-                break;
-            #endregion
-            #region Etapa 2
-            case 2:
-                for (int indice = 1; indice <= 7; indice++) //7
-                {
-                    EGSubEtapa eGSubEtapa = new EGSubEtapa();
-                    eGSubEtapa.CodigoSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-                    eGSubEtapa.CodigoEtapa = codigoEtapa;
-                    eGSubEtapa.NumeroSubEtapa = (byte)indice;
-                    eGSubEtapa.FechaInicioSubEtapa = fechaActual;
-                    eGSubEtapa.FechaDefinidaSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.FechaFinSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.EstadoSubEtapa = SDatos.ESTADO_PAUSADO;
-                    aSNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
-                }
-                break;
-            #endregion
-            #region Etapa 3
-            case 3:
-                for (int indice = 1; indice <= 7; indice++) //7
-                {
-                    EGSubEtapa eGSubEtapa = new EGSubEtapa();
-                    eGSubEtapa.CodigoSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-                    eGSubEtapa.CodigoEtapa = codigoEtapa;
-                    eGSubEtapa.NumeroSubEtapa = (byte)indice;
-                    eGSubEtapa.FechaInicioSubEtapa = fechaActual;
-                    eGSubEtapa.FechaDefinidaSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.FechaFinSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.EstadoSubEtapa = SDatos.ESTADO_PAUSADO;
-                    aSNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
-                }
-                break;
-            #endregion
-            #region Etapa 4
-            case 4:
-                for (int indice = 1; indice <= 7; indice++) //7
-                {
-                    EGSubEtapa eGSubEtapa = new EGSubEtapa();
-                    eGSubEtapa.CodigoSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
-                    eGSubEtapa.CodigoEtapa = codigoEtapa;
-                    eGSubEtapa.NumeroSubEtapa = (byte)indice;
-                    eGSubEtapa.FechaInicioSubEtapa = fechaActual;
-                    eGSubEtapa.FechaDefinidaSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.FechaFinSubEtapa = fechaActual.AddDays(diasSubEtapa);
-                    eGSubEtapa.EstadoSubEtapa = SDatos.ESTADO_PAUSADO;
-                    aSNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
-                }
-                break;
-            #endregion
+            case 1:numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_1;break;
+            case 2:numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_2;break;
+            case 3:numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_3;break;
+            case 4:numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_4;break;
         }
+        for (int indice = 1; indice <= numeroSubEtapaMaximo; indice++)
+        {
+            eGSubEtapa = new EGSubEtapa();
+            eGSubEtapa.CodigoSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+            eGSubEtapa.CodigoEtapa = codigoEtapa;
+            eGSubEtapa.NumeroSubEtapa = (byte)indice;
+            eGSubEtapa.FechaInicioSubEtapa = fechaActual;
+            eGSubEtapa.CodigoUsuarioFirma = SDatos.FIRMA_POR_DEFECTO;
+            eGSubEtapa.FechaDefinidaSubEtapa = fechaActual.AddDays(diasSubEtapa);
+            eGSubEtapa.FechaFinSubEtapa = fechaActual.AddDays(diasSubEtapa);
+
+            switch (numeroEtapa)
+            {
+                case 1:
+                    eGSubEtapa.EstadoSubEtapa = (indice == 1) ? SDatos.ESTADO_ACTIVO : SDatos.ESTADO_PAUSADO;
+                    break;
+                default:
+                    eGSubEtapa.EstadoSubEtapa = SDatos.ESTADO_PAUSADO;
+                    break;
+            }
+
+            aSNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
+        }
+
+        
+        
     }
     #endregion
 

@@ -18,7 +18,7 @@ public static class SDatosPA
     #endregion
     #endregion    
     #region Procedimientos Almacenados
-    public const string PROC_OBTENER_ULTIMO_CODIGO = "GAAP_O_UltimoCodigoEntero";//Nombre de procedimieto almacenado
+    
     #endregion
     
 }

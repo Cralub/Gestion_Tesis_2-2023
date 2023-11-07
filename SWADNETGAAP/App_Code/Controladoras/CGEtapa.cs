@@ -79,7 +79,8 @@ public class CGEtapa
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
     {
         object ultimoCodigo = aDGEtapa.Obtener_GEtapa_O_SiguienteCodigoEtapa();
-        return (int)ultimoCodigo + 1;        
+        return int.Parse(ultimoCodigo.ToString()) + 1;
+        
     }
     #endregion
 }

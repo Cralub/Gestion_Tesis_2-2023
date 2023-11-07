@@ -34,12 +34,12 @@ public static class SDatos
 
     #region Estados específicos de las tablas 
     public const char ESTADO_ACTIVO = 'A';
-    public const char ESTADO_EN_ESPERA = 'E';
+    //public const char ESTADO_EN_ESPERA = 'E';
     public const char ESTADO_PAUSADO = 'P';
     public const char ESTADO_RECHAZADO = 'R';
     public const char ESTADO_FINALIZADO = 'F';
     public const char ESTADO_CORREGIDO = 'C';
-    public const char ESTADO_REVISADO = 'R';
+    public const char ESTADO_REVISADO = 'V';
     #endregion
 
     #region Modalidades de titulación
@@ -66,7 +66,7 @@ public static class SDatos
     public const int N_SUB_ETAPAS_ETAPA_2 = 7;
     public const int N_SUB_ETAPAS_ETAPA_3 = 7;
     public const int N_SUB_ETAPAS_ETAPA_4 = 7;
-    public const string FIRMA_POR_DEFECTO = "-/-/-/-/-/";
+    public const string FIRMA_POR_DEFECTO = "Sin firmar";
     #endregion
     #region Manejo de Fechas
     public const int DURACION_ETAPA = 90;

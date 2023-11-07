@@ -16,10 +16,10 @@ public partial class WebForm_Usuario_PEliminarUsuarioProyecto : System.Web.UI.Pa
     {
         string codigoUsuarioProyecto = Request.QueryString["CodigoUsuarioProyecto"];
         lblMensaje.Text = codigoUsuarioProyecto;
-        eliminarUsuarioProyecto(codigoUsuarioProyecto);
+        EliminarUsuarioProyecto(codigoUsuarioProyecto);
     }
 
-    void eliminarUsuarioProyecto(string codigoUsuarioProyecto)
+    void EliminarUsuarioProyecto(string codigoUsuarioProyecto)
     {
         int codigoUsuarioProyectoInt = int.Parse(codigoUsuarioProyecto);
         cUsuarioProyecto.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyectoInt);

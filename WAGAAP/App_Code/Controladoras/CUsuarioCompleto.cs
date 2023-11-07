@@ -36,12 +36,12 @@ public class CUsuarioCompleto
     #region Metodos Publicos
 
     #region EUsuarioCompleto
-    public EUsuarioCompleto Obtener_EUsuarioCompleto_O(string CodigoUsuario, string CodigoProyecto)
+    public EUsuarioCompleto Obtener_EUsuarioCompleto_O(string codigoUsuario, string codigoProyecto)
     {
         EUsuarioCompleto eEUsuarioCompleto = new EUsuarioCompleto();
         try
         {
-            eEUsuarioCompleto = lNServicio.Obtener_EUsuarioCompleto_O(CodigoUsuario, CodigoProyecto);
+            eEUsuarioCompleto = lNServicio.Obtener_EUsuarioCompleto_O(codigoUsuario, codigoProyecto);
         }
         catch (Exception)
         {

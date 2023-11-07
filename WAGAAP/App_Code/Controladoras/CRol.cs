@@ -49,12 +49,12 @@ public class CRol
         }
         return lstEGRol;
     }
-    public EGRol Obtener_GRol_O_CodigoRol(string CodigoRol)
+    public EGRol Obtener_GRol_O_CodigoRol(string codigoRol)
     {
         EGRol eGRol = new EGRol();
         try
         {
-            eGRol = lNServicio.Obtener_GRol_O_CodigoRol(CodigoRol);
+            eGRol = lNServicio.Obtener_GRol_O_CodigoRol(codigoRol);
         }
         catch (Exception)
         {

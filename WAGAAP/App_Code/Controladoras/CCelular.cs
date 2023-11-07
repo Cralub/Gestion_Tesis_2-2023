@@ -10,7 +10,7 @@ using System.Web;
 public class CCelular
 {
     #region Atributos
-    private LNServicio lnServicio;
+    private LNServicio lNServicio;
     #endregion
 
     #region Propiedades
@@ -23,7 +23,7 @@ public class CCelular
     #region Constructor
     public CCelular()
     {
-        lnServicio = new LNServicio();
+        lNServicio = new LNServicio();
     }
     #endregion
 
@@ -32,7 +32,7 @@ public class CCelular
     {
         try
         {
-            lnServicio.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
+            lNServicio.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
         }
         catch (Exception)
         {
@@ -43,7 +43,7 @@ public class CCelular
     {
         try
         {
-            return lnServicio.Obtener_GCelular_O(codigoUsuario);
+            return lNServicio.Obtener_GCelular_O(codigoUsuario);
         }
         catch (Exception)
         {
@@ -54,7 +54,7 @@ public class CCelular
     {
         try
         {
-            lnServicio.Actualizar_GCelular_A(codigoCelular, codigoUsuario, codigoAreaCelular, numeroCelular);
+            lNServicio.Actualizar_GCelular_A(codigoCelular, codigoUsuario, codigoAreaCelular, numeroCelular);
         }
         catch (Exception)
         {
@@ -65,7 +65,7 @@ public class CCelular
     {
         try
         {
-            lnServicio.Eliminar_GCelular_E(codigoCelular);
+            lNServicio.Eliminar_GCelular_E(codigoCelular);
         }
         catch (Exception)
         {

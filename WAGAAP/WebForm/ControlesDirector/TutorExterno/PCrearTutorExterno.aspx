@@ -5,32 +5,32 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Codigo"></asp:Label>
-            <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+            <asp:Label ID="lblCodigo" runat="server" Text="Codigo"></asp:Label>
+            <asp:TextBox ID="txbCodigo" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label2" runat="server" Text="Nombres"></asp:Label>
-            <asp:TextBox ID="txtNombres" runat="server"></asp:TextBox>
+            <asp:Label ID="lblNombres" runat="server" Text="Nombres"></asp:Label>
+            <asp:TextBox ID="txbNombres" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label3" runat="server" Text="Apellidos"></asp:Label>
-            <asp:TextBox ID="txtApellidos" runat="server"></asp:TextBox>
+            <asp:Label ID="lblApellidos" runat="server" Text="Apellidos"></asp:Label>
+            <asp:TextBox ID="txbApellidos" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label4" runat="server" Text="Carrera"></asp:Label>
-            <asp:TextBox ID="txtCarrera" runat="server"></asp:TextBox>
+            <asp:Label ID="lblCarrera" runat="server" Text="Carrera"></asp:Label>
+            <asp:TextBox ID="txbCarrera" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label5" runat="server" Text="Direccion de Trabajo"></asp:Label>
-            <asp:TextBox ID="txtDireccionTrabajo" runat="server"></asp:TextBox>
+            <asp:Label ID="lblDireccionTrabajo" runat="server" Text="Direccion de Trabajo"></asp:Label>
+            <asp:TextBox ID="txbDireccionTrabajo" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label6" runat="server" Text="Descripcion"></asp:Label>
-            <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+            <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion"></asp:Label>
+            <asp:TextBox ID="txbDescripcion" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label7" runat="server" Text="Sede"></asp:Label>
-            <asp:TextBox ID="txtSede" runat="server"></asp:TextBox>
+            <asp:Label ID="lblSede" runat="server" Text="Sede"></asp:Label>
+            <asp:TextBox ID="txbSede" runat="server"></asp:TextBox>
         </div>
         <div>
             <asp:Button ID="btnGuardar" runat="server" Text="Crear" OnClick="btnCrear_Click" />

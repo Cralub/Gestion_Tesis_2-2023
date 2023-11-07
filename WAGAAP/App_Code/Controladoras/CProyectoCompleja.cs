@@ -36,12 +36,12 @@ public class CProyectoCompleja
     #region Metodos Publicos
 
     #region GProyectoCompleja
-    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(string CodigoUsuario)
+    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(string codigoUsuario)
     {
         List<EProyectoCompleja> lstEGProyectos = new List<EProyectoCompleja>();
         try
         {
-            lstEGProyectos = lNServicio.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(CodigoUsuario).ToList();
+            lstEGProyectos = lNServicio.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(codigoUsuario).ToList();
         }
         catch (Exception)
         {
@@ -50,12 +50,12 @@ public class CProyectoCompleja
         }
         return lstEGProyectos;
     }
-    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(string CodigoUsuario)
+    public List<EProyectoCompleja> Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(string codigoUsuario)
     {
         List<EProyectoCompleja> lstEGProyectos = new List<EProyectoCompleja>();
         try
         {
-            lstEGProyectos = lNServicio.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(CodigoUsuario).ToList();
+            lstEGProyectos = lNServicio.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(codigoUsuario).ToList();
         }
         catch (Exception)
         {
@@ -66,25 +66,25 @@ public class CProyectoCompleja
     }
     #endregion
     #region Opciones
-    public bool Verificar_GProyecto_CorrespondeRevision(string CodigoRol, byte NumeroEtapa, byte NumeroSubEtapa)
+    public bool Verificar_GProyecto_CorrespondeRevision(string codigoRol, byte numeroEtapa, byte numeroSubEtapa)
     {
-        bool res = false;
+        bool esValido = false;
         try
         {
-            res = lNServicio.Verificar_GProyecto_CorrespondeRevision(CodigoRol, NumeroEtapa, NumeroSubEtapa);
+            esValido = lNServicio.Verificar_GProyecto_CorrespondeRevision(codigoRol, numeroEtapa, numeroSubEtapa);
         }
         catch (Exception)
         {
 
             throw;
         }
-        return res;
+        return esValido;
     }
-    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string CodigoProyecto)
+    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string codigoProyecto)
     {
         try
         {
-            lNServicio.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(CodigoProyecto);
+            lNServicio.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto);
         }
         catch (Exception)
         {
@@ -92,11 +92,11 @@ public class CProyectoCompleja
             throw;
         }
     }
-    public void Insertar_ProyectoCompleto(string CodigoProyecto, string CodigoUsuario, string CodigoDirector, int DiasEtapa, int DiasSubEtapa)
+    public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
     {
         try
         {
-            lNServicio.Insertar_ProyectoCompleto(CodigoProyecto, CodigoUsuario, CodigoDirector, DiasEtapa, DiasSubEtapa);
+            lNServicio.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuario, codigoDirector, diasEtapa, diasSubEtapa);
         }
         catch (Exception)
         {

@@ -36,12 +36,12 @@ public class CProgresoEtapaSubEtapa
     #region Metodos Publicos
 
     #region EProgresoEtapaSubEtapa
-    public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string CodigoProyecto)
+    public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string codigoProyecto)
     {
         List<EProgresoEtapaSubEtapa> lstEProgresoEtapaSubEtapa = new List<EProgresoEtapaSubEtapa>();
         try
         {
-            lstEProgresoEtapaSubEtapa = lNServicio.Obtener_EProgresoEtapaSubEtapa_O(CodigoProyecto).ToList();
+            lstEProgresoEtapaSubEtapa = lNServicio.Obtener_EProgresoEtapaSubEtapa_O(codigoProyecto).ToList();
         }
         catch (Exception)
         {

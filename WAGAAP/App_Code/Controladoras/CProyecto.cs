@@ -36,11 +36,11 @@ public class CProyecto
     #region Metodos Públicos
 
     #region GProyecto
-    public void Insertar_GProyecto_I(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto, char EstadoProyecto)
+    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto, char estadoProyecto)
     {
         try
         {
-            lNServicio.Insertar_GProyecto_I(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto, EstadoProyecto);
+            lNServicio.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto, estadoProyecto);
 
         }
         catch (Exception)
@@ -61,12 +61,12 @@ public class CProyecto
         }
         return lstEGProyecto;
     }
-    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
         try
         {
-            eGProyecto = lNServicio.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto.ToUpper());
+            eGProyecto = lNServicio.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto.ToUpper());
         }
         catch (Exception)
         {
@@ -74,11 +74,11 @@ public class CProyecto
         }
         return eGProyecto;
     }
-    public void Actualizar_GProyecto_A(string CodigoProyecto, char ModalidadProyecto, string TituloProyecto, string ObjetivoGeneralProyecto, string EnlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto)
     {
         try
         {
-            lNServicio.Actualizar_GProyecto_A(CodigoProyecto, ModalidadProyecto, TituloProyecto, ObjetivoGeneralProyecto, EnlaceDocumentoProyecto);
+            lNServicio.Actualizar_GProyecto_A(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto);
         }
         catch (Exception)
         {

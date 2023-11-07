@@ -23,7 +23,7 @@ public class CUsuarioNetvalle
         {
             eUsuarioNetvalle = new EUsuarioNetvalle();
             eUsuarioNetvalle.CodigoUsuarioNetvalle = dRUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
-            eUsuarioNetvalle.NombreCompletoUsuarioNetvalle = dRUsuarioNetvalle.CodigoUsuarioNetvalle.TrimEnd();
+            eUsuarioNetvalle.NombreCompletoUsuarioNetvalle = dRUsuarioNetvalle.NombreCompletoUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.RolUsuarioNetvalle = dRUsuarioNetvalle.RolUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.CarreraUsuarioNetvalle = dRUsuarioNetvalle.CarreraUsuarioNetvalle.TrimEnd();
             eUsuarioNetvalle.FacultadUsuarioNetvalle = dRUsuarioNetvalle.FacultadUsuarioNetvalle.TrimEnd();

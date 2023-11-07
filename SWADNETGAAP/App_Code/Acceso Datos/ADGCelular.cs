@@ -14,10 +14,9 @@ public class ADGCelular
         object ultimoCodigo;
         try
         {
-            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GCelular");
-            ultimoCodigo = bdSWADNETGAAP.ExecuteScalar(comandoBD);
+            Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GCelular_O_UltimoCodigoCelular");
+            ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)
         {

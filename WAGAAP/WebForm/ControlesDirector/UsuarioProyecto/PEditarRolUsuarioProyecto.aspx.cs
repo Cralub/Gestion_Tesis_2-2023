@@ -36,7 +36,7 @@ public partial class WebForm_Usuario_EditarRolUsuarioProyecto : System.Web.UI.Pa
     }
     void cargarListaRoles(string codigoRol)
     {
-        eGRols = cRol.Obtener_GRol_O_Todo().ToList();
+        eGRols = cRol.Obtener_GRol_O().ToList();
         ddlRol.DataSource = eGRols;
         ddlRol.DataTextField = "DescripcionRol";
         ddlRol.DataValueField = "CodigoRol";

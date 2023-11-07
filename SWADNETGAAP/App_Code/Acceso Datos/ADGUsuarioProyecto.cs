@@ -36,8 +36,7 @@ public class ADGUsuarioProyecto
         try
         {
             Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
-            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GUsuarioProyecto");
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GUsuarioProyecto_O_UltimoCodigoUsuarioProyecto");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)

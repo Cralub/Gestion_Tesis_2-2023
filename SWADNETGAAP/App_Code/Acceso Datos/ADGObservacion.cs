@@ -95,8 +95,7 @@ public class ADGObservacion
         try
         {
             Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
-            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GObservacion");
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GObsevacion_O_UltimoCodigoObservacion");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)

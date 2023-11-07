@@ -36,11 +36,11 @@ public class CUsuarioProyecto
     #region Metodos Publicos
 
     #region GUsuarioProyecto
-    public void Insertar_GUsuarioProyecto_I(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
+    public void Insertar_GUsuarioProyecto_I(int codigoUsuarioProyecto, string codigoProyecto, string codigoUsuario, string codigoRol, char estadoUsuarioProyecto)
     {
         try
         {
-            lNServicio.Insertar_GUsuarioProyecto_I(CodigoUsuarioProyecto, CodigoProyecto, CodigoUsuario, CodigoRol, EstadoUsuarioProyecto);
+            lNServicio.Insertar_GUsuarioProyecto_I(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
         }
         catch (Exception)
         {
@@ -58,12 +58,12 @@ public class CUsuarioProyecto
             throw;
         }
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
         try
         {
-            lstEGUsuarioProyecto = lNServicio.Obtener_GUsuarioProyecto_O_CodigoProyecto(CodigoProyecto).ToList();
+            lstEGUsuarioProyecto = lNServicio.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).ToList();
         }
         catch (Exception)
         {
@@ -71,12 +71,12 @@ public class CUsuarioProyecto
         }
         return lstEGUsuarioProyecto;
     }
-    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoUsuario(string codigoUsuario)
     {
         List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
         try
         {
-            lstEGUsuarioProyecto = lNServicio.Obtener_GUsuarioProyecto_O_CodigoUsuario(CodigoUsuario).ToList();
+            lstEGUsuarioProyecto = lNServicio.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
         }
         catch (Exception)
         {
@@ -84,22 +84,22 @@ public class CUsuarioProyecto
         }
         return lstEGUsuarioProyecto;
     }
-    public void Actualizar_GUsuarioProyecto_A(int CodigoUsuarioProyecto, string CodigoProyecto, string CodigoUsuario, string CodigoRol, char EstadoUsuarioProyecto)
+    public void Actualizar_GUsuarioProyecto_A(int codigoUsuarioProyecto, string codigoProyecto, string codigoUsuario, string codigoRol, char estadoUsuarioProyecto)
     {
         try
         {
-            lNServicio.Actualizar_GUsuarioProyecto_A(CodigoUsuarioProyecto, CodigoProyecto, CodigoUsuario, CodigoRol, EstadoUsuarioProyecto);
+            lNServicio.Actualizar_GUsuarioProyecto_A(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public void Eliminar_GUsuarioProyecto_E(int CodigoUsuarioProyecto)
+    public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
     {
         try
         {
-            lNServicio.Eliminar_GUsuarioProyecto_E(CodigoUsuarioProyecto);
+            lNServicio.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
         }
         catch (Exception)
         {

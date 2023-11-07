@@ -31,10 +31,14 @@ public class EProyectoCompleja
     [DataMember]
     public List<string> CodigosEstudiantes { get; set; }
     [DataMember]
+    public List<string> NombresEstudiantes { get; set; }
+    [DataMember]
     public char EstadoProyecto { get; set; }
     [DataMember]
     public string CodigoTutor { get; set; }
-    
+    [DataMember]
+    public string NombreTutor { get; set; }
+
     #endregion
 
     public EProyectoCompleja()
@@ -47,9 +51,10 @@ public class EProyectoCompleja
         TituloProyecto = string.Empty;
         ObjetivoGeneralProyecto = string.Empty;
         EnlaceDocumentoProyecto = string.Empty;
-
+        NombresEstudiantes = new List<string>();
         CodigosEstudiantes = new List<string>();
         EstadoProyecto = char.MinValue;
         CodigoTutor = string.Empty;
+        NombreTutor = string.Empty;
     }
 }

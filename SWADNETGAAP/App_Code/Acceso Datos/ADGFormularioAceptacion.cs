@@ -53,8 +53,7 @@ public class ADGFormularioAceptacion
         try
         {
             Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
-            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GFormularioAceptacion");
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GFormularioAceptacion_O_UltimoCodigoFormularioAceptacion");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)

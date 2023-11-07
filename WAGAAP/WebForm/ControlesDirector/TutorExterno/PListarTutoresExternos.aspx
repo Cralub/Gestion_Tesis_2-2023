@@ -9,7 +9,7 @@
         <asp:Button runat="server" ID="btnBuscar" Text="Buscar" OnClick="btnBuscar_Click" class="Boton" />
         <br />
         <br />
-        <asp:GridView ID="gvListaTutoresExternos" DataKeyNames="CodigoTutorExterno" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDataBound="gvListaTutoresExternos_RowDataBound" OnRowCommand="gvListaTutoresExternos_RowCommand">
+        <asp:GridView ID="grvListaTutoresExternos" DataKeyNames="CodigoTutorExterno" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDataBound="gvListaTutoresExternos_RowDataBound" OnRowCommand="gvListaTutoresExternos_RowCommand">
             <Columns >
                 <asp:BoundField DataField="CodigoTutorExterno" HeaderText="Codigo" />
                 <asp:BoundField DataField="NombresTutorExterno" HeaderText="Nombres" />

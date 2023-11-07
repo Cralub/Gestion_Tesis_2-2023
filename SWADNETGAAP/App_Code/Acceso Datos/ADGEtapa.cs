@@ -38,8 +38,7 @@ public class ADGEtapa
         try
         {
             Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
-            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GEtapa");
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GEtapa_O_UltimoCodigoEtapa");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)
@@ -71,8 +70,8 @@ public class ADGEtapa
         try
         {
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GEtapa_O_CodigoProyecto_EstadoEtapaActivo");
-            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, codigoProyecto);
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GEtapa_O_CodigoProyecto_EstadoEtapa");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.String, codigoProyecto);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoEtapa", DbType.StringFixedLength, estadoEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");

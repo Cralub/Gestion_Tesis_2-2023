@@ -36,11 +36,11 @@ public class CUsuarioRol
     #region Metodos Públicos
 
     #region GUsuarioRol
-    public void Insertar_GUsuarioRol_I(int CodigoUsuarioRol, string CodigoRol, string CodigoUsuario)
+    public void Insertar_GUsuarioRol_I(int codigoUsuarioRol, string codigoRol, string codigoUsuario)
     {
         try
         {
-            lNServicio.Insertar_GUsuarioRol_I(CodigoUsuarioRol, CodigoRol, CodigoUsuario);
+            lNServicio.Insertar_GUsuarioRol_I(codigoUsuarioRol, codigoRol, codigoUsuario);
         }
         catch (Exception)
         {
@@ -59,12 +59,12 @@ public class CUsuarioRol
             throw;
         }
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string CodigoRol)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
     {
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
         try
         {
-            lstEGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoRol(CodigoRol);
+            lstEGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoRol(codigoRol);
         }
         catch (Exception)
         {
@@ -72,12 +72,12 @@ public class CUsuarioRol
         }
         return lstEGUsuarioRol;
     }
-    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string CodigoUsuario)
+    public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoUsuario(string codigoUsuario)
     {
         List<EGUsuarioRol> lstEGUsuarioRol = new List<EGUsuarioRol>();
         try
         {
-            lstEGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoUsuario(CodigoUsuario);
+            lstEGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario);
         }
         catch (Exception)
         {
@@ -85,12 +85,12 @@ public class CUsuarioRol
         }
         return lstEGUsuarioRol;
     }
-    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string CodigoUsuario, string CodigoRol)
+    public EGUsuarioRol Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(string codigoUsuario, string codigoRol)
     {
         EGUsuarioRol eGUsuarioRol = new EGUsuarioRol();
         try
         {
-            eGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(CodigoUsuario, CodigoRol);
+            eGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
         }
         catch (Exception)
         {
@@ -98,22 +98,22 @@ public class CUsuarioRol
         }
         return eGUsuarioRol;
     }
-    public void Actualizar_GUsuarioRol_A(string CodigoUsuario, string CodigoRol, int CodigoUsuarioRol)
+    public void Actualizar_GUsuarioRol_A(string codigoUsuario, string codigoRol, int codigoUsuarioRol)
     {
         try
         {
-            lNServicio.Actualizar_GUsuarioRol_A(CodigoUsuario, CodigoRol, CodigoUsuarioRol);
+            lNServicio.Actualizar_GUsuarioRol_A(codigoUsuario, codigoRol, codigoUsuarioRol);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public void Eliminar_GUsuarioRol_E(int CodigoUsuarioRol)
+    public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
     {
         try
         {
-            lNServicio.Eliminar_GUsuarioRol_E(CodigoUsuarioRol);
+            lNServicio.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
         }
         catch (Exception)
         {

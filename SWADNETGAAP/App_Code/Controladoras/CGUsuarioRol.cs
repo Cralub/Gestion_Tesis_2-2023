@@ -64,8 +64,8 @@ public class CGUsuarioRol
     }
     public int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
     {
-        object res = aDGUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
-        return (int)res + 1;
+        object ultimoCodigo = aDGUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
+        return int.Parse(ultimoCodigo.ToString()) + 1;
     }
     public void Actualizar_GUsuarioRol_A(EGUsuarioRol eGUsuarioRol)
     {

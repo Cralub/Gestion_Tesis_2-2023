@@ -56,8 +56,7 @@ public class ADGSubEtapa
         try
         {
             Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
-            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GSubEtapa");
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GSubEtapa_O_UltimoCodigoSubEtapa");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)
@@ -72,7 +71,7 @@ public class ADGSubEtapa
         try
         {
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GSubEtapa_O_CodigoEtapa_EstadoSubEtapaActivo");
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GSubEtapa_O_CodigoEtapa_EstadoSubEtapa");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoEtapa", DbType.Int32, codigoEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoSubEtapa", DbType.StringFixedLength, estadoSubEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);

@@ -43,14 +43,14 @@ public partial class WebForm_Usuario_PInsertarUsuario : System.Web.UI.Page
     void cargarListaProyectoUsuario(string codigoProyecto)
     {
         eGUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto);
-        gvListaUsuariosProyecto.DataSource = eGUsuarioProyecto;
-        gvListaUsuariosProyecto.DataBind();
+        grvListaUsuariosProyecto.DataSource = eGUsuarioProyecto;
+        grvListaUsuariosProyecto.DataBind();
         
     }
 
     void cargarListaRoles()
     {
-        List<EGRol> eGRol = cRol.Obtener_GRol_O_Todo().ToList();
+        List<EGRol> eGRol = cRol.Obtener_GRol_O().ToList();
         ddlListaRoles.DataSource = eGRol;
         ddlListaRoles.DataTextField = "DescripcionRol";
         ddlListaRoles.DataValueField = "CodigoRol";
@@ -59,7 +59,7 @@ public partial class WebForm_Usuario_PInsertarUsuario : System.Web.UI.Page
 
     void cargarListaProyectos()
     {
-        eGProyecto = cProyecto.Obtener_GProyecto_O_Todo();
+        eGProyecto = cProyecto.Obtener_GProyecto_O(DateTime.Now.AddDays(-30), DateTime.Now);
         ddlListaProyectos.DataSource = eGProyecto;
         ddlListaProyectos.DataTextField = "TituloProyecto";
         ddlListaProyectos.DataValueField = "CodigoProyecto";
@@ -133,7 +133,7 @@ public partial class WebForm_Usuario_PInsertarUsuario : System.Web.UI.Page
         if (e.CommandName == "Eliminar")
         {
             int index = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = gvListaUsuariosProyecto.Rows[index];
+            GridViewRow row = grvListaUsuariosProyecto.Rows[index];
             string codigoUsuarioProyecto = row.Cells[0].Text;
             cUsuarioProyecto.Eliminar_GUsuarioProyecto_E(int.Parse(codigoUsuarioProyecto));
             Response.Redirect("PUsuarioProyecto.aspx");

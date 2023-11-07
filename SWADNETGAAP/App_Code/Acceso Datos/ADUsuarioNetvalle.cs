@@ -1,10 +1,7 @@
 ﻿using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
-using System.Collections.Generic;
 using System.Data.Common;
 using System.Data;
-using System.Linq;
-using System.Web;
 
 /// <summary>
 /// Descripción breve de ADGUsuarioNetvalle
@@ -19,7 +16,7 @@ public class ADUsuarioNetvalle
         {
             Database BDSWADNETUSR = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = BDSWADNETUSR.GetStoredProcCommand("UsuarioNetvalle_O_CodigoUsuario");
-            BDSWADNETUSR.AddInParameter(comandoBD, "CodigoUsuarioNetvalle", DbType.String, codigoUsuario);
+            BDSWADNETUSR.AddInParameter(comandoBD, "CodigoUsuarioNetvalle", DbType.String, codigoUsuario.ToUpper());
             BDSWADNETUSR.AddInParameter(comandoBD, "EstadoUsuarioNetvalle", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             BDSWADNETUSR.LoadDataSet(comandoBD, dTOGUsuarioNetvalle, "UsuarioNetvalle");
         }

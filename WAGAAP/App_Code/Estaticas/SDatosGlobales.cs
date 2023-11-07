@@ -25,13 +25,15 @@ public static class SDatosGlobales
     public const string ROL_TRIBUNAL_1 = "T1";
     public const string ROL_TRIBUNAL_2 = "T2";
     public const string ROL_DAAP = "DP";
-    public const string ROL_GESTOR = "GT";
+    //public const string ROL_GESTOR = "GT";
     #endregion
     #region Estados Especificos 
-    public const char Activo = 'A';
-    public const char Pausado = 'P';
-    public const char Rechazado = 'R';
-    public const char Finalizado = 'F';
+    public const char ESTADO_ACTIVO = 'A';
+    public const char ESTADO_PAUSADO = 'P';
+    public const char ESTADO_RECHAZADO = 'R';
+    public const char ESTADO_FINALIZADO = 'F';
+    public const char ESTADO_CORREGIDO = 'C';
+    public const char ESTADO_REVISADO = 'V';
     #endregion
     #region Estados Auditoria Base de Datos
     public const string Auditoria_Activo = "AC";
@@ -43,6 +45,7 @@ public static class SDatosGlobales
     #endregion
     #region Roles Netvalle
     public const string NETVALLE_ESTUDIANTE = "ESTUDIANTE";
+
     #endregion
     #region Modalidades Titulacion
     public const char Trabajo_Dirigido = 'D';

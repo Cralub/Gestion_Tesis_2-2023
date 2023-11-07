@@ -60,7 +60,7 @@ public class CGFormularioAceptacion
     public int Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion()
     {
         object ultimoCodigo = aDGFormularioAceptacion.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
-        return (int)ultimoCodigo + 1;
+        return int.Parse(ultimoCodigo.ToString()) + 1;
     }
     #endregion
 }

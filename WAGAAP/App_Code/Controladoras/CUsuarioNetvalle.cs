@@ -36,12 +36,12 @@ public class CUsuarioNetvalle
     #region Metodos Publicos
 
     #region UsuarioNetvalle
-    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string CodigoUsuario)
+    public EUsuarioNetvalle Obtener_UsuarioNetvalle_O_CodigoUsuario(string codigoUsuario)
     {
         EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
         try
         {
-            eUsuarioNetvalle = lNServicio.Obtener_UsuarioNetvalle_O_CodigoUsuario(CodigoUsuario);
+            eUsuarioNetvalle = lNServicio.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
         }
         catch (Exception)
         {

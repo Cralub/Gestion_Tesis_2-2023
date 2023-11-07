@@ -36,23 +36,23 @@ public class CUsuario
     #region Metodos Publicos
 
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string codigoUsuario, string nombreCompletoUsuario, string sedeUsuario)
     {
         try
         {
-            lNServicio.Insertar_GUsuario_I(CodigoUsuario, SedeUsuario);
+            lNServicio.Insertar_GUsuario_I(codigoUsuario, nombreCompletoUsuario, sedeUsuario);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string CodigoUsuario)
+    public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
     {
         EGUsuario eGUsuario = new EGUsuario();
         try
         {
-            eGUsuario = lNServicio.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
+            eGUsuario = lNServicio.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
         }
         catch (Exception)
         {
@@ -60,22 +60,22 @@ public class CUsuario
         }
         return eGUsuario;
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string SedeUsuario)
+    public void Actualizar_GUsuario_A(string CodigoUsuario, string nombreCompletoUsuario, string SedeUsuario)
     {
         try
         {
-            lNServicio.Actualizar_GUsuario_A(CodigoUsuario, SedeUsuario);
+            lNServicio.Actualizar_GUsuario_A(CodigoUsuario, nombreCompletoUsuario, SedeUsuario);
         }
         catch (Exception)
         {
             throw;
         }
     }
-    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
+    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string codigoProyecto)
     {
         try
         {
-            return lNServicio.Obtener_GUsuarios_O_CodigoProyecto(CodigoProyecto);
+            return lNServicio.Obtener_GUsuarios_O_CodigoProyecto(codigoProyecto);
         }
         catch (Exception)
         {

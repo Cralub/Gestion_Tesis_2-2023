@@ -87,8 +87,7 @@ public class ADGUsuarioRol
         try
         {
             Database bdNETGAAP = SBaseDatos.BDSWADNETGAAP;
-            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand(SDatosPA.PROC_OBTENER_ULTIMO_CODIGO);
-            bdNETGAAP.AddInParameter(comandoBD, "NombreTabla", DbType.String, "GUsuarioRol");
+            DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GUsuarioRol_O_UltimoCodigoUsuarioRol");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
         catch (Exception)

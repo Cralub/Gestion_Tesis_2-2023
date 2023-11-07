@@ -18,13 +18,15 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
             //Inhabilita la posibilidad de crear un nuevo Proyecto hasta validar 
             btnCrearProyecto.Enabled = false;
             txbCodigoProyecto.Enabled = false;
+            lblMensajeBuscarUsuarioCreacionProyecto.Text = "";
+            lblMensajeCrearProyecto.Text = "";
         }
     }
 
     protected void btnBuscarUsuario_Click(object sender, EventArgs e)
     {
         //Si el codigoUsuario ingresado es correcto 
-        if (txbCodigoUsuario.Text.Trim().Length == 10)
+        if (txbCodigoUsuario.Text.Trim().Length > 9)
         {
             string CodigoUsuario = txbCodigoUsuario.Text.Trim();
             //Buscamos a un ESTUDIANTE en la base de Netvalle con el CodigoUsuario 
@@ -38,39 +40,53 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
                     btnCrearProyecto.Enabled = true;
                     txbCodigoProyecto.Enabled = true;
                     Session["EstudianteNetvalle"] = estudianteNetvalle;
+                    lblMensajeBuscarUsuarioCreacionProyecto.Text = string.Format("Creacion posible para el estudiante: {0}", estudianteNetvalle.NombreCompletoUsuarioNetvalle);
                 }
+                else
+                    lblMensajeBuscarUsuarioCreacionProyecto.Text = string.Format("Proyecto existente con el estudiante: {0}", estudianteNetvalle.NombreCompletoUsuarioNetvalle);
             }
+            else
+                lblMensajeBuscarUsuarioCreacionProyecto.Text = "Codigo no encontrado o no pertenece a un Estudiante ";
         }
     }
 
     protected void btnCrearProyecto_Click(object sender, EventArgs e)
     {
+
         //Validamos Codigo Proyecto correcto
-        if(txbCodigoProyecto.Text.Trim().Length == 4)
+        if (txbCodigoProyecto.Text.Trim().Length != 4)
         {
-            string CodigoProyecto = txbCodigoProyecto.Text.Trim();
-            //Recuperamos la informacion de Sesion del Director 
-            EUsuarioNetvalle usuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
-            if (Session["EstudianteNetvalle"] != null)
+            lblMensajeCrearProyecto.Text = "Codigo no valido";
+            return;
+        }
+        string CodigoProyecto = txbCodigoProyecto.Text.Trim();
+        //Recuperamos la informacion de Sesion del Director 
+        if(Session["UsuarioSesion"] == null)
+        {
+            lblMensajeCrearProyecto.Text = "Codigo director no encontrado";
+            return;
+        }
+        EUsuarioNetvalle usuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
+
+        if (Session["EstudianteNetvalle"] != null)
+        {
+            //Recuperamos la informacion del Estudiante
+            EUsuarioNetvalle estudianteNetvalle = Session["EstudianteNetvalle"] as EUsuarioNetvalle;
+            //En caso de no tener al estudiante en nuestra base lo creamos asi como le asignamos su rol de estudiante
+            EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(estudianteNetvalle.CodigoUsuarioNetvalle);
+            if (eGUsuario.CodigoUsuario.Equals(""))
             {
-                //Recuperamos la informacion del Estudiante
-                EUsuarioNetvalle estudianteNetvalle = Session["EstudianteNetvalle"] as EUsuarioNetvalle;
-                //En caso de no tener al estudiante en nuestra base lo creamos asi como le asignamos su rol de estudiante
-                EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(estudianteNetvalle.CodigoUsuarioNetvalle);
-                if (eGUsuario.CodigoUsuario.Equals(""))
-                {
-                    cUsuario.Insertar_GUsuario_I(estudianteNetvalle.CodigoUsuarioNetvalle, estudianteNetvalle.SedeUsuarioNetvalle);
-                    cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), SDatosGlobales.ROL_ESTUDIANTE, estudianteNetvalle.CodigoUsuarioNetvalle);
-                }
-                //Creamos un nuevo Proyecto y quitamos las opciones por seguridad
-                cProyectoCompleja.Insertar_ProyectoCompleto(CodigoProyecto, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioNetvalle.CodigoUsuarioNetvalle, SDatosGlobales.DuracionEtapa, SDatosGlobales.DuracionSubEtapaEtapa);
-                Session["EstudianteNetvalle"] = null;
-                btnCrearProyecto.Enabled = false;
-                txbCodigoProyecto.Enabled = false;
+                cUsuario.Insertar_GUsuario_I(estudianteNetvalle.CodigoUsuarioNetvalle, estudianteNetvalle.NombreCompletoUsuarioNetvalle, estudianteNetvalle.SedeUsuarioNetvalle);
+                cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), SDatosGlobales.ROL_ESTUDIANTE, estudianteNetvalle.CodigoUsuarioNetvalle);
             }
+            //Creamos un nuevo Proyecto y quitamos las opciones por seguridad
+            cProyectoCompleja.Insertar_ProyectoCompleto(CodigoProyecto, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioNetvalle.CodigoUsuarioNetvalle, SDatosGlobales.DuracionEtapa, SDatosGlobales.DuracionSubEtapaEtapa);
+            Session["EstudianteNetvalle"] = null;
+            btnCrearProyecto.Enabled = false;
+            txbCodigoProyecto.Enabled = false;
         }
         
-        
+
     }
 
     protected void btnVolver_Click(object sender, EventArgs e)

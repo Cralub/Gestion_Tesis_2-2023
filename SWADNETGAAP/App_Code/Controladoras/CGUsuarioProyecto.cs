@@ -22,7 +22,7 @@ public class CGUsuarioProyecto
     public int Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto()
     {
         object ultimoCodigo = aDGUsuarioProyecto.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
-        return (int)ultimoCodigo + 1;
+        return int.Parse(ultimoCodigo.ToString()) + 1;
     }
     public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string codigoProyecto)
     {

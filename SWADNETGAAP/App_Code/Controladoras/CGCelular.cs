@@ -18,7 +18,7 @@ public class CGCelular
     public int Obtener_GCelular_O_SiguienteCodigoCelular()
     {
         object ultimoCodigo = aDGCelular.Obtener_GCelular_O_SiguienteCodigoCelular();
-        return (int)ultimoCodigo + 1;
+        return int.Parse(ultimoCodigo.ToString()) + 1;
     }
     public void Insertar_GCelular_I(EGCelular eGCelular)
     {

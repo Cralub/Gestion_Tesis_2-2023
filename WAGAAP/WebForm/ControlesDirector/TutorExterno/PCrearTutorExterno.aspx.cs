@@ -18,13 +18,13 @@ public partial class WebForm_TutorExterno_Default : System.Web.UI.Page
         //{
         //    //Inhabilita la posibilidad de crear un nuevo Tutor Externo hasta validar 
 
-        //    txtCodigo.Enabled= false;
-        //    txtNombres.Enabled = false;
-        //    txtApellidos.Enabled= false;
-        //    txtCarrera.Enabled = false;
-        //    txtDireccionTrabajo.Enabled = false;
-        //    txtDescripcion.Enabled = false;
-        //    txtSede.Enabled = false;
+        //    txbCodigo.Enabled= false;
+        //    txbNombres.Enabled = false;
+        //    txbApellidos.Enabled= false;
+        //    txbCarrera.Enabled = false;
+        //    txbDireccionTrabajo.Enabled = false;
+        //    txbDescripcion.Enabled = false;
+        //    txbSede.Enabled = false;
         //    btnGuardar.Enabled = false;
         //}
     }
@@ -33,7 +33,7 @@ public partial class WebForm_TutorExterno_Default : System.Web.UI.Page
     {
         try
         {
-            cTutorExterno.Insertar_GTutorExterno_I(int.Parse(txtCodigo.Text), txtNombres.Text, txtApellidos.Text, txtCarrera.Text, txtDireccionTrabajo.Text, txtDescripcion.Text, txtSede.Text);
+            cTutorExterno.Insertar_GTutorExterno_I(int.Parse(txbCodigo.Text), txbNombres.Text, txbApellidos.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
 
         }
         catch (Exception)

@@ -36,12 +36,12 @@ public class CProyectoTiempoEntrega
     #region Metodos Publicos
 
     #region EProyectoTiempoEntrega
-    public List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string CodigoUsuario)
+    public List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string codigoUsuario)
     {
         List<EProyectoTiempoEntrega> lstEProyectoTiempoEntrega = new List<EProyectoTiempoEntrega>();
         try
         {
-            lstEProyectoTiempoEntrega = lNServicio.Obtener_EProyectoTiempoEntrega_O(CodigoUsuario);
+            lstEProyectoTiempoEntrega = lNServicio.Obtener_EProyectoTiempoEntrega_O(codigoUsuario);
         }
         catch (Exception)
         {
