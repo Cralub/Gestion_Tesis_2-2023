@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -43,9 +44,9 @@ public class CProyecto
             lNServicio.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto, estadoProyecto);
 
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
@@ -55,9 +56,9 @@ public class CProyecto
         {
             lstEGProyecto = lNServicio.Obtener_GProyecto_O(fechaInicio, fechaFin);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return lstEGProyecto;
     }
@@ -68,9 +69,9 @@ public class CProyecto
         {
             eGProyecto = lNServicio.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto.ToUpper());
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return eGProyecto;
     }
@@ -80,9 +81,9 @@ public class CProyecto
         {
             lNServicio.Actualizar_GProyecto_A(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     #endregion

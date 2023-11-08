@@ -2,12 +2,35 @@
 using System;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADGUsuarioRol
 /// </summary>
 public class ADGUsuarioRol
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGUsuarioRol";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Metodos publicos
     public void Insertar_GUsuarioRol_I(EGUsuarioRol eGUsuarioRol)
     {
@@ -23,9 +46,10 @@ public class ADGUsuarioRol
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GUsuarioRol_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public DTOGUsuarioRol Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
@@ -39,10 +63,10 @@ public class ADGUsuarioRol
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGUsuarioRol, "GUsuarioRol");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GUsuarioRol_O_CodigoRol", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGUsuarioRol;
     }
@@ -57,9 +81,10 @@ public class ADGUsuarioRol
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGUsuarioRol, "GUsuarioRol");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GUsuarioRol_O_CodigoUsuario", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGUsuarioRol;
     }
@@ -75,9 +100,10 @@ public class ADGUsuarioRol
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGUsuarioRol, "GUsuarioRol");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGUsuarioRol;
     }
@@ -90,9 +116,10 @@ public class ADGUsuarioRol
             DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GUsuarioRol_O_UltimoCodigoUsuarioRol");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return ultimoCodigo;
     }
@@ -109,9 +136,10 @@ public class ADGUsuarioRol
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGUsuarioRol, "GUsuarioRol");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_GUsuarioRol_A", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dtoGUsuarioRol;
     }
@@ -125,11 +153,11 @@ public class ADGUsuarioRol
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_INACTIVO);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Eliminar_GUsuarioRol_E", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
-
     }
     #endregion
 

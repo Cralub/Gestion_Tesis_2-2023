@@ -75,15 +75,47 @@ public class LNServicio
     {
         try
         {
-            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient()) 
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
             {
                 clienteSWLNGAAP.Insertar_GUsuarioRol_I(codigoUsuarioRol, codigoRol, codigoUsuario);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
         }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuarioRol_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GUsuarioRol_I(codigoUsuarioRol, codigoRol, codigoUsuario);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuarioRol_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GUsuarioRol_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuarioRol_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }        
     }
     public int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
     {
@@ -95,9 +127,41 @@ public class LNServicio
                 siguienteCodigo = clienteSWLNGAAP.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    siguienteCodigo = clienteSWLNGAAP.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return siguienteCodigo;
     }
@@ -111,9 +175,41 @@ public class LNServicio
                 lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoRol(codigoRol).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoRol", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoRol(codigoRol).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoRol", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarioRol_O_CodigoRol", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoRol", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGUsuarioRol;
     }
@@ -127,9 +223,41 @@ public class LNServicio
                 lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoUsuario", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarioRol_O_CodigoUsuario", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGUsuarioRol;
     }
@@ -143,9 +271,41 @@ public class LNServicio
                 eGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGUsuarioRol = clienteSWLNGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGUsuarioRol;
     }
@@ -158,9 +318,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GUsuarioRol_A(codigoUsuario, codigoRol, codigoUsuarioRol);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuarioRol_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GUsuarioRol_A(codigoUsuario, codigoRol, codigoUsuarioRol);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuarioRol_A", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GUsuarioRol_A", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuarioRol_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
@@ -172,9 +364,41 @@ public class LNServicio
                 clienteSWLNGAAP.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GUsuarioRol_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GUsuarioRol_E", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Eliminar_GUsuarioRol_E", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GUsuarioRol_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -188,9 +412,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GUsuarioProyecto_I(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuarioProyecto_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GUsuarioProyecto_I(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuarioProyecto_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GUsuarioProyecto_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuarioProyecto_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public int Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto()
@@ -203,9 +459,41 @@ public class LNServicio
                 siguienteCodigo = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    siguienteCodigo = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return siguienteCodigo;
     }
@@ -219,9 +507,41 @@ public class LNServicio
                 lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_CodigoProyecto", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarioProyecto_O_CodigoProyecto", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGUsuarioProyecto;
     }
@@ -235,9 +555,41 @@ public class LNServicio
                 lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGUsuarioProyecto = clienteSWLNGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_CodigoUsuario", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarioProyecto_O_CodigoUsuario", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarioProyecto_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGUsuarioProyecto;
     }
@@ -250,24 +602,87 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GUsuarioProyecto_A(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuarioProyecto_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GUsuarioProyecto_A(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuarioProyecto_A", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GUsuarioProyecto_A", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuarioProyecto_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
-    {
-        using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
-        {
-            clienteSWLNGAAP.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
-        }
+    {        
         try
         {
-
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
+            }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GUsuarioProyecto_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GUsuarioProyecto_E", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Eliminar_GUsuarioProyecto_E", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GUsuarioProyecto_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -281,9 +696,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto, estadoProyecto);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GProyecto_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto, estadoProyecto);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GProyecto_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GProyecto_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GProyecto_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
@@ -296,9 +743,41 @@ public class LNServicio
                 lstEGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GProyecto_O", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGProyecto;
     }
@@ -312,9 +791,41 @@ public class LNServicio
                 eGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto.ToUpper());
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGProyecto = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto.ToUpper());
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoProyecto", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GProyecto_O_CodigoProyecto", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGProyecto;
     }
@@ -327,9 +838,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GProyecto_A(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GProyecto_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GProyecto_A(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GProyecto_A", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GProyecto_A", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GProyecto_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -343,9 +886,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GEtapa_I(codigoEtapa, numeroEtapa, fechaInicioEtapa, fechaDefinidaEtapa, fechaFinEtapa, codigoProyecto, estadoEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GEtapa_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GEtapa_I(codigoEtapa, numeroEtapa, fechaInicioEtapa, fechaDefinidaEtapa, fechaFinEtapa, codigoProyecto, estadoEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GEtapa_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GEtapa_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GEtapa_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
@@ -358,9 +933,41 @@ public class LNServicio
                 siguienteCodigo = clienteSWLNGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_SiguienteCodigoEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    siguienteCodigo = clienteSWLNGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_SiguienteCodigoEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GEtapa_O_SiguienteCodigoEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_SiguienteCodigoEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return siguienteCodigo;
     }
@@ -374,9 +981,41 @@ public class LNServicio
                 eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto.ToUpper(), estadoEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(CodigoProyecto.ToUpper(), estadoEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGEtapa;
     }
@@ -390,9 +1029,41 @@ public class LNServicio
                 eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto.ToUpper(), numeroSubEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGEtapa = clienteSWLNGAAP.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto.ToUpper(), numeroSubEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGEtapa;
     }
@@ -406,9 +1077,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GEtapa_A_EstadoEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GEtapa_A_EstadoEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GEtapa_A_EstadoEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GEtapa_A_EstadoEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -422,9 +1125,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GSubEtapa_I(codigoSubEtapa, numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, codigoUsuarioFirma, codigoEtapa, estadoSubEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GSubEtapa_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GSubEtapa_I(codigoSubEtapa, numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, codigoUsuarioFirma, codigoEtapa, estadoSubEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GSubEtapa_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GSubEtapa_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GSubEtapa_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public int Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa()
@@ -437,9 +1172,41 @@ public class LNServicio
                 siguienteCodigo = clienteSWLNGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    siguienteCodigo = clienteSWLNGAAP.Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return siguienteCodigo;
     }
@@ -453,9 +1220,41 @@ public class LNServicio
                 eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(codigoEtapa, estadoSubEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(codigoEtapa, estadoSubEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGSubEtapa;
     }
@@ -469,9 +1268,41 @@ public class LNServicio
                 eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(codigoEtapa, numeroSubEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGSubEtapa = clienteSWLNGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(codigoEtapa, numeroSubEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGSubEtapa;
     }
@@ -484,9 +1315,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(codigoSubEtapa, estadoSubEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GSubEtapa_A_EstadoSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(codigoSubEtapa, estadoSubEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GSubEtapa_A_EstadoSubEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GSubEtapa_A_EstadoSubEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GSubEtapa_A_EstadoSubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -500,9 +1363,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GFormularioAceptacion_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GFormularioAceptacion_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GFormularioAceptacion_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GFormularioAceptacion_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
@@ -515,9 +1410,41 @@ public class LNServicio
                 lstFormularioAceptacion = clienteSWLNGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GFormularioAceptacion_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstFormularioAceptacion = clienteSWLNGAAP.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GFormularioAceptacion_O_CodigoProyecto", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GFormularioAceptacion_O_CodigoProyecto", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GFormularioAceptacion_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstFormularioAceptacion;
     }
@@ -532,9 +1459,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GObservacion_I(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GObservacion_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GObservacion_I(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GObservacion_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GObservacion_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GObservacion_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
@@ -547,9 +1506,41 @@ public class LNServicio
                 siguienteCodigo = clienteSWLNGAAP.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObsevacion_O_SiguienteCodigoObservacion", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    siguienteCodigo = clienteSWLNGAAP.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObsevacion_O_SiguienteCodigoObservacion", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GObsevacion_O_SiguienteCodigoObservacion", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObsevacion_O_SiguienteCodigoObservacion", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return siguienteCodigo;
     }
@@ -563,9 +1554,41 @@ public class LNServicio
                 lstObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObservacion_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObservacion_O_CodigoProyecto", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GObservacion_O_CodigoProyecto", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObservacion_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstObservacion;
     }
@@ -580,9 +1603,41 @@ public class LNServicio
                 eGObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObservacion_O_CodigoObservacion", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGObservacion = clienteSWLNGAAP.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObservacion_O_CodigoObservacion", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GObservacion_O_CodigoObservacion", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GObservacion_O_CodigoObservacion", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGObservacion;
     }
@@ -595,9 +1650,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GObservacion_A(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GObservacion_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GObservacion_A(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GObservacion_A", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GObservacion_A", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GObservacion_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
@@ -609,10 +1696,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GObservacion_A_EstadoObservacion", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
 
-            throw;
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GObservacion_A_EstadoObservacion", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GObservacion_A_EstadoObservacion", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GObservacion_A_EstadoObservacion", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -626,9 +1744,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, nombreCompletoUsuario, SedeUsuario);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuario_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GUsuario_I(CodigoUsuario, nombreCompletoUsuario, SedeUsuario);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuario_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GUsuario_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuario_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
@@ -641,9 +1791,41 @@ public class LNServicio
                 eGUsuario = clienteSWLNGAAP.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuario_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGUsuario = clienteSWLNGAAP.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuario_O_CodigoUsuario", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuario_O_CodigoUsuario", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuario_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGUsuario;
     }
@@ -656,9 +1838,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GUsuario_A(codigoUsuario, nombreCompletoUsuario, sedeUsuario);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuario_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GUsuario_A(codigoUsuario, nombreCompletoUsuario, sedeUsuario);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuario_A", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GUsuario_A", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GUsuario_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string codigoProyecto)
@@ -671,9 +1885,41 @@ public class LNServicio
                 lstEGUsuarios = clienteSWLNGAAP.Obtener_GUsuarios_O_CodigoProyecto(codigoProyecto).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarios_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGUsuarios = clienteSWLNGAAP.Obtener_GUsuarios_O_CodigoProyecto(codigoProyecto).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarios_O_CodigoProyecto", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GUsuarios_O_CodigoProyecto", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GUsuarios_O_CodigoProyecto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGUsuarios;
     }
@@ -723,9 +1969,41 @@ public class LNServicio
                 eUsuarioNetvalle = clienteSWLNGAAP.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_UsuarioNetvalle_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eUsuarioNetvalle = clienteSWLNGAAP.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_UsuarioNetvalle_O_CodigoUsuario", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_UsuarioNetvalle_O_CodigoUsuario", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_UsuarioNetvalle_O_CodigoUsuario", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eUsuarioNetvalle;
     }
@@ -743,10 +2021,41 @@ public class LNServicio
                 lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(codigoUsuario).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
 
-            throw;
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(codigoUsuario).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGProyectos;
     }
@@ -760,10 +2069,41 @@ public class LNServicio
                 lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(codigoUsuario).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
 
-            throw;
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGProyectos = clienteSWLNGAAP.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(codigoUsuario).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGProyectos;
     }
@@ -779,9 +2119,41 @@ public class LNServicio
                 lstEProgresoEtapaSubEtapa = clienteSWLNGAAP.Obtener_EProgresoEtapaSubEtapa_O(codigoProyecto).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EProgresoEtapaSubEtapa_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEProgresoEtapaSubEtapa = clienteSWLNGAAP.Obtener_EProgresoEtapaSubEtapa_O(codigoProyecto).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EProgresoEtapaSubEtapa_O", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_EProgresoEtapaSubEtapa_O", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EProgresoEtapaSubEtapa_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEProgresoEtapaSubEtapa;
     }
@@ -797,9 +2169,41 @@ public class LNServicio
                 eEUsuarioCompleto = clienteSWLNGAAP.Obtener_EUsuarioCompleto_O(codigoUsuario, codigoProyecto);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EUsuarioCompleto_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eEUsuarioCompleto = clienteSWLNGAAP.Obtener_EUsuarioCompleto_O(codigoUsuario, codigoProyecto);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EUsuarioCompleto_O", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_EUsuarioCompleto_O", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EUsuarioCompleto_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eEUsuarioCompleto;
     }
@@ -815,9 +2219,41 @@ public class LNServicio
                 lstEProyectoTiempoEntrega = clienteSWLNGAAP.Obtener_EProyectoTiempoEntrega_O(codigoUsuario).ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EProyectoTiempoEntrega_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEProyectoTiempoEntrega = clienteSWLNGAAP.Obtener_EProyectoTiempoEntrega_O(codigoUsuario).ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EProyectoTiempoEntrega_O", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_EProyectoTiempoEntrega_O", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_EProyectoTiempoEntrega_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEProyectoTiempoEntrega;
     }
@@ -831,10 +2267,41 @@ public class LNServicio
                 res = clienteSWLNGAAP.Verificar_GProyecto_CorrespondeRevision(codigoRol, numeroEtapa, numeroSubEtapa);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Verificar_GProyecto_CorrespondeRevision", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
 
-            throw;
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    res = clienteSWLNGAAP.Verificar_GProyecto_CorrespondeRevision(codigoRol, numeroEtapa, numeroSubEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Verificar_GProyecto_CorrespondeRevision", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Verificar_GProyecto_CorrespondeRevision", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Verificar_GProyecto_CorrespondeRevision", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return res;
     }
@@ -847,17 +2314,87 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_Etapa_SubEtapa_AvanzarEnFlujo", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
 
-            throw;
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_Etapa_SubEtapa_AvanzarEnFlujo", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_Etapa_SubEtapa_AvanzarEnFlujo", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_Etapa_SubEtapa_AvanzarEnFlujo", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
     {
-        using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+        try
         {
-            clienteSWLNGAAP.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuario, codigoDirector, diasEtapa, diasSubEtapa);
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuario, codigoDirector, diasEtapa, diasSubEtapa);
+            }
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_ProyectoCompleto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuario, codigoDirector, diasEtapa, diasSubEtapa);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_ProyectoCompleto", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_ProyectoCompleto", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_ProyectoCompleto", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -1070,9 +2607,41 @@ public class LNServicio
                 swlnGAAP.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GCelular_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+                {
+                    swlnGAAP.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GCelular_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GCelular_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GCelular_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public EGCelular Obtener_GCelular_O(string codigoUsuario)
@@ -1085,9 +2654,41 @@ public class LNServicio
                 celular = swlnGAAP.Obtener_GCelular_O(codigoUsuario);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GCelular_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+                {
+                    celular = swlnGAAP.Obtener_GCelular_O(codigoUsuario);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GCelular_O", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GCelular_O", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GCelular_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return celular;
     }
@@ -1100,9 +2701,41 @@ public class LNServicio
                 swlnGAAP.Actualizar_GCelular_A(codigoCelular, codigoUsuario, codigoAreaCelular, numeroCelular);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GCelular_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+                {
+                    swlnGAAP.Actualizar_GCelular_A(codigoCelular, codigoUsuario, codigoAreaCelular, numeroCelular);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GCelular_A", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GCelular_A", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GCelular_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     public void Eliminar_GCelular_E(int codigoCelular)
@@ -1114,9 +2747,41 @@ public class LNServicio
                 swlnGAAP.Eliminar_GCelular_E(codigoCelular);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GCelular_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient swlnGAAP = new SWLNGAAPClient())
+                {
+                    swlnGAAP.Eliminar_GCelular_E(codigoCelular);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GCelular_E", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Eliminar_GCelular_E", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GCelular_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion
@@ -1133,9 +2798,41 @@ public class LNServicio
                 lstEGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O().ToList();
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GTutorExterno_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    lstEGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O().ToList();
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GTutorExterno_O", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GTutorExterno_O", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GTutorExterno_O", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return lstEGTutorExterno;
     }
@@ -1150,9 +2847,41 @@ public class LNServicio
                 eGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GTutorExterno_O_CodigoTutorExterno", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    eGTutorExterno = clienteSWLNGAAP.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GTutorExterno_O_CodigoTutorExterno", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Obtener_GTutorExterno_O_CodigoTutorExterno", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Obtener_GTutorExterno_O_CodigoTutorExterno", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
         return eGTutorExterno;
     }
@@ -1166,9 +2895,41 @@ public class LNServicio
                 clienteSWLNGAAP.Insertar_GTutorExterno_I(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GTutorExterno_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Insertar_GTutorExterno_I(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GTutorExterno_I", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Insertar_GTutorExterno_I", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GTutorExterno_I", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
 
@@ -1181,9 +2942,41 @@ public class LNServicio
                 clienteSWLNGAAP.Actualizar_GTutorExterno_A(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GTutorExterno_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_GTutorExterno_A(codigoTutorExterno, nombresTutorExterno, apellidosTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GTutorExterno_A", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_GTutorExterno_A", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_GTutorExterno_A", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
 
@@ -1196,9 +2989,41 @@ public class LNServicio
                 clienteSWLNGAAP.Eliminar_GTutorExterno_E(codigoTutorExterno);
             }
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GTutorExterno_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Eliminar_GTutorExterno_E(codigoTutorExterno);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GTutorExterno_E", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Eliminar_GTutorExterno_E", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Eliminar_GTutorExterno_E", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
         }
     }
     #endregion

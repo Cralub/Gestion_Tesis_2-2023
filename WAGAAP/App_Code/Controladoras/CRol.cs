@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -43,9 +44,9 @@ public class CRol
         {
             lstEGRol = lNServicio.Obtener_GRol_O().ToList();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return lstEGRol;
     }
@@ -56,10 +57,9 @@ public class CRol
         {
             eGRol = lNServicio.Obtener_GRol_O_CodigoRol(codigoRol);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-
-            throw;
+            throw ex;
         }
         return eGRol;
     }

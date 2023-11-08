@@ -2,12 +2,35 @@
 using System;
 using System.Data.Common;
 using System.Data;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Summary description for ADGCelular
 /// </summary>
 public class ADGCelular
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGCelular";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Métodos públicos
     public object Obtener_GCelular_O_SiguienteCodigoCelular()
     {
@@ -18,9 +41,10 @@ public class ADGCelular
             DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GCelular_O_UltimoCodigoCelular");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GCelular_O_SiguienteCodigoCelular", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return ultimoCodigo;
     }
@@ -39,9 +63,10 @@ public class ADGCelular
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GCelular_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public DTOGCelular Obtener_GCelular_O_CodigoUsuario(string codigoUsuario)
@@ -54,9 +79,10 @@ public class ADGCelular
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoUsuario", DbType.String, codigoUsuario);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGCelular, "GCelular");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GCelular_O_CodigoUsuario", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dtoGCelular;
     }
@@ -73,9 +99,10 @@ public class ADGCelular
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_GCelular_A", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public void Eliminar_GCelular_E(int codigoCelular)
@@ -87,9 +114,10 @@ public class ADGCelular
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoCelular", DbType.Int32, codigoCelular);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Eliminar_GCelular_E", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     #endregion

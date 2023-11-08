@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -43,10 +44,9 @@ public class CProyectoCompleja
         {
             lstEGProyectos = lNServicio.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(codigoUsuario).ToList();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-
-            throw;
+            throw ex;
         }
         return lstEGProyectos;
     }
@@ -57,10 +57,9 @@ public class CProyectoCompleja
         {
             lstEGProyectos = lNServicio.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja_Todos(codigoUsuario).ToList();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-
-            throw;
+            throw ex;
         }
         return lstEGProyectos;
     }
@@ -73,10 +72,9 @@ public class CProyectoCompleja
         {
             esValido = lNServicio.Verificar_GProyecto_CorrespondeRevision(codigoRol, numeroEtapa, numeroSubEtapa);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-
-            throw;
+            throw ex;
         }
         return esValido;
     }
@@ -86,10 +84,9 @@ public class CProyectoCompleja
         {
             lNServicio.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-
-            throw;
+            throw ex;
         }
     }
     public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
@@ -98,10 +95,9 @@ public class CProyectoCompleja
         {
             lNServicio.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuario, codigoDirector, diasEtapa, diasSubEtapa);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-
-            throw;
+            throw ex;
         }
     }
     #endregion

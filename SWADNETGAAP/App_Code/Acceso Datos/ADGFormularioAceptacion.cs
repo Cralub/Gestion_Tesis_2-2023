@@ -2,12 +2,35 @@
 using System;
 using System.Data.Common;
 using System.Data;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADGFormularioAceptacion
 /// </summary>
 public class ADGFormularioAceptacion
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGFormularioAceptacion";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Metodos públicos
     public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
     {
@@ -42,9 +65,10 @@ public class ADGFormularioAceptacion
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GFormularioAceptacion_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public object Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion()
@@ -56,9 +80,10 @@ public class ADGFormularioAceptacion
             DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GFormularioAceptacion_O_UltimoCodigoFormularioAceptacion");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return ultimoCodigo;
     }
@@ -72,9 +97,10 @@ public class ADGFormularioAceptacion
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.String, codigoProyecto);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGFormularioAceptacion, "GFormularioAceptacion");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GFormularioAceptacion_O_CodigoProyecto", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGFormularioAceptacion;
         #endregion

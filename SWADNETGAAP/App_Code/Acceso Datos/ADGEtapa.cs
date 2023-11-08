@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
+using System.ServiceModel;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 /// <summary>
@@ -8,6 +10,27 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 /// </summary>
 public class ADGEtapa
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGEtapa";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Metodos públicos
     public void Insertar_GEtapa_I(EGEtapa eGEtapa)
     {
@@ -27,9 +50,10 @@ public class ADGEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GEtapa_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public object Obtener_GEtapa_O_SiguienteCodigoEtapa()
@@ -41,9 +65,10 @@ public class ADGEtapa
             DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GEtapa_O_UltimoCodigoEtapa");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GEtapa_O_SiguienteCodigoEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return ultimoCodigo;
     }
@@ -58,9 +83,10 @@ public class ADGEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GEtapa_O_CodigoProyecto", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGEtapa;
     }
@@ -76,9 +102,10 @@ public class ADGEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGEtapa;
     }
@@ -94,9 +121,10 @@ public class ADGEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGEtapa;
     }
@@ -112,9 +140,10 @@ public class ADGEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_GEtapa_A_EstadoEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGEtapa;
     }

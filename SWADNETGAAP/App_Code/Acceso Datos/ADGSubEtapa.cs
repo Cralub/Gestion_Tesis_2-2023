@@ -2,12 +2,35 @@
 using System;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADGSubEtapa
 /// </summary>
 public class ADGSubEtapa
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGSubEtapa";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Metodos públicos
     public void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa)
     {
@@ -28,9 +51,10 @@ public class ADGSubEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GSubEtapa_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public DTOGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa(int codigoEtapa)
@@ -44,9 +68,10 @@ public class ADGSubEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGSubEtapa, "GSubEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GSubEtapa_O_CodigoEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGSubEtapa;
     }
@@ -59,9 +84,10 @@ public class ADGSubEtapa
             DbCommand comandoBD = bdNETGAAP.GetStoredProcCommand("GSubEtapa_O_UltimoCodigoSubEtapa");
             ultimoCodigo = bdNETGAAP.ExecuteScalar(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GSubEtapa_O_SiguienteCodigoSubEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return ultimoCodigo;
     }
@@ -77,10 +103,10 @@ public class ADGSubEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGSubEtapa, "GSubEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGSubEtapa;
     }
@@ -96,10 +122,10 @@ public class ADGSubEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGSubEtapa, "GSubEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGSubEtapa;
     }
@@ -115,10 +141,10 @@ public class ADGSubEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGSubEtapa, "GSubEtapa");
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_GSubEtapa_A_EstadoSubEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGSubEtapa;
     }

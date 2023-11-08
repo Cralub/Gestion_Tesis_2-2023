@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -42,9 +43,9 @@ public class CUsuario
         {
             lNServicio.Insertar_GUsuario_I(codigoUsuario, nombreCompletoUsuario, sedeUsuario);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
@@ -54,9 +55,9 @@ public class CUsuario
         {
             eGUsuario = lNServicio.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return eGUsuario;
     }
@@ -66,9 +67,9 @@ public class CUsuario
         {
             lNServicio.Actualizar_GUsuario_A(CodigoUsuario, nombreCompletoUsuario, SedeUsuario);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string codigoProyecto)
@@ -77,9 +78,9 @@ public class CUsuario
         {
             return lNServicio.Obtener_GUsuarios_O_CodigoProyecto(codigoProyecto);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     #endregion
