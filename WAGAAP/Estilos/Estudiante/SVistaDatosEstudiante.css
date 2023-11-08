@@ -1,0 +1,64 @@
+﻿:root {
+    --color-default: #850842;
+    --color-second: #701c4388;
+    --color-white: #fff;
+    --color-body: #dadada;
+    --color-light: #000000;
+}
+
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.iconoCambiarUsuario {
+    width: 350px;
+    height: 300px;
+    display: block;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+}
+
+.divInformacion {
+    border: 1px solid #c1c0c0;
+    background-color: #fff;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    padding: 10px;
+    color: #000000;
+}
+
+table {
+    width: 100%;
+    font-size: 24px;
+}
+
+.nombre {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.carrera {
+    color: blue;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.centro {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: var(--color-default);
+    color: var(--color-white);
+    font-size: 18px;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px 5px 5px 5px;
+    float: right;
+    margin-right: 150px;
+}

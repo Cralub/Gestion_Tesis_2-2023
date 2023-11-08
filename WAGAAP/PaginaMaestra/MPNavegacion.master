@@ -5,7 +5,9 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>GAAPG - Menu Principal</title>
+  <!-- Link Styles -->
+  <link rel="stylesheet" href="../Estilos/PaginaMaestra/SPaginaMaestra.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -17,29 +19,96 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <div class="barraLateral">
+    <div class="detallesLogo">
+        <img src="../Imagenes/Logo/Logo_GAAPG.jpg" class="logo" />
+      <i id="boton">☰</i>
+    </div>
+    <ul class="listaNavegacion">
+      <li>
+        <a href="#">
+          <img src="../Imagenes/Iconos/inicio.png"  class="IconoMenu">
+          <span class="nombre_enlace">Menu Principal</span>
+        </a>
+        <span class="texto_informacion">Menu Principal</span>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../Imagenes/Iconos/observaciones.png"  class="IconoMenu">
+          <span class="nombre_enlace">Observaciones</span>
+        </a>
+        <span class="texto_informacion">Observaciones</span>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../Imagenes/Iconos/proyecto.png"  class="IconoMenu">
+          <span class="nombre_enlace">Proyecto</span>
+        </a>
+        <span class="texto_informacion">Proyecto</span>
+      </li>
+      
+      <li class="menu_inferior">
+        <div class="margen_inferior">
+          <a href="#">
+            <img src="../Imagenes/Iconos/configuracion.png"  class="IconoMenu">
+            <span class="nombre_enlace">Configuración</span>
+          </a>
+          <span class="texto_informacion">Configuración</span>
+        </div>
+        <div class="margen_inferior">
+          <a href="#">
+            <img src="/Imagenes/Iconos/ayuda.png"  class="IconoMenu">
+            <span class="nombre_enlace">Ayuda</span>
+          </a>
+          <span class="texto_informacion">Ayuda</span>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <header>
+      <nav>
+         <a href="#">Gestión de apoyo y asesoramiento a proyectos de grado</a>
+         <ul>
+            <li>
+              <a href="#"><img src="../Imagenes/Iconos/usuario.png" class="iconoUsuario"></a>
+            </li>
+            <li>
+              <ul>
+                <li><img src="../Imagenes/Iconos/Punto_verde.png" class="iconoEnlinea"></li>
+                <br>
+                <ul>
+                  <li>
+                    <img src="../Imagenes/Iconos/FlechaAbajo.png" class="iconoFlecha"></a>
+                    <ul>
+                      <li><a href="">Perfil</a></li>
+                      <br>
+                      <li><a href="">Cerrar sesion</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </ul>
+              
+            </li>
+          </ul>
+      </nav>
+   </header>
+    <div class="text">
+      
+      <!--ACÁ VA EL CONTENIDO DE LA PAGINA-->
+    
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-            <%--<div>
-                <asp:Label ID="lblUsuarioLogueado" runat="server"> </asp:Label>
-            </div>--%>
-    <%--<div>
-            <div>
-                <asp:Button ID="btnCodigoUsuarioSesion" runat="server" Text="ID Usuario" OnClick="btnCodigoUsuarioSesion_Click" />
-                <asp:TextBox runat="server" ID="txbCodigoUsuarioSesion"></asp:TextBox>
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" OnClick="btnLimpiar_Click"/>
-            </div>
-            <div>
-                <asp:Button ID="btnCrearProyecto" runat="server" Text="Nuevo Proyecto" OnClick="btnCrearProyecto_Click" />
-                <asp:Button ID="btnFormularios" runat="server" Text="Proyectos-Formularios" OnClick="btnFormularios_Click" />
-                <asp:Button ID="btnFiltrarProyectos" runat="server" Text="Filtros Proyectos(General)" OnClick="btnFiltrarProyectos_Click" />
-                <asp:Button ID="btnInformacion" runat="server" Text="Informacion Proyectos" OnClick="btnInformacion_Click" />
-            </div>
-        </div>--%>
+    
             
         
         </asp:ContentPlaceHolder>
-      
-        
-    </div>
-    </form>
+     </div>
+  </section>
+  <!-- Scripts -->
+  
+   </div>
+   </form>
+ <script src="../Guiones/JNavegacionMenu.js"></script>
 </body>
 </html>

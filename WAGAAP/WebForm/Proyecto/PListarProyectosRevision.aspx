@@ -8,17 +8,18 @@
     <div>
         <span id="ContentPlaceHolder2_cuAutenticar_Label2" class="TextoLogin">Nombre:</span>
         <asp:TextBox runat="server" MaxLength="15" ID="txbCodigoUsuario" class="TextBox" OnTextChanged="txbCodigoUsuario_TextChanged" AutoPostBack="true"></asp:TextBox>
-        <asp:DropDownList ID="ddlTipoProyecto" runat="server" OnSelectedIndexChanged="ddlTipoProyecto_SelectedIndexChanged"  AutoPostBack="true">
-            <asp:ListItem Text="Todos" Value="T"  Selected></asp:ListItem>
+        <asp:DropDownList ID="ddlTipoProyecto" runat="server" OnSelectedIndexChanged="ddlTipoProyecto_SelectedIndexChanged" AutoPostBack="true">
+            <asp:ListItem Text="Todos" Value="X" Selected></asp:ListItem>
+            <asp:ListItem Text="Trabajo Dirigido" Value="D"></asp:ListItem>
             <asp:ListItem Text="Proyecto de grado" Value="P"></asp:ListItem>
             <asp:ListItem Text="Tesis de grado" Value="T"></asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlEstadoProyecto" runat="server" OnSelectedIndexChanged="ddlEstadoProyecto_SelectedIndexChanged" AutoPostBack="true">
-            <asp:ListItem Text="Todos" Value="T"  Selected></asp:ListItem>
+            <asp:ListItem Text="Todos" Value="X" Selected></asp:ListItem>
             <asp:ListItem Text="Activo" Value="A"></asp:ListItem>
             <asp:ListItem Text="Retrasado" Value="R"></asp:ListItem>
             <asp:ListItem Text="Finalizado" Value="F"></asp:ListItem>
-        </asp:DropDownList> 
+        </asp:DropDownList>
         <asp:GridView ID="grvListaProyectos" DataKeyNames="CodigoProyecto" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDataBound="gvListaProyectos_RowDataBound" OnRowCommand="gvListaProyectos_RowCommand">
             <Columns>
                 <asp:BoundField DataField="CodigoProyecto" HeaderText="CodigoProyecto" Visible="False" />

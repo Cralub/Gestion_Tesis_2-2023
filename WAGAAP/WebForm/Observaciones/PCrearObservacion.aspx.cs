@@ -11,4 +11,9 @@ public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Pag
     {
 
     }
+
+    protected void btnCrearObservacion_Click(object sender, EventArgs e)
+    {
+        if()
+    }
 }

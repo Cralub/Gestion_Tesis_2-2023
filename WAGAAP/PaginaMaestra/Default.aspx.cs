@@ -1,11 +1,17 @@
 ﻿using SWLNGAAP;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 public partial class PaginaMaestra_Default : System.Web.UI.Page
 {
     #region Controladores
     CUsuarioNetvalle cUsuarioNetvalle = new CUsuarioNetvalle();
     CUsuario cUsuario = new CUsuario();
+    CUsuarioRol cUsuarioRol = new CUsuarioRol();
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -13,20 +19,35 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            if (Session["UsuarioSesion"] != null)
-            {
-                EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
-                txbCodigoUsuarioSesion.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
-            }
+
+            FiltrarInterfazUsuario();
         }
     }
-    void MostrarInformacion(string codigoUsuario)
+    void FiltrarInterfazUsuario()
     {
         if (Session["UsuarioSesion"] != null)
         {
-            EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
-            if (eGUsuario != null)
-                lblUsuarioLogueado.Text = eGUsuario.NombreCompletoUsuario.ToString();
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+
+            btnCrearProyecto.Enabled = !usuarioSesion.esEstudiante;
+            btnCrearProyecto.Visible = !usuarioSesion.esEstudiante;
+
+            btnFiltrarProyectos.Enabled = !usuarioSesion.esEstudiante;
+            btnFiltrarProyectos.Visible = !usuarioSesion.esEstudiante;
+
+            btnTutorExterno.Enabled = !usuarioSesion.esEstudiante;
+            btnTutorExterno.Visible = !usuarioSesion.esEstudiante;
+
+        }
+
+    }
+    void MostrarInformacion()
+    {
+        if (Session["UsuarioSesion"] != null)
+        {
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            if (usuarioSesion != null)
+                lblUsuarioLogueado.Text = usuarioSesion.NombreCompleto;
             else
                 lblUsuarioLogueado.Text = "No usuario encontrado";
         }
@@ -35,12 +56,18 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
     {
         if (txbCodigoUsuarioSesion.Text.Trim().Length > 9)
         {
-            //Simulacion de validacion de codigo Netvalle
-            EUsuarioNetvalle eUsuarioNetvalle = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(txbCodigoUsuarioSesion.Text.Trim());
+            EUsuarioNetvalle eUsuarioNetvalle = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(txbCodigoUsuarioSesion.Text);
+
             if (eUsuarioNetvalle != null)
             {
-                Session["UsuarioSesion"] = eUsuarioNetvalle;
-                MostrarInformacion(eUsuarioNetvalle.CodigoUsuarioNetvalle);
+                EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(eUsuarioNetvalle.CodigoUsuarioNetvalle);
+                List<EGUsuarioRol> rolesEnSistema = cUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario(eUsuarioNetvalle.CodigoUsuarioNetvalle);
+                bool esEstudiante = rolesEnSistema.Any(w => w.CodigoRol == SDatosGlobales.ROL_ESTUDIANTE);
+                
+                EUsuarioSesionGAAP usuarioSesion = new EUsuarioSesionGAAP(eGUsuario, rolesEnSistema.Select(s => s.CodigoRol).ToList(), esEstudiante);
+                Session["UsuarioSesion"] = usuarioSesion;
+                MostrarInformacion();
+                FiltrarInterfazUsuario();
             }
         }
 

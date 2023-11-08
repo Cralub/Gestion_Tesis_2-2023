@@ -19,6 +19,7 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
         if (!IsPostBack)
         {
             CargarObservaciones();
+            FiltrarInterfazUsuario();
         }
         
     }
@@ -69,5 +70,27 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
     protected void ddlEstadoObservacion_SelectedIndexChanged(object sender, EventArgs e)
     {
         FiltrarObservaciones();
+    }
+
+    protected void btnCrearObservacion_Click(object sender, EventArgs e)
+    {
+        if(Session["CodigoProyecto"] != null) 
+            Response.Redirect("~/WebForm/Observaciones/PCrearObservacion.aspx");
+    }
+    void FiltrarInterfazUsuario()
+    {
+        if (Session["UsuarioSesion"] != null)
+        {
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+
+            btnCrearObservacion.Enabled = !usuarioSesion.esEstudiante;
+            btnCrearObservacion.Visible = !usuarioSesion.esEstudiante;
+        }
+
+    }
+
+    protected void txbCodigoUsuario_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

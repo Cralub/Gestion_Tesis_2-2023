@@ -1,75 +1,83 @@
 ﻿<%@ Page Title="Informacion Usuario" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="PInformacionUsuario.aspx.cs" Inherits="WebForm_Usuario_PInformacionUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="../../Estilo/CSSGraficasAvance.css" />
+    <link rel="stylesheet" href="../Estilos/Estudiante/SVistaDatosEstudiante.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="divInformacion">
+        <table >
+          <tr>
 
-
-
-
-    <div class="Tarjeta">
-        <div class="Tarjeta_Encabezado">
-           
-
-                <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+            <td rowspan="7" >
+              <img src="../../Imagenes/Iconos/CambiarUsuario.png" class="iconoCambiarUsuario">
+              <button>Cambiar foto</button>
+            </td>        
             
-        </div>
-        <div class="Tarjeta_Cuerpo">
-            <ul>
-                <li>
-                    <div>
-                        <h4>Nombre: </h4>
-                        <asp:Label ID="lblNombreCompleto" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h4>Rol: </h4>
-                        <asp:Label ID="lblRol" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h4>Carrera: </h4>
-                        <asp:Label ID="lblCarrera" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h4>Facultad: </h4>
-                        <asp:Label ID="lblFacultad" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h4>Sede: </h4>
-                        <asp:Label ID="lblSede" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h4>Direccion: </h4>
-                        <asp:Label ID="lblDireccion" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h4>Direccion Trabajo: </h4>
-                        <asp:Label ID="lblDireccionTrabajo" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <h4>Celular: </h4>
-                        <asp:Label ID="lblCelular" runat="server" Text=""></asp:Label>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+            <td class="nombre">                        <asp:Label ID="lblNombreCompleto" runat="server" Text=""></asp:Label>
+</td>
+        
+          </tr> 
+        
+          <tr>
+
+            <td class="carrera">                        <asp:Label ID="lblCarrera" runat="server" Text=""></asp:Label>
+</td>
+        
+          </tr>
+        
+          <tr>
+        
+            <td colspan="3">                        <asp:Label ID="lblRol" runat="server" Text=""></asp:Label>
+</td>     
+
+          </tr>
+        
+          <tr>
+        
+            <td colspan="2">                        <asp:Label ID="lblFacultad" runat="server" Text=""></asp:Label>
+</td>
+        
+          </tr>
+          
+          <tr>
+
+            <td colspan="2">                        <asp:Label ID="lblSede" runat="server" Text=""></asp:Label>
+</td>
+        
+          </tr>
+        
+          <tr>
+        
+            <td colspan="2">                        <asp:Label ID="lblDireccion" runat="server" Text=""></asp:Label>
+</td>     
+
+          </tr>
+        
+          <tr>
+        
+            <td colspan="2">                        <asp:Label ID="lblDireccionTrabajo" runat="server" Text=""></asp:Label>
+</td>
+        
+          </tr>
+                      <tr>
+        
+            <td colspan="2">                                               <asp:Label ID="lblCelular" runat="server" Text=""></asp:Label>
+
+        
+          </tr>
+
+          <tr>
+        
+            <td>ESTUDIANTE</td>
+            <td class="centro">Gestión: 1-2023</td>
+            <td> <button>Editar datos</button> </td> 
+        
+          </tr>
+        </table>
+         <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+      </div>
+
+
+
+    
 </asp:Content>

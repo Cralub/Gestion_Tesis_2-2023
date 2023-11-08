@@ -12,10 +12,9 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
     #endregion
 
-    EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
+    
     public static List<EProyectoCompleja> lstProyectos = new List<EProyectoCompleja>();
-    public static List<EGUsuario> lstUsuarios = new List<EGUsuario>();
-    public static List<EGUsuarioProyecto> lstUsuarioProyectos = new List<EGUsuarioProyecto>();
+    
     
 
     protected void Page_Load(object sender, EventArgs e)
@@ -28,27 +27,14 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
 
     private void CargarListaProyectos()
     {
-        lstProyectos = new List<EProyectoCompleja>();
-        lstUsuarios = new List<EGUsuario>();
-        lstUsuarioProyectos = new List<EGUsuarioProyecto>();
-        EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
 
-        lstProyectos = cProyectoCompleja.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(eUsuarioNetvalle.CodigoUsuarioNetvalle).ToList();
+        EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+
+        lstProyectos = cProyectoCompleja.Obtener_GProyecto_O_CodigoUsuario_ProyectoCompleja(usuarioSesion.CodigoUsuario).ToList();
         grvListaProyectos.DataSource = lstProyectos;
         grvListaProyectos.DataBind();
 
-        foreach (EProyectoCompleja proyectoCompleja in lstProyectos)
-        {
-            if (lstUsuarios.Count == 0)
-                lstUsuarios = cUsuario.Obtener_GUsuarios_O_CodigoProyecto(proyectoCompleja.CodigoProyecto);
-            else
-                lstUsuarios = lstUsuarios.Union(cUsuario.Obtener_GUsuarios_O_CodigoProyecto(proyectoCompleja.CodigoProyecto)).ToList();
-
-            if (lstUsuarioProyectos.Count == 0)
-                lstUsuarioProyectos = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(proyectoCompleja.CodigoProyecto);
-            else
-                lstUsuarioProyectos = lstUsuarioProyectos.Union(cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(proyectoCompleja.CodigoProyecto)).ToList();
-        }
+       
     }
 
     protected void FiltrarProyectos()
@@ -57,13 +43,11 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
         char estadoSeleccionado = Convert.ToChar(ddlEstadoProyecto.SelectedValue);
         string nombreUsuario = txbCodigoUsuario.Text;
 
-        var proyectosFiltrados = (from p in lstProyectos
-                                  join up in lstUsuarioProyectos on p.CodigoProyecto equals up.CodigoProyecto
-                                  join u in lstUsuarios on up.CodigoUsuario equals u.CodigoUsuario
-                                  where (tipoSeleccionado == 'T' || p.ModalidadProyecto == tipoSeleccionado) &&
-                                        (estadoSeleccionado == 'T' || p.EstadoProyecto == estadoSeleccionado) &&
-                                        (string.IsNullOrEmpty(nombreUsuario) || u.NombreCompletoUsuario.ToUpper().Contains(nombreUsuario.ToUpper()))
-                                  select p).Distinct().ToList();
+
+        var proyectosFiltrados = lstProyectos
+                                .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
+                                            (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&
+                                            (string.IsNullOrEmpty(nombreUsuario) || w.NombresEstudiantes.Contains(nombreUsuario.ToUpper())));
 
         grvListaProyectos.DataSource = proyectosFiltrados.ToList();
         grvListaProyectos.DataBind();
@@ -80,7 +64,7 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
                 {
                     // Obtener el índice de la fila actual
                     int rowIndex = e.Row.RowIndex;
-                    List<string> valores = lstProyectos.ElementAt(rowIndex).CodigosEstudiantes.ToList(); // Suponiendo que los valores están en la posición correspondiente al índice de la fila
+                    List<string> valores = lstProyectos.ElementAt(rowIndex).NombresEstudiantes.ToList(); // Suponiendo que los valores están en la posición correspondiente al índice de la fila
 
                     // Cargar los valores en el DropDownList
                     ddlEstudiantes.Items.Add("Estudiantes");
@@ -97,12 +81,28 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
     protected void ddlEstudiantes_SelectedIndexChanged(object sender, EventArgs e)
     {
         Session["CodigoUsuario"] = null;
-        string Estudiante = ((DropDownList)sender).SelectedValue;
-        if (((DropDownList)sender).SelectedIndex > 0)
+        string nombreEstudiante = ((DropDownList)sender).SelectedValue;
+        int pos = ((DropDownList)sender).SelectedIndex;
+
+        if (pos > 0)
         {
-            Session["CodigoUsuario"] = Estudiante;
-            //Response.Redirect("~/WebForm/Informacion/PInformacionUsuario.aspx");
+            // Se filtra el proyecto según el estudiante seleccionado
+            var proyecto = lstProyectos.FirstOrDefault(w => w.NombresEstudiantes.Contains(nombreEstudiante));
+
+            if (proyecto != null)
+            {
+                // Se obtiene el código del estudiante y se almacena en la sesión
+                string codigoEstudiante = proyecto.CodigosEstudiantes.ElementAt(pos - 1);
+                Session["CodigoUsuario"] = codigoEstudiante;
+                Response.Redirect("~/WebForm/Informacion/PInformacionUsuario.aspx");
+            }
+            else
+            {
+                // Manejo si no se encuentra el proyecto para el estudiante seleccionado
+                // Por ejemplo, mostrar un mensaje de error o manejar la situación de otra manera.
+            }
         }
+
 
     }
 
