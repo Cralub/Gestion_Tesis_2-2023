@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -42,9 +43,9 @@ public class CObservacion
         {
             lNServicio.Insertar_GObservacion_I(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public int Obtener_GObsevacion_O_SiguienteCodigoObservacion()
@@ -54,9 +55,9 @@ public class CObservacion
             return lNServicio.Obtener_GObsevacion_O_SiguienteCodigoObservacion();
 
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public List<EGObservacion> Obtener_GObservacion_O_CodigoProyecto(string codigoProyecto)
@@ -66,9 +67,9 @@ public class CObservacion
         {
             lstObservacion = lNServicio.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto).ToList();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return lstObservacion;
     }
@@ -80,9 +81,9 @@ public class CObservacion
         {
             eGObservacion = lNServicio.Obtener_GObservacion_O_CodigoObservacion(codigoObservacion);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return eGObservacion;
     }
@@ -92,9 +93,9 @@ public class CObservacion
         {
             lNServicio.Actualizar_GObservacion_A(codigoObservacion, codigoProyecto, codigoSubEtapa, codigoUsuarioObservacion, comentarioObservacion, tipoObservacion, estadoObservacion);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public void Actualizar_GObservacion_A_EstadoObservacion(int codigoObservacion, char estadoObservacion)
@@ -103,10 +104,9 @@ public class CObservacion
         {
             lNServicio.Actualizar_GObservacion_A_EstadoObservacion(codigoObservacion, estadoObservacion);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-
-            throw;
+            throw ex;
         }
     }
     #endregion

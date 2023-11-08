@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -34,9 +35,9 @@ public class CCelular
         {
             lNServicio.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public EGCelular Obtener_GCelular_O(string codigoUsuario)
@@ -45,9 +46,9 @@ public class CCelular
         {
             return lNServicio.Obtener_GCelular_O(codigoUsuario);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular)
@@ -56,9 +57,9 @@ public class CCelular
         {
             lNServicio.Actualizar_GCelular_A(codigoCelular, codigoUsuario, codigoAreaCelular, numeroCelular);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public void Eliminar_GCelular_E(int codigoCelular)
@@ -67,9 +68,9 @@ public class CCelular
         {
             lNServicio.Eliminar_GCelular_E(codigoCelular);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     #endregion

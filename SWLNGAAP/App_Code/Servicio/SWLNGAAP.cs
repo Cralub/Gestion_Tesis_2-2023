@@ -1,6 +1,7 @@
 ﻿using SWADNETGAAP;
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 
 // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
 public class SWLNGAAP : ISWLNGAAP
@@ -267,6 +268,11 @@ public class SWLNGAAP : ISWLNGAAP
     }
     #endregion
     #region GCelular
+    public int Obtener_GCelular_O_SiguienteCodigoCelular()
+    {
+        CGAAP cGAAP = new CGAAP();
+        return cGAAP.Obtener_GCelular_O_SiguienteCodigoCelular();
+    }
     public void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular)
     {
         CGAAP cGAAP = new CGAAP();

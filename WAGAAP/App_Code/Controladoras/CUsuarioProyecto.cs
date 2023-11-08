@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -42,9 +43,9 @@ public class CUsuarioProyecto
         {
             lNServicio.Insertar_GUsuarioProyecto_I(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public int Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto()
@@ -53,9 +54,9 @@ public class CUsuarioProyecto
         {
             return lNServicio.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public List<EGUsuarioProyecto> Obtener_GUsuarioProyecto_O_CodigoProyecto(string codigoProyecto)
@@ -65,9 +66,9 @@ public class CUsuarioProyecto
         {
             lstEGUsuarioProyecto = lNServicio.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).ToList();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return lstEGUsuarioProyecto;
     }
@@ -78,9 +79,9 @@ public class CUsuarioProyecto
         {
             lstEGUsuarioProyecto = lNServicio.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return lstEGUsuarioProyecto;
     }
@@ -90,9 +91,9 @@ public class CUsuarioProyecto
         {
             lNServicio.Actualizar_GUsuarioProyecto_A(codigoUsuarioProyecto, codigoProyecto, codigoUsuario, codigoRol, estadoUsuarioProyecto);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
@@ -101,9 +102,9 @@ public class CUsuarioProyecto
         {
             lNServicio.Eliminar_GUsuarioProyecto_E(codigoUsuarioProyecto);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     #endregion

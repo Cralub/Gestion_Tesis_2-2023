@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -42,9 +43,9 @@ public class CEtapa
         {
             lNServicio.Insertar_GEtapa_I(codigoEtapa, numeroEtapa, fechaInicioEtapa, fechaDefinidaEtapa, fechaFinEtapa, codigoProyecto, estadoEtapa);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public int Obtener_GEtapa_O_SiguienteCodigoEtapa()
@@ -54,9 +55,9 @@ public class CEtapa
             return lNServicio.Obtener_GEtapa_O_SiguienteCodigoEtapa();
 
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string codigoProyecto, char estadoEtapa)
@@ -66,9 +67,9 @@ public class CEtapa
         {
             eGEtapa = lNServicio.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto.ToUpper(),estadoEtapa);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return eGEtapa;
     }
@@ -79,9 +80,9 @@ public class CEtapa
         {
             eGEtapa = lNServicio.Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(codigoProyecto.ToUpper(), numeroSubEtapa);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return eGEtapa;
     }
@@ -93,9 +94,9 @@ public class CEtapa
             lNServicio.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
 
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     #endregion

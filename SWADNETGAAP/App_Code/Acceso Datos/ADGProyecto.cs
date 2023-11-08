@@ -2,12 +2,35 @@
 using System;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADGProyecto
 /// </summary>
 public class ADGProyecto
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGProyecto";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Métodos públicos
     public void Insertar_GProyecto_I(EGProyecto eGProyecto)
     {
@@ -29,9 +52,10 @@ public class ADGProyecto
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GProyecto_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public DTOGProyecto Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
@@ -46,9 +70,10 @@ public class ADGProyecto
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGProyecto, "GProyecto");
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GProyecto_O", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dtoGProyecto;
     }
@@ -63,9 +88,10 @@ public class ADGProyecto
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGProyecto, "GProyecto");
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GProyecto_O_CodigoProyecto", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGProyecto;
     }
@@ -85,9 +111,10 @@ public class ADGProyecto
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_GProyecto_A", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     #endregion    

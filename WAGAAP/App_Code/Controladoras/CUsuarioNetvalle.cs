@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -43,9 +44,9 @@ public class CUsuarioNetvalle
         {
             eUsuarioNetvalle = lNServicio.Obtener_UsuarioNetvalle_O_CodigoUsuario(codigoUsuario);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return eUsuarioNetvalle;
     }

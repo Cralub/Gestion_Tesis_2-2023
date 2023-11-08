@@ -2,12 +2,35 @@
 using System;
 using System.Data.Common;
 using System.Data;
+using System.Data.SqlClient;
+using System.ServiceModel;
 
 /// <summary>
 /// Descripción breve de ADGUsuario
 /// </summary>
 public class ADGUsuario
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGUsuario";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Metodos publicos
     public void Insertar_GUsuario_I(EGUsuario eGUsuario)
     {
@@ -22,9 +45,10 @@ public class ADGUsuario
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GUsuario_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     public DTOGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario)
@@ -38,9 +62,10 @@ public class ADGUsuario
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGUsuario, "GUsuario");
         }
-        catch (Exception ex)
+        catch (SqlException SQLEx)
         {
-            throw ex;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GUsuario_O_CodigoUsuario", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dtoGUsuario;
     }
@@ -55,9 +80,10 @@ public class ADGUsuario
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception)
+        catch (SqlException SQLEx)
         {
-            throw;
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_GUsuario_A", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
     #endregion

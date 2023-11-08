@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -12,6 +14,27 @@ using System.Web;
 /// </summary>
 public class ADGTutorExterno
 {
+    #region Metodos Privados
+    /// <summary>
+    /// Contruir el Error del servicio > metodo
+    /// </summary>
+    /// <param name="tipoError"></param>
+    /// <param name="metodo"></param>
+    /// <param name="excepcion"></param>
+    /// <param name="mensaje"></param>
+    /// <returns></returns>
+    private EDefectoAD ConstruirErrorServicio(TTipoError tipoError, string metodo, string excepcion, string mensaje)
+    {
+        EDefectoAD eDefectoAD = new EDefectoAD();
+        eDefectoAD.TipoError = tipoError;
+        eDefectoAD.Servicio = "SWADNETGAAP";
+        eDefectoAD.Clase = "ADGTutorExterno";
+        eDefectoAD.Metodo = metodo;
+        eDefectoAD.Excepcion = excepcion;
+        eDefectoAD.Mensaje = mensaje;
+        return eDefectoAD;
+    }
+    #endregion
     #region Metodos públicos
     public void Insertar_GTutorExterno_I(EGTutorExterno eGTutorExterno)
     {
@@ -32,11 +55,11 @@ public class ADGTutorExterno
 			bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
 
 		}
-		catch ( Exception ex)
-		{
-
-			throw ex;
-		}
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GTutorExterno_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
     }
 
 	public DTOGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
@@ -52,12 +75,12 @@ public class ADGTutorExterno
 
 
         }
-        catch (Exception ex)
-		{
-            throw ex;
-		}
-
-		return dTOGTutorExterno;
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GTutorExterno_O_CodigoTutorExterno", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
+        return dTOGTutorExterno;
 	}
 
 	public DTOGTutorExterno Obtener_GTutorExterno_O()
@@ -71,9 +94,10 @@ public class ADGTutorExterno
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGTutorExterno, "GTutorExterno");
         }
-        catch (Exception ex)
-		{
-            throw ex;
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GTutorExterno_O", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
         return dTOGTutorExterno;
 	}
@@ -94,12 +118,12 @@ public class ADGTutorExterno
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
-		{
-            throw ex;
-		}
-
-	}
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Actualizar_GTutorExterno_A", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
+    }
 
 	public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
 	{
@@ -112,9 +136,10 @@ public class ADGTutorExterno
             bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_INACTIVO);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
-        catch (Exception ex)
-		{
-            throw ex;
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Eliminar_GTutorExterno_E", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
         }
     }
   

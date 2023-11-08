@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -68,9 +69,9 @@ public class CFormularioAceptacion
 
             lNServicio.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
 
@@ -81,9 +82,9 @@ public class CFormularioAceptacion
         {
             lstFormularioAceptacion = lNServicio.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;  
+            throw ex;
         }
         return lstFormularioAceptacion;
     }

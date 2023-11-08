@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -42,9 +43,9 @@ public class CUsuarioRol
         {
             lNServicio.Insertar_GUsuarioRol_I(codigoUsuarioRol, codigoRol, codigoUsuario);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
@@ -54,9 +55,9 @@ public class CUsuarioRol
             return lNServicio.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol();
 
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public List<EGUsuarioRol> Obtener_GUsuarioRol_O_CodigoRol(string codigoRol)
@@ -66,9 +67,9 @@ public class CUsuarioRol
         {
             lstEGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoRol(codigoRol);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return lstEGUsuarioRol;
     }
@@ -79,9 +80,9 @@ public class CUsuarioRol
         {
             lstEGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return lstEGUsuarioRol;
     }
@@ -92,9 +93,9 @@ public class CUsuarioRol
         {
             eGUsuarioRol = lNServicio.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
         return eGUsuarioRol;
     }
@@ -104,9 +105,9 @@ public class CUsuarioRol
         {
             lNServicio.Actualizar_GUsuarioRol_A(codigoUsuario, codigoRol, codigoUsuarioRol);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     public void Eliminar_GUsuarioRol_E(int codigoUsuarioRol)
@@ -115,9 +116,9 @@ public class CUsuarioRol
         {
             lNServicio.Eliminar_GUsuarioRol_E(codigoUsuarioRol);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
     #endregion

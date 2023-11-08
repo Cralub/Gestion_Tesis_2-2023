@@ -112,6 +112,8 @@ public interface ISWLNGAAP
     #endregion
     #region GCelular
     [OperationContract]
+    int Obtener_GCelular_O_SiguienteCodigoCelular();
+    [OperationContract]
     void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular);
     [OperationContract]
     EGCelular Obtener_GCelular_O(string codigoUsuario);

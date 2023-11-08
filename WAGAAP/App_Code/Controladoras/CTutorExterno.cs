@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 /// <summary>
@@ -41,9 +42,9 @@ public class CTutorExterno
         {
             lNServicio.Insertar_GTutorExterno_I(CodigoTutorExterno, NombreTutorExterno, ApellidoTutorExterno, CorreoTutorExterno, TelefonoTutorExterno, CodigoEmpresa, EstadoTutorExterno);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
 
@@ -53,9 +54,9 @@ public class CTutorExterno
         {
             lNServicio.Actualizar_GTutorExterno_A(CodigoTutorExterno, NombreTutorExterno, ApellidoTutorExterno, CorreoTutorExterno, TelefonoTutorExterno, CodigoEmpresa, EstadoTutorExterno);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
 
@@ -65,9 +66,9 @@ public class CTutorExterno
         {
             lNServicio.Eliminar_GTutorExterno_E(CodigoTutorExterno);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
 
@@ -77,9 +78,9 @@ public class CTutorExterno
         {
             return lNServicio.Obtener_GTutorExterno_O();
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
 
@@ -89,9 +90,9 @@ public class CTutorExterno
         {
             return lNServicio.Obtener_GTutorExterno_O_CodigoTutorExterno(CodigoTutorExterno);
         }
-        catch (Exception)
+        catch (FaultException<EDefecto> ex)
         {
-            throw;
+            throw ex;
         }
     }
 
