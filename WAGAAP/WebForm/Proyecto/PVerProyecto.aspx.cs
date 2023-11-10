@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
@@ -13,86 +11,91 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
     CProyecto cProyecto = new CProyecto();
     CRol cRol = new CRol();
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
+    CUsuario cUsuario = new CUsuario();
     #endregion
-
-    private string CodigoProyecto;
-    EUsuarioNetvalle eUsuarioNetvalle = new EUsuarioNetvalle();
-
     EGProyecto eGProyecto = new EGProyecto();
     List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
-    List<EGRol> listaRoles = new List<EGRol>();
-
-    // utilizar los valores como se necesite
-
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            CodigoProyecto = Session["CodigoProyecto"] as string;
-
-            //usuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
-
-            eUsuarioNetvalle.CodigoUsuarioNetvalle = "HPD0076900";
+            LimpiarVariables();
             CargarDatos();
         }
 
     }
     private void CargarDatos()
     {
-        eGProyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(CodigoProyecto.Trim());
-        lblCodigoUsuario.Text = eUsuarioNetvalle.CodigoUsuarioNetvalle;
-
-        switch (eGProyecto.ModalidadProyecto)
+        if(Session["CodigoProyecto"] != null)
         {
-            case 'T':
-                lblModalidad.Text = "Tesis de Grado";
-                break;
-            case 'P':
-                lblModalidad.Text = "Proyecto de Grado";
-                break;
-            case 'D':
-                lblModalidad.Text = "Trabajo Dirigido";
-                break;
-            default:
-                lblModalidad.Text = "Desconocida";
-                break;
+            string codigoProyecto = Session["CodigoProyecto"].ToString();
+            eGProyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto);
+            
+
+            switch (eGProyecto.ModalidadProyecto)
+            {
+                case SDatosGlobales.CHAR_MODALIDAD_TESIS:
+                    lblModalidad.Text = SDatosGlobales.STRING_MODALIDAD_TESIS;
+                    break;
+                case SDatosGlobales.CHAR_MODALIDAD_PROYECTO_DE_GRADO:
+                    lblModalidad.Text = SDatosGlobales.STRING_MODALIDAD_PROYECTO_DE_GRADO;
+                    break;
+                case SDatosGlobales.CHAR_MODALIDAD_TRABAJO_DIRIGIDO:
+                    lblModalidad.Text = SDatosGlobales.STRING_MODALIDAD_TRABAJO_DIRIGIDO;
+                    break;
+                default:
+                    lblModalidad.Text = "Desconocida";
+                    break;
+            }
+            lblTitulo.Text = eGProyecto.TituloProyecto;
+            lblObjetivoGeneral.Text = eGProyecto.ObjetivoGeneralProyecto;
+            lblObjetivosEspecificos.Text = eGProyecto.ObjetivosEspecificosProyecto;
+            lblAlcanceProyecto.Text = eGProyecto.AlcanceProyecto;
+            lkbEnlaceDocumento.Text = eGProyecto.EnlaceDocumentoProyecto;
+            
+            grvListaUsuarios.DataSource = null;
+            lstEGUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto.Trim()).ToList();
+            var lstUsuariosEnProyecto = lstEGUsuarioProyecto.Select(f => new
+            {
+                f.CodigoUsuario,
+                CodigoRol = ObtenerNombreRolPorCodigo(f.CodigoRol),
+                Nombre = ObtenerNombrePorCodigo(f.CodigoUsuario)
+            }).ToList();
+            grvListaUsuarios.DataSource = lstUsuariosEnProyecto;
+            grvListaUsuarios.DataBind();
         }
-        lblTitulo.Text = eGProyecto.TituloProyecto;
-        lblObjetivoGeneral.Text = eGProyecto.ObjetivoGeneralProyecto;
-        lblObjetivosEspecificos.Text = eGProyecto.ObjetivosEspecificosProyecto;
-        lblAlcanceProyecto.Text = eGProyecto.AlcanceProyecto;
-        lkbEnlaceDocumento.Text = eGProyecto.EnlaceDocumentoProyecto;
-        listaRoles = cRol.Obtener_GRol_O_Todo().ToList();
-        gvListaUsuarios.DataSource = null;
-        lstEGUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(CodigoProyecto.Trim()).ToList();
-        gvListaUsuarios.DataSource = lstEGUsuarioProyecto;
-        gvListaUsuarios.DataBind();
+        
 
     }
-    protected string GetRolNombre(string codigoRol)
+    private void cargarListaParticipantes()
     {
-        listaRoles = cRol.Obtener_GRol_O_Todo().ToList();
-        EGRol rol = listaRoles.FirstOrDefault(r => r.CodigoRol.Trim() == codigoRol);
-        if (rol != null)
-        {
-            return rol.DescripcionRol;
-        }
-        else
-        {
-            return "Rol Desconocido";
-        }
+
+    }
+    private string ObtenerNombrePorCodigo(string codigoUsuario)
+    {
+        var usuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
+        return usuario.NombreCompletoUsuario;
+    }
+    protected string ObtenerNombreRolPorCodigo(string codigoRol)
+    {
+        EGRol rol = cRol.Obtener_GRol_O_CodigoRol(codigoRol);
+        return rol.DescripcionRol;
     }
 
 
 
     protected void gvListaUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        //int index = Convert.ToInt32(e.CommandArgument);
+        //string CodigoUsuario = System.Net.WebUtility.HtmlDecode(grvListaUsuarios.Rows[index].Cells[0].Text);
         int index = Convert.ToInt32(e.CommandArgument);
-        string CodigoUsuario = System.Net.WebUtility.HtmlDecode(gvListaUsuarios.Rows[index].Cells[0].Text);
+        string CodigoUsuario = grvListaUsuarios.DataKeys[index].Value.ToString();
 
         if (e.CommandName == "btnVer")
         {
             Session["CodigoUsuario"] = CodigoUsuario;
+            Session["PaginaAnterior"] = HttpContext.Current.Request.Url.PathAndQuery;
             Response.Redirect("~/WebForm/Informacion/PInformacionUsuario.aspx");
         }
     }
@@ -100,5 +103,9 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
+    }
+    private void LimpiarVariables()
+    {        
+        Session["PaginaAnterior"] = null;        
     }
 }

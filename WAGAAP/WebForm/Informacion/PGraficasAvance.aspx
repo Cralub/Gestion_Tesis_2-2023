@@ -1,12 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="PGraficasAvance.aspx.cs" Inherits="WebForm_PGraficasAvance" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <link rel="stylesheet" href="../Estilo/CSSGraficasAvance.css"/>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link rel="stylesheet" href="../Estilo/CSSGraficasAvance.css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div>
-            <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
-        </div>
+        <asp:Button ID="btnFormulario" runat="server" Text="Informacion Proyecto" OnClick="btnFormulario_Click"/>
+    </div>
+     <div>
+     <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+ </div>
     <div class="ContenedorPrincipal">
         <div class="Tarjeta">
             <div class="Tarjeta_Encabezado">
@@ -24,7 +27,8 @@
             <div class="Tarjeta">
                 <div class="Tarjeta_Cuerpo">
                     <div class="Columna">
-                        <h2><asp:Label runat="server" ID="lblEtapaActiva"></asp:Label></h2>
+                        <h2>
+                            <asp:Label runat="server" ID="lblEtapaActiva"></asp:Label></h2>
                         <asp:Label runat="server" ID="lblProgresoEtapaActiva"></asp:Label>
                         <div>
                             <h4>REVISADO POR</h4>
@@ -93,7 +97,8 @@
             <div class="Tarjeta">
                 <div class="Tarjeta_Cuerpo">
                     <div class="Columna">
-                        <h2><asp:Label runat="server" ID="lblEtapa"></asp:Label></h2>
+                        <h2>
+                            <asp:Label runat="server" ID="lblEtapa"></asp:Label></h2>
                         <asp:Label runat="server" ID="lblProgresoEtapa"></asp:Label>
                         <div>
                             <h4>REVISADO POR</h4>

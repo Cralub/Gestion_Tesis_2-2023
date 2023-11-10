@@ -10,6 +10,7 @@ public partial class WebForm_Usuario_PInformacionUsuario : System.Web.UI.Page
 {
     #region Controladores
     CUsuarioNetvalle cUsuarioNetvalle = new CUsuarioNetvalle();
+    CCelular cCelular = new CCelular();
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -27,7 +28,8 @@ public partial class WebForm_Usuario_PInformacionUsuario : System.Web.UI.Page
                 lblSede.Text = usuario.SedeUsuarioNetvalle;
                 lblDireccion.Text = usuario.DireccionUsuarioNetvalle;
                 lblDireccionTrabajo.Text = usuario.DireccionTrabajoUsuarioNetvalle;
-                lblCelular.Text = "";
+                EGCelular celular = cCelular.Obtener_GCelular_O_CodigoUsuario(usuario.CodigoUsuarioNetvalle);
+                lblCelular.Text = (celular != null) ? celular.NumeroCelular.ToString(): "";
             }
         }
     }
@@ -37,6 +39,15 @@ public partial class WebForm_Usuario_PInformacionUsuario : System.Web.UI.Page
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Session["CodigoUsuario"] = null;
-        Response.Redirect("~/PaginaMaestra/Default.aspx");
+        
+        if (Session["PaginaAnterior"] != null)
+        {
+            string paginaAnterior = Session["PaginaAnterior"].ToString();
+            Session["PaginaAnterior"] = null;
+            Response.Redirect(paginaAnterior);
+        }
+        else        
+            Response.Redirect("~/PaginaMaestra/Default.aspx");
+        
     }
 }

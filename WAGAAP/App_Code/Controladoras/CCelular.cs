@@ -40,11 +40,11 @@ public class CCelular
             throw ex;
         }
     }
-    public EGCelular Obtener_GCelular_O(string codigoUsuario)
+    public EGCelular Obtener_GCelular_O_CodigoUsuario(string codigoUsuario)
     {
         try
         {
-            return lNServicio.Obtener_GCelular_O(codigoUsuario);
+            return lNServicio.Obtener_GCelular_O_CodigoUsuario(codigoUsuario);
         }
         catch (FaultException<EDefecto> ex)
         {

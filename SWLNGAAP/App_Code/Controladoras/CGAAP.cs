@@ -22,7 +22,7 @@ public class CGAAP
     {
         EDefecto eDefecto = new EDefecto();
         eDefecto.TipoDefecto = tipoDefecto;
-        eDefecto.Servicio = "SWLNReciclado";
+        eDefecto.Servicio = "SWLNGAAP";
         eDefecto.Clase = "CGAAP";
         eDefecto.Metodo = metodo;
         eDefecto.Excepcion = excepcion;
@@ -573,16 +573,10 @@ public class CGAAP
         }
         return lstEGProyecto;
     }
-    public void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(EGProyecto eGProyecto)
     {
-        EGProyecto eGProyecto = new EGProyecto();
         try
         {
-            eGProyecto.CodigoProyecto = codigoProyecto;
-            eGProyecto.ModalidadProyecto = modalidadProyecto;
-            eGProyecto.TituloProyecto = tituloProyecto;
-            eGProyecto.ObjetivoGeneralProyecto = objetivoGeneralProyecto;
-            eGProyecto.EnlaceDocumentoProyecto = enlaceDocumentoProyecto;
             aSNETGAAP.Actualizar_GProyecto_A(eGProyecto);
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -595,11 +589,6 @@ public class CGAAP
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                eGProyecto.CodigoProyecto = codigoProyecto;
-                eGProyecto.ModalidadProyecto = modalidadProyecto;
-                eGProyecto.TituloProyecto = tituloProyecto;
-                eGProyecto.ObjetivoGeneralProyecto = objetivoGeneralProyecto;
-                eGProyecto.EnlaceDocumentoProyecto = enlaceDocumentoProyecto;
                 aSNETGAAP.Actualizar_GProyecto_A(eGProyecto);
             }
             else
@@ -1269,6 +1258,60 @@ public class CGAAP
             }
         }
         return eGUsuario;
+    }
+    public EGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        EGUsuario eGUsuario = new EGUsuario();
+        try
+        {
+            eGUsuario = aSNETGAAP.Obtener_GUsuario_O_NombreCompletoUsuario(nombreCompletoUsuario);
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_GUsuario_O_NombreCompletoUsuario", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                eGUsuario = aSNETGAAP.Obtener_GUsuario_O_NombreCompletoUsuario(nombreCompletoUsuario);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_GUsuario_O_NombreCompletoUsuario", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        return eGUsuario;
+    }
+    public List<EGUsuario> Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        List<EGUsuario> lstEGUsuario = new List<EGUsuario>();
+        try
+        {
+            lstEGUsuario = aSNETGAAP.Buscar_GUsuario_B_NombreCompletoUsuario(nombreCompletoUsuario);
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Buscar_GUsuario_B_NombreCompletoUsuario", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                lstEGUsuario = aSNETGAAP.Buscar_GUsuario_B_NombreCompletoUsuario(nombreCompletoUsuario);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Buscar_GUsuario_B_NombreCompletoUsuario", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        return lstEGUsuario;
     }
     public void Actualizar_GUsuario_A(string codigoUsuario,string nombreCompletoUsuario, string sedeUsuario)
     {
@@ -2049,8 +2092,12 @@ public class CGAAP
                 eGProyectoComplejo.TituloProyecto = eGProyecto.TituloProyecto;
                 eGProyectoComplejo.ModalidadProyecto = eGProyecto.ModalidadProyecto;
                 eGProyectoComplejo.ObjetivoGeneralProyecto = eGProyecto.ObjetivoGeneralProyecto;
+                eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
+                eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                 eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
+                eGProyectoComplejo.NumeroRevisionesProyecto = eGProyecto.NumeroRevisiones;
                 eGProyectoComplejo.EstadoProyecto = eGProyecto.EstadoProyecto;
+                
                 eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == SDatos.ROL_ESTUDIANTE).Select(s => s.CodigoUsuario).ToList();
                 foreach (string codigoEstudiante in eGProyectoComplejo.CodigosEstudiantes)
                 {
@@ -2111,7 +2158,10 @@ public class CGAAP
                     eGProyectoComplejo.TituloProyecto = eGProyecto.TituloProyecto;
                     eGProyectoComplejo.ModalidadProyecto = eGProyecto.ModalidadProyecto;
                     eGProyectoComplejo.ObjetivoGeneralProyecto = eGProyecto.ObjetivoGeneralProyecto;
+                    eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
+                    eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                     eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
+                    eGProyectoComplejo.NumeroRevisionesProyecto = eGProyecto.NumeroRevisiones;
                     eGProyectoComplejo.EstadoProyecto = eGProyecto.EstadoProyecto;
                     eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == SDatos.ROL_ESTUDIANTE).Select(s => s.CodigoUsuario).ToList();
                     foreach (string codigoEstudiante in eGProyectoComplejo.CodigosEstudiantes)

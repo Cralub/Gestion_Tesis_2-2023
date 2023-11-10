@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="PaginaMaestra_Default" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="PaginaMaestra_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -27,8 +27,6 @@
             <div>
                 <asp:Button ID="btnTutorExterno" runat="server" Text="Agregar Tutor Externo" OnClick="btnTutorExterno_Click" />
             </div>
-
-
         </div>
     </div>
 </asp:Content>

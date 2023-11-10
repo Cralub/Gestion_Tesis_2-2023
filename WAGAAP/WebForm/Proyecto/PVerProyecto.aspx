@@ -11,11 +11,7 @@
             <asp:Label runat="server">Titulo:</asp:Label>
             <asp:Label ID="lblTitulo" runat="server"></asp:Label>
         </div>
-        <br />
-        <div>
-            <asp:Label runat="server">Usuario:</asp:Label>
-            <asp:Label ID="lblCodigoUsuario" runat="server"></asp:Label>
-        </div>
+        
         <br />
 
         <div>
@@ -43,9 +39,10 @@
             <asp:LinkButton ID="lkbEnlaceDocumento" runat="server"></asp:LinkButton>
         </div>
         <br />
-        <asp:GridView ID="gvListaUsuarios" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaUsuarios_RowCommand">
+        <asp:GridView ID="grvListaUsuarios" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaUsuarios_RowCommand" DataKeyNames="CodigoUsuario">
             <Columns>
-                <asp:BoundField DataField="CodigoUsuario" HeaderText="Usuario" />
+                <asp:BoundField DataField="Nombre" HeaderText="Usuario" />
+                <asp:BoundField DataField="CodigoUsuario" HeaderText="Codigo" />
                 <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" />
                 <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
             </Columns>

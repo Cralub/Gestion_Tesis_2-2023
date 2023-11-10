@@ -44,7 +44,7 @@ public interface ISWLNGAAP
     [OperationContract]
     EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto);
     [OperationContract]
-    void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto);
+    void Actualizar_GProyecto_A(EGProyecto eGProyecto);
     #endregion
     #region GEtapa
     [OperationContract]
@@ -96,9 +96,14 @@ public interface ISWLNGAAP
     [OperationContract]
     EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario);
     [OperationContract]
-    void Actualizar_GUsuario_A(string codigoUsuario, string nombreCompletoUsuario, string sede);
-    [OperationContract]
     List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string codigoProyecto);
+    [OperationContract]
+    EGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario);
+    [OperationContract]
+    List<EGUsuario> Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario);
+    [OperationContract]
+    void Actualizar_GUsuario_A(string codigoUsuario, string nombreCompletoUsuario, string sede);
+    
     #endregion
     #region GRol
     [OperationContract]
@@ -116,7 +121,7 @@ public interface ISWLNGAAP
     [OperationContract]
     void Insertar_GCelular_I(string codigoUsuario, string codigoAreaCelular, int numeroCelular);
     [OperationContract]
-    EGCelular Obtener_GCelular_O(string codigoUsuario);
+    EGCelular Obtener_GCelular_O_CodigoUsuario(string codigoUsuario);
     [OperationContract]
     void Actualizar_GCelular_A(int codigoCelular, string codigoUsuario, string codigoAreaCelular, int numeroCelular);
     [OperationContract]

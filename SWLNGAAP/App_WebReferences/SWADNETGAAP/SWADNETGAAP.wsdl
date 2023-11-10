@@ -247,6 +247,18 @@
   <wsdl:message name="ISWADNETGAAP_Obtener_GUsuario_O_CodigoUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_CodigoUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_NombreCompletoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_NombreCompletoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Buscar_GUsuario_B_NombreCompletoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Buscar_GUsuario_B_NombreCompletoUsuarioResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Actualizar_GUsuario_A_InputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_A" />
   </wsdl:message>
@@ -491,6 +503,14 @@
     <wsdl:operation name="Obtener_GUsuario_O_CodigoUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_CodigoUsuario" message="tns:ISWADNETGAAP_Obtener_GUsuario_O_CodigoUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_CodigoUsuarioResponse" message="tns:ISWADNETGAAP_Obtener_GUsuario_O_CodigoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuario_O_NombreCompletoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_NombreCompletoUsuario" message="tns:ISWADNETGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_NombreCompletoUsuarioResponse" message="tns:ISWADNETGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_GUsuario_B_NombreCompletoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Buscar_GUsuario_B_NombreCompletoUsuario" message="tns:ISWADNETGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Buscar_GUsuario_B_NombreCompletoUsuarioResponse" message="tns:ISWADNETGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GUsuario_A">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GUsuario_A" message="tns:ISWADNETGAAP_Actualizar_GUsuario_A_InputMessage" />
@@ -904,6 +924,24 @@
     </wsdl:operation>
     <wsdl:operation name="Obtener_GUsuario_O_CodigoUsuario">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_CodigoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuario_O_NombreCompletoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GUsuario_O_NombreCompletoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_GUsuario_B_NombreCompletoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Buscar_GUsuario_B_NombreCompletoUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -105,6 +105,10 @@ public interface ISWADNETGAAP
     [OperationContract]
     EGUsuario Obtener_GUsuario_O_CodigoUsuario(string codigoUsuario);
     [OperationContract]
+    EGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario);
+    [OperationContract]
+    List<EGUsuario> Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario);
+    [OperationContract]
     void Actualizar_GUsuario_A(EGUsuario eGUsuario);
     #endregion
     #region Tabla: GRol

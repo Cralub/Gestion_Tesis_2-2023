@@ -27,6 +27,12 @@ public class EProyectoCompleja
     [DataMember]
     public string ObjetivoGeneralProyecto { get; set; }
     [DataMember]
+    public string ObjetivosEspecificosProyecto { get; set; }
+    [DataMember]
+    public string AlcanceProyecto { get; set; }
+    [DataMember]
+    public byte NumeroRevisionesProyecto { get; set; }
+    [DataMember]
     public string EnlaceDocumentoProyecto { get; set; }
     [DataMember]
     public List<string> CodigosEstudiantes { get; set; }

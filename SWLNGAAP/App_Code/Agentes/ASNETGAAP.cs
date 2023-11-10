@@ -1097,6 +1097,60 @@ public class ASNETGAAP
         }
         return eGUsuario;
     }
+    public EGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        EGUsuario eGUsuario = new EGUsuario();
+        try
+        {
+            eGUsuario = clienteSWADNETGAAP.Obtener_GUsuario_O_NombreCompletoUsuario(nombreCompletoUsuario);
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_GUsuario_O_NombreCompletoUsuario", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                eGUsuario = clienteSWADNETGAAP.Obtener_GUsuario_O_NombreCompletoUsuario(nombreCompletoUsuario);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_GUsuario_O_NombreCompletoUsuario", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        return eGUsuario;
+    }
+    public List<EGUsuario> Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        List<EGUsuario> lstEGUsuario = new List<EGUsuario>();
+        try
+        {
+            lstEGUsuario = clienteSWADNETGAAP.Buscar_GUsuario_B_NombreCompletoUsuario(nombreCompletoUsuario).ToList();
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Buscar_GUsuario_B_NombreCompletoUsuario", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                lstEGUsuario = clienteSWADNETGAAP.Buscar_GUsuario_B_NombreCompletoUsuario(nombreCompletoUsuario).ToList();
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Buscar_GUsuario_B_NombreCompletoUsuario", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        return lstEGUsuario;
+    }
     public void Actualizar_GUsuario_A(EGUsuario eGUsuario)
     {
         try

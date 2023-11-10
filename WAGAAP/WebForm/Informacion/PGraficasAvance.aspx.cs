@@ -1,10 +1,7 @@
 ﻿using SWLNGAAP;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class WebForm_PGraficasAvance : System.Web.UI.Page
@@ -15,16 +12,16 @@ public partial class WebForm_PGraficasAvance : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            
-            if (Session["CodigoProyecto"] != null)
+            if (Session["CodigoProyecto"] != null && Session["UsuarioSesion"] != null)
             {
                 EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
                 var progresoEtapas = client.Obtener_EProgresoEtapaSubEtapa_O(Session["CodigoProyecto"] as string).ToList();
                 CargarDatos(progresoEtapas);
+                FiltrarInterfazUsuario();
             }
-           
+
         }
-      
+
     }
 
     public void CargarDatos(List<EProgresoEtapaSubEtapa> lstProgresoEtapas)
@@ -77,7 +74,7 @@ public partial class WebForm_PGraficasAvance : System.Web.UI.Page
             graficaEtapa.Attributes.Add("style", "background: conic-gradient(#F87178 " + (etapas[1] * 3.6) + "deg, #f0f0f0 0deg);");
             if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 1)
             {
-               chkEstudiante.Checked = true;
+                chkEstudiante.Checked = true;
             }
             if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 8)
             {
@@ -154,6 +151,32 @@ public partial class WebForm_PGraficasAvance : System.Web.UI.Page
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Session["CodigoProyecto"] = null;
-        Response.Redirect("~/PaginaMaestra/Default.aspx");
+        Session["CodigoUsuario"] = null;
+
+        if (Session["PaginaAnterior"] != null)
+        {
+            string paginaAnterior = Session["PaginaAnterior"].ToString();
+            Session["PaginaAnterior"] = null;
+            Response.Redirect(paginaAnterior);
+        }
+        else
+            Response.Redirect("~/PaginaMaestra/Default.aspx");
+    }
+
+    void FiltrarInterfazUsuario()
+    {
+        if (Session["UsuarioSesion"] != null)
+        {
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            if (usuarioSesion.esEstudiante)
+            {
+                btnVolver.Enabled = false;
+                btnVolver.Visible = false;
+            }
+        }
+    }
+    protected void btnFormulario_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/WebForm/Formulario/PFormularioEstudiante.aspx");
     }
 }

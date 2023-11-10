@@ -108,6 +108,7 @@ public class ADGProyecto
             bdSWADNETGAAP.AddInParameter(comandoBD, "ObjetivosEspecificosProyecto", DbType.String, eGProyecto.ObjetivosEspecificosProyecto);
             bdSWADNETGAAP.AddInParameter(comandoBD, "AlcanceProyecto", DbType.String, eGProyecto.AlcanceProyecto);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EnlaceDocumentoProyecto", DbType.String, eGProyecto.EnlaceDocumentoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "NumeroRevisiones", DbType.Byte, eGProyecto.NumeroRevisiones);
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }

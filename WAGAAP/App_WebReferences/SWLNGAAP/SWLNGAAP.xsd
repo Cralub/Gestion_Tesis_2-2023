@@ -237,6 +237,7 @@
   <xs:element name="ArrayOfEProyectoCompleja" nillable="true" type="tns:ArrayOfEProyectoCompleja" />
   <xs:complexType name="EProyectoCompleja">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AlcanceProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoRol" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoTutor" nillable="true" type="xs:string" />
@@ -247,7 +248,9 @@
       <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
       <xs:element minOccurs="0" name="NombreTutor" nillable="true" type="xs:string" />
       <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NombresEstudiantes" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="NumeroRevisionesProyecto" type="xs:unsignedByte" />
       <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rol" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
     </xs:sequence>

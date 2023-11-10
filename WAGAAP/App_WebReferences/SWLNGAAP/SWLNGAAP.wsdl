@@ -231,17 +231,29 @@
   <wsdl:message name="ISWLNGAAP_Obtener_GUsuario_O_CodigoUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_CodigoUsuarioResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Actualizar_GUsuario_A_InputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_A" />
-  </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Actualizar_GUsuario_A_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_AResponse" />
-  </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GUsuarios_O_CodigoProyecto" />
   </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GUsuarios_O_CodigoProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_NombreCompletoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GUsuario_O_NombreCompletoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Buscar_GUsuario_B_NombreCompletoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Buscar_GUsuario_B_NombreCompletoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GUsuario_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_GUsuario_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GUsuario_AResponse" />
   </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Obtener_GRol_O_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GRol_O" />
@@ -261,17 +273,23 @@
   <wsdl:message name="ISWLNGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_SiguienteCodigoCelular_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O_SiguienteCodigoCelular" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_SiguienteCodigoCelular_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O_SiguienteCodigoCelularResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Insertar_GCelular_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GCelular_I" />
   </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Insertar_GCelular_I_OutputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GCelular_IResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O" />
+  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_CodigoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O_CodigoUsuario" />
   </wsdl:message>
-  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GCelular_OResponse" />
+  <wsdl:message name="ISWLNGAAP_Obtener_GCelular_O_CodigoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GCelular_O_CodigoUsuarioResponse" />
   </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Actualizar_GCelular_A_InputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GCelular_A" />
@@ -536,13 +554,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuario_O_CodigoUsuario" message="tns:ISWLNGAAP_Obtener_GUsuario_O_CodigoUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuario_O_CodigoUsuarioResponse" message="tns:ISWLNGAAP_Obtener_GUsuario_O_CodigoUsuario_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Actualizar_GUsuario_A">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_A" message="tns:ISWLNGAAP_Actualizar_GUsuario_A_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_AResponse" message="tns:ISWLNGAAP_Actualizar_GUsuario_A_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Obtener_GUsuarios_O_CodigoProyecto">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuarios_O_CodigoProyecto" message="tns:ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuarios_O_CodigoProyectoResponse" message="tns:ISWLNGAAP_Obtener_GUsuarios_O_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GUsuario_O_NombreCompletoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuario_O_NombreCompletoUsuario" message="tns:ISWLNGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GUsuario_O_NombreCompletoUsuarioResponse" message="tns:ISWLNGAAP_Obtener_GUsuario_O_NombreCompletoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_GUsuario_B_NombreCompletoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Buscar_GUsuario_B_NombreCompletoUsuario" message="tns:ISWLNGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Buscar_GUsuario_B_NombreCompletoUsuarioResponse" message="tns:ISWLNGAAP_Buscar_GUsuario_B_NombreCompletoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuario_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_A" message="tns:ISWLNGAAP_Actualizar_GUsuario_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_AResponse" message="tns:ISWLNGAAP_Actualizar_GUsuario_A_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Obtener_GRol_O">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GRol_O" message="tns:ISWLNGAAP_Obtener_GRol_O_InputMessage" />
@@ -556,13 +582,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuario" message="tns:ISWLNGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_UsuarioNetvalle_O_CodigoUsuarioResponse" message="tns:ISWLNGAAP_Obtener_UsuarioNetvalle_O_CodigoUsuario_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Obtener_GCelular_O_SiguienteCodigoCelular">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O_SiguienteCodigoCelular" message="tns:ISWLNGAAP_Obtener_GCelular_O_SiguienteCodigoCelular_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O_SiguienteCodigoCelularResponse" message="tns:ISWLNGAAP_Obtener_GCelular_O_SiguienteCodigoCelular_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GCelular_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GCelular_I" message="tns:ISWLNGAAP_Insertar_GCelular_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GCelular_IResponse" message="tns:ISWLNGAAP_Insertar_GCelular_I_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GCelular_O">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O" message="tns:ISWLNGAAP_Obtener_GCelular_O_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_OResponse" message="tns:ISWLNGAAP_Obtener_GCelular_O_OutputMessage" />
+    <wsdl:operation name="Obtener_GCelular_O_CodigoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O_CodigoUsuario" message="tns:ISWLNGAAP_Obtener_GCelular_O_CodigoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O_CodigoUsuarioResponse" message="tns:ISWLNGAAP_Obtener_GCelular_O_CodigoUsuario_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GCelular_A">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GCelular_A" message="tns:ISWLNGAAP_Actualizar_GCelular_A_InputMessage" />
@@ -976,8 +1006,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Actualizar_GUsuario_A">
-      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_A" style="document" />
+    <wsdl:operation name="Obtener_GUsuarios_O_CodigoProyecto">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GUsuarios_O_CodigoProyecto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -985,8 +1015,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GUsuarios_O_CodigoProyecto">
-      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GUsuarios_O_CodigoProyecto" style="document" />
+    <wsdl:operation name="Obtener_GUsuario_O_NombreCompletoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GUsuario_O_NombreCompletoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_GUsuario_B_NombreCompletoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Buscar_GUsuario_B_NombreCompletoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GUsuario_A">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_GUsuario_A" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1021,6 +1069,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Obtener_GCelular_O_SiguienteCodigoCelular">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O_SiguienteCodigoCelular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Insertar_GCelular_I">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Insertar_GCelular_I" style="document" />
       <wsdl:input>
@@ -1030,8 +1087,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GCelular_O">
-      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O" style="document" />
+    <wsdl:operation name="Obtener_GCelular_O_CodigoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Obtener_GCelular_O_CodigoUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

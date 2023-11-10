@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using SWLNGAAP;
 
@@ -14,6 +11,7 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
     CObservacion cObservacion = new CObservacion();
     #endregion
     public static List<EGObservacion> listaObservaciones = new List<EGObservacion>();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -21,9 +19,9 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
             CargarObservaciones();
             FiltrarInterfazUsuario();
         }
-        
+
     }
-    
+
     private void CargarObservaciones()
     {
         listaObservaciones = new List<EGObservacion>();
@@ -62,6 +60,31 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
         Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
     }
 
+
+
+    protected void btnCrearObservacion_Click(object sender, EventArgs e)
+    {
+        if (Session["CodigoProyecto"] != null)
+            Response.Redirect("~/WebForm/Observaciones/PCrearObservacion.aspx");
+    }
+    void FiltrarInterfazUsuario()
+    {
+        bool esPosibleAgregar = false;
+        if (Session["CorrespondeRevision"] != null)
+        {
+            esPosibleAgregar = bool.Parse(Session["CorrespondeRevision"].ToString());
+        }
+        if (esPosibleAgregar)
+        {
+            if (Session["UsuarioSesion"] != null)
+            {
+                EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+
+                btnCrearObservacion.Enabled = !usuarioSesion.esEstudiante;
+                btnCrearObservacion.Visible = !usuarioSesion.esEstudiante;
+            }
+        }
+    }
     protected void ddlTipoObservacion_SelectedIndexChanged(object sender, EventArgs e)
     {
         FiltrarObservaciones();
@@ -72,25 +95,26 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
         FiltrarObservaciones();
     }
 
-    protected void btnCrearObservacion_Click(object sender, EventArgs e)
+    protected void grvListaObservaciones_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        if(Session["CodigoProyecto"] != null) 
-            Response.Redirect("~/WebForm/Observaciones/PCrearObservacion.aspx");
-    }
-    void FiltrarInterfazUsuario()
-    {
-        if (Session["UsuarioSesion"] != null)
-        {
-            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+        //if (Session["UsuarioSession"] != null)
+        //{
+        //    EUsuarioSesionGAAP eUsuarioSesionGAAP = Session["UsuarioSession"] as EUsuarioSesionGAAP;
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        ButtonField btnModificar = (ButtonField)grvListaObservaciones.Columns[0]; // Ajusta el índice de la celda según la posición del botón en la fila
 
-            btnCrearObservacion.Enabled = !usuarioSesion.esEstudiante;
-            btnCrearObservacion.Visible = !usuarioSesion.esEstudiante;
-        }
+        //        if (btnModificar != null)
+        //        {
+        //            if(listaObservaciones[e.Row.RowIndex].EstadoObservacion == SDatosGlobales.ESTADO_ACTIVO && listaObservaciones[e.Row.RowIndex].CodigoUsuarioObservacion == eUsuarioSesionGAAP.CodigoUsuario)
+        //            {
+        //                btnModificar.Visible = false;
+        //            }
+        //            else
+        //                btnModificar.Visible =true;
 
-    }
-
-    protected void txbCodigoUsuario_TextChanged(object sender, EventArgs e)
-    {
-
+        //        }
+        //    }
+        //}
     }
 }

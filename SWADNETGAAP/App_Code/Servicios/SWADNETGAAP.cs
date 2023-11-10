@@ -247,6 +247,16 @@ public class SWADNETGAAP : ISWADNETGAAP
         CGUsuario cGUsuario = new CGUsuario();
         return cGUsuario.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
     }
+    public EGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        CGUsuario cGUsuario = new CGUsuario();
+        return cGUsuario.Obtener_GUsuario_O_NombreCompletoUsuario(nombreCompletoUsuario);
+    }
+    public List<EGUsuario> Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        CGUsuario cGUsuario = new CGUsuario();
+        return cGUsuario.Buscar_GUsuario_B_NombreCompletoUsuario(nombreCompletoUsuario);
+    }
     public void Actualizar_GUsuario_A(EGUsuario eGUsuario)
     {
         CGUsuario cGUsuario = new CGUsuario();

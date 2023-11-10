@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI.WebControls;
 
 public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
@@ -13,14 +14,17 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
     #endregion
     
     public static List<EProyectoCompleja> lstProyectos = new List<EProyectoCompleja>();
-    
+    public static IEnumerable<EProyectoCompleja> proyectosFiltrados; 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            LimpiarVariables();
             CargarListaProyectos();
         }
     }
+
+    
 
     private void CargarListaProyectos()
     {
@@ -40,10 +44,12 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
         string nombreUsuario = txbCodigoUsuario.Text;
 
 
-        var proyectosFiltrados = lstProyectos
-                                .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
-                                            (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&
-                                            (string.IsNullOrEmpty(nombreUsuario) || w.NombresEstudiantes.Contains(nombreUsuario.ToUpper())));
+        proyectosFiltrados = lstProyectos
+                                     .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
+                                                 (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&
+                                                 (string.IsNullOrEmpty(nombreUsuario) ||
+                                                  w.NombresEstudiantes.Any(nombre => nombre.ToUpper().Contains(nombreUsuario.ToUpper()))));
+
 
         grvListaProyectos.DataSource = proyectosFiltrados.ToList();
         grvListaProyectos.DataBind();
@@ -60,7 +66,11 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
                 {
                     // Obtener el índice de la fila actual
                     int rowIndex = e.Row.RowIndex;
-                    List<string> valores = lstProyectos.ElementAt(rowIndex).NombresEstudiantes.ToList(); // Suponiendo que los valores están en la posición correspondiente al índice de la fila
+                    List<string> valores = new List<string>();
+                    if (proyectosFiltrados == null || grvListaProyectos.Rows.Count == lstProyectos.Count())
+                        valores = lstProyectos.ElementAt(rowIndex).NombresEstudiantes.ToList(); // Suponiendo que los valores están en la posición correspondiente al índice de la fila
+                    else
+                        valores = proyectosFiltrados.ElementAt(rowIndex).NombresEstudiantes.ToList(); // Suponiendo que los valores están en la posición correspondiente al índice de la fila
 
                     // Cargar los valores en el DropDownList
                     ddlEstudiantes.Items.Add("Estudiantes");
@@ -90,6 +100,7 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
                 // Se obtiene el código del estudiante y se almacena en la sesión
                 string codigoEstudiante = proyecto.CodigosEstudiantes.ElementAt(pos - 1);
                 Session["CodigoUsuario"] = codigoEstudiante;
+                Session["PaginaAnterior"] = HttpContext.Current.Request.Url.PathAndQuery;
                 Response.Redirect("~/WebForm/Informacion/PInformacionUsuario.aspx");
             }
             else
@@ -143,5 +154,10 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
         FiltrarProyectos();
     }
 
-    
+    private void LimpiarVariables()
+    {
+        Session["CorrespondeRevision"] = null;
+        Session["PaginaAnterior"] = null;
+        Session["CodigoProyecto"] = null;
+    }
 }

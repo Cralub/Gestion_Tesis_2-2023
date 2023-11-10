@@ -61,17 +61,6 @@ public class CUsuario
         }
         return eGUsuario;
     }
-    public void Actualizar_GUsuario_A(string CodigoUsuario, string nombreCompletoUsuario, string SedeUsuario)
-    {
-        try
-        {
-            lNServicio.Actualizar_GUsuario_A(CodigoUsuario, nombreCompletoUsuario, SedeUsuario);
-        }
-        catch (FaultException<EDefecto> ex)
-        {
-            throw ex;
-        }
-    }
     public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string codigoProyecto)
     {
         try
@@ -83,6 +72,42 @@ public class CUsuario
             throw ex;
         }
     }
+    public EGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        EGUsuario eGUsuario = new EGUsuario();
+        try
+        {
+            eGUsuario = lNServicio.Obtener_GUsuario_O_NombreCompletoUsuario(nombreCompletoUsuario);
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw ex;
+        }
+        return eGUsuario;
+    }
+    public List<EGUsuario> Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        try
+        {
+            return lNServicio.Buscar_GUsuario_B_NombreCompletoUsuario(nombreCompletoUsuario);
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw ex;
+        }
+    }
+    public void Actualizar_GUsuario_A(string CodigoUsuario, string nombreCompletoUsuario, string SedeUsuario)
+    {
+        try
+        {
+            lNServicio.Actualizar_GUsuario_A(CodigoUsuario, nombreCompletoUsuario, SedeUsuario);
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw ex;
+        }
+    }
+ 
     #endregion
 
     #endregion

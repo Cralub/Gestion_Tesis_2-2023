@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class WebForm_Formulario_PElegirTutor : System.Web.UI.Page
@@ -48,13 +46,13 @@ public partial class WebForm_Formulario_PElegirTutor : System.Web.UI.Page
                 if (tutor.CodigoUsuario != codigoTutor)
                 {
                     //Modificamos al tutor y ponemos el estado E -> En espera que el tutor confirme que participara en el proyecto
-                    cUsuarioProyecto.Actualizar_GUsuarioProyecto_A(tutor.CodigoUsuarioProyecto, tutor.CodigoProyecto, codigoTutor, tutor.CodigoRol,SDatosGlobales.Pausado);
+                    cUsuarioProyecto.Actualizar_GUsuarioProyecto_A(tutor.CodigoUsuarioProyecto, tutor.CodigoProyecto, codigoTutor, tutor.CodigoRol,SDatosGlobales.ESTADO_PAUSADO);
                 }
             }
             else //Si el Proyecto no tiene tutor lo creamos
             {
                 //2 -> Rol Tutor ,E -> En espera que el tutor confirme que participara en el proyecto 
-                cUsuarioProyecto.Insertar_GUsuarioProyecto_I(cUsuarioProyecto.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto(),codigoProyecto, codigoTutor, SDatosGlobales.ROL_TUTOR, SDatosGlobales.Pausado);
+                cUsuarioProyecto.Insertar_GUsuarioProyecto_I(cUsuarioProyecto.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto(),codigoProyecto, codigoTutor, SDatosGlobales.ROL_TUTOR, SDatosGlobales.ESTADO_PAUSADO);
 
             }
         }

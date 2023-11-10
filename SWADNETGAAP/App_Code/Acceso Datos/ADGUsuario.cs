@@ -69,6 +69,42 @@ public class ADGUsuario
         }
         return dtoGUsuario;
     }
+    public DTOGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        DTOGUsuario dtoGUsuario = new DTOGUsuario();
+        try
+        {
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GUsuario_O_CodigoUsuario");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "NombreCompletoUsuario", DbType.String, nombreCompletoUsuario);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGUsuario, "GUsuario");
+        }
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Obtener_GUsuario_O_NombreCompletoUsuario", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
+        return dtoGUsuario;
+    }
+    public DTOGUsuario Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        DTOGUsuario dtoGUsuario = new DTOGUsuario();
+        try
+        {
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GUsuario_O_CodigoUsuario");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "NombreCompletoUsuario", DbType.String, nombreCompletoUsuario);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGUsuario, "GUsuario");
+        }
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Buscar_GUsuario_B_NombreCompletoUsuario", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
+        return dtoGUsuario;
+    }
     public void Actualizar_GUsuario_A(EGUsuario eGUsuario)
     {
         try

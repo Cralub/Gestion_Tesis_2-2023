@@ -14,7 +14,7 @@ public static class SDatosGlobales
     /// Códigos de estados utilizados dentro del sistema
     /// </summary>
     /// 
-    public const string NOMBRE_APLICACION = "PROYECTO GESTION DE APOYO Y ASESORIA A PROYECTOS";
+    public const string NOMBRE_APLICACION = "GESTION DE APOYO Y ASESORIA A PROYECTOS";
 
     #endregion
     #region Roles
@@ -36,21 +36,23 @@ public static class SDatosGlobales
     public const char ESTADO_REVISADO = 'V';
     #endregion
     #region Estados Auditoria Base de Datos
-    public const string Auditoria_Activo = "AC";
-    public const string Auditoria_Inactivo = "IN";
+    public const string AUDITORIA_ACTIVO = "AC";
+    public const string AUDITORIA_INACTIVO = "IN";
     #endregion
-    #region Manejo de Fechas
-    public const int DuracionEtapa = 90;
-    public const int DuracionSubEtapaEtapa = 15;
-    #endregion
+    
     #region Roles Netvalle
     public const string NETVALLE_ESTUDIANTE = "ESTUDIANTE";
 
     #endregion
     #region Modalidades Titulacion
-    public const char Trabajo_Dirigido = 'D';
-    public const char Tesis = 'T';
-    public const char Proyecto_Grado = 'P';
+    public const char CHAR_MODALIDAD_TRABAJO_DIRIGIDO = 'D';
+    public const char CHAR_MODALIDAD_TESIS = 'T';
+    public const char CHAR_MODALIDAD_PROYECTO_DE_GRADO = 'P';
+    public const char CHAR_SIN_MODALIDAD = '-';
+    public const string STRING_MODALIDAD_TRABAJO_DIRIGIDO = "Trabajo Dirigido";
+    public const string STRING_MODALIDAD_TESIS = "Tesis";
+    public const string STRING_MODALIDAD_PROYECTO_DE_GRADO = "Proyecto de Grado";
+    public const string STRING_SIN_MODALIDAD = "Sin Modalidad"; 
     #endregion
 
 }

@@ -75,11 +75,20 @@ public class CProyecto
         }
         return eGProyecto;
     }
-    public void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string objetivosEspecificosProyecto, string alcanceProyecto, byte numeroRevisionesProyecto, string enlaceDocumentoProyecto)
     {
+        EGProyecto eGProyecto = new EGProyecto();
         try
         {
-            lNServicio.Actualizar_GProyecto_A(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto);
+            eGProyecto.CodigoProyecto = codigoProyecto;
+            eGProyecto.TituloProyecto = tituloProyecto;
+            eGProyecto.ModalidadProyecto = modalidadProyecto;
+            eGProyecto.ObjetivoGeneralProyecto = objetivoGeneralProyecto;
+            eGProyecto.ObjetivosEspecificosProyecto = objetivosEspecificosProyecto;
+            eGProyecto.AlcanceProyecto = alcanceProyecto;
+            eGProyecto.NumeroRevisiones = numeroRevisionesProyecto;
+            eGProyecto.EnlaceDocumentoProyecto = enlaceDocumentoProyecto;
+            lNServicio.Actualizar_GProyecto_A(eGProyecto);
         }
         catch (FaultException<EDefecto> ex)
         {

@@ -171,6 +171,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EGUsuario" nillable="true" type="tns:EGUsuario" />
+  <xs:complexType name="ArrayOfEGUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGUsuario" nillable="true" type="tns:EGUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEGUsuario" nillable="true" type="tns:ArrayOfEGUsuario" />
   <xs:complexType name="ArrayOfEGRol">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EGRol" nillable="true" type="tns:EGRol" />

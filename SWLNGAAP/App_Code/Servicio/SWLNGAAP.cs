@@ -101,10 +101,10 @@ public class SWLNGAAP : ISWLNGAAP
         eGProyecto = cGAAP.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto);
         return eGProyecto;
     }
-    public void Actualizar_GProyecto_A(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto)
+    public void Actualizar_GProyecto_A(EGProyecto eGProyecto)
     {
         CGAAP cGAAP = new CGAAP();
-        cGAAP.Actualizar_GProyecto_A(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto);
+        cGAAP.Actualizar_GProyecto_A(eGProyecto);
     }
     #endregion
     #region GEtapa
@@ -118,6 +118,7 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
     }
+
     public EGEtapa Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(string codigoProyecto, char estadoEtapa)
     {
         CGAAP cGAAP = new CGAAP();
@@ -235,18 +236,27 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GUsuario_O_CodigoUsuario(CodigoUsuario);
     }
+    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
+    {
+        CGAAP cGAAP = new CGAAP();
+        return cGAAP.Obtener_GUsuarios_O_CodigoProyecto(CodigoProyecto);
+    }
+    public EGUsuario Obtener_GUsuario_O_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        CGAAP cGAAP = new CGAAP();
+        return cGAAP.Obtener_GUsuario_O_NombreCompletoUsuario(nombreCompletoUsuario);
+    }
+    public List<EGUsuario> Buscar_GUsuario_B_NombreCompletoUsuario(string nombreCompletoUsuario)
+    {
+        CGAAP cGAAP = new CGAAP();
+        return cGAAP.Buscar_GUsuario_B_NombreCompletoUsuario(nombreCompletoUsuario);
+    }
     public void Actualizar_GUsuario_A(string codigoUsuario, string nombreCompletoUsuario, string sede)
     {
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_GUsuario_A(codigoUsuario, nombreCompletoUsuario, sede);
     }
-    public List<EGUsuario> Obtener_GUsuarios_O_CodigoProyecto(string CodigoProyecto)
-    {
-        CGAAP cGAAP = new CGAAP();
-        List<EGUsuario> lstEGUsuarios = new List<EGUsuario>();
-        lstEGUsuarios = cGAAP.Obtener_GUsuarios_O_CodigoProyecto(CodigoProyecto);
-        return lstEGUsuarios;
-    }
+    
     #endregion
     #region GRol
     public List<EGRol> Obtener_GRol_O()
@@ -278,7 +288,7 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Insertar_GCelular_I(codigoUsuario, codigoAreaCelular, numeroCelular);
     }
-    public EGCelular Obtener_GCelular_O(string codigoUsuario)
+    public EGCelular Obtener_GCelular_O_CodigoUsuario(string codigoUsuario)
     {
         CGAAP cGAAP = new CGAAP();
         return cGAAP.Obtener_GCelular_O_CodigoUsuario(codigoUsuario);
