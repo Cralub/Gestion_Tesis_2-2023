@@ -1,6 +1,7 @@
 ﻿using SWLNGAAP;
 using System;
 using System.Collections.Generic;
+using System.Web.UI;
 
 public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
 {
@@ -52,7 +53,10 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
 
     protected void btnCrearProyecto_Click(object sender, EventArgs e)
     {
-
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Open()", true);        
+    }
+    protected void btnConfirmar_Click(object sender, EventArgs e)
+    {
         //Validamos Codigo Proyecto correcto
         if (txbCodigoProyecto.Text.Trim().Length != 4)
         {
@@ -61,7 +65,7 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
         }
         string CodigoProyecto = txbCodigoProyecto.Text.Trim();
         //Recuperamos la informacion de Sesion del Director 
-        if(Session["UsuarioSesion"] == null)
+        if (Session["UsuarioSesion"] == null)
         {
             lblMensajeCrearProyecto.Text = "Codigo director no encontrado";
             return;
@@ -85,12 +89,16 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
             btnCrearProyecto.Enabled = false;
             txbCodigoProyecto.Enabled = false;
         }
-        
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
+    }
 
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
     }
 
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/PaginaMaestra/Default.aspx");
-    }
+    }    
 }

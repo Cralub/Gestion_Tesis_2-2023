@@ -26,7 +26,7 @@ public partial class WebForm_Usuario_Default : System.Web.UI.Page
 
     void cargarListaRoles()
     {
-        listaRol = cRol.Obtener_GRol_O_Todo().ToList();
+        listaRol = cRol.Obtener_GRol_O().ToList();
         ddlCodigoRol.DataSource = listaRol;
         ddlCodigoRol.DataTextField = "DescripcionRol";
         ddlCodigoRol.DataValueField = "CodigoRol";

@@ -29,7 +29,7 @@ public partial class WebForm_UsuarioRol_PEditarUsuarioRol : System.Web.UI.Page
 
     void fillRoleDropDown()
     {
-        List<EGRol> listaRoles = cRol.Obtener_GRol_O_Todo().ToList();
+        List<EGRol> listaRoles = cRol.Obtener_GRol_O().ToList();
         ddlUsuarioRol.DataSource = listaRoles;
         ddlUsuarioRol.DataTextField = "DescripcionRol";
         ddlUsuarioRol.DataValueField = "CodigoRol";

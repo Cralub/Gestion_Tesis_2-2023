@@ -16,7 +16,7 @@ public partial class WebForm_Usuario_PEditarCelular : System.Web.UI.Page
         if (!IsPostBack)
         {
             EGCelular celular = new EGCelular();
-            celular = cCelular.Obtener_GCelular_O(int.Parse(Session["CodigoCelular"].ToString()));
+            celular = cCelular.Obtener_GCelular_O_CodigoUsuario(Session["CodigoCelular"].ToString());
             txbCodigoUsuario.Text = celular.CodigoUsuario;
             txbCodigoArea.Text = celular.CodigoAreaCelular;
             txbNumeroCelular.Text = celular.NumeroCelular.ToString();
