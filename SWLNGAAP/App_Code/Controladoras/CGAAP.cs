@@ -2194,51 +2194,39 @@ public class CGAAP
         {
             switch (Rol)
             {
-                case "ES"://Estudiante
+                case SDatos.ROL_ESTUDIANTE:
+                    res = (SubEtapa == 1);
+                    break;
+                case SDatos.ROL_TUTOR:
+                    res = (SubEtapa == 2);
+                    break;
+                case SDatos.ROL_DIRECTOR_CARRERA://El codigo continua hasta encontrar break
+                case SDatos.ROL_AYUDANTE_DIRECTOR:
                     switch (Etapa)
                     {
                         case 1://Etapa 1
-                            res = (SubEtapa == 1) ? true : false;
+                            res = (SubEtapa == 4);
                             break;
-
+                        default://Etapa 2,3,4                        
+                            res = (SubEtapa == 3 || SubEtapa == 7);
+                            break;
                     }
                     break;
-                case "TU"://Tutor
+                case SDatos.ROL_TRIBUNAL_1://El codigo continua hasta encontrar break
+                case SDatos.ROL_TRIBUNAL_2:
+                    res = (Etapa != 1 && SubEtapa == 4);
+                    break;
+                case SDatos.ROL_DAAP:
                     switch (Etapa)
                     {
                         case 1://Etapa 1
-                            res = (SubEtapa == 2) ? true : false;
+                            res = (SubEtapa == 3);
                             break;
-
+                        default://Etapa 2,3,4  
+                            res = (SubEtapa == 6);
+                            break;                        
                     }
                     break;
-                case "DI"://Director -> el codigo continua hasta encontrar break(entra en caso 4)
-                case "AD"://Ayudante Director
-                    switch (Etapa)
-                    {
-                        case 1://Etapa 1
-                            res = (SubEtapa == 3) ? true : false;
-                            break;
-
-                    }
-                    break;
-                case "T1"://Tribunal 1
-                    break;
-                case "T2"://Tribunal 2
-                    break;
-                case "DP"://DAAP
-                    switch (Etapa)
-                    {
-                        case 1://Etapa 1
-                            res = (SubEtapa == 4) ? true : false;
-                            break;
-
-                    }
-                    break;
-                case "GT"://Gestor
-                    res = true;
-                    break;
-
             }
         }
         catch (EndpointNotFoundException EndPointEx)

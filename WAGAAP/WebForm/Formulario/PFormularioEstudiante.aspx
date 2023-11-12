@@ -41,7 +41,7 @@
         <div>
             <asp:Label runat="server" for="ddlModalidades" Text="Modalidad:"></asp:Label>
             <asp:DropDownList ID="ddlModalidades" runat="server" Width="165px" Height="30px">
-                <asp:ListItem Value="X" Selected="True">Seleccionar ...</asp:ListItem>
+                <asp:ListItem Value="-" Selected="True">Seleccionar ...</asp:ListItem>
                 <asp:ListItem Value="D">Trabajo Dirigido</asp:ListItem>
                 <asp:ListItem Value="P">Proyecto de Grado</asp:ListItem>
                 <asp:ListItem Value="T">Tesis</asp:ListItem>

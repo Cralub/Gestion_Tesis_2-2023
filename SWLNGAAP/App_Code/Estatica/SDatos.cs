@@ -20,7 +20,7 @@ public static class SDatos
     public const string ROL_ESTUDIANTE = "ES";
     public const string ROL_TUTOR = "TU";
     public const string ROL_DIRECTOR_CARRERA = "DI";
-    public const string ROL_AYUDANTE_DIR = "AD";
+    public const string ROL_AYUDANTE_DIRECTOR = "AD";
     public const string ROL_TRIBUNAL_1 = "T1";
     public const string ROL_TRIBUNAL_2 = "T2";
     public const string ROL_DAAP = "DP";

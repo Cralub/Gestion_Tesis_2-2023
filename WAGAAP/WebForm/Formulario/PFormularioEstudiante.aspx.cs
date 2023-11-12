@@ -16,19 +16,23 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
     #endregion
     #region Metodos privados
 
-    private bool ValidarEntradas(EGProyecto proyecto)
+    private bool ValidarEntradas()
     {
-        bool res = true;
-        
-            return res;
+        bool res = false;
+        if(SUtil.ValidarSoloTextoYEspacios(txbTitulo.Text.Trim(), 10) &&
+           SUtil.ValidarSoloTextoYEspacios(txbObjetivoGeneral.Text.Trim(), 10) &&
+           SUtil.ValidarSoloTextoYEspacios(txbObjetivosEspecificos.Text.Trim(), 10) &&
+           SUtil.ValidarSoloTextoYEspacios(txbAlcanceProyecto.Text.Trim(), 10))
+           res = true;
+        return res;
     }
     private bool ValidacionDeEstados(EProyectoCompleja proyecto)
     {
-        bool res = false;
+        bool esValido = false;
         EGEtapa eGEtapa = cEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(proyecto.CodigoProyecto, SDatosGlobales.ESTADO_ACTIVO);
         EGSubEtapa eGSubEtapa = cSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatosGlobales.ESTADO_ACTIVO);
-        res = cProyectoCompleja.Verificar_GProyecto_CorrespondeRevision(proyecto.CodigoRol, eGEtapa.NumeroEtapa, eGSubEtapa.NumeroSubEtapa);
-        return res;
+        esValido = cProyectoCompleja.Verificar_GProyecto_CorrespondeRevision(proyecto.CodigoRol, eGEtapa.NumeroEtapa, eGSubEtapa.NumeroSubEtapa);
+        return esValido;
     }
     #endregion
     protected void Page_Load(object sender, EventArgs e)
@@ -92,41 +96,43 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
         if (Session["ProyectoComplejo"] != null)
         {
             EProyectoCompleja proyectoC = Session["ProyectoComplejo"] as EProyectoCompleja;
-            EGProyecto proyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(proyectoC.CodigoProyecto);
-            proyecto.ModalidadProyecto = char.Parse(ddlModalidades.SelectedValue.Trim());
-            proyecto.TituloProyecto = txbTitulo.Text.Trim();
-            proyecto.ObjetivoGeneralProyecto = txbObjetivoGeneral.Text.Trim();
-            proyecto.ObjetivosEspecificosProyecto = txbObjetivosEspecificos.Text.Trim();
-            proyecto.AlcanceProyecto = txbAlcanceProyecto.Text.Trim();
-            proyecto.EnlaceDocumentoProyecto = lkbEnlaceDocumento.Text.Trim();
-            proyecto.ObjetivosEspecificosProyecto = txbObjetivosEspecificos.Text.Trim();
-            proyecto.AlcanceProyecto = txbAlcanceProyecto.Text.Trim();
-            if (ValidarEntradas(proyecto))
+            EGProyecto proyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(proyectoC.CodigoProyecto);          
+            if (ValidarEntradas())
             {
                 cProyecto.Actualizar_GProyecto_A(proyecto.CodigoProyecto,
-                                                 proyecto.ModalidadProyecto,
-                                                 proyecto.TituloProyecto,
-                                                 proyecto.ObjetivoGeneralProyecto,
-                                                 proyecto.ObjetivosEspecificosProyecto,
-                                                 proyecto.AlcanceProyecto,
+                                                 char.Parse(ddlModalidades.SelectedValue.Trim()),
+                                                 txbTitulo.Text.Trim(),
+                                                 txbObjetivoGeneral.Text.Trim(),
+                                                 txbObjetivosEspecificos.Text.Trim(),
+                                                 txbAlcanceProyecto.Text.Trim(),
                                                  proyecto.NumeroRevisiones,
-                                                 proyecto.EnlaceDocumentoProyecto
+                                                 lkbEnlaceDocumento.Text.Trim()
                                                  );
             }
         }
-
+        CargarInformacionProyecto();
     }
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/WebForm/Informacion/PGraficasAvance.aspx");
     }
+    bool FormularioCompletoEnOrden()
+    {
+        EProyectoCompleja proyectoC = Session["ProyectoComplejo"] as EProyectoCompleja;
+        bool esCorrectoEntradasTexto = ValidarEntradas();
+        bool tieneTutor = !string.IsNullOrEmpty(proyectoC.CodigoTutor);
+        bool tieneModalidadCorrecta = char.Parse(ddlModalidades.SelectedValue) != '-';
 
+        if (esCorrectoEntradasTexto && tieneTutor && tieneModalidadCorrecta)        
+            return true;        
+        return false;
+    }
 
 
     protected void btnAvanzar_Click(object sender, EventArgs e)
     {
 
-        if (Session["ProyectoComplejo"] != null)
+        if (Session["ProyectoComplejo"] != null && FormularioCompletoEnOrden())
             cProyectoCompleja.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo((Session["proyectoCompleja"] as EProyectoCompleja).CodigoProyecto);
     }
 
