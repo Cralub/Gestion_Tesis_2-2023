@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text.RegularExpressions;
 using System.Web.SessionState;
-using System.Web.UI.WebControls;
 using SWLNGAAP;
 
 /// <summary>
@@ -44,6 +43,44 @@ public static class SUtil
         {
             throw new ArgumentNullException();
         }
+    }
+
+    public static string ObtenerNombrePorCodigo(string codigoUsuario)
+    {
+        CUsuario cUsuario = new CUsuario();        
+        return cUsuario.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario).NombreCompletoUsuario;
+    }
+    public static string ObtenerNombreRolPorCodigo(string codigoRol)
+    {
+        CRol cRol = new CRol();        
+        return cRol.Obtener_GRol_O_CodigoRol(codigoRol).DescripcionRol;
+    }
+    public static object ListarUsuariosRolesPorProyecto(string codigoProyecto)
+    {
+        CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
+        var lstEGUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).ToList();
+        return lstEGUsuarioProyecto.Select(s => new
+        {
+            s.CodigoUsuario,
+            CodigoRol = ObtenerNombreRolPorCodigo(s.CodigoRol),
+            Nombre = ObtenerNombrePorCodigo(s.CodigoUsuario)
+        }).ToList();
+    }
+    public static bool ValidarSoloTextoYEspacios(string cadena,int longitudMinima)
+    {
+        if (string.IsNullOrEmpty(cadena) || cadena.Length < longitudMinima)
+        {
+            return false;
+        }
+        return Regex.IsMatch(cadena,SDatosGlobales.REGEX_TEXTO_Y_ESPACIOS);
+    }
+    public static bool ValidarSoloNumeros(string cadena, int longitudMinima)
+    {
+        if (string.IsNullOrEmpty(cadena) || cadena.Length < longitudMinima)
+        {
+            return false;
+        }
+        return Regex.IsMatch(cadena, SDatosGlobales.REGEX_SOLO_NUMEROS);
     }
     #endregion
 

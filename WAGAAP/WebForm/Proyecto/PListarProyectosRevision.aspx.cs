@@ -152,10 +152,10 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
     {
         FiltrarProyectos();
     }
-        private void LimpiarVariables()
-        {
-            Session["CorrespondeRevision"] = null;
-            Session["PaginaAnterior"] = null;
-            Session["CodigoProyecto"] = null;
-        }
+    private void LimpiarVariables()
+    {
+        Session["CorrespondeRevision"] = null;
+        Session["PaginaAnterior"] = null;
+        Session["CodigoProyecto"] = null;
+    }
 }

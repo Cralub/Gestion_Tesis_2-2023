@@ -13,7 +13,21 @@ public partial class WebForm_PObservacionDetalle : System.Web.UI.Page
     {
         if (!IsPostBack && Session["CodigoObservacion"] != null)
         {
-            CargaDatos_CodigoProyectoDetalle();
+            CargaDatos_Observacion();
+            RevisionEstudiante();
+            FiltrarInterfazUsuario();
+        }
+    }
+
+    private void RevisionEstudiante()
+    {
+        if (Session["UsuarioSesion"] != null)
+        {
+            EUsuarioSesionGAAP usuario = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            if (usuario.esEstudiante) 
+            {
+                cObservacion.Actualizar_GObservacion_A_EstadoObservacion(int.Parse(Session["CodigoObservacion"].ToString()), SDatosGlobales.ESTADO_REVISADO);
+            }
         }
     }
 
@@ -22,24 +36,22 @@ public partial class WebForm_PObservacionDetalle : System.Web.UI.Page
         if (Session["UsuarioSesion"] != null)
         {
             EUsuarioSesionGAAP usuario = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
-            if (eGObservacion.CodigoUsuarioObservacion == usuario.CodigoUsuario )
+            //Editable solo si es el autor de la observacion y no es una observacion que pertenece a otra iteracion
+            if (eGObservacion.CodigoUsuarioObservacion == usuario.CodigoUsuario && eGObservacion.EstadoObservacion == SDatosGlobales.ESTADO_ACTIVO)
                 btnEditarObservacion.Enabled = true;
             else
                 btnEditarObservacion.Enabled = false;
-
         }
         
     }
 
-    private void CargaDatos_CodigoProyectoDetalle()
+    private void CargaDatos_Observacion()
     {
-        int CodigoObservacion = int.Parse(Session["CodigoObservacion"].ToString());
-        eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(CodigoObservacion);
+        eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(int.Parse(Session["CodigoObservacion"].ToString()));
         lblObservador.Text = eGObservacion.CodigoUsuarioObservacion;
         lblTipoObservacion.Text = (eGObservacion.TipoObservacion == 'O') ? "Observacion Fondo" : "Observacion Forma";
         lblFechaRegistro.Text = eGObservacion.FechaRegistro.ToShortDateString();
         lblComentarioObservacion.Text = eGObservacion.ComentarioObservacion;
-        FiltrarInterfazUsuario();
     }
     protected void btnVolver_Click(object sender, EventArgs e)
     {

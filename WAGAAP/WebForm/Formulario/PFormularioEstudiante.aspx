@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:Button ID="BtnTutor" runat="server" Text="Seleccionar Tutor" OnClick="BtnTutor_Click" />
+
     <div>
         <h2>Formulario Proyecto</h2>
         <div>
@@ -18,6 +18,8 @@
         <div>
             <asp:Label runat="server" Text="Enlace al documento"></asp:Label>
             <asp:LinkButton runat="server" ID="lkbEnlaceDocumento" type="text"></asp:LinkButton>
+            <asp:Button ID="btnAgregarDocumento" runat="server" Text="Agregar Documento" OnClick="btnAgregarDocumento_Click" />
+
         </div>
 
         <div>
@@ -46,9 +48,18 @@
             </asp:DropDownList>
         </div>
         <div>
-            <asp:Label runat="server" Text="Estudiantes: "></asp:Label>
-            <asp:DropDownList ID="ddlEstudiantes" runat="server" Width="165px" Height="30px" OnSelectedIndexChanged="ddlEstudiantes_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+            <asp:Button ID="btnTutor" runat="server" Text="Seleccionar Tutor" OnClick="btnTutor_Click" />
+            <asp:Label runat="server" ID="lblMensajeElegirNuevoTutor" Text=""></asp:Label>
+            <asp:GridView ID="grvListaUsuarios" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaUsuarios_RowCommand" DataKeyNames="CodigoUsuario">
+                <Columns>
+                    <asp:BoundField DataField="Nombre" HeaderText="Usuario" />
+                    <asp:BoundField DataField="CodigoUsuario" HeaderText="Codigo" />
+                    <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" />
+                    <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
+                </Columns>
+            </asp:GridView>
         </div>
+
     </div>
 
     <br />

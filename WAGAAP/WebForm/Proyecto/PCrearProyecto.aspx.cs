@@ -80,7 +80,7 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
                 cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), SDatosGlobales.ROL_ESTUDIANTE, estudianteNetvalle.CodigoUsuarioNetvalle);
             }
             //Creamos un nuevo Proyecto y quitamos las opciones por seguridad
-            cProyectoCompleja.Insertar_ProyectoCompleto(CodigoProyecto, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioNetvalle.CodigoUsuarioNetvalle, SDatosGlobales.DURACIONETAPA, SDatosGlobales.DuracionSubEtapaEtapa);
+            cProyectoCompleja.Insertar_ProyectoCompleto(CodigoProyecto, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioNetvalle.CodigoUsuarioNetvalle, SDatosGlobales.DURACION_ETAPA, SDatosGlobales.DURACION_SUB_ETAPA);
             Session["EstudianteNetvalle"] = null;
             btnCrearProyecto.Enabled = false;
             txbCodigoProyecto.Enabled = false;

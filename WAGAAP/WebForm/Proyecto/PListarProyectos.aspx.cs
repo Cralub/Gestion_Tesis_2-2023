@@ -43,7 +43,7 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
         char estadoSeleccionado = Convert.ToChar(ddlEstadoProyecto.SelectedValue);
         string nombreUsuario = txbCodigoUsuario.Text;
 
-
+        
         proyectosFiltrados = lstProyectos
                                      .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
                                                  (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&

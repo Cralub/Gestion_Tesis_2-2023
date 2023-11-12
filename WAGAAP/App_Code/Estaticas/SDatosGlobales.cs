@@ -52,7 +52,14 @@ public static class SDatosGlobales
     public const string STRING_MODALIDAD_TRABAJO_DIRIGIDO = "Trabajo Dirigido";
     public const string STRING_MODALIDAD_TESIS = "Tesis";
     public const string STRING_MODALIDAD_PROYECTO_DE_GRADO = "Proyecto de Grado";
-    public const string STRING_SIN_MODALIDAD = "Sin Modalidad"; 
+    public const string STRING_SIN_MODALIDAD = "Sin Modalidad";
     #endregion
+    #region Manejo de Fechas
+    public const int DURACION_ETAPA = 90;
+    public const int DURACION_SUB_ETAPA = 15;
+    #endregion
+    public const int N_MAXIMO_PROYECTOS_POR_TUTOR = 10;
+    public const string REGEX_TEXTO_Y_ESPACIOS = "^[A-Za-z ]+$";
+    public const string REGEX_SOLO_NUMEROS = "^[0-9]+$";
 
 }

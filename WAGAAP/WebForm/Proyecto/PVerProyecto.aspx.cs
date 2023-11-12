@@ -53,16 +53,9 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             lblObjetivosEspecificos.Text = eGProyecto.ObjetivosEspecificosProyecto;
             lblAlcanceProyecto.Text = eGProyecto.AlcanceProyecto;
             lkbEnlaceDocumento.Text = eGProyecto.EnlaceDocumentoProyecto;
-            
+
             grvListaUsuarios.DataSource = null;
-            lstEGUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto.Trim()).ToList();
-            var lstUsuariosEnProyecto = lstEGUsuarioProyecto.Select(f => new
-            {
-                f.CodigoUsuario,
-                CodigoRol = ObtenerNombreRolPorCodigo(f.CodigoRol),
-                Nombre = ObtenerNombrePorCodigo(f.CodigoUsuario)
-            }).ToList();
-            grvListaUsuarios.DataSource = lstUsuariosEnProyecto;
+            grvListaUsuarios.DataSource = SUtil.ListarUsuariosRolesPorProyecto(codigoProyecto);
             grvListaUsuarios.DataBind();
         }
         
@@ -72,16 +65,7 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
     {
 
     }
-    private string ObtenerNombrePorCodigo(string codigoUsuario)
-    {
-        var usuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(codigoUsuario);
-        return usuario.NombreCompletoUsuario;
-    }
-    protected string ObtenerNombreRolPorCodigo(string codigoRol)
-    {
-        EGRol rol = cRol.Obtener_GRol_O_CodigoRol(codigoRol);
-        return rol.DescripcionRol;
-    }
+   
 
 
 
