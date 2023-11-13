@@ -4,14 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div>
-        <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
-    </div>
-    <div>
         <div>
             <asp:Label runat="server">Titulo:</asp:Label>
             <asp:Label ID="lblTitulo" runat="server"></asp:Label>
         </div>
-        
+
         <br />
 
         <div>
@@ -47,5 +44,30 @@
                 <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
             </Columns>
         </asp:GridView>
+
+        <div>
+            <asp:Button ID="btnDevolverEstudiante" runat="server" Text="Devolver al Estudiante" OnClick="btnDevolverEstudiante_Click" /></div>
+        <div>
+            <asp:Button ID="btnConfirmarAvance" runat="server" Text="Todo Correcto" OnClick="btnConfirmarAvance_Click" /></div>
+        <div>
+            <asp:Button ID="btnAceptarTutoria" runat="server" Text="Aceptar Tutoria" OnClick="btnAceptarTutoria_Click" /></div>
+        <div>
+            <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+        </div>
     </div>
+    <div class="modal-container" id="modalContainer">
+        <div class="modal" id="modalConfirmacion">
+            <div>
+                <div class="divCentro">
+                    <asp:Label Text="¿Esta seguro que quiere ser Tutor en este proyecto?" runat="server"></asp:Label>
+                </div>
+                <div class="contenedor-botones">
+                    <asp:Button CssClass="boton-model boton-aceptar" ID="btnConfirmarTutoria" runat="server" Text="Aceptar" OnClick="btnConfirmarTutoria_Click" />
+                    <asp:Button CssClass="boton-model" ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../Guiones/JModalConfirmacion.js"></script>
 </asp:Content>

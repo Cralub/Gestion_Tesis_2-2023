@@ -89,6 +89,17 @@ public class CProyectoCompleja
             throw ex;
         }
     }
+    public void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto, byte numeroSubEtapaASaltar)
+    {
+        try
+        {
+            lNServicio.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, numeroSubEtapaASaltar);
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw ex;
+        }
+    }
     public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
     {
         try

@@ -10,7 +10,7 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
     #region Controladores
     CObservacion cObservacion = new CObservacion();
     #endregion
-    public static List<EGObservacion> listaObservaciones = new List<EGObservacion>();
+    public static List<EObservacionDetalle> lstObservaciones = new List<EObservacionDetalle>();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -24,12 +24,22 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
 
     private void CargarObservaciones()
     {
-        listaObservaciones = new List<EGObservacion>();
+        lstObservaciones = new List<EObservacionDetalle>();
         if (Session["CodigoProyecto"] != null)
         {
             string codigoProyecto = Session["CodigoProyecto"].ToString();
-            listaObservaciones = cObservacion.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto);
-            grvListaObservaciones.DataSource = listaObservaciones;
+            var observaciones = cObservacion.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto);
+            lstObservaciones = observaciones.Select(obs => new EObservacionDetalle(
+                                                    obs.CodigoObservacion,
+                                                    obs.CodigoProyecto,
+                                                    obs.CodigoSubEtapa,
+                                                    obs.CodigoUsuarioObservacion,
+                                                    SUtil.ObtenerNombrePorCodigo(obs.CodigoUsuarioObservacion),
+                                                    obs.ComentarioObservacion,
+                                                    obs.TipoObservacion,
+                                                    obs.EstadoObservacion
+                                                )).ToList();
+            grvListaObservaciones.DataSource = lstObservaciones;
             grvListaObservaciones.DataBind();
         }
     }
@@ -47,10 +57,17 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
     {
         char tipoSeleccionado = Convert.ToChar(ddlTipoObservacion.SelectedValue);
         char estadoSeleccionado = Convert.ToChar(ddlEstadoObservacion.SelectedValue);
+        string observador = txbObservador.Text.Trim();
+        if (observador.Length <= 3)
+            observador = string.Empty;
 
-        var observacionesFiltradas = listaObservaciones
-                                        .Where(w => w.TipoObservacion == tipoSeleccionado || tipoSeleccionado == 'T'
-                                        && w.EstadoObservacion == estadoSeleccionado || estadoSeleccionado == 'T');
+        var observacionesFiltradas = lstObservaciones
+                                       .Where(w => (tipoSeleccionado == 'X' || w.TipoObservacion == tipoSeleccionado) &&
+                                                   (estadoSeleccionado == 'X' || w.EstadoObservacion == estadoSeleccionado) &&
+                                                   (string.IsNullOrEmpty(observador) ||
+                                                    (w.CodigoUsuarioObservacion.ToUpper().Contains(observador.ToUpper())) ||
+                                                    w.NombreUsuarioObservacion.ToUpper().Contains(observador.ToUpper())));
+
         grvListaObservaciones.DataSource = observacionesFiltradas;
         grvListaObservaciones.DataBind();
     }
@@ -117,4 +134,10 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
         //    }
         //}
     }
+
+    protected void txbObservador_TextChanged(object sender, EventArgs e)
+    {
+        FiltrarObservaciones();
+    }
+
 }

@@ -45,9 +45,9 @@ public class ADGObservacion
             bdSWADNETGAAP.AddInParameter(comandoBD, "ComentarioObservacion", DbType.String, eGObservacion.ComentarioObservacion);
             bdSWADNETGAAP.AddInParameter(comandoBD, "TipoObservacion", DbType.String, eGObservacion.TipoObservacion);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoObservacion", DbType.StringFixedLength, eGObservacion.EstadoObservacion);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.FECHA_REGISTRO_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)
@@ -63,8 +63,8 @@ public class ADGObservacion
         {
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GObservacion_O_CodigoProyecto");
-            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.String, codigoProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, codigoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGObservacion, "GObservacion");
         }
         catch (SqlException SQLEx)
@@ -81,8 +81,8 @@ public class ADGObservacion
         {
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GObservacion_O_CodigoObservacion");
-            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoObservacion", DbType.String, codigoObservacion);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoObservacion", DbType.Int32, codigoObservacion);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dtoGObservacion, "GObservacion");
         }
         catch (SqlException SQLEx)
@@ -105,7 +105,7 @@ public class ADGObservacion
             bdSWADNETGAAP.AddInParameter(comandoBD, "ComentarioObservacion", DbType.String, eGObservacion.ComentarioObservacion);
             bdSWADNETGAAP.AddInParameter(comandoBD, "TipoObservacion", DbType.String, eGObservacion.TipoObservacion);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoObservacion", DbType.StringFixedLength, eGObservacion.EstadoObservacion);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)
@@ -122,7 +122,7 @@ public class ADGObservacion
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GObservacion_A_EstadoObservacion");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoObservacion", DbType.Int32, codigoObservacion);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoObservacion", DbType.StringFixedLength, estadoObservacion);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)

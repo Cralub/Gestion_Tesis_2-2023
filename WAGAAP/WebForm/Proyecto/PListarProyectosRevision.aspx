@@ -13,6 +13,7 @@
             <asp:ListItem Text="Trabajo Dirigido" Value="D"></asp:ListItem>
             <asp:ListItem Text="Proyecto de grado" Value="P"></asp:ListItem>
             <asp:ListItem Text="Tesis de grado" Value="T"></asp:ListItem>
+            <asp:ListItem Text="Sin Modalidad" Value="-"></asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlEstadoProyecto" runat="server" OnSelectedIndexChanged="ddlEstadoProyecto_SelectedIndexChanged" AutoPostBack="true">
             <asp:ListItem Text="Todos" Value="X" Selected></asp:ListItem>
@@ -41,4 +42,6 @@
         <asp:Label ID="label" runat="server" Text=""></asp:Label>
         <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
     </div>
+
 </asp:Content>
+    

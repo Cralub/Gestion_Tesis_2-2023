@@ -183,6 +183,12 @@
   <wsdl:message name="ISWLNGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_OutputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GSubEtapa_A_EstadoSubEtapaResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_Etapa_SubEtapa_SaltarASubEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_Etapa_SubEtapa_SaltarASubEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWLNGAAP_Actualizar_Etapa_SubEtapa_SaltarASubEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_Etapa_SubEtapa_SaltarASubEtapaResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWLNGAAP_Insertar_GObservacion_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GObservacion_I" />
   </wsdl:message>
@@ -521,6 +527,10 @@
     <wsdl:operation name="Actualizar_GSubEtapa_A_EstadoSubEtapa">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GSubEtapa_A_EstadoSubEtapa" message="tns:ISWLNGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_GSubEtapa_A_EstadoSubEtapaResponse" message="tns:ISWLNGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Etapa_SubEtapa_SaltarASubEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_Etapa_SubEtapa_SaltarASubEtapa" message="tns:ISWLNGAAP_Actualizar_Etapa_SubEtapa_SaltarASubEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWLNGAAP/Actualizar_Etapa_SubEtapa_SaltarASubEtapaResponse" message="tns:ISWLNGAAP_Actualizar_Etapa_SubEtapa_SaltarASubEtapa_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Insertar_GObservacion_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWLNGAAP/Insertar_GObservacion_I" message="tns:ISWLNGAAP_Insertar_GObservacion_I_InputMessage" />
@@ -927,6 +937,15 @@
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GSubEtapa_A_EstadoSubEtapa">
       <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_GSubEtapa_A_EstadoSubEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_Etapa_SubEtapa_SaltarASubEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWLNGAAP/Actualizar_Etapa_SubEtapa_SaltarASubEtapa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

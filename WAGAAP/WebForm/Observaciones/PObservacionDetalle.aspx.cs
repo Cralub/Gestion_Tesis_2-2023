@@ -37,10 +37,22 @@ public partial class WebForm_PObservacionDetalle : System.Web.UI.Page
         {
             EUsuarioSesionGAAP usuario = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
             //Editable solo si es el autor de la observacion y no es una observacion que pertenece a otra iteracion
-            if (eGObservacion.CodigoUsuarioObservacion == usuario.CodigoUsuario && eGObservacion.EstadoObservacion == SDatosGlobales.ESTADO_ACTIVO)
-                btnEditarObservacion.Enabled = true;
+            string codigoUsuarioObservacion = eGObservacion.CodigoUsuarioObservacion.Trim().ToUpper();
+            string codigoUsuarioSesion = usuario.CodigoUsuario.Trim().ToUpper();
+
+            if (codigoUsuarioObservacion == codigoUsuarioSesion)
+            {
+                btnEditarObservacion.Enabled = eGObservacion.EstadoObservacion == SDatosGlobales.ESTADO_ACTIVO;
+                btnEditarObservacion.Visible = btnEditarObservacion.Enabled;
+
+                btnCorregido.Enabled = eGObservacion.EstadoObservacion == SDatosGlobales.ESTADO_REVISADO;
+                btnCorregido.Visible = btnCorregido.Enabled;
+            }
             else
-                btnEditarObservacion.Enabled = false;
+            {
+                btnEditarObservacion.Enabled = btnEditarObservacion.Visible = false;
+                btnCorregido.Enabled = btnCorregido.Visible = false;
+            }
         }
         
     }
@@ -66,8 +78,13 @@ public partial class WebForm_PObservacionDetalle : System.Web.UI.Page
 
     protected void btnCorregido_Click(object sender, EventArgs e)
     {
-        Session["CodigoObservacion"] = null;
-        Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
+        if(Session["CodigoObservacion"] != null)
+        {
+            cObservacion.Actualizar_GObservacion_A_EstadoObservacion(int.Parse(Session["CodigoObservacion"].ToString()), SDatosGlobales.ESTADO_CORREGIDO);
+            Session["CodigoObservacion"] = null;
+            Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
+        }
+        
     }
 }
 

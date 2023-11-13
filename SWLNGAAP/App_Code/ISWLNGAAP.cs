@@ -75,6 +75,8 @@ public interface ISWLNGAAP
     EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int codigoEtapa, byte numeroSubEtapa);
     [OperationContract]
     void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa);
+    [OperationContract]
+    void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto, byte numeroSubEtapaASaltar);
     #endregion
     #region GObservacion
     [OperationContract]

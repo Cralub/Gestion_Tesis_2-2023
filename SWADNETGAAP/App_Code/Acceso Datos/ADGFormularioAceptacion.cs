@@ -62,7 +62,7 @@ public class ADGFormularioAceptacion
             bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo8", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo8);
             bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo9", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo9);
             bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo10", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo10);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.FECHA_REGISTRO_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)

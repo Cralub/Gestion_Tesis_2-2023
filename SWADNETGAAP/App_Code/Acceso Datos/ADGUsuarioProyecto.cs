@@ -43,9 +43,9 @@ public class ADGUsuarioProyecto
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, eGUsuarioProyecto.CodigoProyecto);
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoRol", DbType.StringFixedLength, eGUsuarioProyecto.CodigoRol);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoUsuarioProyecto", DbType.StringFixedLength, eGUsuarioProyecto.EstadoUsuarioProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.FECHA_REGISTRO_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)
@@ -78,7 +78,7 @@ public class ADGUsuarioProyecto
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GUsuarioProyecto_O_CodigoProyecto");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, codigoProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, DTOGUsuarioProyecto, "GUsuarioProyecto");
         }
         catch (SqlException SQLEx)
@@ -96,7 +96,7 @@ public class ADGUsuarioProyecto
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GUsuarioProyecto_O_CodigoUsuario");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoUsuario", DbType.StringFixedLength, codigoUsuario);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, DTOGUsuarioProyecto, "GUsuarioProyecto");
         }
         catch (SqlException SQLEx)
@@ -115,7 +115,7 @@ public class ADGUsuarioProyecto
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoUsuario", DbType.String, codigoUsuario);
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.String, codigoProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGUsuarioProyecto, "GUsuarioProyecto");
         }
         catch (SqlException SQLEx)
@@ -136,7 +136,7 @@ public class ADGUsuarioProyecto
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, eGUsuarioProyecto.CodigoProyecto);
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoRol", DbType.StringFixedLength, eGUsuarioProyecto.CodigoRol);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoUsuarioProyecto", DbType.StringFixedLength, eGUsuarioProyecto.EstadoUsuarioProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)
@@ -152,7 +152,7 @@ public class ADGUsuarioProyecto
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GUsuarioProyecto_E");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoUsuarioProyecto", DbType.Int32, codigoUsuarioProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_INACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_INACTIVO_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)

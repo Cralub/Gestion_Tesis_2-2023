@@ -10,6 +10,7 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
     CUsuarioNetvalle cUsuarioNetvalle = new CUsuarioNetvalle();
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
     CProyectoCompleja cProyectoCompleja = new CProyectoCompleja();
+    CProyecto cProyecto = new CProyecto();
     CUsuarioRol cUsuarioRol = new CUsuarioRol();
     #endregion
     protected void Page_Load(object sender, EventArgs e)
@@ -57,20 +58,27 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
     }
     protected void btnConfirmar_Click(object sender, EventArgs e)
     {
+        string codigoProyectoNuevo = txbCodigoProyecto.Text.Trim();
         //Validamos Codigo Proyecto correcto
-        if (txbCodigoProyecto.Text.Trim().Length != 4)
+        if (codigoProyectoNuevo.Length <= 4)
         {
             lblMensajeCrearProyecto.Text = "Codigo no valido";
             return;
         }
-        string CodigoProyecto = txbCodigoProyecto.Text.Trim();
+        EGProyecto eGProyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(codigoProyectoNuevo);
+        if (!string.IsNullOrEmpty(eGProyecto.CodigoProyecto))
+        {
+            lblMensajeCrearProyecto.Text = "Codigo existente";
+            return;
+        }
+        
         //Recuperamos la informacion de Sesion del Director 
         if (Session["UsuarioSesion"] == null)
         {
             lblMensajeCrearProyecto.Text = "Codigo director no encontrado";
             return;
         }
-        EUsuarioNetvalle usuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
+        EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
 
         if (Session["EstudianteNetvalle"] != null)
         {
@@ -78,13 +86,13 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
             EUsuarioNetvalle estudianteNetvalle = Session["EstudianteNetvalle"] as EUsuarioNetvalle;
             //En caso de no tener al estudiante en nuestra base lo creamos asi como le asignamos su rol de estudiante
             EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(estudianteNetvalle.CodigoUsuarioNetvalle);
-            if (eGUsuario.CodigoUsuario.Equals(""))
+            if (string.IsNullOrEmpty(eGUsuario.CodigoUsuario))
             {
                 cUsuario.Insertar_GUsuario_I(estudianteNetvalle.CodigoUsuarioNetvalle, estudianteNetvalle.NombreCompletoUsuarioNetvalle, estudianteNetvalle.SedeUsuarioNetvalle);
                 cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), SDatosGlobales.ROL_ESTUDIANTE, estudianteNetvalle.CodigoUsuarioNetvalle);
             }
             //Creamos un nuevo Proyecto y quitamos las opciones por seguridad
-            cProyectoCompleja.Insertar_ProyectoCompleto(CodigoProyecto, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioNetvalle.CodigoUsuarioNetvalle, SDatosGlobales.DURACION_ETAPA, SDatosGlobales.DURACION_SUB_ETAPA);
+            cProyectoCompleja.Insertar_ProyectoCompleto(codigoProyectoNuevo, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioSesion.CodigoUsuario, SDatosGlobales.DURACION_ETAPA, SDatosGlobales.DURACION_SUB_ETAPA);
             Session["EstudianteNetvalle"] = null;
             btnCrearProyecto.Enabled = false;
             txbCodigoProyecto.Enabled = false;

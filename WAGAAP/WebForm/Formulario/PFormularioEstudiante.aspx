@@ -48,7 +48,10 @@
             </asp:DropDownList>
         </div>
         <div>
-            <asp:Button ID="btnTutor" runat="server" Text="Seleccionar Tutor" OnClick="btnTutor_Click" />
+            <div>
+                <asp:Button ID="btnTutor" runat="server" Text="Seleccionar Tutor" OnClick="btnTutor_Click" />
+                <asp:Button ID="btnCVTutorExterno" runat="server" Text="Enviar CV TutorExterno" OnClick="btnCVTutorExterno_Click" />
+            </div>
             <asp:Label runat="server" ID="lblMensajeElegirNuevoTutor" Text=""></asp:Label>
             <asp:GridView ID="grvListaUsuarios" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaUsuarios_RowCommand" DataKeyNames="CodigoUsuario">
                 <Columns>

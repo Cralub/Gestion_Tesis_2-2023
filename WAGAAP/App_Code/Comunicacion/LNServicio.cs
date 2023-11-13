@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
-using System.Web;
 using System.Web.UI.WebControls;
 
 /// <summary>
@@ -21,7 +20,7 @@ public class LNServicio
     #region Constructor
     public LNServicio()
     {
-        
+
     }
     private EDefecto ConstruirDefecto(TTipoDefecto tipoDefecto, string metodo, string excepcion, string mensaje, string stackTrace)
     {
@@ -115,7 +114,7 @@ public class LNServicio
         {
             EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Insertar_GUsuarioRol_I", ex.Source, ex.Message);
             throw new FaultException<EDefecto>(eDefecto);
-        }        
+        }
     }
     public int Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol()
     {
@@ -640,7 +639,7 @@ public class LNServicio
         }
     }
     public void Eliminar_GUsuarioProyecto_E(int codigoUsuarioProyecto)
-    {        
+    {
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
@@ -1352,6 +1351,52 @@ public class LNServicio
             throw new FaultException<EDefecto>(eDefecto);
         }
     }
+    public void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto, byte numeroSubEtapaASaltar)
+    {
+        try
+        {
+            using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+            {
+                clienteSWLNGAAP.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, numeroSubEtapaASaltar);
+            }
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw new FaultException<EDefecto>(ConstruirDefecto(ex));
+        }
+        catch (EndpointNotFoundException ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_Etapa_SubEtapa_SaltarASubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException communicationException)
+        {
+            FaultException faultException = communicationException as FaultException;
+
+            if (faultException == null)
+            {
+                using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
+                {
+                    clienteSWLNGAAP.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, numeroSubEtapaASaltar);
+                }
+            }
+            else
+            {
+                EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_Etapa_SubEtapa_SaltarASubEtapa", communicationException.ToString(), communicationException.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+        catch (ObjectDisposedException objectDisposedException)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Comunicacion, "Actualizar_Etapa_SubEtapa_SaltarASubEtapa", objectDisposedException.ToString(), objectDisposedException.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (Exception ex)
+        {
+            EDefecto eDefecto = ConstruirDefecto(TTipoDefecto.Falla, "Actualizar_Etapa_SubEtapa_SaltarASubEtapa", ex.Source, ex.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+    }
     #endregion
     #region GFormularioAceptacion
     public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)
@@ -1735,7 +1780,7 @@ public class LNServicio
     }
     #endregion
     #region GUsuario
-    public void Insertar_GUsuario_I(string CodigoUsuario,string nombreCompletoUsuario, string SedeUsuario)
+    public void Insertar_GUsuario_I(string CodigoUsuario, string nombreCompletoUsuario, string SedeUsuario)
     {
         try
         {
@@ -2019,7 +2064,7 @@ public class LNServicio
             throw new FaultException<EDefecto>(eDefecto);
         }
     }
-    
+
     #endregion
     #region GRol
     public List<EGRol> Obtener_GRol_O()
@@ -2040,7 +2085,7 @@ public class LNServicio
     }
     public EGRol Obtener_GRol_O_CodigoRol(string codigoRol)
     {
-        EGRol eGRol =new EGRol();
+        EGRol eGRol = new EGRol();
         try
         {
             using (SWLNGAAPClient clienteSWLNGAAP = new SWLNGAAPClient())
@@ -2354,7 +2399,7 @@ public class LNServicio
         }
         return lstEProyectoTiempoEntrega;
     }
-     public bool Verificar_GProyecto_CorrespondeRevision(string codigoRol, byte numeroEtapa, byte numeroSubEtapa)
+    public bool Verificar_GProyecto_CorrespondeRevision(string codigoRol, byte numeroEtapa, byte numeroSubEtapa)
     {
         bool res;
         try

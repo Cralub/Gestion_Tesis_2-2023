@@ -10,15 +10,15 @@ using System.Web;
 public static class SDatosPA
 {
     #region Estados Auditoria Base de Datos
-    public const string AUDITORIA_ACTIVO = "AC";
-    public const string AUDITORIA_INACTIVO = "IN";
+    public const string ESTADO_ACTIVO_AUDITORIA = "AC";
+    public const string ESTADO_INACTIVO_AUDITORIA = "IN";
     #region Fechas Auditoria Base de Datos
-    public static readonly DateTime AUDITORIA_FECHA_MODIFICACION = DateTime.Now;
-    public static readonly DateTime AUDITORIA_FECHA_REGISTRO = DateTime.Now;
+    public static readonly DateTime FECHA_MODIFICACION_AUDITORIA = DateTime.Now;
+    public static readonly DateTime FECHA_REGISTRO_AUDITORIA = DateTime.Now;
     #endregion
     #endregion    
     #region Procedimientos Almacenados
-    
+    public const char ESTADO_ACTIVO_GAAP = 'A';
     #endregion
-    
+
 }

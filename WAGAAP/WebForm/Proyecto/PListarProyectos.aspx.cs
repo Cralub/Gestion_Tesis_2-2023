@@ -36,22 +36,23 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
         grvListaProyectos.DataBind();
 
     }
-    
+
     protected void FiltrarProyectos()
     {
         char tipoSeleccionado = Convert.ToChar(ddlTipoProyecto.SelectedValue);
         char estadoSeleccionado = Convert.ToChar(ddlEstadoProyecto.SelectedValue);
-        string nombreUsuario = txbCodigoUsuario.Text;
+        string estudiante = txbCodigoUsuario.Text.Trim();
 
-        
         proyectosFiltrados = lstProyectos
-                                     .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
-                                                 (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&
-                                                 (string.IsNullOrEmpty(nombreUsuario) ||
-                                                  w.NombresEstudiantes.Any(nombre => nombre.ToUpper().Contains(nombreUsuario.ToUpper()))));
+            .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
+                        (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&
+                        (string.IsNullOrEmpty(estudiante) ||
+                         (w.NombresEstudiantes.Any(nombre => nombre.ToUpper().Contains(estudiante.ToUpper())) ||
+                         w.CodigosEstudiantes.Any(codigo => codigo.ToUpper().Contains(estudiante.ToUpper())))
+                        ))
+            .ToList();
 
-
-        grvListaProyectos.DataSource = proyectosFiltrados.ToList();
+        grvListaProyectos.DataSource = proyectosFiltrados;
         grvListaProyectos.DataBind();
     }
 
@@ -159,5 +160,8 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
         Session["CorrespondeRevision"] = null;
         Session["PaginaAnterior"] = null;
         Session["CodigoProyecto"] = null;
+        lstProyectos = new List<EProyectoCompleja>();
+        proyectosFiltrados = null;
+
     }
 }

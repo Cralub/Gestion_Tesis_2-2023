@@ -138,7 +138,11 @@ public class SWLNGAAP : ISWLNGAAP
         CGAAP cGAAP = new CGAAP();
         cGAAP.Actualizar_GEtapa_A_EstadoEtapa(codigoEtapa, estadoEtapa);
     }
-
+    public void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto, byte numeroSubEtapaASaltar)
+    {
+        CGAAP cGAAP = new CGAAP();
+        cGAAP.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, numeroSubEtapaASaltar);
+    }
     #endregion
     #region GFormularioAceptacion
     public void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion)

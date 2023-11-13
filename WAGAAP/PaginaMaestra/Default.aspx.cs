@@ -38,7 +38,7 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
     }
     protected void btnCodigoUsuarioSesion_Click(object sender, EventArgs e)
     {
-        if (txbCodigoUsuarioSesion.Text.Trim().Length > 9)
+        if (txbCodigoUsuarioSesion.Text.Trim().Length > 4)
         {
             EUsuarioNetvalle eUsuarioNetvalle = cUsuarioNetvalle.Obtener_UsuarioNetvalle_O_CodigoUsuario(txbCodigoUsuarioSesion.Text);
 

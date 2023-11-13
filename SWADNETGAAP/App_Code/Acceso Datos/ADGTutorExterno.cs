@@ -49,9 +49,9 @@ public class ADGTutorExterno
 			bdSWADNETGAAP.AddInParameter(comandoBD, "DireccionTrabajoTutorExterno", DbType.String, eGTutorExterno.DireccionTrabajoTutorExterno);
 			bdSWADNETGAAP.AddInParameter(comandoBD, "DescripcionTutorExterno", DbType.String, eGTutorExterno.DescripcionTutorExterno);
 			bdSWADNETGAAP.AddInParameter(comandoBD, "SedeTutorExterno", DbType.String, eGTutorExterno.SedeTutorExterno);
-			bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-			bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
-			bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+			bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
+			bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.FECHA_REGISTRO_AUDITORIA);
+			bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
 			bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
 
 		}
@@ -70,7 +70,7 @@ public class ADGTutorExterno
 			Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
 			DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GTutorExterno_O_CodigoTutorExterno");
 			bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoTutorExterno", DbType.Int32, codigoTutorExterno);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
 			bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGTutorExterno, "GTutorExterno");
 
 
@@ -91,7 +91,7 @@ public class ADGTutorExterno
 		{
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GTutorExterno_O");
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGTutorExterno, "GTutorExterno");
         }
         catch (SqlException SQLEx)
@@ -115,7 +115,7 @@ public class ADGTutorExterno
             bdSWADNETGAAP.AddInParameter(comandoBD, "DireccionTrabajoTutorExterno", DbType.String, eGTutorExterno.DireccionTrabajoTutorExterno);
             bdSWADNETGAAP.AddInParameter(comandoBD, "DescripcionTutorExterno", DbType.String, eGTutorExterno.DescripcionTutorExterno);
             bdSWADNETGAAP.AddInParameter(comandoBD, "SedeTutorExterno", DbType.String, eGTutorExterno.SedeTutorExterno);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)
@@ -132,8 +132,8 @@ public class ADGTutorExterno
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GTutorExterno_E");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoTutorExterno", DbType.Int32, codigoTutorExterno);
-			bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_INACTIVO);
+			bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_INACTIVO_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)

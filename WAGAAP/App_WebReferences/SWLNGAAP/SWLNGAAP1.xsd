@@ -413,6 +413,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Actualizar_Etapa_SubEtapa_SaltarASubEtapa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoProyecto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numeroSubEtapaASaltar" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Actualizar_Etapa_SubEtapa_SaltarASubEtapaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Insertar_GObservacion_I">
     <xs:complexType>
       <xs:sequence>

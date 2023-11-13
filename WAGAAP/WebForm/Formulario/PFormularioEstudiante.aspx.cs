@@ -69,10 +69,15 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
             bool EsModificable = ValidacionDeEstados(proyectoCompleto);
             if (!EsModificable)
             {
+                txbObjetivosEspecificos.Enabled = false;
+                txbAlcanceProyecto.Enabled = false;
                 ddlModalidades.Enabled = false;
                 txbObjetivoGeneral.Enabled = false;
                 txbTitulo.Enabled = false;
                 btnAgregar.Enabled = false;
+                btnAgregarDocumento.Enabled = false;
+                btnAvanzar.Enabled = false;
+                btnTutor.Enabled = false;
             }
         }
     }
@@ -133,7 +138,7 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
     {
 
         if (Session["ProyectoComplejo"] != null && FormularioCompletoEnOrden())
-            cProyectoCompleja.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo((Session["proyectoCompleja"] as EProyectoCompleja).CodigoProyecto);
+            cProyectoCompleja.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo((Session["ProyectoComplejo"] as EProyectoCompleja).CodigoProyecto);
     }
 
     protected void btnTutor_Click(object sender, EventArgs e)
@@ -162,5 +167,15 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
     protected void btnAgregarDocumento_Click(object sender, EventArgs e)
     {
         
+    }
+
+    protected void btnCVTutorExterno_Click(object sender, EventArgs e)
+    {
+        if (Session["ProyectoComplejo"] != null)
+        {
+            /*Enviar codigoProyecto adjunto a CV tutor al Director*/
+                
+        }
+
     }
 }

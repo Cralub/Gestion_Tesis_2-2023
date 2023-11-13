@@ -56,8 +56,8 @@ public partial class WebForm_Formulario_PElegirTutor : System.Web.UI.Page
             //Listamos los Usuarios del Proyecto
             List<EGUsuarioProyecto> usuariosDelProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(proyecto.CodigoProyecto).ToList();
             //Buscamos si tiene tutor
-            EGUsuarioProyecto tutorEnProyecto = usuariosDelProyecto.Where(w => w.CodigoRol == SDatosGlobales.ROL_TUTOR).FirstOrDefault();
-            
+            EGUsuarioProyecto tutorEnProyecto = usuariosDelProyecto.FirstOrDefault(w => w.CodigoRol == SDatosGlobales.ROL_TUTOR);
+
             //Existe Tutor asignado a este proyecto
             if (tutorEnProyecto != null)
             {
@@ -81,6 +81,7 @@ public partial class WebForm_Formulario_PElegirTutor : System.Web.UI.Page
                 //2 -> Rol Tutor ,E -> En espera que el tutor confirme que participara en el proyecto 
                 cUsuarioProyecto.Insertar_GUsuarioProyecto_I(cUsuarioProyecto.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto(), proyecto.CodigoProyecto, codigoTutor, SDatosGlobales.ROL_TUTOR, SDatosGlobales.ESTADO_PAUSADO);
             }
+            Response.Redirect("~/WebForm/Formulario/PFormularioEstudiante.aspx");
         }
     }
 

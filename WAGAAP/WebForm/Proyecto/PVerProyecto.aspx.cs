@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
@@ -15,23 +16,27 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
     #endregion
     EGProyecto eGProyecto = new EGProyecto();
     List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             LimpiarVariables();
             CargarDatos();
+            FiltrarInterfazUsuario();
         }
 
     }
+
+
+
     private void CargarDatos()
     {
-        if(Session["CodigoProyecto"] != null)
+        if (Session["CodigoProyecto"] != null)
         {
             string codigoProyecto = Session["CodigoProyecto"].ToString();
             eGProyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(codigoProyecto);
-            
+
 
             switch (eGProyecto.ModalidadProyecto)
             {
@@ -58,21 +63,9 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             grvListaUsuarios.DataSource = SUtil.ListarUsuariosRolesPorProyecto(codigoProyecto);
             grvListaUsuarios.DataBind();
         }
-        
-
     }
-    private void cargarListaParticipantes()
-    {
-
-    }
-   
-
-
-
     protected void gvListaUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        //int index = Convert.ToInt32(e.CommandArgument);
-        //string CodigoUsuario = System.Net.WebUtility.HtmlDecode(grvListaUsuarios.Rows[index].Cells[0].Text);
         int index = Convert.ToInt32(e.CommandArgument);
         string CodigoUsuario = grvListaUsuarios.DataKeys[index].Value.ToString();
 
@@ -89,7 +82,80 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
         Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
     }
     private void LimpiarVariables()
-    {        
-        Session["PaginaAnterior"] = null;        
+    {
+        Session["PaginaAnterior"] = null;
     }
+    protected void btnDevolverEstudiante_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnConfirmarAvance_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnAceptarTutoria_Click(object sender, EventArgs e)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Open()", true);
+    }
+
+    protected void btnConfirmarTutoria_Click(object sender, EventArgs e)
+    {
+        if(Session["UsuarioSesion"] != null && Session["CodigoProyecto"] != null))
+        {
+            string codigoProyecto = Session["CodigoProyecto"].ToString();
+            EGUsuarioProyecto eGUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto).Where(w => w.CodigoRol == SDatosGlobales.ROL_TUTOR).FirstOrDefault();
+
+            EUsuarioSesionGAAP eUsuarioSesionGAAP = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            cUsuarioProyecto.Actualizar_GUsuarioProyecto_A(eGUsuarioProyecto.CodigoUsuarioProyecto, codigoProyecto, eUsuarioSesionGAAP.CodigoUsuario, SDatosGlobales.ROL_TUTOR, SDatosGlobales.ESTADO_ACTIVO);
+
+        
+        }
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
+    }
+    private void FiltrarInterfazUsuario()
+    {
+        if (Session["UsuarioSesion"] != null && Session["CodigoProyecto"] != null))
+        {
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            string codigoProyecto = Session["CodigoProyecto"].ToString();
+            if (usuarioSesion.Roles.Any(rol => rol == SDatosGlobales.ROL_TUTOR))
+            {
+                List<EGUsuarioProyecto> eGUsuarioProyecto = cUsuarioProyecto
+                                                                .Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto)
+                                                                .Where(w => w.CodigoRol == SDatosGlobales.ROL_TUTOR)
+                                                                .ToList();
+
+                if(eGUsuarioProyecto.Count > 0)
+                {
+                    bool esTutorConfirmado = eGUsuarioProyecto.First().EstadoUsuarioProyecto == SDatosGlobales.ESTADO_ACTIVO;
+                    btnAceptarTutoria.Enabled = !esTutorConfirmado;
+                    btnAceptarTutoria.Visible = !esTutorConfirmado;
+
+                    btnDevolverEstudiante.Enabled = esTutorConfirmado;
+                    btnDevolverEstudiante.Visible = esTutorConfirmado;
+
+                    btnConfirmarAvance.Enabled = esTutorConfirmado;
+                    btnConfirmarAvance.Visible = esTutorConfirmado;
+
+                }
+
+            }else
+            {
+                btnAceptarTutoria.Enabled = false;
+                btnAceptarTutoria.Visible = false;
+
+                btnDevolverEstudiante.Enabled = true;
+                btnDevolverEstudiante.Visible = true;
+
+                btnConfirmarAvance.Enabled = true;
+                btnConfirmarAvance.Visible = true;
+            }
+
+
+
+        }
+    }
+   
 }

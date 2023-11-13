@@ -55,5 +55,6 @@ public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Pag
                     eGObservacion.EstadoObservacion);
             }
         }
+        Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
     }
 }

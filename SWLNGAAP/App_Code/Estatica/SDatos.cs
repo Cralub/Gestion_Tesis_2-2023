@@ -34,7 +34,7 @@ public static class SDatos
 
     #region Estados específicos de las tablas 
     public const char ESTADO_ACTIVO = 'A';
-    //public const char ESTADO_EN_ESPERA = 'E';
+    public const char ESTADO_SALTAR = 'S';
     public const char ESTADO_PAUSADO = 'P';
     public const char ESTADO_RECHAZADO = 'R';
     public const char ESTADO_FINALIZADO = 'F';
@@ -59,7 +59,7 @@ public static class SDatos
     public const string OBJETIVOS_ESPECIFICOS_POR_DEFECTO = "Objetivos especificos no definidos";
     public const string ALCANCE_POR_DEFECTO = "Alcance no definido";
     public const string ENLACE_DOCUMENTO_POR_DEFECTO = "Enclace de url no definido";
-    public const byte NUMERO_REVISIONES_POR_DEFECTO = 0;
+    public const byte NUMERO_REVISIONES_POR_DEFECTO = 2;
     #endregion
     #region Base SubEtapa
     public const int N_SUB_ETAPAS_ETAPA_1 = 4;

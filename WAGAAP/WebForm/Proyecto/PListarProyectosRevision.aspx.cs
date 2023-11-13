@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.Page
 {
     #region Controladores
     CProyectoCompleja cProyectoCompleja = new CProyectoCompleja();
-    CUsuario cUsuario = new CUsuario();
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
     #endregion
 
@@ -39,17 +39,18 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
     {
         char tipoSeleccionado = Convert.ToChar(ddlTipoProyecto.SelectedValue);
         char estadoSeleccionado = Convert.ToChar(ddlEstadoProyecto.SelectedValue);
-        string nombreUsuario = txbCodigoUsuario.Text;
-
+        string estudiante = txbCodigoUsuario.Text.Trim();
 
         proyectosFiltrados = lstProyectos
-                                     .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
-                                                 (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&
-                                                 (string.IsNullOrEmpty(nombreUsuario) ||
-                                                  w.NombresEstudiantes.Any(nombre => nombre.ToUpper().Contains(nombreUsuario.ToUpper()))));
+            .Where(w => (tipoSeleccionado == 'X' || w.ModalidadProyecto == tipoSeleccionado) &&
+                        (estadoSeleccionado == 'X' || w.EstadoProyecto == estadoSeleccionado) &&
+                        (string.IsNullOrEmpty(estudiante) ||
+                         (w.NombresEstudiantes.Any(nombre => nombre.ToUpper().Contains(estudiante.ToUpper())) ||
+                         w.CodigosEstudiantes.Any(codigo => codigo.ToUpper().Contains(estudiante.ToUpper()))
+                        )))
+            .ToList();
 
-
-        grvListaProyectos.DataSource = proyectosFiltrados.ToList();
+        grvListaProyectos.DataSource = proyectosFiltrados;
         grvListaProyectos.DataBind();
     }
 
@@ -80,7 +81,10 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
             }
         }
     }
-
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
+    }
 
     protected void ddlEstudiantes_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -110,7 +114,28 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
 
 
     }
+    private bool ConfirmarParticipacionDocente(string codigoProyecto)
+    {
+        if (Session["UsuarioSesion"] != null)
+        {
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
 
+            // Si el usuario no es tutor, devuelve true directamente
+            if (!usuarioSesion.Roles.Any(rol => rol == SDatosGlobales.ROL_TUTOR))
+                return true;
+
+            
+            List<EGUsuarioProyecto> eGUsuarioProyecto = cUsuarioProyecto
+                .Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto)
+                .Where(w => w.CodigoRol == SDatosGlobales.ROL_TUTOR)
+                .ToList();
+
+            // Devuelve true si el tutor tiene participación activa en el proyecto, de lo contrario, false
+            return eGUsuarioProyecto.Any() ? eGUsuarioProyecto.First().EstadoUsuarioProyecto == SDatosGlobales.ESTADO_ACTIVO : false;
+        }
+
+        return false;
+    }
     protected void gvListaProyectos_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         int index = Convert.ToInt32(e.CommandArgument);
@@ -120,17 +145,21 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
             Session["CodigoProyecto"] = CodigoProyecto;
             Response.Redirect("PVerProyecto.aspx");
         }
-        if (e.CommandName == "btnObservaciones")
+        if (ConfirmarParticipacionDocente(CodigoProyecto))
         {
-            Session["CodigoProyecto"] = CodigoProyecto;
-            Session["CorrespondeRevision"] = true;
-            Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
+            if (e.CommandName == "btnObservaciones")
+            {
+                Session["CodigoProyecto"] = CodigoProyecto;
+                Session["CorrespondeRevision"] = true;
+                Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
+            }
+            if (e.CommandName == "btnInfo")
+            {
+                Session["CodigoProyecto"] = CodigoProyecto;
+                Response.Redirect("~/WebForm/Informacion/PGraficasAvance.aspx");
+            }
         }
-        if (e.CommandName == "btnInfo")
-        {
-            Session["CodigoProyecto"] = CodigoProyecto;
-            Response.Redirect("~/WebForm/Informacion/PGraficasAvance.aspx");
-        }
+        
 
     }
 

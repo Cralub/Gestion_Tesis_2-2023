@@ -45,9 +45,9 @@ public class ADGEtapa
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaFinEtapa", DbType.DateTime, eGEtapa.FechaFinEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, eGEtapa.CodigoProyecto);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoEtapa", DbType.StringFixedLength, eGEtapa.EstadoEtapa);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_REGISTRO);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.FECHA_REGISTRO_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)
@@ -80,7 +80,7 @@ public class ADGEtapa
             Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GEtapa_O_CodigoProyecto");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.String, codigoProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
         catch (SqlException SQLEx)
@@ -99,7 +99,7 @@ public class ADGEtapa
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GEtapa_O_CodigoProyecto_EstadoEtapa");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.String, codigoProyecto);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoEtapa", DbType.StringFixedLength, estadoEtapa);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
         catch (SqlException SQLEx)
@@ -118,7 +118,7 @@ public class ADGEtapa
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GEtapa_O_CodigoProyecto_NumeroEtapa");
             bdSWADNETGAAP.AddInParameter(comandoBD, "NumeroEtapa", DbType.Byte, numeroEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, codigoProyecto);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.AUDITORIA_ACTIVO);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
         catch (SqlException SQLEx)
@@ -137,7 +137,7 @@ public class ADGEtapa
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GEtapa_A_EstadoEtapa");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoEtapa", DbType.Int32, codigoEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoEtapa", DbType.StringFixedLength, estadoEtapa);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.AUDITORIA_FECHA_MODIFICACION);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGEtapa, "GEtapa");
         }
         catch (SqlException SQLEx)

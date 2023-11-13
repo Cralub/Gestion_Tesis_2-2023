@@ -69,6 +69,8 @@ public partial class WebForm_Observaciones_PEditarObservacion : System.Web.UI.Pa
                     eGObservacion.TipoObservacion,
                     eGObservacion.EstadoObservacion);
             }
+            Session["CodigoObservacion"] = null;
+            Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
         }
     }
 }
