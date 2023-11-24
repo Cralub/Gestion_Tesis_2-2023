@@ -13,6 +13,7 @@
         </div>
         <div>
             <asp:TextBox ID="txbCodigoProyecto" runat="server"></asp:TextBox>
+            <asp:DropDownList runat="server" ID="ddlUsuarioDAAP"></asp:DropDownList>
             <asp:Button ID="btnCrearProyecto" Text="Crear Nuevo Proyecto" runat="server" OnClick="btnCrearProyecto_Click" />
             <asp:Label ID="lblMensajeCrearProyecto" runat="server" Text=""></asp:Label>
 
@@ -25,7 +26,7 @@
             <div class="modal" id="modalConfirmacion">
                 <div>
                     <div class="divCentro">
-                        <asp:Label Text="¿Esta seguro que quiero crear este proyecto?" runat="server"></asp:Label>
+                        <asp:Label ID="lblModal" Text="¿Esta seguro que quiero crear este proyecto?" runat="server"></asp:Label>
                     </div>
                     <div class="contenedor-botones">
                         <asp:Button CssClass="boton-model boton-aceptar" ID="btnConfirmar" runat="server" Text="Aceptar" OnClick="btnConfirmar_Click"/>

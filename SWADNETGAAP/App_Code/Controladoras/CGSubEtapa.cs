@@ -30,6 +30,8 @@ public class CGSubEtapa
             eGSubEtapa = new EGSubEtapa();
             eGSubEtapa.CodigoSubEtapa = dRGSubEtapa.CodigoSubEtapa;
             eGSubEtapa.CodigoEtapa = dRGSubEtapa.CodigoEtapa;
+            eGSubEtapa.CodigoUsuarioFirmaSubEtapa = dRGSubEtapa.CodigoUsuarioFirmaSubEtapa;
+            eGSubEtapa.CodigoRolDesignadoSubEtapa = dRGSubEtapa.CodigoRolDesignadoSubEtapa;
             eGSubEtapa.NumeroSubEtapa = dRGSubEtapa.NumeroSubEtapa;
             eGSubEtapa.FechaInicioSubEtapa = dRGSubEtapa.FechaInicioSubEtapa;
             eGSubEtapa.FechaDefinidaSubEtapa = dRGSubEtapa.FechaDefinidaSubEtapa;
@@ -53,7 +55,8 @@ public class CGSubEtapa
             eGSubEtapa = new EGSubEtapa();
             eGSubEtapa.CodigoSubEtapa = dRGSubEtapa.CodigoSubEtapa;
             eGSubEtapa.CodigoEtapa = dRGSubEtapa.CodigoEtapa;
-            eGSubEtapa.CodigoUsuarioFirma = dRGSubEtapa.CodigoUsuarioFirma;
+            eGSubEtapa.CodigoUsuarioFirmaSubEtapa = dRGSubEtapa.CodigoUsuarioFirmaSubEtapa;
+            eGSubEtapa.CodigoRolDesignadoSubEtapa = dRGSubEtapa.CodigoRolDesignadoSubEtapa;
             eGSubEtapa.NumeroSubEtapa = dRGSubEtapa.NumeroSubEtapa;
             eGSubEtapa.FechaInicioSubEtapa = dRGSubEtapa.FechaInicioSubEtapa;
             eGSubEtapa.FechaDefinidaSubEtapa = dRGSubEtapa.FechaDefinidaSubEtapa;
@@ -71,7 +74,8 @@ public class CGSubEtapa
             eGSubEtapa = new EGSubEtapa();
             eGSubEtapa.CodigoSubEtapa = dRGSubEtapa.CodigoSubEtapa;
             eGSubEtapa.CodigoEtapa = dRGSubEtapa.CodigoEtapa;
-            eGSubEtapa.CodigoUsuarioFirma = dRGSubEtapa.CodigoUsuarioFirma;
+            eGSubEtapa.CodigoUsuarioFirmaSubEtapa = dRGSubEtapa.CodigoUsuarioFirmaSubEtapa;
+            eGSubEtapa.CodigoRolDesignadoSubEtapa = dRGSubEtapa.CodigoRolDesignadoSubEtapa;
             eGSubEtapa.NumeroSubEtapa = dRGSubEtapa.NumeroSubEtapa;
             eGSubEtapa.FechaInicioSubEtapa = dRGSubEtapa.FechaInicioSubEtapa;
             eGSubEtapa.FechaDefinidaSubEtapa = dRGSubEtapa.FechaDefinidaSubEtapa;
@@ -79,6 +83,10 @@ public class CGSubEtapa
             eGSubEtapa.EstadoSubEtapa = char.Parse(dRGSubEtapa.EstadoSubEtapa);
         }
         return eGSubEtapa;
+    }
+    public void Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(string codigoUsuarioFirmaSubEtapa, int codigoSubEtapa, char estadoSubEtapa)
+    {
+        aDGSubEtapa.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuarioFirmaSubEtapa, codigoSubEtapa, estadoSubEtapa);
     }
     public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {

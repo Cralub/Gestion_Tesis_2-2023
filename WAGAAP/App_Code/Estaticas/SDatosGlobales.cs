@@ -34,6 +34,7 @@ public static class SDatosGlobales
     public const char ESTADO_FINALIZADO = 'F';
     public const char ESTADO_CORREGIDO = 'C';
     public const char ESTADO_REVISADO = 'V';
+    public const char ESTADO_IGNORADO = 'I';
     #endregion
     #region Estados Auditoria Base de Datos
     public const string AUDITORIA_ACTIVO = "AC";
@@ -60,6 +61,13 @@ public static class SDatosGlobales
     #endregion
     public const int N_MAXIMO_PROYECTOS_POR_TUTOR = 10;
     public const string REGEX_TEXTO_Y_ESPACIOS = "^[A-Za-z ]+$";
-    public const string REGEX_SOLO_NUMEROS = "^[0-9]+$";
+    public const string REGEX_SOLO_TEXTO = "^[A-Za-z]+$";
 
+    public const string REGEX_SOLO_NUMEROS = "^[0-9]+$";
+    #region SubEtapas Por Etapa
+    public const int N_SUB_ETAPAS_ETAPA_1 = 4;
+    public const int N_SUB_ETAPAS_ETAPA_2 = 7;
+    public const int N_SUB_ETAPAS_ETAPA_3 = 7;
+    public const int N_SUB_ETAPAS_ETAPA_4 = 7;
+    #endregion
 }

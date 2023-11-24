@@ -57,11 +57,16 @@ public class EGFormularioAceptacion
     public char PreguntaFondo9 { get; set; }
     [DataMember]
     public char PreguntaFondo10 { get; set; }
-
+    [DataMember]
+    public char EstadoFormularioAceptacion { get; set; }
 
     #region “Auditoría básica”
     [DataMember]
+    public string Estado { get; set; }
+    [DataMember]
     public DateTime FechaRegistro { get; set; }
+    [DataMember]
+    public DateTime FechaModificacion { get; set; }
     #endregion
     #endregion
 
@@ -92,7 +97,10 @@ public class EGFormularioAceptacion
         PreguntaFondo8 = char.MinValue;
         PreguntaFondo9 = char.MinValue;
         PreguntaFondo10 = char.MinValue;
+        EstadoFormularioAceptacion = char.MinValue;
+        Estado = string.Empty;
         FechaRegistro = DateTime.MinValue;
+        FechaModificacion = DateTime.MinValue;
     }
     #endregion
 }

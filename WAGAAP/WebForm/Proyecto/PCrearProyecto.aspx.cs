@@ -1,6 +1,7 @@
 ﻿using SWLNGAAP;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 
 public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
@@ -13,20 +14,28 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
     CProyecto cProyecto = new CProyecto();
     CUsuarioRol cUsuarioRol = new CUsuarioRol();
     #endregion
+    static List<EGUsuarioRol> usuariosDAAP = new List<EGUsuarioRol>();
     protected void Page_Load(object sender, EventArgs e)
     {
         if(!IsPostBack)
         {
-            //Inhabilita la posibilidad de crear un nuevo Proyecto hasta validar 
-            btnCrearProyecto.Enabled = false;
-            txbCodigoProyecto.Enabled = false;
-            lblMensajeBuscarUsuarioCreacionProyecto.Text = "";
-            lblMensajeCrearProyecto.Text = "";
+            FiltrarInterfazUsuario();
+            CargarDatosUsuariosDAAP();
         }
+    }
+
+    private void CargarDatosUsuariosDAAP()
+    {
+        usuariosDAAP = cUsuarioRol.Obtener_GUsuarioRol_O_CodigoRol(SDatosGlobales.ROL_DAAP).ToList();
+        var nombresUsuariosDAAP = usuariosDAAP.Select(s => SUtil.ObtenerNombrePorCodigo(s.CodigoUsuario)).ToList();
+        ddlUsuarioDAAP.DataSource = nombresUsuariosDAAP; 
+        ddlUsuarioDAAP.DataBind();
+
     }
 
     protected void btnBuscarUsuario_Click(object sender, EventArgs e)
     {
+        FiltrarInterfazUsuario();
         //Si el codigoUsuario ingresado es correcto 
         if (txbCodigoUsuario.Text.Trim().Length > 9)
         {
@@ -44,60 +53,109 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
                     Session["EstudianteNetvalle"] = estudianteNetvalle;
                     lblMensajeBuscarUsuarioCreacionProyecto.Text = string.Format("Creacion posible para el estudiante: {0}", estudianteNetvalle.NombreCompletoUsuarioNetvalle);
                 }
-                else
-                    lblMensajeBuscarUsuarioCreacionProyecto.Text = string.Format("Proyecto existente con el estudiante: {0}", estudianteNetvalle.NombreCompletoUsuarioNetvalle);
-            }
+                else                    
+                    lblMensajeBuscarUsuarioCreacionProyecto.Text = string.Format("Proyecto existente con el estudiante: {0}", estudianteNetvalle.NombreCompletoUsuarioNetvalle);}
             else
                 lblMensajeBuscarUsuarioCreacionProyecto.Text = "Codigo no encontrado o no pertenece a un Estudiante ";
+            
+               
         }
     }
 
     protected void btnCrearProyecto_Click(object sender, EventArgs e)
     {
+        //lblModal.Text = "¿Esta seguro que quiero crear este proyecto?";
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Open()", true);        
     }
     protected void btnConfirmar_Click(object sender, EventArgs e)
     {
         string codigoProyectoNuevo = txbCodigoProyecto.Text.Trim();
-        //Validamos Codigo Proyecto correcto
-        if (codigoProyectoNuevo.Length <= 4)
-        {
-            lblMensajeCrearProyecto.Text = "Codigo no valido";
+
+        if (!ValidarCodigoProyecto(codigoProyectoNuevo))
             return;
-        }
+
         EGProyecto eGProyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(codigoProyectoNuevo);
-        if (!string.IsNullOrEmpty(eGProyecto.CodigoProyecto))
-        {
-            lblMensajeCrearProyecto.Text = "Codigo existente";
+
+        if (!ProyectoNoExiste(eGProyecto))
             return;
-        }
-        
-        //Recuperamos la informacion de Sesion del Director 
-        if (Session["UsuarioSesion"] == null)
-        {
-            lblMensajeCrearProyecto.Text = "Codigo director no encontrado";
+
+        if (!UsuarioSesionValido())
             return;
-        }
-        EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
 
         if (Session["EstudianteNetvalle"] != null)
         {
-            //Recuperamos la informacion del Estudiante
-            EUsuarioNetvalle estudianteNetvalle = Session["EstudianteNetvalle"] as EUsuarioNetvalle;
-            //En caso de no tener al estudiante en nuestra base lo creamos asi como le asignamos su rol de estudiante
-            EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(estudianteNetvalle.CodigoUsuarioNetvalle);
-            if (string.IsNullOrEmpty(eGUsuario.CodigoUsuario))
+            if (!SeleccionarUsuarioDAAP())
             {
-                cUsuario.Insertar_GUsuario_I(estudianteNetvalle.CodigoUsuarioNetvalle, estudianteNetvalle.NombreCompletoUsuarioNetvalle, estudianteNetvalle.SedeUsuarioNetvalle);
-                cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), SDatosGlobales.ROL_ESTUDIANTE, estudianteNetvalle.CodigoUsuarioNetvalle);
+                lblMensajeCrearProyecto.Text = "Escoja un representante de DAAP";
+                return;
             }
-            //Creamos un nuevo Proyecto y quitamos las opciones por seguridad
-            cProyectoCompleja.Insertar_ProyectoCompleto(codigoProyectoNuevo, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioSesion.CodigoUsuario, SDatosGlobales.DURACION_ETAPA, SDatosGlobales.DURACION_SUB_ETAPA);
+
+            EUsuarioNetvalle estudianteNetvalle = Session["EstudianteNetvalle"] as EUsuarioNetvalle;
+            CrearOActualizarUsuario(estudianteNetvalle);
+
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            CrearNuevoProyecto(codigoProyectoNuevo, estudianteNetvalle.CodigoUsuarioNetvalle, usuarioSesion.CodigoUsuario);
+
             Session["EstudianteNetvalle"] = null;
-            btnCrearProyecto.Enabled = false;
-            txbCodigoProyecto.Enabled = false;
+            FiltrarInterfazUsuario();
+            lblMensajeCrearProyecto.Text = "Proyecto Creado con éxito";
         }
+
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
+    }
+
+    
+    private bool ValidarCodigoProyecto(string codigoProyecto)
+    {
+        if (codigoProyecto.Length <= 4)
+        {
+            lblMensajeCrearProyecto.Text = "Codigo no válido";
+            FiltrarInterfazUsuario();
+            return false;
+        }
+        return true;
+    }
+
+    private bool ProyectoNoExiste(EGProyecto eGProyecto)
+    {
+        if (!string.IsNullOrEmpty(eGProyecto.CodigoProyecto))
+        {
+            lblMensajeCrearProyecto.Text = "Codigo existente";
+            FiltrarInterfazUsuario();
+            return false;
+        }
+        return true;
+    }
+
+    private bool UsuarioSesionValido()
+    {
+        if (Session["UsuarioSesion"] == null)
+        {
+            lblMensajeCrearProyecto.Text = "Codigo director no encontrado";
+            FiltrarInterfazUsuario();
+            return false;
+        }
+        return true;
+    }
+
+    private bool SeleccionarUsuarioDAAP()
+    {
+        return ddlUsuarioDAAP.SelectedIndex >= 0;
+    }
+
+    private void CrearOActualizarUsuario(EUsuarioNetvalle estudianteNetvalle)
+    {
+        EGUsuario eGUsuario = cUsuario.Obtener_GUsuario_O_CodigoUsuario(estudianteNetvalle.CodigoUsuarioNetvalle);
+        if (string.IsNullOrEmpty(eGUsuario.CodigoUsuario))
+        {
+            cUsuario.Insertar_GUsuario_I(estudianteNetvalle.CodigoUsuarioNetvalle, estudianteNetvalle.NombreCompletoUsuarioNetvalle, estudianteNetvalle.SedeUsuarioNetvalle);
+            cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), SDatosGlobales.ROL_ESTUDIANTE, estudianteNetvalle.CodigoUsuarioNetvalle);
+        }
+    }
+
+    private void CrearNuevoProyecto(string codigoProyectoNuevo, string codigoUsuarioEstudiante, string codigoUsuarioDirector)
+    {
+        cProyectoCompleja.Insertar_ProyectoCompleto(codigoProyectoNuevo, codigoUsuarioEstudiante, codigoUsuarioDirector, usuariosDAAP[ddlUsuarioDAAP.SelectedIndex - 1].CodigoUsuario, SDatosGlobales.DURACION_ETAPA, SDatosGlobales.DURACION_SUB_ETAPA);
     }
 
     protected void btnCancelar_Click(object sender, EventArgs e)
@@ -109,4 +167,12 @@ public partial class WebForm_Proyecto_PCrearProyecto : System.Web.UI.Page
     {
         Response.Redirect("~/PaginaMaestra/Default.aspx");
     }    
+    void FiltrarInterfazUsuario()
+    {
+        
+        btnCrearProyecto.Enabled = false;
+        txbCodigoProyecto.Enabled = false;
+        lblMensajeBuscarUsuarioCreacionProyecto.Text = "";
+        lblMensajeCrearProyecto.Text = "";
+    }
 }

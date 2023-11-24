@@ -7,7 +7,7 @@
            <h2>Formulario de Aceptacion</h2>
            <div>
                 <asp:Label runat="server" Text="¿El titulo es adecuado?"></asp:Label>
-                <asp:RadioButtonList runat="server" ID="rbPreguntaFormatoYForma1">
+                <asp:RadioButtonList runat="server" ID="rbPreguntaFormatoYForma1" CssClass="horizontal-align">
                     <asp:ListItem Text="Sí" Value="S" />
                     <asp:ListItem Text="No" Value="N" />
                 </asp:RadioButtonList>
@@ -101,7 +101,7 @@
             </div>
             <div>
                  <asp:Label runat="server" Text="¿La literatura, esta críticamente analizada?"></asp:Label>
-                 <asp:RadioButtonList runat="server" ID="rbPreguntaFondo4">
+                 <asp:RadioButtonList runat="server" ID="rbPreguntaFondo4" >
                     <asp:ListItem Text="Bueno" Value="B" />
                     <asp:ListItem Text="Regular" Value="R" />
                     <asp:ListItem Text="Malo" Value="M" />
@@ -156,7 +156,7 @@
                  </asp:RadioButtonList>
             </div>
            <div>
-                <asp:Button ID="btnAgregar" runat="server"  Text="Actualizar Informacion" OnClick="btnAgregar_Click"/>
+                <asp:Button ID="btnAgregar" runat="server"  Text="Actualiza r Informacion" OnClick="btnAgregar_Click"/>
            </div>
        </div>
 </asp:Content>

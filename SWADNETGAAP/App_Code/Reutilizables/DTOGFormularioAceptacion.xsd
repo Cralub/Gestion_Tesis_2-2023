@@ -2,14 +2,15 @@
 <xs:schema id="DTOGFormularioAceptacion" targetNamespace="http://tempuri.org/DTOGFormularioAceptacion.xsd" xmlns:mstns="http://tempuri.org/DTOGFormularioAceptacion.xsd" xmlns="http://tempuri.org/DTOGFormularioAceptacion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="GAAPDATABASEConnectionString14" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GAAPDATABASEConnectionString14 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.GAAPDATABASEConnectionString14.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GFormularioAceptacionTableAdapter" GeneratorDataComponentClassName="GFormularioAceptacionTableAdapter" Name="GFormularioAceptacion" UserDataComponentName="GFormularioAceptacionTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="NETGAAPConnectionString (Web.config)" DbObjectName="NETGAAP.dbo.GFormularioAceptacion" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="GAAPDATABASEConnectionString14 (Web.config)" DbObjectName="GAAPDATABASE.dbo.GFormularioAceptacion" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[GFormularioAceptacion] WHERE (([CodigoFormularioAceptacion] = @Original_CodigoFormularioAceptacion))</CommandText>
@@ -20,12 +21,12 @@
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[GFormularioAceptacion] ([CodigoFormularioAceptacion], [CodigoProyecto], [CodigoEstudiante], [CodigoTribunal], [PreguntaFormatoYForma1], [PreguntaFormatoYForma2], [PreguntaFormatoYForma3], [PreguntaFormatoYForma4], [PreguntaFormatoYForma5], [PreguntaFormatoYForma6], [PreguntaFormatoYForma7], [PreguntaFormatoYForma8], [PreguntaFormatoYForma9], [PreguntaFormatoYForma10], [PreguntaFondo1], [PreguntaFondo2], [PreguntaFondo3], [PreguntaFondo4], [PreguntaFondo5], [PreguntaFondo6], [PreguntaFondo7], [PreguntaFondo8], [PreguntaFondo9], [PreguntaFondo10], [FechaRegistro]) VALUES (@CodigoFormularioAceptacion, @CodigoProyecto, @CodigoEstudiante, @CodigoTribunal, @PreguntaFormatoYForma1, @PreguntaFormatoYForma2, @PreguntaFormatoYForma3, @PreguntaFormatoYForma4, @PreguntaFormatoYForma5, @PreguntaFormatoYForma6, @PreguntaFormatoYForma7, @PreguntaFormatoYForma8, @PreguntaFormatoYForma9, @PreguntaFormatoYForma10, @PreguntaFondo1, @PreguntaFondo2, @PreguntaFondo3, @PreguntaFondo4, @PreguntaFondo5, @PreguntaFondo6, @PreguntaFondo7, @PreguntaFondo8, @PreguntaFondo9, @PreguntaFondo10, @FechaRegistro)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[GFormularioAceptacion] ([CodigoFormularioAceptacion], [CodigoProyecto], [CodigoEstudiante], [CodigoTribunal], [PreguntaFormatoYForma1], [PreguntaFormatoYForma2], [PreguntaFormatoYForma3], [PreguntaFormatoYForma4], [PreguntaFormatoYForma5], [PreguntaFormatoYForma6], [PreguntaFormatoYForma7], [PreguntaFormatoYForma8], [PreguntaFormatoYForma9], [PreguntaFormatoYForma10], [PreguntaFondo1], [PreguntaFondo2], [PreguntaFondo3], [PreguntaFondo4], [PreguntaFondo5], [PreguntaFondo6], [PreguntaFondo7], [PreguntaFondo8], [PreguntaFondo9], [PreguntaFondo10], [EstadoFormularioAceptacion], [Estado], [FechaRegistro], [FechaModificacion]) VALUES (@CodigoFormularioAceptacion, @CodigoProyecto, @CodigoEstudiante, @CodigoTribunal, @PreguntaFormatoYForma1, @PreguntaFormatoYForma2, @PreguntaFormatoYForma3, @PreguntaFormatoYForma4, @PreguntaFormatoYForma5, @PreguntaFormatoYForma6, @PreguntaFormatoYForma7, @PreguntaFormatoYForma8, @PreguntaFormatoYForma9, @PreguntaFormatoYForma10, @PreguntaFondo1, @PreguntaFondo2, @PreguntaFondo3, @PreguntaFondo4, @PreguntaFondo5, @PreguntaFondo6, @PreguntaFondo7, @PreguntaFondo8, @PreguntaFondo9, @PreguntaFondo10, @EstadoFormularioAceptacion, @Estado, @FechaRegistro, @FechaModificacion)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CodigoFormularioAceptacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CodigoFormularioAceptacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoEstudiante" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoEstudiante" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoTribunal" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoTribunal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoEstudiante" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoEstudiante" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoTribunal" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoTribunal" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFormatoYForma1" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFormatoYForma1" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFormatoYForma2" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFormatoYForma2" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFormatoYForma3" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFormatoYForma3" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -46,24 +47,27 @@
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFondo8" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFondo8" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFondo9" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFondo9" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFondo10" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFondo10" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@EstadoFormularioAceptacion" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="EstadoFormularioAceptacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistro" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistro" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaModificacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaModificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT CodigoFormularioAceptacion, CodigoProyecto, CodigoEstudiante, CodigoTribunal, PreguntaFormatoYForma1, PreguntaFormatoYForma2, PreguntaFormatoYForma3, PreguntaFormatoYForma4, PreguntaFormatoYForma5, PreguntaFormatoYForma6, PreguntaFormatoYForma7, PreguntaFormatoYForma8, PreguntaFormatoYForma9, PreguntaFormatoYForma10, PreguntaFondo1, PreguntaFondo2, PreguntaFondo3, PreguntaFondo4, PreguntaFondo5, PreguntaFondo6, PreguntaFondo7, PreguntaFondo8, PreguntaFondo9, PreguntaFondo10, FechaRegistro FROM dbo.GFormularioAceptacion</CommandText>
+                    <CommandText>SELECT CodigoFormularioAceptacion, CodigoProyecto, CodigoEstudiante, CodigoTribunal, PreguntaFormatoYForma1, PreguntaFormatoYForma2, PreguntaFormatoYForma3, PreguntaFormatoYForma4, PreguntaFormatoYForma5, PreguntaFormatoYForma6, PreguntaFormatoYForma7, PreguntaFormatoYForma8, PreguntaFormatoYForma9, PreguntaFormatoYForma10, PreguntaFondo1, PreguntaFondo2, PreguntaFondo3, PreguntaFondo4, PreguntaFondo5, PreguntaFondo6, PreguntaFondo7, PreguntaFondo8, PreguntaFondo9, PreguntaFondo10, EstadoFormularioAceptacion, Estado, FechaRegistro, FechaModificacion FROM dbo.GFormularioAceptacion</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[GFormularioAceptacion] SET [CodigoFormularioAceptacion] = @CodigoFormularioAceptacion, [CodigoProyecto] = @CodigoProyecto, [CodigoEstudiante] = @CodigoEstudiante, [CodigoTribunal] = @CodigoTribunal, [PreguntaFormatoYForma1] = @PreguntaFormatoYForma1, [PreguntaFormatoYForma2] = @PreguntaFormatoYForma2, [PreguntaFormatoYForma3] = @PreguntaFormatoYForma3, [PreguntaFormatoYForma4] = @PreguntaFormatoYForma4, [PreguntaFormatoYForma5] = @PreguntaFormatoYForma5, [PreguntaFormatoYForma6] = @PreguntaFormatoYForma6, [PreguntaFormatoYForma7] = @PreguntaFormatoYForma7, [PreguntaFormatoYForma8] = @PreguntaFormatoYForma8, [PreguntaFormatoYForma9] = @PreguntaFormatoYForma9, [PreguntaFormatoYForma10] = @PreguntaFormatoYForma10, [PreguntaFondo1] = @PreguntaFondo1, [PreguntaFondo2] = @PreguntaFondo2, [PreguntaFondo3] = @PreguntaFondo3, [PreguntaFondo4] = @PreguntaFondo4, [PreguntaFondo5] = @PreguntaFondo5, [PreguntaFondo6] = @PreguntaFondo6, [PreguntaFondo7] = @PreguntaFondo7, [PreguntaFondo8] = @PreguntaFondo8, [PreguntaFondo9] = @PreguntaFondo9, [PreguntaFondo10] = @PreguntaFondo10, [FechaRegistro] = @FechaRegistro WHERE (([CodigoFormularioAceptacion] = @Original_CodigoFormularioAceptacion))</CommandText>
+                    <CommandText>UPDATE [dbo].[GFormularioAceptacion] SET [CodigoFormularioAceptacion] = @CodigoFormularioAceptacion, [CodigoProyecto] = @CodigoProyecto, [CodigoEstudiante] = @CodigoEstudiante, [CodigoTribunal] = @CodigoTribunal, [PreguntaFormatoYForma1] = @PreguntaFormatoYForma1, [PreguntaFormatoYForma2] = @PreguntaFormatoYForma2, [PreguntaFormatoYForma3] = @PreguntaFormatoYForma3, [PreguntaFormatoYForma4] = @PreguntaFormatoYForma4, [PreguntaFormatoYForma5] = @PreguntaFormatoYForma5, [PreguntaFormatoYForma6] = @PreguntaFormatoYForma6, [PreguntaFormatoYForma7] = @PreguntaFormatoYForma7, [PreguntaFormatoYForma8] = @PreguntaFormatoYForma8, [PreguntaFormatoYForma9] = @PreguntaFormatoYForma9, [PreguntaFormatoYForma10] = @PreguntaFormatoYForma10, [PreguntaFondo1] = @PreguntaFondo1, [PreguntaFondo2] = @PreguntaFondo2, [PreguntaFondo3] = @PreguntaFondo3, [PreguntaFondo4] = @PreguntaFondo4, [PreguntaFondo5] = @PreguntaFondo5, [PreguntaFondo6] = @PreguntaFondo6, [PreguntaFondo7] = @PreguntaFondo7, [PreguntaFondo8] = @PreguntaFondo8, [PreguntaFondo9] = @PreguntaFondo9, [PreguntaFondo10] = @PreguntaFondo10, [EstadoFormularioAceptacion] = @EstadoFormularioAceptacion, [Estado] = @Estado, [FechaRegistro] = @FechaRegistro, [FechaModificacion] = @FechaModificacion WHERE (([CodigoFormularioAceptacion] = @Original_CodigoFormularioAceptacion))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CodigoFormularioAceptacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CodigoFormularioAceptacion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoProyecto" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoEstudiante" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoEstudiante" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoTribunal" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoTribunal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoProyecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoEstudiante" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoEstudiante" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoTribunal" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoTribunal" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFormatoYForma1" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFormatoYForma1" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFormatoYForma2" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFormatoYForma2" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFormatoYForma3" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFormatoYForma3" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -84,7 +88,10 @@
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFondo8" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFondo8" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFondo9" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFondo9" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@PreguntaFondo10" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="PreguntaFondo10" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@EstadoFormularioAceptacion" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="EstadoFormularioAceptacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Estado" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Estado" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaRegistro" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaRegistro" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaModificacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaModificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_CodigoFormularioAceptacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CodigoFormularioAceptacion" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
@@ -116,7 +123,10 @@
               <Mapping SourceColumn="PreguntaFondo8" DataSetColumn="PreguntaFondo8" />
               <Mapping SourceColumn="PreguntaFondo9" DataSetColumn="PreguntaFondo9" />
               <Mapping SourceColumn="PreguntaFondo10" DataSetColumn="PreguntaFondo10" />
+              <Mapping SourceColumn="EstadoFormularioAceptacion" DataSetColumn="EstadoFormularioAceptacion" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
               <Mapping SourceColumn="FechaRegistro" DataSetColumn="FechaRegistro" />
+              <Mapping SourceColumn="FechaModificacion" DataSetColumn="FechaModificacion" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -135,21 +145,21 @@
               <xs:element name="CodigoProyecto" msprop:Generator_ColumnPropNameInRow="CodigoProyecto" msprop:Generator_ColumnPropNameInTable="CodigoProyectoColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoProyecto" msprop:Generator_UserColumnName="CodigoProyecto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="5" />
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CodigoEstudiante" msprop:Generator_ColumnPropNameInRow="CodigoEstudiante" msprop:Generator_ColumnPropNameInTable="CodigoEstudianteColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoEstudiante" msprop:Generator_UserColumnName="CodigoEstudiante">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CodigoTribunal" msprop:Generator_ColumnPropNameInRow="CodigoTribunal" msprop:Generator_ColumnPropNameInTable="CodigoTribunalColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoTribunal" msprop:Generator_UserColumnName="CodigoTribunal">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -293,7 +303,22 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="EstadoFormularioAceptacion" msprop:Generator_ColumnPropNameInRow="EstadoFormularioAceptacion" msprop:Generator_ColumnPropNameInTable="EstadoFormularioAceptacionColumn" msprop:Generator_ColumnVarNameInTable="columnEstadoFormularioAceptacion" msprop:Generator_UserColumnName="EstadoFormularioAceptacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="FechaRegistro" msprop:Generator_ColumnPropNameInRow="FechaRegistro" msprop:Generator_ColumnPropNameInTable="FechaRegistroColumn" msprop:Generator_ColumnVarNameInTable="columnFechaRegistro" msprop:Generator_UserColumnName="FechaRegistro" type="xs:dateTime" />
+              <xs:element name="FechaModificacion" msprop:Generator_ColumnPropNameInRow="FechaModificacion" msprop:Generator_ColumnPropNameInTable="FechaModificacionColumn" msprop:Generator_ColumnVarNameInTable="columnFechaModificacion" msprop:Generator_UserColumnName="FechaModificacion" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

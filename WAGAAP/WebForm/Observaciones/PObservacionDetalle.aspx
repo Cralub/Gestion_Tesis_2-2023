@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Detalle Observacion" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="PObservacionDetalle.aspx.cs" Inherits="WebForm_PObservacionDetalle" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="../../Estilos/Observaciones/SObservacion.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 

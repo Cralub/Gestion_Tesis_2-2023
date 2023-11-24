@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 using System.Web;
+using System.Web.UI;
 
 public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Page
 {
@@ -19,29 +20,28 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
     private bool ValidarEntradas()
     {
         bool res = false;
-        if(SUtil.ValidarSoloTextoYEspacios(txbTitulo.Text.Trim(), 10) &&
-           SUtil.ValidarSoloTextoYEspacios(txbObjetivoGeneral.Text.Trim(), 10) &&
-           SUtil.ValidarSoloTextoYEspacios(txbObjetivosEspecificos.Text.Trim(), 10) &&
-           SUtil.ValidarSoloTextoYEspacios(txbAlcanceProyecto.Text.Trim(), 10))
-           res = true;
+        if (SUtil.ValidarSoloTextoYEspacio(txbTitulo.Text.Trim(), 0) &&
+            SUtil.ValidarSoloTextoYEspacio(txbObjetivoGeneral.Text.Trim(), 0) &&
+            SUtil.ValidarSoloTextoYEspacio(txbObjetivosEspecificos.Text.Trim(), 0) &&
+            SUtil.ValidarSoloTextoYEspacio(txbAlcance.Text.Trim(), 0))
+            res = true;
         return res;
     }
     private bool ValidacionDeEstados(EProyectoCompleja proyecto)
     {
         bool esValido = false;
-        EGEtapa eGEtapa = cEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(proyecto.CodigoProyecto, SDatosGlobales.ESTADO_ACTIVO);
-        EGSubEtapa eGSubEtapa = cSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatosGlobales.ESTADO_ACTIVO);
-        esValido = cProyectoCompleja.Verificar_GProyecto_CorrespondeRevision(proyecto.CodigoRol, eGEtapa.NumeroEtapa, eGSubEtapa.NumeroSubEtapa);
+       
         return esValido;
     }
     #endregion
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (!IsPostBack)
         {
             CargarInformacionProyecto();
-            LimpiarVariables();
         }
+        LimpiarVariables();
     }
 
     private void CargarInformacionProyecto()
@@ -54,7 +54,7 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
             lblRevision.Text = proyectoCompleto.NumeroRevisionesProyecto.ToString();
             lblCodigoProyecto.Text = proyectoCompleto.CodigoProyecto;
             txbObjetivosEspecificos.Text = proyectoCompleto.ObjetivosEspecificosProyecto;
-            txbAlcanceProyecto.Text = proyectoCompleto.AlcanceProyecto;
+            txbAlcance.Text = proyectoCompleto.AlcanceProyecto;
             lkbEnlaceDocumento.Text = proyectoCompleto.EnlaceDocumentoProyecto;
             txbTitulo.Text = proyectoCompleto.TituloProyecto;
             ddlModalidades.Text = proyectoCompleto.ModalidadProyecto.ToString();
@@ -70,11 +70,11 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
             if (!EsModificable)
             {
                 txbObjetivosEspecificos.Enabled = false;
-                txbAlcanceProyecto.Enabled = false;
+                txbAlcance.Enabled = false;
                 ddlModalidades.Enabled = false;
                 txbObjetivoGeneral.Enabled = false;
                 txbTitulo.Enabled = false;
-                btnAgregar.Enabled = false;
+                btnActualizarInformacion.Enabled = false;
                 btnAgregarDocumento.Enabled = false;
                 btnAvanzar.Enabled = false;
                 btnTutor.Enabled = false;
@@ -96,27 +96,7 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
 
 
 
-    public void btnAgregar_Click(object sender, EventArgs e)
-    {
-        if (Session["ProyectoComplejo"] != null)
-        {
-            EProyectoCompleja proyectoC = Session["ProyectoComplejo"] as EProyectoCompleja;
-            EGProyecto proyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(proyectoC.CodigoProyecto);          
-            if (ValidarEntradas())
-            {
-                cProyecto.Actualizar_GProyecto_A(proyecto.CodigoProyecto,
-                                                 char.Parse(ddlModalidades.SelectedValue.Trim()),
-                                                 txbTitulo.Text.Trim(),
-                                                 txbObjetivoGeneral.Text.Trim(),
-                                                 txbObjetivosEspecificos.Text.Trim(),
-                                                 txbAlcanceProyecto.Text.Trim(),
-                                                 proyecto.NumeroRevisiones,
-                                                 lkbEnlaceDocumento.Text.Trim()
-                                                 );
-            }
-        }
-        CargarInformacionProyecto();
-    }
+
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/WebForm/Informacion/PGraficasAvance.aspx");
@@ -128,17 +108,39 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
         bool tieneTutor = !string.IsNullOrEmpty(proyectoC.CodigoTutor);
         bool tieneModalidadCorrecta = char.Parse(ddlModalidades.SelectedValue) != '-';
 
-        if (esCorrectoEntradasTexto && tieneTutor && tieneModalidadCorrecta)        
-            return true;        
+        if (esCorrectoEntradasTexto && tieneTutor && tieneModalidadCorrecta)
+            return true;
         return false;
     }
 
+    protected void btnConfirmar_Click(object sender, EventArgs e)
+    {
+        if (Session["ProyectoComplejo"] != null && Session["UsuarioSesion"] != null && FormularioCompletoEnOrden())
+        {
+            string codigoProyecto = (Session["ProyectoComplejo"] as EProyectoCompleja).CodigoProyecto;
+            EUsuarioSesionGAAP usuario = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
 
+            var usuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto);
+            var usuarioP = usuarioProyecto.Where(w => w.CodigoUsuario == usuario.CodigoUsuario).FirstOrDefault();
+            cProyectoCompleja.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto, usuario.CodigoUsuario, usuarioP.CodigoRol);
+            CargarInformacionProyecto();
+        }
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "modalConfirmacion", "Close()", true);
+
+    }
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "modalConfirmacion", "Close()", true);
+    }
     protected void btnAvanzar_Click(object sender, EventArgs e)
     {
-
-        if (Session["ProyectoComplejo"] != null && FormularioCompletoEnOrden())
-            cProyectoCompleja.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo((Session["ProyectoComplejo"] as EProyectoCompleja).CodigoProyecto);
+        var proyecto = Session["ProyectoComplejo"] as EProyectoCompleja;
+        if (!string.IsNullOrEmpty(proyecto.NombreTutor))
+        {
+            lblModal.Text = string.Format("¿Esta seguro que quiero crear este proyecto a {0}?", proyecto.NombreTutor);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "modalConfirmacion", "Open()", true);
+        }
+        lblMensajeTutor.Text = "*Escoja un Tutor antes de continuar";
     }
 
     protected void btnTutor_Click(object sender, EventArgs e)
@@ -150,23 +152,29 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
                     .Obtener_GUsuarioProyecto_O_CodigoProyecto(proyecto.CodigoProyecto)
                     .Any(w => w.CodigoRol == SDatosGlobales.ROL_TUTOR
                     && w.EstadoUsuarioProyecto == SDatosGlobales.ESTADO_ACTIVO);
-            if (!existeTutorActivo)            
-                Response.Redirect("~/WebForm/Formulario/PElegirTutor.aspx");            
-            else            
-                lblMensajeElegirNuevoTutor.Text = string.Format("El proyecto ya posee un Tutor Confirmado");
-            
+            if (!existeTutorActivo)
+                Response.Redirect("~/WebForm/Formulario/PElegirTutor.aspx");
+            else
+                lblMensajeTutor.Text = string.Format("El proyecto ya posee un Tutor Confirmado");
+
         }
     }
     private void LimpiarVariables()
-    {        
+    {
         Session["PaginaAnterior"] = null;
         Session["CodigoUsuario"] = null;
-        lblMensajeElegirNuevoTutor.Text = string.Empty;
+        lblMensajeEnlaceDocumento.Text = string.Empty;
+        lblMensajeTitulo.Text = string.Empty;
+        lblMensajeModalidad.Text = string.Empty;
+        lblMensajeObjetivoGeneral.Text = string.Empty;
+        lblMensajeObjetivosEspecificos.Text = string.Empty;
+        lblMensajeAlcance.Text = string.Empty;
+        lblMensajeTutor.Text = string.Empty;
     }
 
     protected void btnAgregarDocumento_Click(object sender, EventArgs e)
     {
-        
+
     }
 
     protected void btnCVTutorExterno_Click(object sender, EventArgs e)
@@ -174,8 +182,27 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
         if (Session["ProyectoComplejo"] != null)
         {
             /*Enviar codigoProyecto adjunto a CV tutor al Director*/
-                
+
         }
 
+    }
+
+    protected void btnActualizarInformacion_Click(object sender, EventArgs e)
+    {
+        if (Session["ProyectoComplejo"] != null && Session["UsuarioSesion"] != null)
+        {
+            EProyectoCompleja proyectoC = Session["ProyectoComplejo"] as EProyectoCompleja;
+            EGProyecto proyecto = cProyecto.Obtener_GProyecto_O_CodigoProyecto(proyectoC.CodigoProyecto);
+            cProyecto.Actualizar_GProyecto_A(proyecto.CodigoProyecto,
+                                                 char.Parse(ddlModalidades.SelectedValue.Trim()),
+                                                 txbTitulo.Text.Trim(),
+                                                 txbObjetivoGeneral.Text.Trim(),
+                                                 txbObjetivosEspecificos.Text.Trim(),
+                                                 txbAlcance.Text.Trim(),
+                                                 proyecto.NumeroRevisionesProyecto,
+                                                 lkbEnlaceDocumento.Text.Trim()
+                                                 );
+        }
+        CargarInformacionProyecto();
     }
 }

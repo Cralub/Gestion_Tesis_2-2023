@@ -2,16 +2,19 @@
 <xs:schema id="DTOGSubEtapa" targetNamespace="http://tempuri.org/DTOGSubEtapa.xsd" xmlns:mstns="http://tempuri.org/DTOGSubEtapa.xsd" xmlns="http://tempuri.org/DTOGSubEtapa.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="5" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString13" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString13 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString13.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString15" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString15 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString15.ConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString21" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString21 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString21.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString13" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString13 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString13.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString15" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString15 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString15.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="NETGAAPConnectionString21" IsAppSettingsProperty="true" Modifier="Assembly" Name="NETGAAPConnectionString21 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.NETGAAPConnectionString21.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="GAAPDATABASEConnectionString9" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GAAPDATABASEConnectionString9 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.GAAPDATABASEConnectionString9.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="GAAPDATABASEConnectionString10" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GAAPDATABASEConnectionString10 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.GAAPDATABASEConnectionString10.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="GAAPDATABASEConnectionString11" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GAAPDATABASEConnectionString11 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.GAAPDATABASEConnectionString11.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GSubEtapaTableAdapter" GeneratorDataComponentClassName="GSubEtapaTableAdapter" Name="GSubEtapa" UserDataComponentName="GSubEtapaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="NETGAAPConnectionString21 (Web.config)" DbObjectName="NETGAAP.dbo.GSubEtapa" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="GAAPDATABASEConnectionString11 (Web.config)" DbObjectName="GAAPDATABASE.dbo.GSubEtapa" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[GSubEtapa] WHERE (([CodigoSubEtapa] = @Original_CodigoSubEtapa))</CommandText>
@@ -22,11 +25,12 @@
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[GSubEtapa] ([CodigoSubEtapa], [CodigoEtapa], [CodigoUsuarioFirma], [NumeroSubEtapa], [FechaInicioSubEtapa], [FechaDefinidaSubEtapa], [FechaFinSubEtapa], [EstadoSubEtapa], [Estado], [FechaRegistro], [FechaModificacion]) VALUES (@CodigoSubEtapa, @CodigoEtapa, @CodigoUsuarioFirma, @NumeroSubEtapa, @FechaInicioSubEtapa, @FechaDefinidaSubEtapa, @FechaFinSubEtapa, @EstadoSubEtapa, @Estado, @FechaRegistro, @FechaModificacion)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[GSubEtapa] ([CodigoSubEtapa], [CodigoEtapa], [CodigoUsuarioFirmaSubEtapa], [CodigoRolDesignadoSubEtapa], [NumeroSubEtapa], [FechaInicioSubEtapa], [FechaDefinidaSubEtapa], [FechaFinSubEtapa], [EstadoSubEtapa], [Estado], [FechaRegistro], [FechaModificacion]) VALUES (@CodigoSubEtapa, @CodigoEtapa, @CodigoUsuarioFirmaSubEtapa, @CodigoRolDesignadoSubEtapa, @NumeroSubEtapa, @FechaInicioSubEtapa, @FechaDefinidaSubEtapa, @FechaFinSubEtapa, @EstadoSubEtapa, @Estado, @FechaRegistro, @FechaModificacion)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CodigoSubEtapa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CodigoSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CodigoEtapa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CodigoEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoUsuarioFirma" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoUsuarioFirma" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoUsuarioFirmaSubEtapa" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuarioFirmaSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoRolDesignadoSubEtapa" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoRolDesignadoSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@NumeroSubEtapa" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="NumeroSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaInicioSubEtapa" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaInicioSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaDefinidaSubEtapa" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaDefinidaSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -40,17 +44,18 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT CodigoSubEtapa, CodigoEtapa, CodigoUsuarioFirma, NumeroSubEtapa, FechaInicioSubEtapa, FechaDefinidaSubEtapa, FechaFinSubEtapa, EstadoSubEtapa, Estado, FechaRegistro, FechaModificacion FROM dbo.GSubEtapa</CommandText>
+                    <CommandText>SELECT CodigoSubEtapa, CodigoEtapa, CodigoUsuarioFirmaSubEtapa, CodigoRolDesignadoSubEtapa, NumeroSubEtapa, FechaInicioSubEtapa, FechaDefinidaSubEtapa, FechaFinSubEtapa, EstadoSubEtapa, Estado, FechaRegistro, FechaModificacion FROM dbo.GSubEtapa</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[GSubEtapa] SET [CodigoSubEtapa] = @CodigoSubEtapa, [CodigoEtapa] = @CodigoEtapa, [CodigoUsuarioFirma] = @CodigoUsuarioFirma, [NumeroSubEtapa] = @NumeroSubEtapa, [FechaInicioSubEtapa] = @FechaInicioSubEtapa, [FechaDefinidaSubEtapa] = @FechaDefinidaSubEtapa, [FechaFinSubEtapa] = @FechaFinSubEtapa, [EstadoSubEtapa] = @EstadoSubEtapa, [Estado] = @Estado, [FechaRegistro] = @FechaRegistro, [FechaModificacion] = @FechaModificacion WHERE (([CodigoSubEtapa] = @Original_CodigoSubEtapa))</CommandText>
+                    <CommandText>UPDATE [dbo].[GSubEtapa] SET [CodigoSubEtapa] = @CodigoSubEtapa, [CodigoEtapa] = @CodigoEtapa, [CodigoUsuarioFirmaSubEtapa] = @CodigoUsuarioFirmaSubEtapa, [CodigoRolDesignadoSubEtapa] = @CodigoRolDesignadoSubEtapa, [NumeroSubEtapa] = @NumeroSubEtapa, [FechaInicioSubEtapa] = @FechaInicioSubEtapa, [FechaDefinidaSubEtapa] = @FechaDefinidaSubEtapa, [FechaFinSubEtapa] = @FechaFinSubEtapa, [EstadoSubEtapa] = @EstadoSubEtapa, [Estado] = @Estado, [FechaRegistro] = @FechaRegistro, [FechaModificacion] = @FechaModificacion WHERE (([CodigoSubEtapa] = @Original_CodigoSubEtapa))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CodigoSubEtapa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CodigoSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CodigoEtapa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CodigoEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoUsuarioFirma" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoUsuarioFirma" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CodigoUsuarioFirmaSubEtapa" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CodigoUsuarioFirmaSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@CodigoRolDesignadoSubEtapa" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="CodigoRolDesignadoSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@NumeroSubEtapa" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="NumeroSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaInicioSubEtapa" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaInicioSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaDefinidaSubEtapa" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaDefinidaSubEtapa" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -68,7 +73,8 @@
             <Mappings>
               <Mapping SourceColumn="CodigoSubEtapa" DataSetColumn="CodigoSubEtapa" />
               <Mapping SourceColumn="CodigoEtapa" DataSetColumn="CodigoEtapa" />
-              <Mapping SourceColumn="CodigoUsuarioFirma" DataSetColumn="CodigoUsuarioFirma" />
+              <Mapping SourceColumn="CodigoUsuarioFirmaSubEtapa" DataSetColumn="CodigoUsuarioFirmaSubEtapa" />
+              <Mapping SourceColumn="CodigoRolDesignadoSubEtapa" DataSetColumn="CodigoRolDesignadoSubEtapa" />
               <Mapping SourceColumn="NumeroSubEtapa" DataSetColumn="NumeroSubEtapa" />
               <Mapping SourceColumn="FechaInicioSubEtapa" DataSetColumn="FechaInicioSubEtapa" />
               <Mapping SourceColumn="FechaDefinidaSubEtapa" DataSetColumn="FechaDefinidaSubEtapa" />
@@ -93,10 +99,17 @@
             <xs:sequence>
               <xs:element name="CodigoSubEtapa" msprop:Generator_ColumnPropNameInRow="CodigoSubEtapa" msprop:Generator_ColumnPropNameInTable="CodigoSubEtapaColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoSubEtapa" msprop:Generator_UserColumnName="CodigoSubEtapa" type="xs:int" />
               <xs:element name="CodigoEtapa" msprop:Generator_ColumnPropNameInRow="CodigoEtapa" msprop:Generator_ColumnPropNameInTable="CodigoEtapaColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoEtapa" msprop:Generator_UserColumnName="CodigoEtapa" type="xs:int" />
-              <xs:element name="CodigoUsuarioFirma" msprop:Generator_ColumnPropNameInRow="CodigoUsuarioFirma" msprop:Generator_ColumnPropNameInTable="CodigoUsuarioFirmaColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoUsuarioFirma" msprop:Generator_UserColumnName="CodigoUsuarioFirma">
+              <xs:element name="CodigoUsuarioFirmaSubEtapa" msprop:Generator_ColumnPropNameInRow="CodigoUsuarioFirmaSubEtapa" msprop:Generator_ColumnPropNameInTable="CodigoUsuarioFirmaSubEtapaColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoUsuarioFirmaSubEtapa" msprop:Generator_UserColumnName="CodigoUsuarioFirmaSubEtapa">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CodigoRolDesignadoSubEtapa" msprop:Generator_ColumnPropNameInRow="CodigoRolDesignadoSubEtapa" msprop:Generator_ColumnPropNameInTable="CodigoRolDesignadoSubEtapaColumn" msprop:Generator_ColumnVarNameInTable="columnCodigoRolDesignadoSubEtapa" msprop:Generator_UserColumnName="CodigoRolDesignadoSubEtapa">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

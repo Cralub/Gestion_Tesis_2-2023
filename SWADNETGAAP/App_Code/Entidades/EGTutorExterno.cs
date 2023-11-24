@@ -12,11 +12,9 @@ public class EGTutorExterno
 
     #region Propiedades
     [DataMember]
-    public int CodigoTutorExterno { get; set; }
+    public string CodigoTutorExterno { get; set; }
     [DataMember]
-    public string NombresTutorExterno { get; set; }
-    [DataMember]
-    public string ApellidosTutorExterno { get; set; }
+    public string NombreCompletoTutorExterno { get; set; }    
     [DataMember]
     public string CarreraTutorExterno { get; set; }
     [DataMember]
@@ -39,9 +37,8 @@ public class EGTutorExterno
     #region Constructores
     public EGTutorExterno()
     {
-        CodigoTutorExterno = int.MinValue;
-        NombresTutorExterno = string.Empty;
-        ApellidosTutorExterno = string.Empty;
+        CodigoTutorExterno = string.Empty;
+        NombreCompletoTutorExterno = string.Empty;        
         CarreraTutorExterno = string.Empty;
         DireccionTrabajoTutorExterno = string.Empty;
         DescripcionTutorExterno = string.Empty;

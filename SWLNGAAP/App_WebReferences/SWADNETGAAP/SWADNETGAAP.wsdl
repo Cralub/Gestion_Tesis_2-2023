@@ -97,12 +97,6 @@
   <wsdl:message name="ISWADNETGAAP_Insertar_GProyecto_I_OutputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GProyecto_IResponse" />
   </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_InputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O" />
-  </wsdl:message>
-  <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Obtener_GProyecto_OResponse" />
-  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GProyecto_O_CodigoProyecto_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GProyecto_O_CodigoProyecto" />
   </wsdl:message>
@@ -157,11 +151,23 @@
   <wsdl:message name="ISWADNETGAAP_Insertar_GFormularioAceptacion_I_OutputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GFormularioAceptacion_IResponse" />
   </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GFormularioAceptacion_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GFormularioAceptacion_A" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GFormularioAceptacion_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GFormularioAceptacion_AResponse" />
+  </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GFormularioAceptacion_O_CodigoProyecto" />
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GFormularioAceptacion_O_CodigoProyectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacionResponse" />
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Insertar_GSubEtapa_I_InputMessage">
     <wsdl:part name="parameters" element="tns:Insertar_GSubEtapa_I" />
@@ -192,6 +198,12 @@
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa_OutputMessage">
     <wsdl:part name="parameters" element="tns:Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa" />
+  </wsdl:message>
+  <wsdl:message name="ISWADNETGAAP_Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapaResponse" />
   </wsdl:message>
   <wsdl:message name="ISWADNETGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_InputMessage">
     <wsdl:part name="parameters" element="tns:Actualizar_GSubEtapa_A_EstadoSubEtapa" />
@@ -404,10 +416,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_I" message="tns:ISWADNETGAAP_Insertar_GProyecto_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GProyecto_IResponse" message="tns:ISWADNETGAAP_Insertar_GProyecto_I_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GProyecto_O">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_OResponse" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Obtener_GProyecto_O_CodigoProyecto">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_CodigoProyecto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GProyecto_O_CodigoProyecto_OutputMessage" />
@@ -444,9 +452,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GFormularioAceptacion_I" message="tns:ISWADNETGAAP_Insertar_GFormularioAceptacion_I_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GFormularioAceptacion_IResponse" message="tns:ISWADNETGAAP_Insertar_GFormularioAceptacion_I_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Actualizar_GFormularioAceptacion_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GFormularioAceptacion_A" message="tns:ISWADNETGAAP_Actualizar_GFormularioAceptacion_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GFormularioAceptacion_AResponse" message="tns:ISWADNETGAAP_Actualizar_GFormularioAceptacion_A_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Obtener_GFormularioAceptacion_O_CodigoProyecto">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_CodigoProyecto" message="tns:ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_CodigoProyectoResponse" message="tns:ISWADNETGAAP_Obtener_GFormularioAceptacion_O_CodigoProyecto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion" message="tns:ISWADNETGAAP_Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacionResponse" message="tns:ISWADNETGAAP_Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Insertar_GSubEtapa_I">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Insertar_GSubEtapa_I" message="tns:ISWADNETGAAP_Insertar_GSubEtapa_I_InputMessage" />
@@ -467,6 +483,10 @@
     <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapaResponse" message="tns:ISWADNETGAAP_Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa" message="tns:ISWADNETGAAP_Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapaResponse" message="tns:ISWADNETGAAP_Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Actualizar_GSubEtapa_A_EstadoSubEtapa">
       <wsdl:input wsaw:Action="http://tempuri.org/ISWADNETGAAP/Actualizar_GSubEtapa_A_EstadoSubEtapa" message="tns:ISWADNETGAAP_Actualizar_GSubEtapa_A_EstadoSubEtapa_InputMessage" />
@@ -706,15 +726,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Obtener_GProyecto_O">
-      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Obtener_GProyecto_O_CodigoProyecto">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GProyecto_O_CodigoProyecto" style="document" />
       <wsdl:input>
@@ -796,8 +807,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Actualizar_GFormularioAceptacion_A">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GFormularioAceptacion_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Obtener_GFormularioAceptacion_O_CodigoProyecto">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_CodigoProyecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -843,6 +872,15 @@
     </wsdl:operation>
     <wsdl:operation name="Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa">
       <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa">
+      <soap:operation soapAction="http://tempuri.org/ISWADNETGAAP/Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

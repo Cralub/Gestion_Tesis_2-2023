@@ -85,6 +85,19 @@ public class CUsuarioProyecto
         }
         return lstEGUsuarioProyecto;
     }
+    public EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string codigoUsuario, string codigoProyecto)
+    {
+        EGUsuarioProyecto eGUsuarioProyecto = new EGUsuarioProyecto();
+        try
+        {
+            eGUsuarioProyecto = lNServicio.Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(codigoUsuario, codigoProyecto);
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw ex;
+        }
+        return eGUsuarioProyecto;
+    }
     public void Actualizar_GUsuarioProyecto_A(int codigoUsuarioProyecto, string codigoProyecto, string codigoUsuario, string codigoRol, char estadoUsuarioProyecto)
     {
         try

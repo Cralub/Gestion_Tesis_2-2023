@@ -4,10 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div>
         <h2>Lista Formularios de Aceptacion</h2>
-        
+        <asp:Button ID="btnCrearFormularioAceptacion" runat="server"  Text="Crear Formulario Aceptacion" OnClick="btnCrearFormularioAceptacion_Click"/>
         <asp:GridView ID="grvListaFormularioAceptacion" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="grvListaFormularioAceptacion_RowCommand">
             <Columns>
-                <asp:BoundField DataField="CodigoFormularioAceptacion" HeaderText="Código Formulario Aceptación" Visible="True" />
+                <asp:BoundField DataField="CodigoFormularioAceptacion" HeaderText="Código Formulario Aceptación" Visible="false" />
                 <asp:BoundField DataField="CodigoProyecto" HeaderText="Código Proyecto" Visible="True" />
                 <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
             </Columns>

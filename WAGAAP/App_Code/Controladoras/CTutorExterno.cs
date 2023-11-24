@@ -36,11 +36,11 @@ public class CTutorExterno
     #region Metodos Publicos
 
     #region GTutorExterno
-    public void Insertar_GTutorExterno_I(int CodigoTutorExterno, string NombreTutorExterno, string ApellidoTutorExterno, string CorreoTutorExterno, string TelefonoTutorExterno, string CodigoEmpresa, string EstadoTutorExterno)
+    public void Insertar_GTutorExterno_I(string codigoTutorExterno, string nombreCompletoTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
     {
         try
         {
-            lNServicio.Insertar_GTutorExterno_I(CodigoTutorExterno, NombreTutorExterno, ApellidoTutorExterno, CorreoTutorExterno, TelefonoTutorExterno, CodigoEmpresa, EstadoTutorExterno);
+            lNServicio.Insertar_GTutorExterno_I(codigoTutorExterno, nombreCompletoTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -48,11 +48,11 @@ public class CTutorExterno
         }
     }
 
-    public void Actualizar_GTutorExterno_A(int CodigoTutorExterno, string NombreTutorExterno, string ApellidoTutorExterno, string CorreoTutorExterno, string TelefonoTutorExterno, string CodigoEmpresa, string EstadoTutorExterno)
+    public void Actualizar_GTutorExterno_A(string codigoTutorExterno, string nombreCompletoTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
     {
         try
         {
-            lNServicio.Actualizar_GTutorExterno_A(CodigoTutorExterno, NombreTutorExterno, ApellidoTutorExterno, CorreoTutorExterno, TelefonoTutorExterno, CodigoEmpresa, EstadoTutorExterno);
+            lNServicio.Actualizar_GTutorExterno_A(codigoTutorExterno, nombreCompletoTutorExterno, carreraTutorExterno, direccionTrabajoTutorExterno, descripcionTutorExterno, sedeTutorExterno);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -60,11 +60,11 @@ public class CTutorExterno
         }
     }
 
-    public void Eliminar_GTutorExterno_E(int CodigoTutorExterno)
+    public void Eliminar_GTutorExterno_E(string codigoTutorExterno)
     {
         try
         {
-            lNServicio.Eliminar_GTutorExterno_E(CodigoTutorExterno);
+            lNServicio.Eliminar_GTutorExterno_E(codigoTutorExterno);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -84,7 +84,7 @@ public class CTutorExterno
         }
     }
 
-    public SWLNGAAP.EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int CodigoTutorExterno)
+    public SWLNGAAP.EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(string CodigoTutorExterno)
     {
         try
         {

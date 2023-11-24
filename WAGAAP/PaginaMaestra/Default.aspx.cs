@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class PaginaMaestra_Default : System.Web.UI.Page
@@ -13,7 +12,7 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
     CUsuario cUsuario = new CUsuario();
     CUsuarioRol cUsuarioRol = new CUsuarioRol();
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
-    bool estaLogueado = false;
+    CCelular cCelular = new CCelular();
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -21,7 +20,6 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             LimpiarVariables();
-            FiltrarInterfazUsuario();
         }
     }
     
@@ -54,10 +52,12 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
                 {
                     AccederInterfazEstudiante(usuarioSesion);
                 }
-
-
+                else
+                {
+                    Response.Redirect("~/WebForm/Proyecto/PListarProyectosRevision.aspx");
+                }
                 MostrarInformacion();
-                FiltrarInterfazUsuario();
+                
             }
         }
 
@@ -69,35 +69,12 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
         if (proyectoEstudiante != null)
         {
             Session["CodigoProyecto"] = proyectoEstudiante.First().CodigoProyecto;
-            Session["PaginaAnterior"]= HttpContext.Current.Request.Url.PathAndQuery;
+            //Session["PaginaAnterior"]= HttpContext.Current.Request.Url.PathAndQuery;
             Response.Redirect("~/WebForm/Informacion/PGraficasAvance.aspx");
         }
         else
             lblUsuarioLogueado.Text = string.Format("Estudiante: {0} contactese con su director de carrera ", usuarioSesion.NombreCompleto);
-    }
-
-    protected void btnCrearProyecto_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/WebForm/Proyecto/PCrearProyecto.aspx");
-    }
-
-    protected void btnFormularios_Click(object sender, EventArgs e)
-    {
-        if (Session["UsuarioSesion"] != null)        
-            Response.Redirect("~/WebForm/Proyecto/PListarProyectosRevision.aspx");
-        
-    }
-
-    protected void btnFiltrarProyectos_Click(object sender, EventArgs e)
-    {
-        if (Session["UsuarioSesion"] != null)        
-            Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
-    }
-
-    protected void btnInformacion_Click(object sender, EventArgs e)
-    {
-
-    }
+    }   
 
     protected void btnLimpiar_Click(object sender, EventArgs e)
     {
@@ -105,54 +82,30 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
         lblUsuarioLogueado.Text = string.Empty;
     }
 
-    protected void btnTutorExterno_Click(object sender, EventArgs e)
-    {
-        if (Session["UsuarioSesion"] != null)
-            Response.Redirect("~/WebForm/ControlesDirector/TutorExterno/PListarTutoresExternos.aspx");
-    }
+    
     private void LimpiarVariables()
     {
         Session["CorrespondeRevision"] = null;
         Session["PaginaAnterior"] = null;
         Session["CodigoProyecto"] = null;
         Session["UsuarioSesion"] = null;
-    }
-    void FiltrarInterfazUsuario()
+    }   
+
+    protected void btnCelularInfo_Click(object sender, EventArgs e)
     {
         if (Session["UsuarioSesion"] != null)
         {
             EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
-
-            btnCrearProyecto.Enabled = !usuarioSesion.esEstudiante;
-            btnCrearProyecto.Visible = !usuarioSesion.esEstudiante;
-
-            btnFiltrarProyectos.Enabled = !usuarioSesion.esEstudiante;
-            btnFiltrarProyectos.Visible = !usuarioSesion.esEstudiante;
-
-            btnTutorExterno.Enabled = !usuarioSesion.esEstudiante;
-            btnTutorExterno.Visible = !usuarioSesion.esEstudiante;
-
-            btnFormularios.Enabled = !usuarioSesion.esEstudiante;
-            btnFormularios.Visible = !usuarioSesion.esEstudiante;
+            EGCelular celular = cCelular.Obtener_GCelular_O_CodigoUsuario(usuarioSesion.CodigoUsuario);
+            if (celular != null)
+            {
+                Session["Celular"] = celular;
+                Response.Redirect("~/WebForm/Usuario/PEditarCelular.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/WebForm/Usuario/PAgregarCelular.aspx");
+            }
         }
-        else
-        {
-            btnCrearProyecto.Enabled = false;
-            btnCrearProyecto.Visible = false;
-
-            btnFiltrarProyectos.Enabled = false;
-            btnFiltrarProyectos.Visible = false;
-
-            btnTutorExterno.Enabled = false;
-            btnTutorExterno.Visible = false;
-
-            btnInformacion.Enabled = false;
-            btnInformacion.Visible = false;
-
-            btnFormularios.Enabled = false;
-            btnFormularios.Visible = false;
-        }
-
-
     }
 }

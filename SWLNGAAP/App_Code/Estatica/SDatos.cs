@@ -33,11 +33,14 @@ public static class SDatos
     #endregion
 
     #region Estados específicos de las tablas 
+
     public const char ESTADO_ACTIVO = 'A';
-    public const char ESTADO_SALTAR = 'S';
+    public const char ESTADO_IGNORADO = 'I';
     public const char ESTADO_PAUSADO = 'P';
-    public const char ESTADO_RECHAZADO = 'R';
     public const char ESTADO_FINALIZADO = 'F';
+
+    public const char ESTADO_RECHAZADO = 'R';
+    //Observaciones
     public const char ESTADO_CORREGIDO = 'C';
     public const char ESTADO_REVISADO = 'V';
     #endregion

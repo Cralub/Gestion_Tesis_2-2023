@@ -37,11 +37,11 @@ public class CSubEtapa
     #region Metodos Publicos
 
     #region GSubEtapa
-    public void Insertar_GSubEtapa_I(int codigoSubEtapa, byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa)
+    public void Insertar_GSubEtapa_I(int codigoSubEtapa, int codigoEtapa, string codigoUsuarioFirmaSubEtapa, string codigoRolDesignadoSubEtapa, byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, char estadoSubEtapa)
     {
         try
         {
-            lNServicio.Insertar_GSubEtapa_I(codigoSubEtapa, numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, codigoUsuarioFirma, codigoEtapa, estadoSubEtapa);
+            lNServicio.Insertar_GSubEtapa_I(codigoSubEtapa, codigoEtapa, codigoUsuarioFirmaSubEtapa, codigoRolDesignadoSubEtapa, numeroSubEtapa, fechaInicioSubEtapa, fechaDefinidaSubEtapa, fechaFinSubEtapa, estadoSubEtapa);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -58,6 +58,19 @@ public class CSubEtapa
         {
             throw ex;
         }
+    }
+    public List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int codigoEtapa)
+    {
+        List<EGSubEtapa> lstEGSubEtapa = new List<EGSubEtapa>();
+        try
+        {
+            lstEGSubEtapa = lNServicio.Obtener_GSubEtapa_O_CodigoEtapa(codigoEtapa);
+        }
+        catch (FaultException<EDefecto> ex)
+        {
+            throw ex;
+        }
+        return lstEGSubEtapa;
     }
     public EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int codigoEtapa, char estadoSubEtapa)
     {

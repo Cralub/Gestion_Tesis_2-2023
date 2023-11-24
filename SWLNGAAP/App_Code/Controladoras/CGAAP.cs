@@ -442,7 +442,7 @@ public class CGAAP
     }
     #endregion
     #region GProyecto
-    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto, char estadoProyecto)
+    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto,string objetivosEspecificosProyecto,string alcanceProyecto, string enlaceDocumentoProyecto, char estadoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
         try
@@ -451,6 +451,8 @@ public class CGAAP
             eGProyecto.ModalidadProyecto = modalidadProyecto;
             eGProyecto.TituloProyecto = tituloProyecto;
             eGProyecto.ObjetivoGeneralProyecto = objetivoGeneralProyecto;
+            eGProyecto.ObjetivosEspecificosProyecto = objetivosEspecificosProyecto;
+            eGProyecto.AlcanceProyecto = alcanceProyecto;
             eGProyecto.EnlaceDocumentoProyecto = enlaceDocumentoProyecto;
             eGProyecto.EstadoProyecto = estadoProyecto;
             aSNETGAAP.Insertar_GProyecto_I(eGProyecto);
@@ -469,6 +471,8 @@ public class CGAAP
                 eGProyecto.ModalidadProyecto = modalidadProyecto;
                 eGProyecto.TituloProyecto = tituloProyecto;
                 eGProyecto.ObjetivoGeneralProyecto = objetivoGeneralProyecto;
+                eGProyecto.ObjetivosEspecificosProyecto = objetivosEspecificosProyecto;
+                eGProyecto.AlcanceProyecto = alcanceProyecto;
                 eGProyecto.EnlaceDocumentoProyecto = enlaceDocumentoProyecto;
                 eGProyecto.EstadoProyecto = estadoProyecto;
                 aSNETGAAP.Insertar_GProyecto_I(eGProyecto);
@@ -480,33 +484,7 @@ public class CGAAP
             }
         }
     }
-    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
-    {
-        List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
-        try
-        {
-            lstEGProyecto = aSNETGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
-        }
-        catch (EndpointNotFoundException EndPointEx)
-        {
-            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_GProyecto_O", EndPointEx.ToString(), EndPointEx.Message);
-            throw new FaultException<EDefecto>(eDefecto);
-        }
-        catch (CommunicationException CommEx)
-        {
-            FaultException feaultEx = CommEx as FaultException;
-            if (feaultEx == null)
-            {
-                lstEGProyecto = aSNETGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
-            }
-            else
-            {
-                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_GProyecto_O", CommEx.ToString(), CommEx.Message);
-                throw new FaultException<EDefecto>(eDefecto);
-            }
-        }
-        return lstEGProyecto;
-    }
+    
     public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
@@ -645,7 +623,7 @@ public class CGAAP
         List<EGEtapa> lstEGEtapa = new List<EGEtapa>();
         try
         {
-            lstEGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto).ToList();
+            lstEGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -657,7 +635,7 @@ public class CGAAP
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                lstEGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto).ToList();
+                lstEGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto);
             }
             else
             {
@@ -803,6 +781,31 @@ public class CGAAP
             }
         }
     }
+    public void Actualizar_GFormularioAceptacion_A(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        try
+        {
+            aSNETGAAP.Actualizar_GFormularioAceptacion_A(eGFormularioAceptacion);
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Actualizar_GFormularioAceptacion_A", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                aSNETGAAP.Actualizar_GFormularioAceptacion_A(eGFormularioAceptacion);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Actualizar_GFormularioAceptacion_A", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+    }
     public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGFormularioAceptacion> lstFormularioAceptacion = new List<EGFormularioAceptacion>();
@@ -830,16 +833,42 @@ public class CGAAP
         }
         return lstFormularioAceptacion;
     }
+    public int Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion()
+    {
+        try
+        {
+            return aSNETGAAP.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                return aSNETGAAP.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+    }
     #endregion
     #region GSubEtapa
-    public void Insertar_GSubEtapa_I(int codigoSubEtapa, byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, string codigoUsuarioFirma, int codigoEtapa, char estadoSubEtapa)
+    public void Insertar_GSubEtapa_I(int codigoSubEtapa, int codigoEtapa, string codigoUsuarioFirmaSubEtapa, string codigoRolDesignadoSubEtapa, byte numeroSubEtapa, DateTime fechaInicioSubEtapa, DateTime fechaDefinidaSubEtapa, DateTime fechaFinSubEtapa, char estadoSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
         try
         {
             eGSubEtapa.CodigoSubEtapa = codigoSubEtapa;
             eGSubEtapa.CodigoEtapa = codigoEtapa;
-            eGSubEtapa.CodigoUsuarioFirma = codigoUsuarioFirma;
+            eGSubEtapa.CodigoUsuarioFirmaSubEtapa = codigoUsuarioFirmaSubEtapa;
+            eGSubEtapa.CodigoRolDesignadoSubEtapa = codigoRolDesignadoSubEtapa;
             eGSubEtapa.NumeroSubEtapa = numeroSubEtapa;
             eGSubEtapa.FechaInicioSubEtapa = fechaInicioSubEtapa;
             eGSubEtapa.FechaDefinidaSubEtapa = fechaDefinidaSubEtapa;
@@ -859,7 +888,8 @@ public class CGAAP
             {
                 eGSubEtapa.CodigoSubEtapa = codigoSubEtapa;
                 eGSubEtapa.CodigoEtapa = codigoEtapa;
-                eGSubEtapa.CodigoUsuarioFirma = codigoUsuarioFirma;
+                eGSubEtapa.CodigoUsuarioFirmaSubEtapa = codigoUsuarioFirmaSubEtapa;
+                eGSubEtapa.CodigoRolDesignadoSubEtapa = codigoRolDesignadoSubEtapa;
                 eGSubEtapa.NumeroSubEtapa = numeroSubEtapa;
                 eGSubEtapa.FechaInicioSubEtapa = fechaInicioSubEtapa;
                 eGSubEtapa.FechaDefinidaSubEtapa = fechaDefinidaSubEtapa;
@@ -982,6 +1012,31 @@ public class CGAAP
         }
         return eGSubEtapa;
     }
+    public void Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(string codigoUsuarioFirmaSubEtapa, int codigoSubEtapa, char estadoSubEtapa)
+    {
+        try
+        {
+            aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuarioFirmaSubEtapa,codigoSubEtapa, estadoSubEtapa);
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuarioFirmaSubEtapa, codigoSubEtapa, estadoSubEtapa);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+    }    
     public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {
         try
@@ -1648,7 +1703,7 @@ public class CGAAP
         return lstEGTutorExterno;
     }
 
-    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(string codigoTutorExterno)
     {
         EGTutorExterno eGTutorExterno = new EGTutorExterno();
         try
@@ -1676,14 +1731,13 @@ public class CGAAP
         return eGTutorExterno;
     }
 
-    public void Insertar_GTutorExterno_I(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    public void Insertar_GTutorExterno_I(string codigoTutorExterno, string nombreCompletoTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
     {
         EGTutorExterno eGTutorExterno = new EGTutorExterno();
         try
         {
             eGTutorExterno.CodigoTutorExterno = codigoTutorExterno;
-            eGTutorExterno.NombresTutorExterno = nombresTutorExterno;
-            eGTutorExterno.ApellidosTutorExterno = apellidosTutorExterno;
+            eGTutorExterno.NombreCompletoTutorExterno = nombreCompletoTutorExterno;
             eGTutorExterno.CarreraTutorExterno = carreraTutorExterno;
             eGTutorExterno.DireccionTrabajoTutorExterno = direccionTrabajoTutorExterno;
             eGTutorExterno.DescripcionTutorExterno = descripcionTutorExterno;
@@ -1701,8 +1755,7 @@ public class CGAAP
             if (feaultEx == null)
             {
                 eGTutorExterno.CodigoTutorExterno = codigoTutorExterno;
-                eGTutorExterno.NombresTutorExterno = nombresTutorExterno;
-                eGTutorExterno.ApellidosTutorExterno = apellidosTutorExterno;
+                eGTutorExterno.NombreCompletoTutorExterno = nombreCompletoTutorExterno;
                 eGTutorExterno.CarreraTutorExterno = carreraTutorExterno;
                 eGTutorExterno.DireccionTrabajoTutorExterno = direccionTrabajoTutorExterno;
                 eGTutorExterno.DescripcionTutorExterno = descripcionTutorExterno;
@@ -1717,14 +1770,13 @@ public class CGAAP
         }
     }
 
-    public void Actualizar_GTutorExterno_A(int codigoTutorExterno, string nombresTutorExterno, string apellidosTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
+    public void Actualizar_GTutorExterno_A(string codigoTutorExterno, string nombreCompletoTutorExterno, string carreraTutorExterno, string direccionTrabajoTutorExterno, string descripcionTutorExterno, string sedeTutorExterno)
     {
         EGTutorExterno eGTutorExterno = new EGTutorExterno();
         try
         {
             eGTutorExterno.CodigoTutorExterno = codigoTutorExterno;
-            eGTutorExterno.NombresTutorExterno = nombresTutorExterno;
-            eGTutorExterno.ApellidosTutorExterno = apellidosTutorExterno;
+            eGTutorExterno.NombreCompletoTutorExterno = nombreCompletoTutorExterno;
             eGTutorExterno.CarreraTutorExterno = carreraTutorExterno;
             eGTutorExterno.DireccionTrabajoTutorExterno = direccionTrabajoTutorExterno;
             eGTutorExterno.DescripcionTutorExterno = descripcionTutorExterno;
@@ -1742,8 +1794,7 @@ public class CGAAP
             if (feaultEx == null)
             {
                 eGTutorExterno.CodigoTutorExterno = codigoTutorExterno;
-                eGTutorExterno.NombresTutorExterno = nombresTutorExterno;
-                eGTutorExterno.ApellidosTutorExterno = apellidosTutorExterno;
+                eGTutorExterno.NombreCompletoTutorExterno = nombreCompletoTutorExterno;
                 eGTutorExterno.CarreraTutorExterno = carreraTutorExterno;
                 eGTutorExterno.DireccionTrabajoTutorExterno = direccionTrabajoTutorExterno;
                 eGTutorExterno.DescripcionTutorExterno = descripcionTutorExterno;
@@ -1758,7 +1809,7 @@ public class CGAAP
         }
     }
 
-    public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
+    public void Eliminar_GTutorExterno_E(string codigoTutorExterno)
     {
         try
         {
@@ -1785,85 +1836,8 @@ public class CGAAP
     }
     #endregion
     #region Metodos Complejos
-    #region GEtapa_SubEtapa
-    public void Actualizar_GEtapa_GSubEtapa_A(string codigoProyecto)
-    {
-        EGEtapa eGEtapa = new EGEtapa();
-        EGSubEtapa eGSubEtapa = new EGSubEtapa();
-        try
-        {
-            eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
-            eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGSubEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
-            byte NumeroSubEtapa = eGSubEtapa.NumeroSubEtapa;
-        }
-        catch (EndpointNotFoundException EndPointEx)
-        {
-            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Actualizar_GEtapa_GSubEtapa_A", EndPointEx.ToString(), EndPointEx.Message);
-            throw new FaultException<EDefecto>(eDefecto);
-        }
-        catch (CommunicationException CommEx)
-        {
-            FaultException feaultEx = CommEx as FaultException;
-            if (feaultEx == null)
-            {
-                eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
-                eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGSubEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
-                byte NumeroSubEtapa = eGSubEtapa.NumeroSubEtapa;
-            }
-            else
-            {
-                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Actualizar_GEtapa_GSubEtapa_A", CommEx.ToString(), CommEx.Message);
-                throw new FaultException<EDefecto>(eDefecto);
-            }
-        }
-    }
-    #endregion
-    #region EProgresoEtapaSubEtapa
-    public List<EProgresoEtapaSubEtapa> Obtener_EProgresoEtapaSubEtapa_O(string codigoProyecto)
-    {
-        EProgresoEtapaSubEtapa eEProgresoEtapaSubEtapa;
-        List<EProgresoEtapaSubEtapa> lstEProgresoEtapaSubEtapa = new List<EProgresoEtapaSubEtapa>();
-        try
-        {
-            foreach (EGEtapa etapas in Obtener_GEtapa_O_CodigoProyecto(codigoProyecto))
-            {
-                eEProgresoEtapaSubEtapa = new EProgresoEtapaSubEtapa();
-                eEProgresoEtapaSubEtapa.NumeroEtapa = etapas.NumeroEtapa;
-                eEProgresoEtapaSubEtapa.EstadoEtapa = etapas.EstadoEtapa;
-                eEProgresoEtapaSubEtapa.CantidadSubEtapaTotal = Obtener_GSubEtapa_O_CodigoEtapa(etapas.CodigoEtapa).Count();
-                eEProgresoEtapaSubEtapa.CantidadSubEtapaFinalizada = Obtener_GSubEtapa_O_CodigoEtapa(etapas.CodigoEtapa).Where(subetapa => subetapa.EstadoSubEtapa == 'F').Count();
-                lstEProgresoEtapaSubEtapa.Add(eEProgresoEtapaSubEtapa);
-            }
-        }
-        catch (EndpointNotFoundException EndPointEx)
-        {
-            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_EProgresoEtapaSubEtapa_O", EndPointEx.ToString(), EndPointEx.Message);
-            throw new FaultException<EDefecto>(eDefecto);
-        }
-        catch (CommunicationException CommEx)
-        {
-            FaultException feaultEx = CommEx as FaultException;
-            if (feaultEx == null)
-            {
-                foreach (EGEtapa etapas in Obtener_GEtapa_O_CodigoProyecto(codigoProyecto))
-                {
-                    eEProgresoEtapaSubEtapa = new EProgresoEtapaSubEtapa();
-                    eEProgresoEtapaSubEtapa.NumeroEtapa = etapas.NumeroEtapa;
-                    eEProgresoEtapaSubEtapa.EstadoEtapa = etapas.EstadoEtapa;
-                    eEProgresoEtapaSubEtapa.CantidadSubEtapaTotal = Obtener_GSubEtapa_O_CodigoEtapa(etapas.CodigoEtapa).Count();
-                    eEProgresoEtapaSubEtapa.CantidadSubEtapaFinalizada = Obtener_GSubEtapa_O_CodigoEtapa(etapas.CodigoEtapa).Where(subetapa => subetapa.EstadoSubEtapa == 'F').Count();
-                    lstEProgresoEtapaSubEtapa.Add(eEProgresoEtapaSubEtapa);
-                }
-            }
-            else
-            {
-                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_EProgresoEtapaSubEtapa_O", CommEx.ToString(), CommEx.Message);
-                throw new FaultException<EDefecto>(eDefecto);
-            }
-        }
-        return lstEProgresoEtapaSubEtapa;
-    }
-    #endregion
+    
+    
     #region EUsuarioCompleto
     public EUsuarioCompleto Obtener_EUsuarioCompleto_O_CodigoUsuario(string codigoUsuario, string codigoProyecto)
     {
@@ -1914,85 +1888,7 @@ public class CGAAP
         return eEUsuarioCompleto;
     }
     #endregion
-    #region EProyectoTiempoEntrega
-    public List<EProyectoTiempoEntrega> Obtener_EProyectoTiempoEntrega_O(string codigoUsuario)
-    {
-        EProyectoTiempoEntrega eEProyectoTiempoEntrega;
-        List<EProyectoTiempoEntrega> lstEProyectoTiempoEntrega = new List<EProyectoTiempoEntrega>();
-        List<EGProyecto> lstEGProyecto = Obtener_GProyecto_O_CodigoUsuario(codigoUsuario);
-        try
-        {
-            foreach (EGProyecto entrega in lstEGProyecto)
-            {
-                eEProyectoTiempoEntrega = new EProyectoTiempoEntrega();
-                switch (entrega.ModalidadProyecto)
-                {
-                    case SDatos.CHAR_MODALIDAD_TESIS:
-                        eEProyectoTiempoEntrega.Modalidad = SDatos.STRING_MODALIDAD_TESIS;
-                        break;
-                    case SDatos.CHAR_MODALIDAD_TRABAJO_DIRIGIDO:
-                        eEProyectoTiempoEntrega.Modalidad = SDatos.STRING_MODALIDAD_TRABAJO_DIRIGIDO;
-                        break;
-                    case SDatos.CHAR_MODALIDAD_PROYECTO_DE_GRADO:
-                        eEProyectoTiempoEntrega.Modalidad = SDatos.STRING_MODALIDAD_PROYECTO_DE_GRADO;
-                        break;
-                }
-                eEProyectoTiempoEntrega.Titulo = entrega.TituloProyecto;
-                eEProyectoTiempoEntrega.Objetivo = entrega.ObjetivoGeneralProyecto;
-                eEProyectoTiempoEntrega.Documento = entrega.EnlaceDocumentoProyecto;
-                eEProyectoTiempoEntrega.FechaEntrega = Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(
-                                                            Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(
-                                                                entrega.CodigoProyecto, SDatos.ESTADO_ACTIVO)
-                                                                    .CodigoEtapa, SDatos.ESTADO_ACTIVO)
-                                                                    .FechaDefinidaSubEtapa;
-                lstEProyectoTiempoEntrega.Add(eEProyectoTiempoEntrega);
-            }
-        }
-        catch (EndpointNotFoundException EndPointEx)
-        {
-            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_EProyectoTiempoEntrega_O", EndPointEx.ToString(), EndPointEx.Message);
-            throw new FaultException<EDefecto>(eDefecto);
-        }
-        catch (CommunicationException CommEx)
-        {
-            FaultException feaultEx = CommEx as FaultException;
-            if (feaultEx == null)
-            {
-                foreach (EGProyecto entrega in lstEGProyecto)
-                {
-                    eEProyectoTiempoEntrega = new EProyectoTiempoEntrega();
-                    switch (entrega.ModalidadProyecto)
-                    {
-                        case SDatos.CHAR_MODALIDAD_TESIS:
-                            eEProyectoTiempoEntrega.Modalidad = SDatos.STRING_MODALIDAD_TESIS;
-                            break;
-                        case SDatos.CHAR_MODALIDAD_TRABAJO_DIRIGIDO:
-                            eEProyectoTiempoEntrega.Modalidad = SDatos.STRING_MODALIDAD_TRABAJO_DIRIGIDO;
-                            break;
-                        case SDatos.CHAR_MODALIDAD_PROYECTO_DE_GRADO:
-                            eEProyectoTiempoEntrega.Modalidad = SDatos.STRING_MODALIDAD_PROYECTO_DE_GRADO;
-                            break;
-                    }
-                    eEProyectoTiempoEntrega.Titulo = entrega.TituloProyecto;
-                    eEProyectoTiempoEntrega.Objetivo = entrega.ObjetivoGeneralProyecto;
-                    eEProyectoTiempoEntrega.Documento = entrega.EnlaceDocumentoProyecto;
-                    eEProyectoTiempoEntrega.FechaEntrega = Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(
-                                                                Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(
-                                                                    entrega.CodigoProyecto, SDatos.ESTADO_ACTIVO)
-                                                                        .CodigoEtapa, SDatos.ESTADO_ACTIVO)
-                                                                        .FechaDefinidaSubEtapa;
-                    lstEProyectoTiempoEntrega.Add(eEProyectoTiempoEntrega);
-                }
-
-            }
-            else
-            {
-                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_EProyectoTiempoEntrega_O", CommEx.ToString(), CommEx.Message);
-                throw new FaultException<EDefecto>(eDefecto);
-            }
-        }
-        return lstEProyectoTiempoEntrega;
-    }
+    
     #endregion
     #region GProyectoCompleja
     #region Obtener Proyecto Completo
@@ -2058,7 +1954,7 @@ public class CGAAP
         {
             //Lista de GProyetoUsuario -> Todos los GProyecto que participan por Usuario
             List<EGUsuarioProyecto> lstEGProyectosPorUsuario = new List<EGUsuarioProyecto>();
-            lstEGProyectosPorUsuario = aSNETGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario);
+            lstEGProyectosPorUsuario = aSNETGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
 
             //Buscamos la Etapa y SubEtapa Activas para saber el progreso/estado de cada proyecto
             foreach (EGUsuarioProyecto eGUsuarioProyecto in lstEGProyectosPorUsuario)
@@ -2072,7 +1968,7 @@ public class CGAAP
                     eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(eGUsuarioProyecto.CodigoProyecto, SDatos.ESTADO_ACTIVO);
                     eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
 
-                    esValido = Verificar_GProyecto_CorrespondeRevision(eGUsuarioProyecto.CodigoRol, eGEtapa.NumeroEtapa, eGSubEtapa.NumeroSubEtapa);
+                    esValido = Verificar_GProyecto_CorrespondeRevision(eGUsuarioProyecto.CodigoRol, eGSubEtapa);
                 }
                 //Lista de GProyetoUsuario -> Todos los Usuarios que participan por GProyecto
                 List<EGUsuarioProyecto> lstUsuariosPorProyecto = new List<EGUsuarioProyecto>();
@@ -2094,7 +1990,7 @@ public class CGAAP
                 eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
                 eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                 eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
-                eGProyectoComplejo.NumeroRevisionesProyecto = eGProyecto.NumeroRevisiones;
+                eGProyectoComplejo.NumeroRevisionesProyecto = eGProyecto.NumeroRevisionesProyecto;
                 eGProyectoComplejo.EstadoProyecto = eGProyecto.EstadoProyecto;
 
                 eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == SDatos.ROL_ESTUDIANTE).Select(s => s.CodigoUsuario).ToList();
@@ -2124,7 +2020,7 @@ public class CGAAP
             {
                 //Lista de GProyetoUsuario -> Todos los GProyecto que participan por Usuario
                 List<EGUsuarioProyecto> lstEGProyectosPorUsuario = new List<EGUsuarioProyecto>();
-                lstEGProyectosPorUsuario = aSNETGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario);
+                lstEGProyectosPorUsuario = aSNETGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario(codigoUsuario).ToList();
 
                 //Buscamos la Etapa y SubEtapa Activas para saber el progreso/estado de cada proyecto
                 foreach (EGUsuarioProyecto eGUsuarioProyecto in lstEGProyectosPorUsuario)
@@ -2138,7 +2034,7 @@ public class CGAAP
                         eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(eGUsuarioProyecto.CodigoProyecto, SDatos.ESTADO_ACTIVO);
                         eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
 
-                        esValido = Verificar_GProyecto_CorrespondeRevision(eGUsuarioProyecto.CodigoRol, eGEtapa.NumeroEtapa, eGSubEtapa.NumeroSubEtapa);
+                        esValido = Verificar_GProyecto_CorrespondeRevision(eGUsuarioProyecto.CodigoRol, eGSubEtapa);
                     }
                     //Lista de GProyetoUsuario -> Todos los Usuarios que participan por GProyecto
                     List<EGUsuarioProyecto> lstUsuariosPorProyecto = new List<EGUsuarioProyecto>();
@@ -2160,7 +2056,7 @@ public class CGAAP
                     eGProyectoComplejo.ObjetivosEspecificosProyecto = eGProyecto.ObjetivosEspecificosProyecto;
                     eGProyectoComplejo.AlcanceProyecto = eGProyecto.AlcanceProyecto;
                     eGProyectoComplejo.EnlaceDocumentoProyecto = eGProyecto.EnlaceDocumentoProyecto;
-                    eGProyectoComplejo.NumeroRevisionesProyecto = eGProyecto.NumeroRevisiones;
+                    eGProyectoComplejo.NumeroRevisionesProyecto = eGProyecto.NumeroRevisionesProyecto;
                     eGProyectoComplejo.EstadoProyecto = eGProyecto.EstadoProyecto;
                     eGProyectoComplejo.CodigosEstudiantes = lstUsuariosPorProyecto.Where(w => w.CodigoRol == SDatos.ROL_ESTUDIANTE).Select(s => s.CodigoUsuario).ToList();
                     foreach (string codigoEstudiante in eGProyectoComplejo.CodigosEstudiantes)
@@ -2184,49 +2080,19 @@ public class CGAAP
         }
         return lstEGProyectos;
     }
-
-
-    public bool Verificar_GProyecto_CorrespondeRevision(string Rol, byte Etapa, byte SubEtapa)
+    public bool Verificar_GProyecto_CorrespondeRevision(string Rol, EGSubEtapa SubEtapa)
     {
-        bool res = false;
+        bool corresponde = false;
         try
         {
-            switch (Rol)
+            if (Rol == SDatos.ROL_AYUDANTE_DIRECTOR || Rol == SDatos.ROL_DIRECTOR_CARRERA)
+                corresponde = SubEtapa.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA;
+            else
             {
-                case SDatos.ROL_ESTUDIANTE:
-                    res = (SubEtapa == 1);
-                    break;
-                case SDatos.ROL_TUTOR:
-                    res = (SubEtapa == 2);
-                    break;
-                case SDatos.ROL_DIRECTOR_CARRERA://El codigo continua hasta encontrar break
-                case SDatos.ROL_AYUDANTE_DIRECTOR:
-                    switch (Etapa)
-                    {
-                        case 1://Etapa 1
-                            res = (SubEtapa == 4);
-                            break;
-                        default://Etapa 2,3,4                        
-                            res = (SubEtapa == 3 || SubEtapa == 7);
-                            break;
-                    }
-                    break;
-                case SDatos.ROL_TRIBUNAL_1://El codigo continua hasta encontrar break
-                case SDatos.ROL_TRIBUNAL_2:
-                    res = (Etapa != 1 && SubEtapa == 4);
-                    break;
-                case SDatos.ROL_DAAP:
-                    switch (Etapa)
-                    {
-                        case 1://Etapa 1
-                            res = (SubEtapa == 3);
-                            break;
-                        default://Etapa 2,3,4  
-                            res = (SubEtapa == 6);
-                            break;
-                    }
-                    break;
-            }
+                if (Rol == SubEtapa.CodigoRolDesignadoSubEtapa && SubEtapa.EstadoSubEtapa == SDatos.ESTADO_ACTIVO)
+                    corresponde = true;
+            }            
+            return corresponde;
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -2238,86 +2104,61 @@ public class CGAAP
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                switch (Rol)
+                if (Rol == SDatos.ROL_AYUDANTE_DIRECTOR || Rol == SDatos.ROL_DIRECTOR_CARRERA)
+                    corresponde = SubEtapa.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA;
+                else
                 {
-                    case SDatos.ROL_ESTUDIANTE:
-                        res = (SubEtapa == 1);
-                        break;
-                    case SDatos.ROL_TUTOR:
-                        res = (SubEtapa == 2);
-                        break;
-                    case SDatos.ROL_DIRECTOR_CARRERA://El codigo continua hasta encontrar break
-                    case SDatos.ROL_AYUDANTE_DIRECTOR:
-                        switch (Etapa)
-                        {
-                            case 1://Etapa 1
-                                res = (SubEtapa == 4);
-                                break;
-                            default://Etapa 2,3,4                        
-                                res = (SubEtapa == 3 || SubEtapa == 7);
-                                break;
-                        }
-                        break;
-                    case SDatos.ROL_TRIBUNAL_1://El codigo continua hasta encontrar break
-                    case SDatos.ROL_TRIBUNAL_2:
-                        res = (Etapa != 1 && SubEtapa == 4);
-                        break;
-                    case SDatos.ROL_DAAP:
-                        switch (Etapa)
-                        {
-                            case 1://Etapa 1
-                                res = (SubEtapa == 3);
-                                break;
-                            default://Etapa 2,3,4  
-                                res = (SubEtapa == 6);
-                                break;
-                        }
-                        break;
+                    if (Rol == SubEtapa.CodigoRolDesignadoSubEtapa && SubEtapa.EstadoSubEtapa == SDatos.ESTADO_ACTIVO)
+                        corresponde = true;
                 }
+                return corresponde;
             }
             else
             {
                 EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Verificar_GProyecto_CorrespondeRevision", CommEx.ToString(), CommEx.Message);
                 throw new FaultException<EDefecto>(eDefecto);
             }
-        }
-        return res;
+        }        
     }
     #endregion
     #region Control de Etapas y SubEtapas
-    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string codigoProyecto)
+    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string codigoProyecto, string codigoUsuario, string codigoRol)
     {
         try
         {
             EGEtapa eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
             EGSubEtapa eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
+
+            if (!Verificar_GProyecto_CorrespondeRevision(codigoRol, eGSubEtapa))
+                return;
+
+            int numeroSubEtapas = 0;
             switch (eGEtapa.NumeroEtapa)
             {
                 case 1:
-                    if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_1)
-                        Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                    else
-                        Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                    numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_1;
                     break;
                 case 2:
-                    if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_2)
-                        Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                    else
-                        Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                    numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_2;
                     break;
                 case 3:
-                    if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_3)
-                        Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                    else
-                        Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                    numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_3;
                     break;
-                case 4:                                                             //Falta finalizar
-                    if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_4)
-                        Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                    else
-                        Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                case 4:
+                    numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_4;
                     break;
             }
+
+            if (eGSubEtapa.NumeroSubEtapa == numeroSubEtapas)
+            {
+                Avanzar_Etapa(eGEtapa, eGSubEtapa, codigoUsuario);
+            }
+            else
+            {
+                if (eGEtapa.NumeroEtapa <= 4) //Proyecto terminado
+                    Avanzar_SubEtapa(eGSubEtapa, eGEtapa, codigoUsuario);
+            }
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -2331,32 +2172,35 @@ public class CGAAP
             {
                 EGEtapa eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
                 EGSubEtapa eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
+
+                if (!Verificar_GProyecto_CorrespondeRevision(codigoRol, eGSubEtapa))
+                    return;
+
+                int numeroSubEtapas = 0;
                 switch (eGEtapa.NumeroEtapa)
                 {
                     case 1:
-                        if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_1)
-                            Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                        else
-                            Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                        numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_1;
                         break;
                     case 2:
-                        if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_2)
-                            Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                        else
-                            Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                        numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_2;
                         break;
                     case 3:
-                        if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_3)
-                            Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                        else
-                            Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                        numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_3;
                         break;
-                    case 4:                                                             //Falta finalizar
-                        if (eGSubEtapa.NumeroSubEtapa == SDatos.N_SUB_ETAPAS_ETAPA_4)
-                            Avanzar_Etapa(eGEtapa, eGSubEtapa);
-                        else
-                            Avanzar_SubEtapa(eGSubEtapa, eGEtapa.NumeroEtapa);
+                    case 4:
+                        numeroSubEtapas = SDatos.N_SUB_ETAPAS_ETAPA_4;
                         break;
+                }
+                
+                if (eGSubEtapa.NumeroSubEtapa == numeroSubEtapas)
+                {
+                    Avanzar_Etapa(eGEtapa, eGSubEtapa, codigoUsuario);
+                }
+                else
+                {
+                    if (eGEtapa.NumeroEtapa <= 4) //Proyecto terminado
+                        Avanzar_SubEtapa(eGSubEtapa, eGEtapa, codigoUsuario);
                 }
             }
             else
@@ -2366,26 +2210,53 @@ public class CGAAP
             }
         }
     }
-    public void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto, byte numeroSubEtapaASaltar)
+    public void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto,string codigoUsuario, string codigoRol, byte numeroSubEtapaASaltar)
     {
         try
         {
-            EGEtapa eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
-
-            if ((numeroSubEtapaASaltar < 1) || (eGEtapa.NumeroEtapa == 1 && numeroSubEtapaASaltar > 4) || (eGEtapa.NumeroEtapa != 1 && numeroSubEtapaASaltar > 7))
+            EGEtapa etapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
+            // Obtener las subetapas y ordenarlas por número
+            List<EGSubEtapa> lstSubEtapas = Obtener_GSubEtapa_O_CodigoEtapa(etapa.CodigoEtapa)
+                                                .OrderBy(o => o.NumeroSubEtapa)
+                                                .ToList();
+            //Validar datos erroneos
+            if ((numeroSubEtapaASaltar < 1) || 
+                (etapa.NumeroEtapa == 1 && numeroSubEtapaASaltar > 4) || 
+                (etapa.NumeroEtapa != 1 && numeroSubEtapaASaltar > 7))
             {
                 return;
             }
-            EGSubEtapa eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
-            if (string.IsNullOrEmpty(eGSubEtapa.Estado))//Estamos en Etapa 2,3,4 SubEtapa 3 
-                eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_SALTAR);
-            EGSubEtapa eGSubEtapaASaltar = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(eGEtapa.CodigoEtapa, numeroSubEtapaASaltar);
 
-            //Para no modificar el estado de esa subEtapa
-            if (eGSubEtapa.EstadoSubEtapa != SDatos.ESTADO_SALTAR)
-                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_PAUSADO);
-            if (eGSubEtapaASaltar.EstadoSubEtapa != SDatos.ESTADO_SALTAR)
-                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapaASaltar.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+            EGSubEtapa subEtapaActual = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == codigoRol && w.EstadoSubEtapa == SDatos.ESTADO_ACTIVO);
+            
+            
+            // Este metodo se utilizara para devolver observaciones de los tribunales al estudiante, entonces validamos que ambos den sus respectivas observaciones antes 
+            if (subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1 || subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2)
+            {
+                // Encontrar subetapas de tribunales
+                EGSubEtapa subEtapaTribunalUno = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1);
+                EGSubEtapa subEtapaTribunalDos = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2);
+
+                // Comprobar si ambos tribunales están finalizados
+                bool tribunalesFinalizados = (subEtapaTribunalDos.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO) &&
+                                             (subEtapaTribunalUno.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO);
+
+                if (tribunalesFinalizados)
+                {
+                    EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa == numeroSubEtapaASaltar);
+                    aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                }
+            }
+            else
+            {
+                EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa == numeroSubEtapaASaltar);
+                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+            }
+            // Verificar condiciones especiales para finalizar la subetapa actual
+            if (etapa.NumeroEtapa != 1 && subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA && subEtapaActual.NumeroSubEtapa == 3)
+                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);
+            else
+                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -2397,23 +2268,49 @@ public class CGAAP
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                EGEtapa eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
-
-                if ((eGEtapa.NumeroEtapa == 1 && numeroSubEtapaASaltar > 4) || (eGEtapa.NumeroEtapa != 1 && numeroSubEtapaASaltar > 7))
+                EGEtapa etapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_ACTIVO);
+                // Obtener las subetapas y ordenarlas por número
+                List<EGSubEtapa> lstSubEtapas = Obtener_GSubEtapa_O_CodigoEtapa(etapa.CodigoEtapa)
+                                                    .OrderBy(o => o.NumeroSubEtapa)
+                                                    .ToList();
+                //Validar datos erroneos
+                if ((numeroSubEtapaASaltar < 1) ||
+                    (etapa.NumeroEtapa == 1 && numeroSubEtapaASaltar > 4) ||
+                    (etapa.NumeroEtapa != 1 && numeroSubEtapaASaltar > 7))
                 {
                     return;
                 }
-                EGSubEtapa eGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
-                if (string.IsNullOrEmpty(eGSubEtapa.Estado))//Estamos en Etapa 2,3,4 SubEtapa 3 
-                    eGEtapa = aSNETGAAP.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatos.ESTADO_SALTAR);
-                EGSubEtapa eGSubEtapaASaltar = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(eGEtapa.CodigoEtapa, numeroSubEtapaASaltar);
 
-                //Para no modificar el estado de esa subEtapa
-                if (eGSubEtapa.EstadoSubEtapa != SDatos.ESTADO_SALTAR)
-                    aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_PAUSADO);
-                if (eGSubEtapaASaltar.EstadoSubEtapa != SDatos.ESTADO_SALTAR)
-                    aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapaASaltar.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                EGSubEtapa subEtapaActual = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == codigoRol && w.EstadoSubEtapa == SDatos.ESTADO_ACTIVO);
 
+
+                // Este metodo se utilizara para devolver observaciones de los tribunales al estudiante, entonces validamos que ambos den sus respectivas observaciones antes 
+                if (subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1 || subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2)
+                {
+                    // Encontrar subetapas de tribunales
+                    EGSubEtapa subEtapaTribunalUno = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1);
+                    EGSubEtapa subEtapaTribunalDos = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2);
+
+                    // Comprobar si ambos tribunales están finalizados
+                    bool tribunalesFinalizados = (subEtapaTribunalDos.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO) &&
+                                                 (subEtapaTribunalUno.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO);
+
+                    if (tribunalesFinalizados)
+                    {
+                        EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa == numeroSubEtapaASaltar);
+                        aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                    }
+                }
+                else
+                {
+                    EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa == numeroSubEtapaASaltar);
+                    aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                }
+                // Verificar condiciones especiales para finalizar la subetapa actual
+                if (etapa.NumeroEtapa != 1 && subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA && subEtapaActual.NumeroSubEtapa == 3)
+                    aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);
+                else
+                    aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
             }
             else
             {
@@ -2423,16 +2320,28 @@ public class CGAAP
         }
     }
 
-    private void Avanzar_Etapa(EGEtapa eGEtapa, EGSubEtapa eGSubEtapa)
+    private void Avanzar_Etapa(EGEtapa eGEtapa, EGSubEtapa eGSubEtapa, string codigoUsuario)
     {
         try
         {
-            EGEtapa siguienteEGEtapa = Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(eGEtapa.CodigoProyecto, (byte)((int)eGEtapa.NumeroEtapa + 1));
-            aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+            // Finalizar la subetapa actual marcándola como 'Finalizada'
+            aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+
+            // Finalizar la etapa actual
             aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_FINALIZADO);
+
+            // Obtener la siguiente etapa basada en el proyecto y el número siguiente a la etapa actual
+            EGEtapa siguienteEGEtapa = Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(eGEtapa.CodigoProyecto, (byte)((int)eGEtapa.NumeroEtapa + 1));
+
+            // Activar la siguiente etapa, marcándola como 'Activa'
             aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(siguienteEGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
+
+            // Obtener la primera subetapa de la siguiente etapa
             EGSubEtapa siguienteEGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(siguienteEGEtapa.CodigoEtapa, (byte)1);
+
+            // Activar la primera subetapa de la siguiente etapa
             aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(siguienteEGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -2444,11 +2353,22 @@ public class CGAAP
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                EGEtapa siguienteEGEtapa = Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(eGEtapa.CodigoProyecto, (byte)((int)eGEtapa.NumeroEtapa + 1));
-                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+                // Finalizar la subetapa actual marcándola como 'Finalizada'
+                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+
+                // Finalizar la etapa actual
                 aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(eGEtapa.CodigoEtapa, SDatos.ESTADO_FINALIZADO);
+
+                // Obtener la siguiente etapa basada en el proyecto y el número siguiente a la etapa actual
+                EGEtapa siguienteEGEtapa = Obtener_GEtapa_O_CodigoProyecto_NumeroEtapa(eGEtapa.CodigoProyecto, (byte)((int)eGEtapa.NumeroEtapa + 1));
+
+                // Activar la siguiente etapa, marcándola como 'Activa'
                 aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(siguienteEGEtapa.CodigoEtapa, SDatos.ESTADO_ACTIVO);
+
+                // Obtener la primera subetapa de la siguiente etapa
                 EGSubEtapa siguienteEGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(siguienteEGEtapa.CodigoEtapa, (byte)1);
+
+                // Activar la primera subetapa de la siguiente etapa
                 aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(siguienteEGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
             }
             else
@@ -2458,22 +2378,62 @@ public class CGAAP
             }
         }
     }
-    private void Avanzar_SubEtapa(EGSubEtapa eGSubEtapa, int numeroEtapa)
+    private void Avanzar_SubEtapa(EGSubEtapa subEtapa, EGEtapa etapa, string codigoUsuario)
     {
         try
         {
-            EGSubEtapa siguienteEGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(eGSubEtapa.CodigoEtapa, (byte)((int)eGSubEtapa.NumeroSubEtapa + 1));
-            //Saltamos la etapa
-            if (siguienteEGSubEtapa.EstadoSubEtapa == SDatos.ESTADO_SALTAR)
-                siguienteEGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(eGSubEtapa.CodigoEtapa, (byte)((int)siguienteEGSubEtapa.NumeroSubEtapa + 1));
+            // Obtener las subetapas y ordenarlas por número
+            List<EGSubEtapa> lstSubEtapas = Obtener_GSubEtapa_O_CodigoEtapa(etapa.CodigoEtapa)
+                                                .OrderBy(o => o.NumeroSubEtapa)
+                                                .ToList();
 
-            //Etapa 2, SubEtapa 3 solo para una vez
-            if (numeroEtapa == 2 && eGSubEtapa.NumeroSubEtapa == 3)
-                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_SALTAR);
+            // Encontrar la subetapa actual
+            EGSubEtapa subEtapaActual = lstSubEtapas.FirstOrDefault(w => w.CodigoSubEtapa == subEtapa.CodigoSubEtapa);
+
+            // Comprobar lógica para etapas y subetapas de tribunales
+            if (etapa.NumeroEtapa != 1 && (subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1 || subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2))
+            {
+                // Encontrar subetapas de tribunales
+                EGSubEtapa subEtapaTribunalUno = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1);
+                EGSubEtapa subEtapaTribunalDos = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2);
+
+                // Comprobar si ambos tribunales están listos para ser finalizados
+                bool tribunalesFinalizados = (subEtapaActual == subEtapaTribunalUno && subEtapaTribunalDos.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO) ||
+                                             (subEtapaActual == subEtapaTribunalDos && subEtapaTribunalUno.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO);
+
+                if (tribunalesFinalizados)
+                {
+                    // Obtener la siguiente subetapa después de los tribunales y activarla
+                    EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa > subEtapaTribunalDos.NumeroSubEtapa && w.EstadoSubEtapa != SDatos.ESTADO_IGNORADO);
+                    aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                }
+                
+            }
             else
-                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+            {
+                // Obtener la siguiente subetapa que no se ignore después de la actual
+                EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa > subEtapaActual.NumeroSubEtapa && w.EstadoSubEtapa != SDatos.ESTADO_IGNORADO);
+                // Comprobar si la siguiente subetapa corresponde a los tribunales
+                if (subEtapaSiguiente.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1 || subEtapaSiguiente.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2)
+                {
+                    //Activar la visualizacion de ambos Tribunales al mismo tiempo
+                    EGSubEtapa tribunalUno = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1);
+                    EGSubEtapa tribunalDos = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2);
+                    aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                    aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
 
-            aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(siguienteEGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                }
+                else
+                {
+                    //Activar siguiente Subetapa
+                    aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(SDatos.FIRMA_POR_DEFECTO, subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                }
+            }
+            // Verificar condiciones especiales para finalizar la subetapa actual
+            if (etapa.NumeroEtapa != 1 && subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA && subEtapaActual.NumeroSubEtapa == 3)            
+                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);            
+            else            
+                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -2485,18 +2445,58 @@ public class CGAAP
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
-                EGSubEtapa siguienteEGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(eGSubEtapa.CodigoEtapa, (byte)((int)eGSubEtapa.NumeroSubEtapa + 1));
-                //Saltamos la etapa
-                if (siguienteEGSubEtapa.EstadoSubEtapa == SDatos.ESTADO_SALTAR)
-                    siguienteEGSubEtapa = aSNETGAAP.Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(eGSubEtapa.CodigoEtapa, (byte)((int)siguienteEGSubEtapa.NumeroSubEtapa + 1));
+                // Obtener las subetapas y ordenarlas por número
+                List<EGSubEtapa> lstSubEtapas = Obtener_GSubEtapa_O_CodigoEtapa(etapa.CodigoEtapa)
+                                                    .OrderBy(o => o.NumeroSubEtapa)
+                                                    .ToList();
 
-                //Etapa 2, SubEtapa 3 solo para una vez
-                if (numeroEtapa == 2 && eGSubEtapa.NumeroSubEtapa == 3)
-                    aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_SALTAR);
+                // Encontrar la subetapa actual
+                EGSubEtapa subEtapaActual = lstSubEtapas.FirstOrDefault(w => w.CodigoSubEtapa == subEtapa.CodigoSubEtapa);
+
+                // Comprobar lógica para etapas y subetapas de tribunales
+                if (etapa.NumeroEtapa != 1 && (subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1 || subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2))
+                {
+                    // Encontrar subetapas de tribunales
+                    EGSubEtapa subEtapaTribunalUno = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1);
+                    EGSubEtapa subEtapaTribunalDos = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2);
+
+                    // Comprobar si ambos tribunales están listos para ser finalizados
+                    bool tribunalesFinalizados = (subEtapaActual == subEtapaTribunalUno && subEtapaTribunalDos.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO) ||
+                                                 (subEtapaActual == subEtapaTribunalDos && subEtapaTribunalUno.EstadoSubEtapa == SDatos.ESTADO_FINALIZADO);
+
+                    if (tribunalesFinalizados)
+                    {
+                        // Obtener la siguiente subetapa después de los tribunales y activarla
+                        EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa > subEtapaTribunalDos.NumeroSubEtapa && w.EstadoSubEtapa != SDatos.ESTADO_IGNORADO);
+                        aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                    }
+
+                }
                 else
-                    aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(eGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+                {
+                    // Obtener la siguiente subetapa que no se ignore después de la actual
+                    EGSubEtapa subEtapaSiguiente = lstSubEtapas.FirstOrDefault(w => w.NumeroSubEtapa > subEtapaActual.NumeroSubEtapa && w.EstadoSubEtapa != SDatos.ESTADO_IGNORADO);
+                    // Comprobar si la siguiente subetapa corresponde a los tribunales
+                    if (subEtapaSiguiente.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1 || subEtapaSiguiente.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2)
+                    {
+                        //Activar la visualizacion de ambos Tribunales al mismo tiempo
+                        EGSubEtapa tribunalUno = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_1);
+                        EGSubEtapa tribunalDos = lstSubEtapas.FirstOrDefault(w => w.CodigoRolDesignadoSubEtapa == SDatos.ROL_TRIBUNAL_2);
+                        aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                        aSNETGAAP.Actualizar_GEtapa_A_EstadoEtapa(subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
 
-                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(siguienteEGSubEtapa.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                    }
+                    else
+                    {
+                        //Activar siguiente Subetapa
+                        aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(SDatos.FIRMA_POR_DEFECTO, subEtapaSiguiente.CodigoSubEtapa, SDatos.ESTADO_ACTIVO);
+                    }
+                }
+                // Verificar condiciones especiales para finalizar la subetapa actual
+                if (etapa.NumeroEtapa != 1 && subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA && subEtapaActual.NumeroSubEtapa == 3)
+                    aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);
+                else
+                    aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
             }
             else
             {
@@ -2507,7 +2507,7 @@ public class CGAAP
     }
     #endregion
 
-    public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
+    public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuarioEstudiante, string codigoUsuarioDirector,string codigoUsuarioDAAP, int diasEtapa, int diasSubEtapa)
     {
         try
         {
@@ -2521,7 +2521,8 @@ public class CGAAP
             eGProyecto.ObjetivosEspecificosProyecto = SDatos.OBJETIVOS_ESPECIFICOS_POR_DEFECTO;
             eGProyecto.AlcanceProyecto = SDatos.ALCANCE_POR_DEFECTO;
             eGProyecto.EnlaceDocumentoProyecto = SDatos.ENLACE_DOCUMENTO_POR_DEFECTO;
-            eGProyecto.NumeroRevisiones = SDatos.NUMERO_REVISIONES_POR_DEFECTO;
+            eGProyecto.NumeroRevisionesProyecto = SDatos.NUMERO_REVISIONES_POR_DEFECTO;
+            eGProyecto.EstadoProyecto = SDatos.ESTADO_ACTIVO;
             aSNETGAAP.Insertar_GProyecto_I(eGProyecto);
             #endregion
             #region Insertar GEtapas, GSubEtapas cascada
@@ -2547,7 +2548,7 @@ public class CGAAP
             EGUsuarioProyecto eGUsuarioProyectoEstudiante = new EGUsuarioProyecto();
             eGUsuarioProyectoEstudiante.CodigoUsuarioProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
             eGUsuarioProyectoEstudiante.CodigoProyecto = codigoProyecto;
-            eGUsuarioProyectoEstudiante.CodigoUsuario = codigoUsuario;
+            eGUsuarioProyectoEstudiante.CodigoUsuario = codigoUsuarioEstudiante;
             eGUsuarioProyectoEstudiante.CodigoRol = SDatos.ROL_ESTUDIANTE;
             eGUsuarioProyectoEstudiante.EstadoUsuarioProyecto = SDatos.ESTADO_ACTIVO;
             aSNETGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyectoEstudiante);
@@ -2556,10 +2557,18 @@ public class CGAAP
             EGUsuarioProyecto eGUsuarioProyectoDirector = new EGUsuarioProyecto();
             eGUsuarioProyectoDirector.CodigoUsuarioProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
             eGUsuarioProyectoDirector.CodigoProyecto = codigoProyecto;
-            eGUsuarioProyectoDirector.CodigoUsuario = codigoDirector;
+            eGUsuarioProyectoDirector.CodigoUsuario = codigoUsuarioDirector;
             eGUsuarioProyectoDirector.CodigoRol = SDatos.ROL_DIRECTOR_CARRERA;
             eGUsuarioProyectoDirector.EstadoUsuarioProyecto = SDatos.ESTADO_ACTIVO;
             aSNETGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyectoDirector);
+
+            EGUsuarioProyecto eGUsuarioProyectoDAAP = new EGUsuarioProyecto();
+            eGUsuarioProyectoDAAP.CodigoUsuarioProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
+            eGUsuarioProyectoDAAP.CodigoProyecto = codigoProyecto;
+            eGUsuarioProyectoDAAP.CodigoUsuario = codigoUsuarioDAAP;
+            eGUsuarioProyectoDAAP.CodigoRol = SDatos.ROL_DAAP;
+            eGUsuarioProyectoDAAP.EstadoUsuarioProyecto = SDatos.ESTADO_ACTIVO;
+            aSNETGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyectoDAAP);
             #endregion
         }
         catch (EndpointNotFoundException EndPointEx)
@@ -2582,11 +2591,12 @@ public class CGAAP
                 eGProyecto.ObjetivosEspecificosProyecto = SDatos.OBJETIVOS_ESPECIFICOS_POR_DEFECTO;
                 eGProyecto.AlcanceProyecto = SDatos.ALCANCE_POR_DEFECTO;
                 eGProyecto.EnlaceDocumentoProyecto = SDatos.ENLACE_DOCUMENTO_POR_DEFECTO;
-                eGProyecto.NumeroRevisiones = SDatos.NUMERO_REVISIONES_POR_DEFECTO;
+                eGProyecto.NumeroRevisionesProyecto = SDatos.NUMERO_REVISIONES_POR_DEFECTO;
+                eGProyecto.EstadoProyecto = SDatos.ESTADO_ACTIVO;
                 aSNETGAAP.Insertar_GProyecto_I(eGProyecto);
                 #endregion
                 #region Insertar GEtapas, GSubEtapas cascada
-                for (int indice = 1; indice <= 4; indice++) // 4 ETAPAS
+                for (int indice = 1; indice <= 4; indice++) // 4
                 {
                     int CodigoEtapa = aSNETGAAP.Obtener_GEtapa_O_SiguienteCodigoEtapa();
                     //Crear Etapa
@@ -2608,7 +2618,7 @@ public class CGAAP
                 EGUsuarioProyecto eGUsuarioProyectoEstudiante = new EGUsuarioProyecto();
                 eGUsuarioProyectoEstudiante.CodigoUsuarioProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
                 eGUsuarioProyectoEstudiante.CodigoProyecto = codigoProyecto;
-                eGUsuarioProyectoEstudiante.CodigoUsuario = codigoUsuario;
+                eGUsuarioProyectoEstudiante.CodigoUsuario = codigoUsuarioEstudiante;
                 eGUsuarioProyectoEstudiante.CodigoRol = SDatos.ROL_ESTUDIANTE;
                 eGUsuarioProyectoEstudiante.EstadoUsuarioProyecto = SDatos.ESTADO_ACTIVO;
                 aSNETGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyectoEstudiante);
@@ -2617,10 +2627,18 @@ public class CGAAP
                 EGUsuarioProyecto eGUsuarioProyectoDirector = new EGUsuarioProyecto();
                 eGUsuarioProyectoDirector.CodigoUsuarioProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
                 eGUsuarioProyectoDirector.CodigoProyecto = codigoProyecto;
-                eGUsuarioProyectoDirector.CodigoUsuario = codigoDirector;
+                eGUsuarioProyectoDirector.CodigoUsuario = codigoUsuarioDirector;
                 eGUsuarioProyectoDirector.CodigoRol = SDatos.ROL_DIRECTOR_CARRERA;
                 eGUsuarioProyectoDirector.EstadoUsuarioProyecto = SDatos.ESTADO_ACTIVO;
                 aSNETGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyectoDirector);
+
+                EGUsuarioProyecto eGUsuarioProyectoDAAP = new EGUsuarioProyecto();
+                eGUsuarioProyectoDAAP.CodigoUsuarioProyecto = aSNETGAAP.Obtener_GUsuarioProyecto_O_SiguienteCodigoUsuarioProyecto();
+                eGUsuarioProyectoDAAP.CodigoProyecto = codigoProyecto;
+                eGUsuarioProyectoDAAP.CodigoUsuario = codigoUsuarioDAAP;
+                eGUsuarioProyectoDAAP.CodigoRol = SDatos.ROL_DAAP;
+                eGUsuarioProyectoDAAP.EstadoUsuarioProyecto = SDatos.ESTADO_ACTIVO;
+                aSNETGAAP.Insertar_GUsuarioProyecto_I(eGUsuarioProyectoDAAP);
                 #endregion
             }
             else
@@ -2633,11 +2651,15 @@ public class CGAAP
     public void AgregarSubEtapas(int numeroEtapa, int codigoEtapa, DateTime fechaActual, int diasSubEtapa)
     {
         EGSubEtapa eGSubEtapa = new EGSubEtapa();
-
-        int numeroSubEtapaMaximo = 0;
-
         try
         {
+            List<string> lstRoles = new List<string>();
+            if (numeroEtapa == 1)
+                lstRoles = new List<string>() { SDatos.ROL_ESTUDIANTE, SDatos.ROL_TUTOR, SDatos.ROL_DAAP, SDatos.ROL_DIRECTOR_CARRERA };
+            else
+                lstRoles = new List<string>() { SDatos.ROL_ESTUDIANTE, SDatos.ROL_TUTOR, SDatos.ROL_DIRECTOR_CARRERA, SDatos.ROL_TRIBUNAL_1, SDatos.ROL_TRIBUNAL_2, SDatos.ROL_DAAP, SDatos.ROL_DIRECTOR_CARRERA };
+            
+            int numeroSubEtapaMaximo = 0;
             switch (numeroEtapa)
             {
                 case 1: numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_1; break;
@@ -2645,6 +2667,7 @@ public class CGAAP
                 case 3: numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_3; break;
                 case 4: numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_4; break;
             }
+
             for (int indice = 1; indice <= numeroSubEtapaMaximo; indice++)
             {
                 eGSubEtapa = new EGSubEtapa();
@@ -2652,7 +2675,8 @@ public class CGAAP
                 eGSubEtapa.CodigoEtapa = codigoEtapa;
                 eGSubEtapa.NumeroSubEtapa = (byte)indice;
                 eGSubEtapa.FechaInicioSubEtapa = fechaActual;
-                eGSubEtapa.CodigoUsuarioFirma = SDatos.FIRMA_POR_DEFECTO;
+                eGSubEtapa.CodigoRolDesignadoSubEtapa = lstRoles.ElementAt(indice - 1);
+                eGSubEtapa.CodigoUsuarioFirmaSubEtapa = SDatos.FIRMA_POR_DEFECTO;
                 eGSubEtapa.FechaDefinidaSubEtapa = fechaActual.AddDays(diasSubEtapa);
                 eGSubEtapa.FechaFinSubEtapa = fechaActual.AddDays(diasSubEtapa);
 
@@ -2663,13 +2687,12 @@ public class CGAAP
                         break;
                     case 3:
                     case 4:
-                        eGSubEtapa.EstadoSubEtapa = (indice == 3) ? SDatos.ESTADO_SALTAR : SDatos.ESTADO_PAUSADO;
+                        eGSubEtapa.EstadoSubEtapa = (indice == 3) ? SDatos.ESTADO_IGNORADO : SDatos.ESTADO_PAUSADO;
                         break;
                     default:
                         eGSubEtapa.EstadoSubEtapa = SDatos.ESTADO_PAUSADO;
                         break;
                 }
-
                 aSNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
             }
         }
@@ -2683,6 +2706,13 @@ public class CGAAP
             FaultException feaultEx = CommEx as FaultException;
             if (feaultEx == null)
             {
+                List<string> lstRoles = new List<string>();
+                if (numeroEtapa == 1)
+                    lstRoles = new List<string>() { SDatos.ROL_ESTUDIANTE, SDatos.ROL_TUTOR, SDatos.ROL_DAAP, SDatos.ROL_DIRECTOR_CARRERA };
+                else
+                    lstRoles = new List<string>() { SDatos.ROL_ESTUDIANTE, SDatos.ROL_TUTOR, SDatos.ROL_DIRECTOR_CARRERA, SDatos.ROL_TRIBUNAL_1, SDatos.ROL_TRIBUNAL_2, SDatos.ROL_DAAP, SDatos.ROL_DIRECTOR_CARRERA };
+
+                int numeroSubEtapaMaximo = 0;
                 switch (numeroEtapa)
                 {
                     case 1: numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_1; break;
@@ -2690,6 +2720,7 @@ public class CGAAP
                     case 3: numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_3; break;
                     case 4: numeroSubEtapaMaximo = SDatos.N_SUB_ETAPAS_ETAPA_4; break;
                 }
+
                 for (int indice = 1; indice <= numeroSubEtapaMaximo; indice++)
                 {
                     eGSubEtapa = new EGSubEtapa();
@@ -2697,9 +2728,11 @@ public class CGAAP
                     eGSubEtapa.CodigoEtapa = codigoEtapa;
                     eGSubEtapa.NumeroSubEtapa = (byte)indice;
                     eGSubEtapa.FechaInicioSubEtapa = fechaActual;
-                    eGSubEtapa.CodigoUsuarioFirma = SDatos.FIRMA_POR_DEFECTO;
+                    eGSubEtapa.CodigoRolDesignadoSubEtapa = lstRoles.ElementAt(indice - 1);
+                    eGSubEtapa.CodigoUsuarioFirmaSubEtapa = SDatos.FIRMA_POR_DEFECTO;
                     eGSubEtapa.FechaDefinidaSubEtapa = fechaActual.AddDays(diasSubEtapa);
                     eGSubEtapa.FechaFinSubEtapa = fechaActual.AddDays(diasSubEtapa);
+
                     switch (numeroEtapa)
                     {
                         case 1:
@@ -2707,13 +2740,12 @@ public class CGAAP
                             break;
                         case 3:
                         case 4:
-                            eGSubEtapa.EstadoSubEtapa = (indice == 3) ? SDatos.ESTADO_SALTAR : SDatos.ESTADO_PAUSADO;
+                            eGSubEtapa.EstadoSubEtapa = (indice == 3) ? SDatos.ESTADO_IGNORADO : SDatos.ESTADO_PAUSADO;
                             break;
                         default:
                             eGSubEtapa.EstadoSubEtapa = SDatos.ESTADO_PAUSADO;
                             break;
                     }
-
                     aSNETGAAP.Insertar_GSubEtapa_I(eGSubEtapa);
                 }
             }
@@ -2725,5 +2757,5 @@ public class CGAAP
         }
     }
     #endregion
-    #endregion
+    
 }

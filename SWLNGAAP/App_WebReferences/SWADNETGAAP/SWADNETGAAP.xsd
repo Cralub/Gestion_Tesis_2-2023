@@ -47,19 +47,13 @@
       <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ModalidadProyecto" type="ser:char" />
-      <xs:element minOccurs="0" name="NumeroRevisiones" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="NumeroRevisionesProyecto" type="xs:unsignedByte" />
       <xs:element minOccurs="0" name="ObjetivoGeneralProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ObjetivosEspecificosProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TituloProyecto" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EGProyecto" nillable="true" type="tns:EGProyecto" />
-  <xs:complexType name="ArrayOfEGProyecto">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EGProyecto" nillable="true" type="tns:EGProyecto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfEGProyecto" nillable="true" type="tns:ArrayOfEGProyecto" />
   <xs:complexType name="EGEtapa">
     <xs:sequence>
       <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
@@ -87,6 +81,9 @@
       <xs:element minOccurs="0" name="CodigoFormularioAceptacion" type="xs:int" />
       <xs:element minOccurs="0" name="CodigoProyecto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoTribunal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoFormularioAceptacion" type="ser:char" />
+      <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
       <xs:element minOccurs="0" name="PreguntaFondo1" type="ser:char" />
       <xs:element minOccurs="0" name="PreguntaFondo10" type="ser:char" />
@@ -120,8 +117,9 @@
   <xs:complexType name="EGSubEtapa">
     <xs:sequence>
       <xs:element minOccurs="0" name="CodigoEtapa" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoRolDesignadoSubEtapa" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoSubEtapa" type="xs:int" />
-      <xs:element minOccurs="0" name="CodigoUsuarioFirma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoUsuarioFirmaSubEtapa" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EstadoSubEtapa" type="ser:char" />
       <xs:element minOccurs="0" name="FechaDefinidaSubEtapa" type="xs:dateTime" />
@@ -221,15 +219,14 @@
   <xs:element name="EGCelular" nillable="true" type="tns:EGCelular" />
   <xs:complexType name="EGTutorExterno">
     <xs:sequence>
-      <xs:element minOccurs="0" name="ApellidosTutorExterno" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CarreraTutorExterno" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CodigoTutorExterno" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoTutorExterno" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DescripcionTutorExterno" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DireccionTrabajoTutorExterno" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaModificacion" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="NombresTutorExterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCompletoTutorExterno" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SedeTutorExterno" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

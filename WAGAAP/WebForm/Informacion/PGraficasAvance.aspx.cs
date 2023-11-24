@@ -2,152 +2,125 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebForm_PGraficasAvance : System.Web.UI.Page
+public partial class WebForm_PGraficasAvance : Page
 {
-    SWLNGAAPClient client = new SWLNGAAPClient();
-
+    #region Controladores
+    CEtapa cEtapa = new CEtapa();
+    CSubEtapa cSubEtapa = new CSubEtapa();
+    #endregion
+    static List<EGEtapa> lstEtapas = new List<EGEtapa>();
+    static List<int> avancePorEtapa = new List<int>();
+    static int avanceTotal = 0;
+    
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+
             if (Session["CodigoProyecto"] != null && Session["UsuarioSesion"] != null)
             {
-                EUsuarioNetvalle eUsuarioNetvalle = Session["UsuarioSesion"] as EUsuarioNetvalle;
-                var progresoEtapas = client.Obtener_EProgresoEtapaSubEtapa_O(Session["CodigoProyecto"] as string).ToList();
-                CargarDatos(progresoEtapas);
+                EUsuarioSesionGAAP usuario = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+                CargarInformacionDelProyecto();
                 FiltrarInterfazUsuario();
             }
 
         }
+        
 
     }
 
-    public void CargarDatos(List<EProgresoEtapaSubEtapa> lstProgresoEtapas)
+    public void CargarInformacionDelProyecto()
     {
-        int[] etapas = new int[4];
 
-        for (int i = 0; i < 4; i++)
+        if (Session["CodigoProyecto"] != null)
         {
-            etapas[i] = (int)((double)lstProgresoEtapas[i].CantidadSubEtapaFinalizada / lstProgresoEtapas[i].CantidadSubEtapaTotal * 100);
+            string codigoProyecto = Session["CodigoProyecto"].ToString();
+            lstEtapas = cEtapa.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto);
+            avancePorEtapa = new List<int>();
+
+            foreach (var etapa in lstEtapas)
+            {
+                var lstSubEtapas = cSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa(etapa.CodigoEtapa);
+                var subEtapasTotales = lstSubEtapas.Count(c => c.EstadoSubEtapa != SDatosGlobales.ESTADO_IGNORADO);
+                var subEtapasFinalizadas = lstSubEtapas.Count(c => c.EstadoSubEtapa == SDatosGlobales.ESTADO_FINALIZADO);
+
+                int avance = (int)Math.Round((double)subEtapasFinalizadas * 100 / subEtapasTotales);
+                avancePorEtapa.Add(avance);
+            }
+            avanceTotal = (int)Math.Round((double)avancePorEtapa.Sum()/4);
+            AsignarValores(1);
         }
-
-        int subEtapasTotal = 0, subEtapasFinalizadas = 0;
-
-        for (int j = 0; j < lstProgresoEtapas.Count; j++)
+    }
+    private void AsignarValores(int numeroSubEtapa)
+    {
+        lblTituloNumeroEtapa.Text = string.Format("• Etapa {0}", numeroSubEtapa.ToString()); 
+        if(avancePorEtapa.Count > 0)
         {
-            subEtapasTotal += lstProgresoEtapas[j].CantidadSubEtapaTotal;
-            subEtapasFinalizadas += lstProgresoEtapas[j].CantidadSubEtapaFinalizada;
+            bool tieneTribunales = numeroSubEtapa != 1;
+            lblTribunal1.Visible = tieneTribunales;
+            lblTribunal2.Visible = tieneTribunales;
+            lblPorcentajeTribunal1.Visible = tieneTribunales;
+            lblPorcentajeTribunal2.Visible = tieneTribunales;
+            lblPorcentajeTotal.Text = string.Format("{0} %",avanceTotal);
+            int avanceEtapa = avancePorEtapa.ElementAt(numeroSubEtapa - 1);
+
+            //Combinar los scripts en uno solo antes de registrarlo
+            string script = string.Format("actualizarProgreso({0});actualizarBarraProgreso({1}); ", avanceEtapa, avanceTotal);
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ActualizarProgreso", script, true);
+            AsignarValoresPorRoles(numeroSubEtapa);
         }
-
-        var progresoTotal = ((double)subEtapasFinalizadas / (double)subEtapasTotal) * 100;
-
-        if (lstProgresoEtapas[0].EstadoEtapa == 'A')
+    }
+    private void AsignarValoresPorRoles(int numeroSubEtapa)
+    {
+        if (lstEtapas.Count > 0)
         {
-            lblEtapaActiva.Text = "ETAPA 1";
-            lblProgresoEtapaActiva.Text = "Total Avance - " + etapas[0] + "%";
-            lblValorActivo.Text = etapas[0].ToString() + "%";
-            tribunalParticipaActual.Visible = false;
-            graficaEtapaActiva.Attributes.Add("style", "background: conic-gradient(#F87178 " + (etapas[0] * 3.6) + "deg, #f0f0f0 0deg);");
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 1)
-            {
-                chkEstudianteActual.Checked = true;
-            }
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 2)
-            {
-                chkTutorActual.Checked = true;
-            }
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 3)
-            {
-                chkDirectorActual.Checked = true;
-            }
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 4)
-            {
-                chkDAAPActual.Checked = true;
-            }
+            int codigoEtapaActual = lstEtapas.ElementAt(numeroSubEtapa - 1).CodigoEtapa;
+            var lstSubEtapas = cSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa(codigoEtapaActual);
 
-            lblEtapa.Text = "ETAPA 2";
-            lblProgresoEtapa.Text = "Total Avance - " + etapas[1] + "%";
-            lblValor.Text = etapas[1].ToString() + "%";
-            tribunalParticipa.Visible = true;
-            graficaEtapa.Attributes.Add("style", "background: conic-gradient(#F87178 " + (etapas[1] * 3.6) + "deg, #f0f0f0 0deg);");
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 1)
+            int porcentajeTutor = ObtenerPorcentajeSubEtapas(lstSubEtapas, SDatosGlobales.ROL_TUTOR);
+            int porcentajeDirector = ObtenerPorcentajeSubEtapas(lstSubEtapas, SDatosGlobales.ROL_DIRECTOR);
+            int porcentajeDAAP = ObtenerPorcentajeSubEtapas(lstSubEtapas, SDatosGlobales.ROL_DAAP);
+
+            AsignarPorcentaje(lblPorcentajeTutor, porcentajeTutor);
+            AsignarPorcentaje(lblPorcentajeDirector, porcentajeDirector);
+            AsignarPorcentaje(lblPorcentajeDAAP, porcentajeDAAP);
+
+            if (numeroSubEtapa != 1)
             {
-                chkEstudiante.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 8)
-            {
-                chkTutor.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 9)
-            {
-                chkTribunales.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 6)
-            {
-                chkDirector.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 13)
-            {
-                chkDAAP.Checked = true;
+                int porcentajeTribunal1 = ObtenerPorcentajeSubEtapas(lstSubEtapas, SDatosGlobales.ROL_TRIBUNAL_1);
+                int porcentajeTribunal2 = ObtenerPorcentajeSubEtapas(lstSubEtapas, SDatosGlobales.ROL_TRIBUNAL_2);
+
+                AsignarPorcentaje(lblPorcentajeTribunal1, porcentajeTribunal1);
+                AsignarPorcentaje(lblPorcentajeTribunal2, porcentajeTribunal2);
             }
         }
-        if (lstProgresoEtapas[1].EstadoEtapa == 'A')
-        {
-            lblEtapaActiva.Text = "ETAPA 2";
-            lblProgresoEtapaActiva.Text = "Total Avance - " + etapas[1] + "%";
-            lblValorActivo.Text = etapas[1].ToString() + "%";
-            tribunalParticipaActual.Visible = true;
-            graficaEtapaActiva.Attributes.Add("style", "background: conic-gradient(#F87178 " + (etapas[1] * 3.6) + "deg, #f0f0f0 0deg);");
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 1)
-            {
-                chkEstudiante.Checked = true;
-            }
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 2)
-            {
-                chkTutor.Checked = true;
-            }
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 3)
-            {
-                chkDirector.Checked = true;
-            }
-            if (lstProgresoEtapas[0].CantidadSubEtapaFinalizada >= 4)
-            {
-                chkDAAP.Checked = true;
-            }
-
-            lblEtapa.Text = "ETAPA 1";
-            lblProgresoEtapa.Text = "Total Avance - " + etapas[0] + "%";
-            lblValor.Text = etapas[0].ToString() + "%";
-            tribunalParticipa.Visible = false;
-            graficaEtapa.Attributes.Add("style", "background: conic-gradient(#F87178 " + (etapas[0] * 3.6) + "deg, #f0f0f0 0deg);");
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 1)
-            {
-                chkEstudianteActual.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 8)
-            {
-                chkTutorActual.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 9)
-            {
-                chkTribunalesActual.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 6)
-            {
-                chkDirectorActual.Checked = true;
-            }
-            if (lstProgresoEtapas[1].CantidadSubEtapaFinalizada >= 13)
-            {
-                chkDAAPActual.Checked = true;
-            }
-        }
-
-        lblProgresoTotal.Text = Math.Round(progresoTotal).ToString() + "%";
-        barraProgreso.Attributes.Add("style", "width: " + Math.Round(progresoTotal) + "%;");
     }
 
+    private int ObtenerPorcentajeSubEtapas(List<EGSubEtapa> lstSubEtapas, string codigoRol)
+    {
+        int subEtapasTotales = lstSubEtapas.Count(c => (c.EstadoSubEtapa != SDatosGlobales.ESTADO_FINALIZADO && c.EstadoSubEtapa != SDatosGlobales.ESTADO_IGNORADO) && c.CodigoRolDesignadoSubEtapa == codigoRol);
+        int subEtapasCumplidas = lstSubEtapas.Count(c => c.EstadoSubEtapa == SDatosGlobales.ESTADO_FINALIZADO && c.CodigoRolDesignadoSubEtapa == codigoRol);
+
+        return subEtapasTotales > 0 ? (int)Math.Round((double)(subEtapasCumplidas * 100 / subEtapasTotales)) : 0;
+    }
+
+    private void AsignarPorcentaje(Label label, int porcentaje)
+    {
+
+        label.Text = string.Format("{0} %", porcentaje > 90 ? 100 : porcentaje);
+
+        if (porcentaje > 0)
+            label.CssClass = "cuadro amarillo";
+        else if (porcentaje > 90)
+            label.CssClass = "cuadro verde";
+        else 
+            label.CssClass = "cuadro plomo";
+    }
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Session["CodigoProyecto"] = null;
@@ -160,7 +133,9 @@ public partial class WebForm_PGraficasAvance : System.Web.UI.Page
             Response.Redirect(paginaAnterior);
         }
         else
-            Response.Redirect("~/PaginaMaestra/Default.aspx");
+        {
+            Response.Redirect("~/WebForm/Proyecto/PListarProyectosRevision.aspx");
+        }
     }
 
     void FiltrarInterfazUsuario()
@@ -175,8 +150,23 @@ public partial class WebForm_PGraficasAvance : System.Web.UI.Page
             }
         }
     }
-    protected void btnFormulario_Click(object sender, EventArgs e)
+    protected void btnTema_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/WebForm/Formulario/PFormularioEstudiante.aspx");
+        AsignarValores(1);
+    }
+
+    protected void btnPerfil_Click(object sender, EventArgs e)
+    {
+        AsignarValores(2);
+    }
+
+    protected void btnPrivada_Click(object sender, EventArgs e)
+    {
+        AsignarValores(3);
+    }
+
+    protected void btnPublica_Click(object sender, EventArgs e)
+    {
+        AsignarValores(4);
     }
 }

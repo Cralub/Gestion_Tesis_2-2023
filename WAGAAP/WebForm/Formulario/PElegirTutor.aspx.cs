@@ -111,7 +111,7 @@ public partial class WebForm_Formulario_PElegirTutor : System.Web.UI.Page
     protected void txbBuscarTutor_TextChanged(object sender, EventArgs e)
     {
         List<EGUsuario> lstTutoresFiltrados = new List<EGUsuario>();
-        if (string.IsNullOrEmpty(txbBuscarTutor.Text) || txbBuscarTutor.Text.Length <= 3 || lstTutoresValidos.Count == 0)
+        if (string.IsNullOrEmpty(txbBuscarTutor.Text) || lstTutoresValidos.Count == 0)
         {
             grvTutores.DataSource = lstTutoresValidos;
         }

@@ -20,6 +20,10 @@ public class CGFormularioAceptacion
     {
         aDGFormularioAceptacion.Insertar_GFormularioAceptacion_I(eGFormularioAceptacion);
     }
+    public void Actualizar_GFormularioAceptacion_A(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        aDGFormularioAceptacion.Actualizar_GFormularioAceptacion_A(eGFormularioAceptacion);
+    }
     public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
     {
         EGFormularioAceptacion eGFormularioAceptacion;
@@ -52,6 +56,10 @@ public class CGFormularioAceptacion
             eGFormularioAceptacion.PreguntaFondo8 = char.Parse(dRGFormularioAceptacion.PreguntaFondo8);
             eGFormularioAceptacion.PreguntaFondo9 = char.Parse(dRGFormularioAceptacion.PreguntaFondo9);
             eGFormularioAceptacion.PreguntaFondo10 = char.Parse(dRGFormularioAceptacion.PreguntaFondo10);
+            eGFormularioAceptacion.EstadoFormularioAceptacion = char.Parse(dRGFormularioAceptacion.EstadoFormularioAceptacion);
+            eGFormularioAceptacion.Estado = dRGFormularioAceptacion.Estado;
+            eGFormularioAceptacion.FechaRegistro = dRGFormularioAceptacion.FechaRegistro;
+            eGFormularioAceptacion.FechaModificacion = dRGFormularioAceptacion.FechaModificacion;
             lstEGFormularioAceptacion.Add(eGFormularioAceptacion);
         }
         return lstEGFormularioAceptacion;

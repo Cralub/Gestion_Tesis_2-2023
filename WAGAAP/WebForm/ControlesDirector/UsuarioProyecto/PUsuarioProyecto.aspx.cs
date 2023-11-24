@@ -1,16 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.EnterpriseServices;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using SWLNGAAP;
-
-
-
 public partial class WebForm_Usuario_PInsertarUsuario : System.Web.UI.Page
 {
     #region Controladoras

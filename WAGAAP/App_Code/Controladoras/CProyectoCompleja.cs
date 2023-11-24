@@ -65,12 +65,12 @@ public class CProyectoCompleja
     }
     #endregion
     #region Opciones
-    public bool Verificar_GProyecto_CorrespondeRevision(string codigoRol, byte numeroEtapa, byte numeroSubEtapa)
+    public bool Verificar_GProyecto_CorrespondeRevision(string codigoRol, EGSubEtapa eGSubEtapa)
     {
         bool esValido = false;
         try
         {
-            esValido = lNServicio.Verificar_GProyecto_CorrespondeRevision(codigoRol, numeroEtapa, numeroSubEtapa);
+            esValido = lNServicio.Verificar_GProyecto_CorrespondeRevision(codigoRol, eGSubEtapa);
         }
         catch (FaultException<EDefecto> ex)
         {
@@ -78,33 +78,33 @@ public class CProyectoCompleja
         }
         return esValido;
     }
-    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string codigoProyecto)
+    public void Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(string codigoProyecto, string codigoUsuario, string codigoRol)
     {
         try
         {
-            lNServicio.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto);
+            lNServicio.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto, codigoUsuario, codigoRol);
         }
         catch (FaultException<EDefecto> ex)
         {
             throw ex;
         }
     }
-    public void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto, byte numeroSubEtapaASaltar)
+    public void Actualizar_Etapa_SubEtapa_SaltarASubEtapa(string codigoProyecto, string codigoUsuario, string codigoRol, byte numeroSubEtapaASaltar)
     {
         try
         {
-            lNServicio.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, numeroSubEtapaASaltar);
+            lNServicio.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, codigoUsuario, codigoRol, numeroSubEtapaASaltar);
         }
         catch (FaultException<EDefecto> ex)
         {
             throw ex;
         }
     }
-    public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuario, string codigoDirector, int diasEtapa, int diasSubEtapa)
+    public void Insertar_ProyectoCompleto(string codigoProyecto, string codigoUsuarioEstudiante, string codigoUsuarioDirector, string codigoUsuarioDAAP, int diasEtapa, int diasSubEtapa)
     {
         try
         {
-            lNServicio.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuario, codigoDirector, diasEtapa, diasSubEtapa);
+            lNServicio.Insertar_ProyectoCompleto(codigoProyecto, codigoUsuarioEstudiante, codigoUsuarioDirector, codigoUsuarioDAAP, diasEtapa, diasSubEtapa);
         }
         catch (FaultException<EDefecto> ex)
         {

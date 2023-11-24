@@ -37,11 +37,11 @@ public class CProyecto
     #region Metodos Públicos
 
     #region GProyecto
-    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string enlaceDocumentoProyecto, char estadoProyecto)
+    public void Insertar_GProyecto_I(string codigoProyecto, char modalidadProyecto, string tituloProyecto, string objetivoGeneralProyecto, string objetivosEspecificosProyecto, string alcanceProyecto, string enlaceDocumentoProyecto, char estadoProyecto)
     {
         try
         {
-            lNServicio.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, enlaceDocumentoProyecto, estadoProyecto);
+            lNServicio.Insertar_GProyecto_I(codigoProyecto, modalidadProyecto, tituloProyecto, objetivoGeneralProyecto, objetivosEspecificosProyecto, alcanceProyecto, enlaceDocumentoProyecto, estadoProyecto);
 
         }
         catch (FaultException<EDefecto> ex)
@@ -49,19 +49,7 @@ public class CProyecto
             throw ex;
         }
     }
-    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
-    {
-        List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
-        try
-        {
-            lstEGProyecto = lNServicio.Obtener_GProyecto_O(fechaInicio, fechaFin);
-        }
-        catch (FaultException<EDefecto> ex)
-        {
-            throw ex;
-        }
-        return lstEGProyecto;
-    }
+ 
     public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
@@ -86,7 +74,7 @@ public class CProyecto
             eGProyecto.ObjetivoGeneralProyecto = objetivoGeneralProyecto;
             eGProyecto.ObjetivosEspecificosProyecto = objetivosEspecificosProyecto;
             eGProyecto.AlcanceProyecto = alcanceProyecto;
-            eGProyecto.NumeroRevisiones = numeroRevisionesProyecto;
+            eGProyecto.NumeroRevisionesProyecto = numeroRevisionesProyecto;
             eGProyecto.EnlaceDocumentoProyecto = enlaceDocumentoProyecto;
             lNServicio.Actualizar_GProyecto_A(eGProyecto);
         }

@@ -1,296 +1,93 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="PGraficasAvance.aspx.cs" Inherits="WebForm_PGraficasAvance" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <link rel="stylesheet" href="../Estilo/CSSGraficasAvance.css" />
+    <link href="../../Estilos/Estudiante/SAvanceEstudiante.css" rel="stylesheet" />
+     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div>
-        <asp:Button ID="btnFormulario" runat="server" Text="Informacion Proyecto" OnClick="btnFormulario_Click"/>
-    </div>
-     <div>
-     <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
- </div>
-    <div class="ContenedorPrincipal">
-        <div class="Tarjeta">
-            <div class="Tarjeta_Encabezado">
-                <h4>Porcentaje de avance general de la tesis</h4>
+
+    <div class="contenedor">
+        <div class="div-contenedor">
+            <div>
+                <p>Porcentaje de total del procediento de titulacion</p>
             </div>
-            <div class="Tarjeta_Cuerpo">
-                <div class="Progreso">
-                    <div runat="server" class="ProgresoBarra" id="barraProgreso">
-                        <asp:Label runat="server" ID="lblProgresoTotal" class="ProgresoBarra_Valor"></asp:Label>
-                    </div>
-                </div>
+            <div class="barra-progreso">
+                <div class="barra" id="barra-progreso"></div>
             </div>
+            <asp:Label runat="server" ID="lblPorcentajeTotal" Text="0%"></asp:Label>
         </div>
-        <div class="Fila">
-            <div class="Tarjeta">
-                <div class="Tarjeta_Cuerpo">
-                    <div class="Columna">
-                        <h2>
-                            <asp:Label runat="server" ID="lblEtapaActiva"></asp:Label></h2>
-                        <asp:Label runat="server" ID="lblProgresoEtapaActiva"></asp:Label>
-                        <div>
-                            <h4>REVISADO POR</h4>
-                            <ul>
-                                <li>
-                                    <div>
-                                        <h4>Estudiante</h4>
-                                        <small>Ing. Sistemas</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkEstudianteActual" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Tutor</h4>
-                                        <small>Tutor del Estudiante</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTutorActual" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li runat="server" id="tribunalParticipaActual">
-                                    <div>
-                                        <h4>Tribunales</h4>
-                                        <small>2</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTribunalesActual" runat="server" Enabled="False" Visible="true" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Director</h4>
-                                        <small>Director de Carrera</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDirectorActual" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>DAAP</h4>
-                                        <small>Departamento de Apoyo a Proyectos</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDAAPActual" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="div-contenedor">
+
+            <div class="boton_detalle">
+                <asp:Button runat="server" CssClass="Btntabla" Text="VER DETALLE" />
+
+            </div>
+            <div class="etapa">
+                <asp:Label runat="server" ID="lblTituloNumeroEtapa">• Etapa 1</asp:Label>
+            </div>
+            <div class="alinear_vertical">
+                <div class="lista-botones">
+                    <asp:Button ID="btnTema" runat="server" CssClass="Btntabla" Text="TEMA" OnClick="btnTema_Click"/>
+                    <asp:Button ID="btnPerfil" runat="server" CssClass="Btntabla" Text="PERFIL" OnClick="btnPerfil_Click"/>
+                    <asp:Button ID="btnPrivada" runat="server" CssClass="Btntabla" Text="PRIVADA" OnClick="btnPrivada_Click"/>
+                    <asp:Button ID="btnPublica" runat="server" CssClass="Btntabla" Text="PUBLICA" OnClick="btnPublica_Click"/>
+                </div>
+
+                <div class="progreso_Contenedor">
                     <div class="Columna">
                         <div class="Grafica">
-                            <div runat="server" class="ProgresoCircular_Activo" id="graficaEtapaActiva">
-                                <asp:Label runat="server" ID="lblValorActivo" CssClass="ProgresoValor"></asp:Label>
+                            <div class="ProgresoCircular_Activo" id="graficaEtapaActiva">
+                                <label id="lblValorActivo" class="ProgresoValor"> </label>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="contenedor-estados">
+                    <div class="revision">
+                        <p>• Estado de la revisión</p>
+                    </div>
+                    <div class="item">
+                            <asp:Label runat="server" ID="Label1" Text="Tutor:" CssClass="texto"></asp:Label>
+                        <div >
+                            <asp:Label runat="server" ID="lblPorcentajeTutor" Text="0%" CssClass="cuadro plomo"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="item">
+                            <asp:Label runat="server" ID="Label2" Text="Dirección de Carrera:" CssClass="texto"></asp:Label>
+                        <div >
+                            <asp:Label runat="server" ID="lblPorcentajeDirector" Text="50%" CssClass="cuadro plomo"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="item">
+                            <asp:Label runat="server" ID="Label3" Text="DAAP:" CssClass="texto"></asp:Label>                        
+                        <div >
+                            <asp:Label runat="server" ID="lblPorcentajeDAAP" Text="0%" CssClass="cuadro plomo"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="item">
+                            <asp:Label runat="server" ID="lblTribunal1" Text="Tribunal - 1:" CssClass="texto"></asp:Label>                       
+                        <div>
+                            <asp:Label runat="server" ID="lblPorcentajeTribunal1" Text="0%" CssClass="cuadro plomo"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="item">
+                            <asp:Label runat="server" ID="lblTribunal2" Text="Tribunal - 2:" CssClass="texto"></asp:Label>    
+                        <div>
+                            <asp:Label runat="server" ID="lblPorcentajeTribunal2" Text="0%" CssClass="cuadro plomo"></asp:Label>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="Tarjeta">
-            </div>
+
         </div>
-        <div class="Fila">
-            <div class="Tarjeta">
-                <div class="Tarjeta_Cuerpo">
-                    <div class="Columna">
-                        <h2>
-                            <asp:Label runat="server" ID="lblEtapa"></asp:Label></h2>
-                        <asp:Label runat="server" ID="lblProgresoEtapa"></asp:Label>
-                        <div>
-                            <h4>REVISADO POR</h4>
-                            <ul>
-                                <li>
-                                    <div>
-                                        <h4>Estudiante</h4>
-                                        <small>Ing. Sistemas</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkEstudiante" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Tutor</h4>
-                                        <small>Tutor del Estudiante</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTutor" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li runat="server" id="tribunalParticipa">
-                                    <div>
-                                        <h4>Tribunales</h4>
-                                        <small>2</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTribunales" runat="server" Enabled="False" Visible="true" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Director</h4>
-                                        <small>Director de Carrera</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDirector" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>DAAP</h4>
-                                        <small>Departamento de Apoyo a Proyectos</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDAAP" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="Columna">
-                        <div class="Grafica">
-                            <div runat="server" class="ProgresoCircular" id="graficaEtapa">
-                                <asp:Label runat="server" ID="lblValor" CssClass="ProgresoValor"></asp:Label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Tarjeta">
-                <div class="Tarjeta_Cuerpo">
-                    <div class="Columna">
-                        <h2>ETAPA 3</h2>
-                        <div>Total de Avance - 0%</div>
-                        <div>
-                            <h4>REVISADO POR</h4>
-                            <ul>
-                                <li>
-                                    <div>
-                                        <h4>Estudiante</h4>
-                                        <small>Ing. Sistemas</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkEstudianteTercero" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Tutor</h4>
-                                        <small>Tutor del Estudiante</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTutorTercero" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Tribunales</h4>
-                                        <small>2</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTribunalesSegundo" runat="server" Enabled="False" Visible="true" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Director</h4>
-                                        <small>Director de Carrera</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDirectorTercero" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>DAAP</h4>
-                                        <small>Departamento de Apoyo a Proyectos</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDAAPTercero" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="Columna">
-                        <div class="Grafica">
-                            <div runat="server" class="ProgresoCircular" id="graficaEtapa3">
-                                <asp:Label runat="server" ID="lblValorTercero" CssClass="ProgresoValor">0%</asp:Label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Tarjeta">
-                <div class="Tarjeta_Cuerpo">
-                    <div class="Columna">
-                        <h2>ETAPA 4</h2>
-                        <div>Total de Avance - 0%</div>
-                        <div>
-                            <h4>REVISADO POR</h4>
-                            <ul>
-                                <li>
-                                    <div>
-                                        <h4>Estudiante</h4>
-                                        <small>Ing. Sistemas</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkEstudianteCuarto" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Tutor</h4>
-                                        <small>Tutor del Estudiante</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTutorCuarto" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Tribunales</h4>
-                                        <small>2</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkTribunalesTercero" runat="server" Enabled="False" Visible="true" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>Director</h4>
-                                        <small>Director de Carrera</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDirectorCuarto" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <h4>DAAP</h4>
-                                        <small>Departamento de Apoyo a Proyectos</small>
-                                    </div>
-                                    <div>
-                                        <asp:CheckBox ID="chkDAAPCuarto" runat="server" Enabled="False" />
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="Columna">
-                        <div class="Grafica">
-                            <div runat="server" class="ProgresoCircular" id="graficaEtapa4">
-                                <asp:Label runat="server" ID="lblValorCuarto" CssClass="ProgresoValor">0%</asp:Label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+       
+        <div>
+            <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="Btntabla"/>
         </div>
     </div>
+
+    <script accesskey="ActualizarProgreso" src="../../Guiones/Informacion/JBarraProgresoTotal.js"></script>
+    <script accesskey="ActualizarProgreso" src="../../Guiones/Informacion/JBarraProgresoCircular.js"></script>
+
 </asp:Content>
 

@@ -33,7 +33,7 @@ public partial class WebForm_TutorExterno_Default : System.Web.UI.Page
     {
         try
         {
-            cTutorExterno.Insertar_GTutorExterno_I(int.Parse(txbCodigo.Text), txbNombres.Text, txbApellidos.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
+            cTutorExterno.Insertar_GTutorExterno_I(txbCodigo.Text, txbNombres.Text, txbApellidos.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
 
         }
         catch (Exception)
@@ -41,5 +41,9 @@ public partial class WebForm_TutorExterno_Default : System.Web.UI.Page
 
             throw;
         }
+    }
+    void ValidarEntradas()
+    {
+        
     }
 }

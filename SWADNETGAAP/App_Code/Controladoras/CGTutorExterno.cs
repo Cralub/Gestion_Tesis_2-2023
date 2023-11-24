@@ -27,7 +27,7 @@ public class CGTutorExterno
         aDGTutorExterno.Actualizar_GTutorExterno_A(eGTutorExterno);
     }
 
-    public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
+    public void Eliminar_GTutorExterno_E(string codigoTutorExterno)
     {
         aDGTutorExterno.Eliminar_GTutorExterno_E(codigoTutorExterno);
     }
@@ -40,9 +40,8 @@ public class CGTutorExterno
         foreach (DTOGTutorExterno.GTutorExternoRow dRGTutorExterno in dTOGTutorExterno.GTutorExterno.Rows)
         {
             eGTutorExterno = new EGTutorExterno();
-            eGTutorExterno.CodigoTutorExterno = int.Parse(dRGTutorExterno.CodigoTutorExterno);
-            eGTutorExterno.NombresTutorExterno = dRGTutorExterno.NombresTutorExterno;
-            eGTutorExterno.ApellidosTutorExterno = dRGTutorExterno.ApellidosTutorExterno;
+            eGTutorExterno.CodigoTutorExterno = dRGTutorExterno.CodigoTutorExterno;
+            eGTutorExterno.NombreCompletoTutorExterno = dRGTutorExterno.NombreCompletoTutorExterno;
             eGTutorExterno.CarreraTutorExterno = dRGTutorExterno.CarreraTutorExterno;
             eGTutorExterno.DescripcionTutorExterno = dRGTutorExterno.DescripcionTutorExterno;
             eGTutorExterno.DireccionTrabajoTutorExterno = dRGTutorExterno.DireccionTrabajoTutorExterno;
@@ -50,7 +49,6 @@ public class CGTutorExterno
             eGTutorExterno.Estado = dRGTutorExterno.Estado;
             eGTutorExterno.FechaModificacion = dRGTutorExterno.FechaModificacion;
             eGTutorExterno.FechaRegistro= dRGTutorExterno.FechaRegistro;
-
             lstEGTutorExterno.Add(eGTutorExterno);
         }
 
@@ -58,15 +56,14 @@ public class CGTutorExterno
 
     }
 
-    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(string codigoTutorExterno)
     {
         EGTutorExterno eGTutorExterno = new EGTutorExterno();
         DTOGTutorExterno dTOGTutorExterno = aDGTutorExterno.Obtener_GTutorExterno_O_CodigoTutorExterno(codigoTutorExterno);
         foreach (DTOGTutorExterno.GTutorExternoRow dRGTutorExterno in dTOGTutorExterno.GTutorExterno.Rows)
         {
-            eGTutorExterno.CodigoTutorExterno = int.Parse(dRGTutorExterno.CodigoTutorExterno);
-            eGTutorExterno.NombresTutorExterno = dRGTutorExterno.NombresTutorExterno;
-            eGTutorExterno.ApellidosTutorExterno = dRGTutorExterno.ApellidosTutorExterno;
+            eGTutorExterno.CodigoTutorExterno = dRGTutorExterno.CodigoTutorExterno;
+            eGTutorExterno.NombreCompletoTutorExterno = dRGTutorExterno.NombreCompletoTutorExterno;
             eGTutorExterno.CarreraTutorExterno = dRGTutorExterno.CarreraTutorExterno;
             eGTutorExterno.DescripcionTutorExterno = dRGTutorExterno.DescripcionTutorExterno;
             eGTutorExterno.DireccionTrabajoTutorExterno = dRGTutorExterno.DireccionTrabajoTutorExterno;
@@ -74,7 +71,6 @@ public class CGTutorExterno
             eGTutorExterno.Estado = dRGTutorExterno.Estado;
             eGTutorExterno.FechaModificacion = dRGTutorExterno.FechaModificacion;
             eGTutorExterno.FechaRegistro = dRGTutorExterno.FechaRegistro;
-
         }
         return eGTutorExterno;
     }

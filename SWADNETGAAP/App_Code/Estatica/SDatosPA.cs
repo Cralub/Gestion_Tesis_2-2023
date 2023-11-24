@@ -19,6 +19,7 @@ public static class SDatosPA
     #endregion    
     #region Procedimientos Almacenados
     public const char ESTADO_ACTIVO_GAAP = 'A';
+    public const byte NUMERO_REVISIONES_PROYECTO = 2;
     #endregion
 
 }

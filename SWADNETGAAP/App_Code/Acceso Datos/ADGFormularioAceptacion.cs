@@ -62,7 +62,50 @@ public class ADGFormularioAceptacion
             bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo8", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo8);
             bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo9", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo9);
             bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo10", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo10);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoFormularioAceptacion", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_GAAP);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "Estado", DbType.StringFixedLength, SDatosPA.ESTADO_ACTIVO_AUDITORIA);
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaRegistro", DbType.DateTime, SDatosPA.FECHA_REGISTRO_AUDITORIA);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
+            bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
+        }
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "Insertar_GFormularioAceptacion_I", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
+    }
+    public void Actualizar_GFormularioAceptacion_A(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        try
+        {
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GFormularioAceptacion_A");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoFormularioAceptacion", DbType.Int32, eGFormularioAceptacion.CodigoFormularioAceptacion);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoProyecto", DbType.StringFixedLength, eGFormularioAceptacion.CodigoProyecto);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoEstudiante", DbType.StringFixedLength, eGFormularioAceptacion.CodigoEstudiante);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoTribunal", DbType.StringFixedLength, eGFormularioAceptacion.CodigoTribunal);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma1", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma1);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma2", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma2);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma3", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma3);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma4", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma4);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma5", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma5);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma6", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma6);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma7", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma7);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma8", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma8);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma9", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma9);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFormatoYForma10", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFormatoYForma10);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo1", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo1);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo2", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo2);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo3", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo3);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo4", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo4);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo5", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo5);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo6", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo6);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo7", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo7);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo8", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo8);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo9", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo9);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "PreguntaFondo10", DbType.StringFixedLength, eGFormularioAceptacion.PreguntaFondo10);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoFormularioAceptacion", DbType.StringFixedLength, eGFormularioAceptacion.EstadoFormularioAceptacion);            
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.ExecuteNonQuery(comandoBD);
         }
         catch (SqlException SQLEx)

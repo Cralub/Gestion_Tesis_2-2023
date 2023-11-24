@@ -27,10 +27,10 @@ public class ASNETGAAP
         eDefecto.Metodo = metodo;
         eDefecto.Excepcion = excepcion;
         eDefecto.Mensaje = mensaje;
-        return eDefecto;    }
+        return eDefecto;
+    }
 
     #endregion
-
     #region Métodos públicos
     #region GUsuarioRol
     public void Insertar_GUsuarioRol_I(EGUsuarioRol eGUsuarioRol)
@@ -145,7 +145,7 @@ public class ASNETGAAP
         try
         {
             eGUsuarioRol = clienteSWADNETGAAP.Obtener_GUsuarioRol_O_CodigoUsuario_CodigoRol(codigoUsuario, codigoRol);
-            
+
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -329,7 +329,7 @@ public class ASNETGAAP
     }
     public EGUsuarioProyecto Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(string codigoUsuario, string codigoProyecto)
     {
-        EGUsuarioProyecto  eGUsuarioProyecto = new EGUsuarioProyecto();
+        EGUsuarioProyecto eGUsuarioProyecto = new EGUsuarioProyecto();
         try
         {
             eGUsuarioProyecto = clienteSWADNETGAAP.Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(codigoUsuario, codigoProyecto);
@@ -431,33 +431,7 @@ public class ASNETGAAP
             }
         }
     }
-    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
-    {
-        List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
-        try
-        {
-            lstEGProyecto = clienteSWADNETGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
-        }
-        catch (EndpointNotFoundException EndPointEx)
-        {
-            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_GProyecto_O", EndPointEx.ToString(), EndPointEx.Message);
-            throw new FaultException<EDefecto>(eDefecto);
-        }
-        catch (CommunicationException CommEx)
-        {
-            FaultException feaultEx = CommEx as FaultException;
-            if (feaultEx == null)
-            {
-                lstEGProyecto = clienteSWADNETGAAP.Obtener_GProyecto_O(fechaInicio, fechaFin).ToList();
-            }
-            else
-            {
-                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_GProyecto_O", CommEx.ToString(), CommEx.Message);
-                throw new FaultException<EDefecto>(eDefecto);
-            }
-        }
-        return lstEGProyecto;
-    }
+    
     public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
@@ -643,7 +617,7 @@ public class ASNETGAAP
                 throw new FaultException<EDefecto>(eDefecto);
             }
         }
-        return eGEtapa;        
+        return eGEtapa;
     }
     public void Actualizar_GEtapa_A_EstadoEtapa(int codigoEtapa, char estadoEtapa)
     {
@@ -697,6 +671,31 @@ public class ASNETGAAP
             }
         }
     }
+    public void Actualizar_GFormularioAceptacion_A(EGFormularioAceptacion eGFormularioAceptacion)
+    {
+        try
+        {
+            clienteSWADNETGAAP.Actualizar_GFormularioAceptacion_A(eGFormularioAceptacion);
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Actualizar_GFormularioAceptacion_A", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                clienteSWADNETGAAP.Actualizar_GFormularioAceptacion_A(eGFormularioAceptacion);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Actualizar_GFormularioAceptacion_A", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
+    }
     public List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto)
     {
         List<EGFormularioAceptacion> lstFormularioAceptacion = new List<EGFormularioAceptacion>();
@@ -723,6 +722,31 @@ public class ASNETGAAP
             }
         }
         return lstFormularioAceptacion;
+    }
+    public int Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion()
+    {
+        try
+        {
+            return clienteSWADNETGAAP.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                return clienteSWADNETGAAP.Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
     }
     #endregion
     #region GSubEtapa
@@ -858,6 +882,31 @@ public class ASNETGAAP
             }
         }
         return eGSubEtapa;
+    }
+    public void Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(string codigoUsuarioFirmaSubEtapa, int codigoSubEtapa, char estadoSubEtapa)
+    {
+        try
+        {
+            clienteSWADNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuarioFirmaSubEtapa, codigoSubEtapa, estadoSubEtapa);
+        }
+        catch (EndpointNotFoundException EndPointEx)
+        {
+            EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Falla, "Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa", EndPointEx.ToString(), EndPointEx.Message);
+            throw new FaultException<EDefecto>(eDefecto);
+        }
+        catch (CommunicationException CommEx)
+        {
+            FaultException feaultEx = CommEx as FaultException;
+            if (feaultEx == null)
+            {
+                clienteSWADNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuarioFirmaSubEtapa, codigoSubEtapa, estadoSubEtapa);
+            }
+            else
+            {
+                EDefecto eDefecto = ContruirErrorServicio(TTipoDefecto.Comunicacion, "Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa", CommEx.ToString(), CommEx.Message);
+                throw new FaultException<EDefecto>(eDefecto);
+            }
+        }
     }
     public void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {
@@ -1263,7 +1312,7 @@ public class ASNETGAAP
         return eUsuarioNetvalle;
     }
     #endregion
-    #region Tabla: GCelular
+    #region GCelular
     public int Obtener_GCelular_O_SiguienteCodigoCelular()
     {
         int ultimoCodigo = 0;
@@ -1446,10 +1495,10 @@ public class ASNETGAAP
                 throw new FaultException<EDefecto>(eDefecto);
             }
         }
-        return lstEGTutorExterno;        
+        return lstEGTutorExterno;
     }
 
-    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno)
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(string codigoTutorExterno)
     {
         EGTutorExterno eGTutorExterno = new EGTutorExterno();
         try
@@ -1503,7 +1552,7 @@ public class ASNETGAAP
         }
     }
 
-    public void Eliminar_GTutorExterno_E(int codigoTutorExterno)
+    public void Eliminar_GTutorExterno_E(string codigoTutorExterno)
     {
         try
         {

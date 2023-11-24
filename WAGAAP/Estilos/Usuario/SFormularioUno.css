@@ -1,0 +1,225 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+/*Contendor*/
+.contenedor {
+    max-width: 800px;
+    margin: 1% auto;
+    padding: 3%;
+    background-color: #860842;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+
+}
+
+/*Titulo*/
+h1 {
+    text-align: center;
+    color: white;
+}
+
+/*Busqueda Estudiante */
+.busquedaEst {
+    margin-bottom: 20px;
+    margin-right: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.lblEst {
+    font-weight: bold;
+    flex: 1;
+    margin-right: 10px;
+    color: white;
+}
+
+.txtBusqueda {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 5px;
+    cursor: pointer;
+}
+/* Letras Lista */
+.ListaTexto {
+    color: white;
+    margin-bottom: 20px;
+    font-size: larger;
+}
+/*radio buton */
+.radio {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    .radio label {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 16px;
+    }
+
+.radioBoton {
+    transform: scale(2);
+    margin: 10px;
+}
+/*Datos del trabajo*/
+
+.Datos {
+    margin-bottom: 3%;
+    color:white;
+    font-size:medium;
+    font-weight:bold;
+}
+
+.txtDatos {
+    padding: 2%;
+    margin: 1%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    border-radius: 10px;
+    width:100%;
+}
+/*datos de asesoramiento*/
+.busquedaTutor {
+    margin-bottom: 20px;
+    margin-right: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.lblTutor {
+    font-weight: bold;
+    flex: 1;
+    margin-right: 10px;
+    color: white;
+    padding-left: 50px;
+}
+
+.txtBusquedaTutor {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 5px;
+    cursor: pointer;
+}
+/*Cambiar imagen word*/
+
+.TextoCargar {
+    color: white;
+    margin: 20px;
+    font-size: 13px;
+}
+
+.SeccionWord {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.CargarWord {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-image: url('../Imagen/IconoCapeta.png'); /* Ruta absoluta de la imagen de fondo */
+    background-size: 55px 55px; /* Tamaño deseado de la imagen */
+    width: 100px; /* Ancho deseado del botón */
+    background-repeat: no-repeat;
+    height: 55px; /* Alto deseado del botón */
+    color: transparent; /* Oculta el texto */
+    text-align: center;
+    line-height: 55px; /* Alinea verticalmente el texto */
+}
+
+    .CargarWord input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+/* boton enviar*/
+.SeccionSiguiente {
+    text-align: right;
+}
+
+.botonFormulario {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    background-color: #757575;
+    border-radius: 15px;
+    color: white;
+    padding: 0 3% 0 3%;
+    font-weight:bold;
+    margin-bottom:3%;
+}
+
+    .botonFormulario:hover {
+        background-color: #504f4f; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+
+.contenedorTabla {
+    width: 100%;
+    overflow-x: auto;
+    border: 2px solid #860842;
+    border-radius: 0px 0px 15px 15px;
+}
+.EstiloTable {
+    border-collapse: separate!important; /* Separar las celdas */
+    border-spacing: 5px; /* Establecer el espaciado entre columnas y filas */
+    width: 100%;
+    font-size: 16px;
+    background-color: #e6e6e6;
+}
+
+    .EstiloTable th {
+        background-color: #000; /* Color de fondo del encabezado (negro) */
+        color: #fff;
+        text-align: center;
+        padding: 1%;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .EstiloTable td {
+        text-align: center;
+        padding: 1%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+.Btntabla {
+    background-color: antiquewhite;
+    background-color: #860842;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    height: 30px;
+    flex-grow: 1; /* Los botones ocuparán todo el espacio disponible */
+    margin: 0; /* Espacio entre botones (ajustable según sea necesario) */
+    max-width: 100px; /* Ancho máximo de los botones (ajustable según sea necesario) */
+    white-space: nowrap; /* Evita que el texto en los botones se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que desborda el ancho máximo */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para el texto que no cabe */
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+
+    .Btntabla:hover {
+        background-color: #a5195b; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }

@@ -1,45 +1,68 @@
-﻿<%@ Page Title="Lista Proyectos General" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="PListarProyectos.aspx.cs" Inherits="WebForm_Proyecto_PListarProyectos" %>
-
-
+﻿<%@ Page Title="Lista General Proyectos" Language="C#" MasterPageFile="~/PaginaMaestra/MPNavegacion.master" AutoEventWireup="true" CodeFile="PListarProyectos.aspx.cs" Inherits="WebForm_Proyecto_PListarProyectos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="../../Estilos/SBase.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div>
-        <span id="ContentPlaceHolder2_cuAutenticar_Label2" class="TextoLogin">Estudiante:</span>
-        <asp:TextBox runat="server" MaxLength="15" ID="txbCodigoUsuario" class="TextBox" OnTextChanged="txbCodigoUsuario_TextChanged" AutoPostBack="true"></asp:TextBox>
-        <asp:DropDownList ID="ddlTipoProyecto" runat="server" OnSelectedIndexChanged="ddlTipoProyecto_SelectedIndexChanged" AutoPostBack="true">
-            <asp:ListItem Text="Todos" Value="X" Selected></asp:ListItem>
-            <asp:ListItem Text="Trabajo Dirigido" Value="D"></asp:ListItem>
-            <asp:ListItem Text="Proyecto de grado" Value="P"></asp:ListItem>
-            <asp:ListItem Text="Tesis de grado" Value="T"></asp:ListItem>
-            <asp:ListItem Text="Sin Modalidad" Value="-"></asp:ListItem>
-        </asp:DropDownList>
-        <asp:DropDownList ID="ddlEstadoProyecto" runat="server" OnSelectedIndexChanged="ddlEstadoProyecto_SelectedIndexChanged" AutoPostBack="true">
-            <asp:ListItem Text="Todos" Value="X" Selected></asp:ListItem>
-            <asp:ListItem Text="Activo" Value="A"></asp:ListItem>
-            <asp:ListItem Text="Retrasado" Value="R"></asp:ListItem>
-            <asp:ListItem Text="Finalizado" Value="F"></asp:ListItem>
-        </asp:DropDownList>
-        <asp:GridView ID="grvListaProyectos" DataKeyNames="CodigoProyecto" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDataBound="gvListaProyectos_RowDataBound" OnRowCommand="gvListaProyectos_RowCommand">
-            <Columns>
-                <asp:BoundField DataField="CodigoProyecto" HeaderText="CodigoProyecto" Visible="False" />
-                <asp:BoundField DataField="Rol" HeaderText="Rol En Proyecto" />
-                <asp:TemplateField HeaderText="Estudiantes">
-                    <ItemTemplate>
-                        <asp:DropDownList ID="ddlEstudiantes" runat="server" OnSelectedIndexChanged="ddlEstudiantes_SelectedIndexChanged" AutoPostBack="true">
-                        </asp:DropDownList>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="CodigoTutor" HeaderText="CodigoTutor " />
-                <asp:BoundField DataField="TituloProyecto" HeaderText="Titulo" />
-                <asp:BoundField DataField="ModalidadProyecto" HeaderText="Modalidad" />
-                <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
-                <asp:ButtonField ButtonType="Button" CommandName="btnObservaciones" Text="Observaciones" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
-                <asp:ButtonField ButtonType="Button" CommandName="btnInfo" Text="Grafica" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
-            </Columns>
-        </asp:GridView>
-        <asp:Label ID="label" runat="server" Text=""></asp:Label>
-        <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+    <div class="contenedor">
+        <h1>Lista General Proyectos</h1>
+        <div class="Menu">
+            <div class="buscador">
+                <asp:TextBox runat="server" MaxLength="15" ID="txbCodigoUsuario" CssClass="txtBusqueda" OnTextChanged="txbCodigoUsuario_TextChanged" placeholder="Buscar por nombre o codigo usuario" AutoPostBack="true"></asp:TextBox>
+
+            </div>
+            <div class="ContenedorCombo">
+                <asp:DropDownList ID="ddlEstadoProyecto" CssClass="comboOpciones" runat="server" OnSelectedIndexChanged="ddlEstadoProyecto_SelectedIndexChanged" AutoPostBack="true">
+                    <asp:ListItem Text="ESTADO" Value="X" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="Activo" Value="A"></asp:ListItem>
+                    <asp:ListItem Text="Retrasado" Value="R"></asp:ListItem>
+                    <asp:ListItem Text="Finalizado" Value="F"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlEtapaProyecto" CssClass="comboOpciones" runat="server" OnSelectedIndexChanged="ddlEtapaProyecto_SelectedIndexChanged" AutoPostBack="true">
+                    <asp:ListItem Text="ETAPA" Value="X" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="Tema" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="Perfil" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="Privada" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="Publica" Value="4"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlTipoProyecto" CssClass="comboOpciones" runat="server" OnSelectedIndexChanged="ddlTipoProyecto_SelectedIndexChanged" AutoPostBack="true">
+                    <asp:ListItem Text="TIPO" Value="X" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="Trabajo Dirigido" Value="D"></asp:ListItem>
+                    <asp:ListItem Text="Proyecto de grado" Value="P"></asp:ListItem>
+                    <asp:ListItem Text="Tesis de grado" Value="T"></asp:ListItem>
+                    <asp:ListItem Text="Sin Modalidad" Value="-"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="contenedorTabla">
+
+            <asp:GridView ID="grvListaProyectos" DataKeyNames="CodigoProyecto" CssClass="EstiloTable" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDataBound="gvListaProyectos_RowDataBound" OnRowCommand="gvListaProyectos_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="CodigoProyecto"  Visible="false" />
+                    <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" Visible="true"/>
+                    
+                    <asp:TemplateField HeaderText="Estudiantes">
+                        <ItemTemplate>
+                            <asp:DropDownList ID="ddlEstudiantes" runat="server" OnSelectedIndexChanged="ddlEstudiantes_SelectedIndexChanged" CssClass="comboOpciones" AutoPostBack="true">
+                            </asp:DropDownList>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="CodigoTutor" HeaderText="Tutor" />
+                    <asp:BoundField DataField="TituloProyecto" HeaderText="Titulo" />
+                    <asp:BoundField DataField="ModalidadProyecto" HeaderText="Modalidad" />
+                    <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="btnLinea">
+                        <ItemTemplate>
+                            <asp:Button ID="btnVer" runat="server" Text="Ver" CommandName="btnVer" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />
+                            <asp:Button ID="btnFormularioAceptacion" runat="server" Text="F. Aceptacion" CommandName="btnFormularioAceptacion" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />
+                            <asp:Button ID="btnObservaciones" runat="server" Text="Observaciones" CommandName="btnObservaciones" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />
+                            <asp:Button ID="btnInfo" runat="server" Text="Grafica" CommandName="btnInfo" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <asp:Label ID="label" runat="server" Text=""></asp:Label>
+
+        </div>
+        <%--<asp:Button ID="btnVolver" runat="server" Text="Volver" CssClass="Btntabla" OnClick="btnVolver_Click" />--%>
     </div>
 </asp:Content>

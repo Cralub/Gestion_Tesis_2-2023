@@ -34,7 +34,7 @@ public partial class WebForm_TutorExterno_PListarTutoresExternos : System.Web.UI
             if (txbCodigoTutorExterno.Text != "")
             {
                
-                listaTutoresExternos.Add(cTutorExterno.Obtener_GTutorExterno_O_CodigoTutorExterno(int.Parse(txbCodigoTutorExterno.Text)));
+                listaTutoresExternos.Add(cTutorExterno.Obtener_GTutorExterno_O_CodigoTutorExterno(txbCodigoTutorExterno.Text));
                 grvListaTutoresExternos.DataSource = listaTutoresExternos;
                 grvListaTutoresExternos.DataBind();
             }
@@ -51,9 +51,9 @@ public partial class WebForm_TutorExterno_PListarTutoresExternos : System.Web.UI
 
     protected void gvListaTutoresExternos_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        if (e.CommandName == "Editar")
+        int index = Convert.ToInt32(e.CommandArgument);
+        if (e.CommandName == "btnEditar")
         {
-            int index = Convert.ToInt32(e.CommandArgument);
             GridViewRow row = grvListaTutoresExternos.Rows[index];
             string CodigoTutorExterno = row.Cells[0].Text;
             Response.Redirect("PEditarTutorExterno.aspx?CodigoTutorExterno=" + CodigoTutorExterno);
@@ -72,12 +72,21 @@ public partial class WebForm_TutorExterno_PListarTutoresExternos : System.Web.UI
         grvListaTutoresExternos.DataBind();
         try
         {
-            
             BuscarTutorExterno();
         }
         catch (Exception)
         {
             throw;
         }
+    }
+
+    protected void btnCrearTutorExterno_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/WebForm/ControlesDirector/TutorExterno/PCrearTutorExterno.aspx");
+    }
+
+    protected void btnVolver_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/PaginaMaestra/Default.aspx");
     }
 }

@@ -41,9 +41,6 @@ public partial class WebForm_Usuario_Default : System.Web.UI.Page
         listaUsuarioRol = cUsuarioRol.Obtener_GUsuarioRol_O_CodigoUsuario(codigoUsuario).ToList();
         gvListaUsuarioRol.DataSource = listaUsuarioRol;
         gvListaUsuarioRol.DataBind();
-        
-
-
     }
 
     protected void btnBuscar_Click(object sender, EventArgs e)
@@ -52,21 +49,14 @@ public partial class WebForm_Usuario_Default : System.Web.UI.Page
         
     }
 
-    protected void gvListaUsuarioRol_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-        
-    }
 
-    protected void gvListaUsuarioRol_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-
-    }
 
     protected void btnInsertar_Click(object sender, EventArgs e)
     {
+        
         string codigoUsuario = txtCodigoUsuarioRol.Text;
         string codigoRol = ddlCodigoRol.SelectedValue;
-        cUsuarioRol.Insertar_GUsuarioRol_I(int.Parse(txbInsertarCodigoUsuarioRol.Text), codigoRol, codigoUsuario);
+        cUsuarioRol.Insertar_GUsuarioRol_I(cUsuarioRol.Obtener_GUsuarioRol_O_SiguienteCodigoUsuarioRol(), codigoRol, codigoUsuario);
 
     }
 }

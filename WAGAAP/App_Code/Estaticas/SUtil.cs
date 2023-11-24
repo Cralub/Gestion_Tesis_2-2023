@@ -44,7 +44,28 @@ public static class SUtil
             throw new ArgumentNullException();
         }
     }
-
+    public static bool CorrespondeRevision(string codigoProyecto, string codigoUsuario)
+    {
+        CEtapa cEtapa = new CEtapa();
+        CSubEtapa cSubEtapa = new CSubEtapa();
+        CProyectoCompleja cProyectoCompleja = new CProyectoCompleja();
+        CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
+        
+        EGEtapa eGEtapa = cEtapa.Obtener_GEtapa_O_CodigoProyecto_EstadoEtapa(codigoProyecto, SDatosGlobales.ESTADO_ACTIVO);
+        EGSubEtapa eGSubEtapa = cSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(eGEtapa.CodigoEtapa, SDatosGlobales.ESTADO_ACTIVO);
+        EGUsuarioProyecto eGUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoUsuario_CodigoProyecto(codigoUsuario, codigoProyecto);
+        return cProyectoCompleja.Verificar_GProyecto_CorrespondeRevision(eGUsuarioProyecto.CodigoRol, eGSubEtapa);
+    }
+    public static string ObtenerNombreModalidad(char charModalidad)
+    {
+        if (charModalidad == SDatosGlobales.CHAR_MODALIDAD_PROYECTO_DE_GRADO)
+            return SDatosGlobales.STRING_MODALIDAD_PROYECTO_DE_GRADO;
+        if (charModalidad == SDatosGlobales.CHAR_MODALIDAD_TESIS)
+            return SDatosGlobales.STRING_MODALIDAD_TESIS;
+        if (charModalidad == SDatosGlobales.CHAR_MODALIDAD_TRABAJO_DIRIGIDO)
+            return SDatosGlobales.STRING_MODALIDAD_TRABAJO_DIRIGIDO;
+        return string.Empty;
+    }
     public static string ObtenerNombrePorCodigo(string codigoUsuario)
     {
         CUsuario cUsuario = new CUsuario();        
@@ -66,7 +87,23 @@ public static class SUtil
             Nombre = ObtenerNombrePorCodigo(s.CodigoUsuario)
         }).ToList();
     }
-    public static bool ValidarSoloTextoYEspacios(string cadena,int longitudMinima)
+    public static bool ConfirmarParticipacionDocente(string codigoProyecto, EUsuarioSesionGAAP usuarioSesion)
+    {
+        CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
+        // Si el usuario no es tutor, devuelve true directamente
+        if (!usuarioSesion.Roles.Any(rol => rol == SDatosGlobales.ROL_TUTOR))
+            return true;
+
+        List<EGUsuarioProyecto> eGUsuarioProyecto = cUsuarioProyecto
+            .Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto)
+            .Where(w => w.CodigoRol == SDatosGlobales.ROL_TUTOR)
+            .ToList();
+
+        // Devuelve true si el tutor cofirmo su participación en el proyecto, de lo contrario, false
+        return eGUsuarioProyecto.Any() ? eGUsuarioProyecto.First().EstadoUsuarioProyecto == SDatosGlobales.ESTADO_ACTIVO : false;
+    }
+    #region Validaciones
+    public static bool ValidarSoloTextoYEspacio(string cadena, int longitudMinima)
     {
         if (string.IsNullOrEmpty(cadena) || cadena.Length < longitudMinima)
         {
@@ -74,7 +111,15 @@ public static class SUtil
         }
         return Regex.IsMatch(cadena,SDatosGlobales.REGEX_TEXTO_Y_ESPACIOS);
     }
-    public static bool ValidarSoloNumeros(string cadena, int longitudMinima)
+    public static bool ValidarSoloTexto(string cadena, int longitudMinima)
+    {
+        if (string.IsNullOrEmpty(cadena) || cadena.Length < longitudMinima)
+        {
+            return false;
+        }
+        return Regex.IsMatch(cadena, SDatosGlobales.REGEX_SOLO_TEXTO);
+    }
+    public static bool ValidarSoloNumero(string cadena, int longitudMinima)
     {
         if (string.IsNullOrEmpty(cadena) || cadena.Length < longitudMinima)
         {
@@ -82,6 +127,7 @@ public static class SUtil
         }
         return Regex.IsMatch(cadena, SDatosGlobales.REGEX_SOLO_NUMEROS);
     }
+    #endregion
     #endregion
 
     #region Métodos de Sesión

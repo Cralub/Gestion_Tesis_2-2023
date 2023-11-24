@@ -41,8 +41,7 @@ public interface ISWADNETGAAP
     #region Tabla: GProyecto
     [OperationContract]
     void Insertar_GProyecto_I(EGProyecto eGProyecto);
-    [OperationContract]
-    List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin);
+    
     [OperationContract]
     EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto);
 
@@ -69,10 +68,14 @@ public interface ISWADNETGAAP
     [OperationContract]
     void Insertar_GFormularioAceptacion_I(EGFormularioAceptacion eGFormularioAceptacion);
     [OperationContract]
+    void Actualizar_GFormularioAceptacion_A(EGFormularioAceptacion eGFormularioAceptacion);
+    [OperationContract]
     List<EGFormularioAceptacion> Obtener_GFormularioAceptacion_O_CodigoProyecto(string codigoProyecto);
     [OperationContract]
+    int Obtener_GFormularioAceptacion_O_SiguienteCodigoFormularioAceptacion();
     #endregion
     #region Tabla: GSubEtapa
+    [OperationContract]
     void Insertar_GSubEtapa_I(EGSubEtapa eGSubEtapa);
     [OperationContract]
     List<EGSubEtapa> Obtener_GSubEtapa_O_CodigoEtapa(int codigoEtapa);
@@ -82,6 +85,8 @@ public interface ISWADNETGAAP
     EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_EstadoSubEtapa(int codigoEtapa, char estadoSubEtapa);
     [OperationContract]
     EGSubEtapa Obtener_GSubEtapa_O_CodigoEtapa_NumeroSubEtapa(int codigoEtapa, byte numeroSubEtapa);
+    [OperationContract]
+    void Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(string codigoUsuarioFirma, int codigoSubEtapa, char estadoSubEtapa);
     [OperationContract]
     void Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa);
     #endregion
@@ -137,11 +142,11 @@ public interface ISWADNETGAAP
     [OperationContract]
     void Insertar_GTutorExterno_I(EGTutorExterno eGTutorExterno);
     [OperationContract]
-    EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(int codigoTutorExterno);
+    EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(string codigoTutorExterno);
     [OperationContract]
     void Actualizar_GTutorExterno_A(EGTutorExterno eGTutorExterno);
     [OperationContract]
-    void Eliminar_GTutorExterno_E(int codigoTutorExterno);
+    void Eliminar_GTutorExterno_E(string codigoTutorExterno);
     [OperationContract]
     List<EGTutorExterno> Obtener_GTutorExterno_O();
     #endregion

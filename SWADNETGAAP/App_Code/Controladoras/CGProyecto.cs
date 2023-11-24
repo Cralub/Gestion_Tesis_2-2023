@@ -21,25 +21,7 @@ public class CGProyecto
     {
         aDGProyecto.Insertar_GProyecto_I(eGProyecto);
     }
-    public List<EGProyecto> Obtener_GProyecto_O(DateTime fechaInicio, DateTime fechaFin)
-    {
-        EGProyecto eGProyecto;
-        List<EGProyecto> lstEGProyecto = new List<EGProyecto>();
-        DTOGProyecto dTOGProyecto = aDGProyecto.Obtener_GProyecto_O(fechaInicio, fechaFin);
-        foreach (DTOGProyecto.GProyectoRow dRGProyecto in dTOGProyecto.GProyecto.Rows)
-        {
-            eGProyecto = new EGProyecto();
-            eGProyecto.CodigoProyecto = dRGProyecto.CodigoProyecto;
-            eGProyecto.ModalidadProyecto = char.Parse(dRGProyecto.ModalidadProyecto);
-            eGProyecto.TituloProyecto = dRGProyecto.TituloProyecto;
-            eGProyecto.ObjetivoGeneralProyecto = dRGProyecto.ObjetivoGeneralProyecto;
-            eGProyecto.EnlaceDocumentoProyecto = dRGProyecto.EnlaceDocumentoProyecto;
-            eGProyecto.EstadoProyecto = char.Parse(dRGProyecto.EstadoProyecto);            
-            lstEGProyecto.Add(eGProyecto);
-        }
 
-        return lstEGProyecto;
-    }
     public EGProyecto Obtener_GProyecto_O_CodigoProyecto(string codigoProyecto)
     {
         EGProyecto eGProyecto = new EGProyecto();
@@ -55,7 +37,7 @@ public class CGProyecto
             eGProyecto.AlcanceProyecto = dRGProyecto.AlcanceProyecto;
             eGProyecto.EnlaceDocumentoProyecto = dRGProyecto.EnlaceDocumentoProyecto;
             eGProyecto.EstadoProyecto = char.Parse(dRGProyecto.EstadoProyecto);
-            eGProyecto.NumeroRevisiones = dRGProyecto.NumeroRevisiones;
+            eGProyecto.NumeroRevisionesProyecto = dRGProyecto.NumeroRevisionesProyecto;
             eGProyecto.Estado = dRGProyecto.Estado;
             eGProyecto.FechaRegistro = dRGProyecto.FechaRegistro;
             eGProyecto.FechaModificacion = dRGProyecto.FechaModificacion;

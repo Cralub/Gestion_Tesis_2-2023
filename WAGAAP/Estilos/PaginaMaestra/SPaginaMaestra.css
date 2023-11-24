@@ -266,12 +266,9 @@ body {
     z-index: 2;
 }
 
-    .home-section .text {
+    .home-section .content {
         display: inline-block;
-        color: var(--color-default);
-        /*font-size: 25px;*/
-        font-weight: 500;
-        margin: 18px;
+        margin: 2%;
         justify-content: center;
         margin-top: 100px;
         width: 95%;
@@ -286,28 +283,32 @@ header {
     width: 100%;
     height: 70px;
     background-color: var(--color-default);
-    margin-top: 0;
     position: fixed;
+    align-content: center;
 }
 
 nav {
-    max-width: 1024px;
+    max-width: 90%;
     margin: 0 auto;
+    text-align: center;
+    
 }
 
     nav p {
-        padding: 18px 10px;
+        padding: 1%;
     }
 
     nav a {
         text-decoration: none;
         color: var(--color-body);
-        font-size: 20px;
+        font-size: 150%;
+        align-self:center;
     }
 
     nav ul {
         float: right;
         list-style: none;
+        
     }
 
     nav li {
@@ -317,12 +318,13 @@ nav {
 
         nav li ul li ul {
             display: none;
-            position: absolute;
-            min-width: 140px;
+            position: page;
+            text-align:center;
+            min-width: 200px;
             color: #000000;
             background-color: var(--color-default);
-            margin-top: 0px;
-            padding: 15px 15px 15px 15px;
+            margin-top: 9%;
+            padding: 2%;
         }
 
         nav li:hover > ul {
@@ -336,15 +338,24 @@ nav {
 .iconoUsuario {
     width: 70px;
     height: 70px;
+    position: fixed;
+    top: 0px; 
+    right: 20px;
 }
 
 .iconoEnlinea {
     margin-top: 10px;
     width: 20px;
     height: 2%;
+    position: fixed;
+    top: 5px; 
+    right: 100px;
 }
 
 .iconoFlecha {
     width: 20px;
     height: 30px;
+    position: fixed;
+    top: 35px; 
+    right: 100px;
 }

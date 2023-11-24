@@ -13,7 +13,9 @@ public class EGSubEtapa
     [DataMember]
     public int CodigoEtapa { get; set; }
     [DataMember]
-    public string CodigoUsuarioFirma { get; set; }
+    public string CodigoUsuarioFirmaSubEtapa { get; set; }
+    [DataMember]
+    public string CodigoRolDesignadoSubEtapa { get; set; }
     [DataMember]
     public byte NumeroSubEtapa { get; set; }
     [DataMember]
@@ -41,7 +43,8 @@ public class EGSubEtapa
     {
         CodigoSubEtapa = int.MinValue;
         CodigoEtapa = int.MinValue;
-        CodigoUsuarioFirma = string.Empty;
+        CodigoUsuarioFirmaSubEtapa = string.Empty;
+        CodigoRolDesignadoSubEtapa = string.Empty;
         NumeroSubEtapa = byte.MinValue;
         FechaInicioSubEtapa = DateTime.MinValue;
         FechaDefinidaSubEtapa = DateTime.MinValue;

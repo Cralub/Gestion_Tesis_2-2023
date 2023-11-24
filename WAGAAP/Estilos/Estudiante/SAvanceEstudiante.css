@@ -1,0 +1,236 @@
+﻿
+.contenedor {
+    margin: 0 5% 0 5%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    width: 50vw;
+    min-width: 50vw;
+    max-width: 50vw;
+    height: 90vh;
+    
+}
+
+.div-contenedor {
+    text-align: center;
+    align-self: center;
+    background-color: #fff;
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    width:100%;
+    margin: 1%;
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 30%;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.barra {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+p {
+    text-align: left;
+    
+}
+.etapa {
+    margin-left: 33%;
+    width: 200px;
+}
+#porcentaje {
+    font-size: 18px;
+    font-weight: bold;
+}
+.lista-botones {
+    text-align: center;
+    float: left;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 10%; 
+    padding:5%;
+    margin: 0; 
+}
+
+.boton_detalle {
+    padding: 0.5%;
+    width: 20%;
+    margin-left: 20%;
+}
+
+
+.revision {
+    padding: 2px;
+    width: 200px;
+    margin-bottom: 30px;
+}
+.contenedor-estados {
+    width: 20vw;
+    min-width: 20vw;
+    padding: 1%;
+    border: none;
+    float: right;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.texto {
+    font-weight: bold;
+}
+
+.cuadro {
+    width: 5vw;
+    height: 20px;
+    border: none;
+    display:block;
+}
+
+    .verde {
+        background-color: #00ff00;
+    }
+
+    .amarillo {
+        background-color: #ffff00;
+    }
+
+    .plomo {
+        background-color: #808080;
+    }
+
+.progreso_Contenedor {
+    
+    width: 100%;
+    padding: 10px;
+    border: none;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+
+.Columna {
+    width: 50%;
+}
+
+.Grafica {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProgresoCircular_Activo {
+    font-size: 1.2rem;
+    margin: auto;
+    position: relative;
+    height: 11em;
+    width: 11em;
+    border-radius: 50%;
+    background: conic-gradient(#F87178 0deg, #7a7979 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .ProgresoCircular_Activo::before {
+        content: "";
+        position: absolute;
+        height: 8em;
+        width: 8em;
+        border-radius: 50%;
+        background-color: #ffffff;
+    }
+
+.ProgresoCircular {
+    margin: auto;
+    position: relative;
+    height: 11rem;
+    width: 11rem;
+    border-radius: 50%;
+    background: conic-gradient(#F87178 0deg, #f0f0f0 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .ProgresoCircular::before {
+        content: "";
+        position: absolute;
+        height: 8rem;
+        width: 8rem;
+        border-radius: 50%;
+        background-color: #ffffff;
+    }
+
+.ProgresoValor {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #3fe03f;
+}
+.alinear_vertical{
+    display:flex;
+    justify-content:center;
+}
+
+
+.Btntabla {
+    background-color: antiquewhite;
+    background-color: #860842;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    font-weight: bold;
+    height: 40px;
+    flex-grow: 1; /* Los botones ocuparán todo el espacio disponible */
+    margin: 1% 0 1% 0; /* Espacio entre botones (ajustable según sea necesario) */
+    max-width: 200px; /* Ancho máximo de los botones (ajustable según sea necesario) */
+    white-space: nowrap; /* Evita que el texto en los botones se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que desborda el ancho máximo */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para el texto que no cabe */
+    cursor: pointer;
+    width: 100%;
+    min-width: 100px;
+    padding: 1% 0 1% 0
+}
+
+    .Btntabla:hover {
+        background-color: #a5195b; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+ 
+
+
+
+
+
+
+

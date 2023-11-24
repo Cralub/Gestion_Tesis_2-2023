@@ -40,7 +40,8 @@ public class ADGSubEtapa
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GSubEtapa_I");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoSubEtapa", DbType.Int32, eGSubEtapa.CodigoSubEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoEtapa", DbType.Int32, eGSubEtapa.CodigoEtapa);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoUsuarioFirma", DbType.StringFixedLength, eGSubEtapa.CodigoUsuarioFirma);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoUsuarioFirmaSubEtapa", DbType.StringFixedLength, eGSubEtapa.CodigoUsuarioFirmaSubEtapa);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoRolDesignadoSubEtapa", DbType.StringFixedLength, eGSubEtapa.CodigoRolDesignadoSubEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "NumeroSubEtapa", DbType.Byte, eGSubEtapa.NumeroSubEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaInicioSubEtapa", DbType.DateTime, eGSubEtapa.FechaInicioSubEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "FechaDefinidaSubEtapa", DbType.DateTime, eGSubEtapa.FechaDefinidaSubEtapa);
@@ -129,6 +130,26 @@ public class ADGSubEtapa
         }
         return dTOGSubEtapa;
     }
+    public DTOGSubEtapa Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(string codigoUsuarioFirmaSubEtapa,int codigoSubEtapa, char estadoSubEtapa)
+    {
+        DTOGSubEtapa dTOGSubEtapa = new DTOGSubEtapa();
+        try
+        {
+            Database bdSWADNETGAAP = SBaseDatos.BDSWADNETGAAP;
+            DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa");
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoUsuarioFirmaSubEtapa", DbType.String, codigoUsuarioFirmaSubEtapa);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoSubEtapa", DbType.Int32, codigoSubEtapa);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoSubEtapa", DbType.StringFixedLength, estadoSubEtapa);
+            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
+            bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGSubEtapa, "GSubEtapa");
+        }
+        catch (SqlException SQLEx)
+        {
+            EDefectoAD eDefectoAD = ConstruirErrorServicio(TTipoError.BaseDatos, "GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa", SQLEx.ToString(), SQLEx.Message);
+            throw new FaultException<EDefectoAD>(eDefectoAD);
+        }
+        return dTOGSubEtapa;
+    }
     public DTOGSubEtapa Actualizar_GSubEtapa_A_EstadoSubEtapa(int codigoSubEtapa, char estadoSubEtapa)
     {
         DTOGSubEtapa dTOGSubEtapa = new DTOGSubEtapa();
@@ -138,7 +159,6 @@ public class ADGSubEtapa
             DbCommand comandoBD = bdSWADNETGAAP.GetStoredProcCommand("GSubEtapa_A_EstadoSubEtapa");
             bdSWADNETGAAP.AddInParameter(comandoBD, "CodigoSubEtapa", DbType.Int32, codigoSubEtapa);
             bdSWADNETGAAP.AddInParameter(comandoBD, "EstadoSubEtapa", DbType.StringFixedLength, estadoSubEtapa);
-            bdSWADNETGAAP.AddInParameter(comandoBD, "FechaModificacion", DbType.DateTime, SDatosPA.FECHA_MODIFICACION_AUDITORIA);
             bdSWADNETGAAP.LoadDataSet(comandoBD, dTOGSubEtapa, "GSubEtapa");
         }
         catch (SqlException SQLEx)

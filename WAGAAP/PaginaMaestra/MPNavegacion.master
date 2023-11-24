@@ -4,20 +4,135 @@
 
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>GAAPG - Menu Principal</title>
-  <!-- Link Styles -->
-  <link rel="stylesheet" href="/Estilos/PaginaMaestra/SPaginaMaestra.css">
+    <!-- Link Styles -->
+    <link rel="stylesheet" href="/Estilos/PaginaMaestra/SPaginaMaestra.css">
+    <link href="/Estilos/SEstilo.css" rel="stylesheet" />
+    <link href="/Estilos/SEstilo2.css" rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
+            <div class="barraLateral">
+                <div class="detallesLogo">
+                    <asp:Image ID="logoImage" runat="server" CssClass="logo" ImageUrl="/Imagenes/Logo/Logo_GAAPG.jpg" />
+                    <i id="boton">☰</i>
+                </div>
+                <ul class="listaNavegacion">
+                    <asp:Panel ID="pnlInicio" runat="server" Visible="true">
+                        <li>
+                            <asp:LinkButton ID="lkbInicio" runat="server" OnClick="lkbInicio_Click">
+                                <asp:Image ID="imgInicio" runat="server" CssClass="IconoMenu" ImageUrl="/Imagenes/Iconos/inicio.png" />
+                                <span class="nombre_enlace">Menu Principal</span>
+                            </asp:LinkButton>
+                            <span class="texto_informacion">Menu Principal</span>
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlObservaciones" runat="server" Visible="true">
+                        <li>
+                            <asp:LinkButton ID="lkbObservacion" runat="server" OnClick="lkbObservacion_Click">
+                                <asp:Image ID="imgObservaciones" runat="server" ImageUrl="/Imagenes/Iconos/observaciones.png" CssClass="IconoMenu" />
+                                <span class="nombre_enlace">Observaciones</span>
+                            </asp:LinkButton>
+                            <span class="texto_informacion">Observaciones</span>
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlRevision" runat="server" Visible="true">
+                        <li>
+                            <asp:LinkButton ID="lkbRevision" runat="server" OnClick="lkbRevision_Click">
+                                <asp:Image ID="Image1" runat="server" ImageUrl="/Imagenes/Iconos/observaciones.png" CssClass="IconoMenu" />
+                                <span class="nombre_enlace">Revisiones</span>
+                            </asp:LinkButton>
+                            <span class="texto_informacion">Revisiones</span>
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlProyecto" runat="server" Visible="true">
+                        <li>
+                            <asp:LinkButton ID="lkbProyecto" runat="server" OnClick="lkbProyecto_Click">
+                                <asp:Image ID="imgProyecto" runat="server" ImageUrl="/Imagenes/Iconos/proyecto.png" CssClass="IconoMenu" />
+                                <span class="nombre_enlace">Proyecto</span>
+                            </asp:LinkButton>
+                            <span class="texto_informacion">Proyecto</span>
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlOpcionesDirector" runat="server" Visible="true">
+                        <li>
+                            <asp:LinkButton ID="lkbOpcionesDirector" runat="server" OnClick="lkbOpcionesDirector_Click">
+                                <asp:Image ID="Image2" runat="server" ImageUrl="/Imagenes/Iconos/opcionesDirector.png" CssClass="IconoMenu" />
+                                <span class="nombre_enlace">Administrar</span>
+                            </asp:LinkButton>
+                            <span class="texto_informacion">Administrar</span>
+                        </li>
+                    </asp:Panel>
+                    <!-- Otros elementos li con sus respectivos enlaces y contenido -->
+                    <asp:Panel ID="pnlConfigAyuda" runat="server" Visible="true">
+                        <li class="menu_inferior">
+                            <div class="margen_inferior">
+                                <asp:LinkButton ID="lkbConfiguracion" runat="server" OnClick="lkbConfiguracion_Click">
+                                    <asp:Image ID="imgConfiguracion" runat="server" CssClass="IconoMenu" ImageUrl="/Imagenes/Iconos/configuracion.png" />
+                                    <span class="nombre_enlace">Configuración</span>
+                                </asp:LinkButton>
+                                <span class="texto_informacion">Configuración</span>
+                            </div>
+                            <div class="margen_inferior">
+                                <asp:LinkButton ID="lkbAyuda" runat="server" OnClick="lkbAyuda_Click">
+                                    <asp:Image ID="imgAyuda" runat="server" CssClass="IconoMenu" ImageUrl="/Imagenes/Iconos/ayuda.png" />
+                                    <span class="nombre_enlace">Ayuda</span>
+                                </asp:LinkButton>
+                                <span class="texto_informacion">Ayuda</span>
+                            </div>
+                            <i class="bx bx-log-out" id="log_out"></i>
+                        </li>
+                    </asp:Panel>
+                </ul>
+            </div>
+            <section class="home-section">
+                <header>
+                    <nav>
+                        <a href="#">Gestión de apoyo y asesoramiento a proyectos de grado</a>
+                        <ul>
+                            <li>
+                                <asp:LinkButton ID="lkbUsuarioLogueado" runat="server" OnClick="lkbUsuarioLogueado_Click">
+                                    <asp:Image ID="imgUsuario" runat="server" CssClass="iconoUsuario" ImageUrl="/Imagenes/Iconos/usuario.png" />
+                                </asp:LinkButton>
+                                <ul>
+                                    <li>
+                                        <asp:Image ID="imgPuntoVerde" runat="server" CssClass="iconoEnlinea" ImageUrl="/Imagenes/Iconos/Punto_verde.png" />
+                                        <br />
+                                        <ul>
+                                            <li>
+                                                <asp:Image ID="imgFlechaAbajo" runat="server" CssClass="iconoFlecha" ImageUrl="/Imagenes/Iconos/FlechaAbajo.png" />
+                                                <ul>
+                                                    <li><asp:LinkButton ID="lkbPerfil" runat="server" Text="Perfil" OnClick="lkbUsuarioLogueado_Click"></asp:LinkButton></li>
+                                                    <br />
+                                                    <li><asp:LinkButton ID="lkbCerrarSesion" runat="server" Text="Cerrar sesión" OnClick="lkbCerrarSesion_Click"></asp:LinkButton></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="content">
+                    <!-- ACÁ VA EL CONTENIDO DE LA PÁGINA -->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </section>
+            <!-- Scripts -->
+        </div>
+    </form>
+    <%--<form id="form1" runat="server">
     <div>
         <div class="barraLateral">
     <div class="detallesLogo">
@@ -94,7 +209,7 @@
           </ul>
       </nav>
    </header>
-    <div class="text">
+    <div class="content">
       
       <!--ACÁ VA EL CONTENIDO DE LA PAGINA-->
     
@@ -108,7 +223,7 @@
   <!-- Scripts -->
   
    </div>
-   </form>
- <script src="/Guiones/JNavegacionMenu.js"></script>
+   </form>--%>
+    <script src="/Guiones/JNavegacionMenu.js"></script>
 </body>
 </html>

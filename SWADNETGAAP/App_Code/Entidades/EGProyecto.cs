@@ -25,7 +25,7 @@ public class EGProyecto
     [DataMember]
     public char EstadoProyecto { get; set; }
     [DataMember]
-    public byte NumeroRevisiones { get; set; }
+    public byte NumeroRevisionesProyecto { get; set; }
 
     #region “Auditoría básica”
     [DataMember]
@@ -48,7 +48,7 @@ public class EGProyecto
         AlcanceProyecto = string.Empty;
         EnlaceDocumentoProyecto = string.Empty;
         EstadoProyecto = char.MinValue;
-        NumeroRevisiones = byte.MinValue;
+        NumeroRevisionesProyecto = byte.MinValue;
         Estado = string.Empty;
         FechaRegistro = DateTime.MinValue;
         FechaModificacion = DateTime.MinValue;

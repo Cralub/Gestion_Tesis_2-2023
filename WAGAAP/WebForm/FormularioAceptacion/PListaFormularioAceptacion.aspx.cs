@@ -2,8 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Reflection;
 using System.Web.UI.WebControls;
 
 public partial class WebForm_Observaciones_PListaFormularioAceptacion : System.Web.UI.Page
@@ -11,29 +10,43 @@ public partial class WebForm_Observaciones_PListaFormularioAceptacion : System.W
     #region Controladores
     CFormularioAceptacion cFormularioAceptacion = new CFormularioAceptacion();
     #endregion
-
-    private static string codigoProyecto = "q";
-
+    static List<EGFormularioAceptacion> lstFormulariosAceptacion=new List<EGFormularioAceptacion>();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             CargarFormularios();
         }
+        LimpiarVariables();
+    }
+
+    private void LimpiarVariables()
+    {
+        Session["CodigoFormularioAceptacion"] = null;
     }
 
     private void CargarFormularios()
     {
-        List<EGFormularioAceptacion> listaFormularios = cFormularioAceptacion.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto);
+        if (Session["CodigoProyecto"] != null)
+        {
+            string codigoProyecto =  Session["CodigoProyecto"].ToString();
+            lstFormulariosAceptacion = cFormularioAceptacion.Obtener_GFormularioAceptacion_O_CodigoProyecto(codigoProyecto);
 
-        grvListaFormularioAceptacion.DataSource = listaFormularios;
-        grvListaFormularioAceptacion.DataBind();
+            grvListaFormularioAceptacion.DataSource = lstFormulariosAceptacion;
+            grvListaFormularioAceptacion.DataBind();
+        }
     }
     protected void grvListaFormularioAceptacion_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        if (e.CommandName == "btnVer")
+        int rowIndex = Convert.ToInt32(e.CommandArgument);
+        if (e.CommandName == "btnVer" && lstFormulariosAceptacion.Count > 0)
         {
-            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            Session["FormularioAceptacion"] = lstFormulariosAceptacion.ElementAt(rowIndex);
         }
+    }
+
+    protected void btnCrearFormularioAceptacion_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/WebForm/FormularioAceptacion/PCrearFormularioAceptacion.aspx");
     }
 }
