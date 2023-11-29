@@ -14,9 +14,9 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
     CUsuario cUsuario = new CUsuario();
     CProyectoCompleja cProyectoCompleja = new CProyectoCompleja();
+    CEtapa cEtapa = new CEtapa();
     #endregion
     EGProyecto eGProyecto = new EGProyecto();
-    List<EGUsuarioProyecto> lstEGUsuarioProyecto = new List<EGUsuarioProyecto>();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -27,7 +27,7 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             FiltrarInterfazUsuario();
         }
     }
-
+    
     private void CargarDatos()
     {
         if (Session["CodigoProyecto"] != null)
@@ -161,7 +161,8 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             string codigoProyecto = Session["CodigoProyecto"].ToString();
             EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
             var lstUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto);
-            var codigoRol = lstEGUsuarioProyecto.FirstOrDefault(rol => rol.CodigoUsuario == usuarioSesion.CodigoUsuario).CodigoRol;
+            
+            var codigoRol = lstUsuarioProyecto.FirstOrDefault(rol => rol.CodigoUsuario == usuarioSesion.CodigoUsuario).CodigoRol;
 
             cProyectoCompleja.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, usuarioSesion.CodigoUsuario, codigoRol, (byte)1);
         }
@@ -175,11 +176,27 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             string codigoProyecto = Session["CodigoProyecto"].ToString();
             EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
             var lstUsuarioProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto);
-            var codigoRol = lstEGUsuarioProyecto.FirstOrDefault(rol => rol.CodigoUsuario == usuarioSesion.CodigoUsuario).CodigoRol;
-            cProyectoCompleja.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto, usuarioSesion.CodigoUsuario, codigoRol);
+            var codigoRol = lstUsuarioProyecto.FirstOrDefault(rol => rol.CodigoUsuario == usuarioSesion.CodigoUsuario).CodigoRol;
+            if (ExitenSiNesecitaTribunales(codigoProyecto))
+            {
+                cProyectoCompleja.Actualizar_Etapa_SubEtapa_AvanzarEnFlujo(codigoProyecto, usuarioSesion.CodigoUsuario, codigoRol);
+            }
+            
         }
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
         Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
+    }
+    private bool ExitenSiNesecitaTribunales(string codigoProyecto)
+    {
+        bool existenTribunales = true;
+        EGEtapa etapaActual = cEtapa.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto).FirstOrDefault(etapa => etapa.EstadoEtapa == SDatosGlobales.ESTADO_ACTIVO);
+        if (etapaActual.NumeroEtapa != 1)
+        {
+            List<EGUsuarioProyecto> usuariosEnProyecto = cUsuarioProyecto.Obtener_GUsuarioProyecto_O_CodigoProyecto(codigoProyecto)
+                .Where(w => w.CodigoRol == SDatosGlobales.ROL_TRIBUNAL_1 || w.CodigoRol == SDatosGlobales.ROL_TRIBUNAL_2).ToList();
+            return usuariosEnProyecto.Count == 2;
+        }
+        return existenTribunales;
     }
     protected void btnCancelar_Click(object sender, EventArgs e)
     {

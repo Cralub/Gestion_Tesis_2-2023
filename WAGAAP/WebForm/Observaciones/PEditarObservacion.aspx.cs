@@ -31,7 +31,7 @@ public partial class WebForm_Observaciones_PEditarObservacion : System.Web.UI.Pa
         {
             EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(int.Parse(Session["CodigoObservacion"].ToString()));
             if (eGObservacion.TipoObservacion == 'O') rbObservacionFondo.Checked = true; else rbObservacionForma.Checked = true;
-            txtComentario.Text = eGObservacion.ComentarioObservacion;
+            txbComentario.Text = eGObservacion.ComentarioObservacion;
         }
     }
     protected void btnBuscarObservacion_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ public partial class WebForm_Observaciones_PEditarObservacion : System.Web.UI.Pa
                 CodigoSubEtapa = observacion.CodigoSubEtapa,
                 CodigoUsuarioObservacion = usuario.CodigoUsuario,
                 TipoObservacion = rbObservacionFondo.Checked ? 'O' : 'A',
-                ComentarioObservacion = txtComentario.Text,
+                ComentarioObservacion = txbComentario.Text,
                 EstadoObservacion = SDatosGlobales.ESTADO_ACTIVO
             };
             if (ValidarEntradas(eGObservacion))

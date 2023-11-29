@@ -23,7 +23,7 @@
 
         <div class="Contenedor1">
             <div class="Contenedor-Botones">
-                <button type="button" class="Botones" id="Tema" onclick="mostrarDiv(0); return false;">PUBLICA</button>
+                <button type="button" class="Botones" id="TEMA" onclick="mostrarDiv(0); return false;">TEMA</button>
                 <button type="button" class="Botones" id="PERFIL" onclick="mostrarDiv(1); return false;">PERFIL</button>
                 <button type="button" class="Botones" id="PRIVADA" onclick="mostrarDiv(2); return false;">PRIVADA</button>
                 <button type="button" class="Botones" id="PUBLICA" onclick="mostrarDiv(3); return false;">PUBLICA</button>

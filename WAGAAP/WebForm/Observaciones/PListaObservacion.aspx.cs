@@ -28,16 +28,18 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
         {
             string codigoProyecto = Session["CodigoProyecto"].ToString();
             var observaciones = cObservacion.Obtener_GObservacion_O_CodigoProyecto(codigoProyecto);
-            lstObservaciones = observaciones.Select(obs => new EObservacionDetalle(
-                                                    obs.CodigoObservacion,
-                                                    obs.CodigoProyecto,
-                                                    obs.CodigoSubEtapa,
-                                                    obs.CodigoUsuarioObservacion,
-                                                    SUtil.ObtenerNombrePorCodigo(obs.CodigoUsuarioObservacion),
-                                                    obs.ComentarioObservacion,
-                                                    obs.TipoObservacion,
-                                                    obs.EstadoObservacion
-                                                )).ToList();
+            lstObservaciones = observaciones.Select(obs => new EObservacionDetalle
+            {
+                CodigoObservacion = obs.CodigoObservacion,
+                CodigoProyecto = obs.CodigoProyecto,
+                CodigoSubEtapa = obs.CodigoSubEtapa,
+                CodigoUsuarioObservacion = obs.CodigoUsuarioObservacion,
+                NombreUsuarioObservacion = SUtil.ObtenerNombrePorCodigo(obs.CodigoUsuarioObservacion),
+                ComentarioObservacion = obs.ComentarioObservacion,
+                TipoObservacion = obs.TipoObservacion,
+                NombreTipoObservacion = obs.TipoObservacion == 'O'? "Fondo":"Forma",
+                EstadoObservacion = obs.EstadoObservacion
+            }).ToList();
             grvListaObservaciones.DataSource = lstObservaciones;
             grvListaObservaciones.DataBind();
         }
@@ -57,8 +59,6 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
         char tipoSeleccionado = Convert.ToChar(ddlTipoObservacion.SelectedValue);
         char estadoSeleccionado = Convert.ToChar(ddlEstadoObservacion.SelectedValue);
         string observador = txbObservador.Text.Trim();
-        if (observador.Length <= 3)
-            observador = string.Empty;
 
         var observacionesFiltradas = lstObservaciones
                                        .Where(w => (tipoSeleccionado == 'X' || w.TipoObservacion == tipoSeleccionado) &&
@@ -73,7 +73,15 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
     protected void btnVolver_Click(object sender, EventArgs e)
     {
         Session["CodigoProyecto"] = null;
-        Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
+        if(Session["UsuarioSesion"] != null)
+        {
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            if(usuarioSesion.esEstudiante)
+                Response.Redirect("~/WebForm/Informacion/PGraficasAvance.aspx");
+            else
+                Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
+        }
+        
     }
 
 
@@ -107,7 +115,25 @@ public partial class WebForm_PListaObservacion : System.Web.UI.Page
 
     protected void grvListaObservaciones_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-      
+        #region Modificar Visualmente Roles
+        // Encuentra el índice de la columna que deseas modificar
+        int estadoColumnIndex = grvListaObservaciones.Columns.IndexOf(grvListaObservaciones.Columns
+            .Cast<DataControlField>()
+            .FirstOrDefault(field => field.HeaderText == "Estado"));
+
+        if (estadoColumnIndex >= 0)
+        {
+            try
+            {
+                // Modifica el contenido de la celda en esa columna para cada fila
+                string estado = e.Row.Cells[estadoColumnIndex].Text;
+                if (estado != "Estado")
+                    e.Row.Cells[estadoColumnIndex].Text = SUtil.ObtenerNombreEstado(char.Parse(estado)); // Puedes cambiar "Nuevo valor" por el valor que quieras mostrar
+            }
+            catch (Exception) { }
+
+        }
+        #endregion
     }
 
     protected void txbObservador_TextChanged(object sender, EventArgs e)

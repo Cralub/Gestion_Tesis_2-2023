@@ -21,6 +21,7 @@ public partial class WebForm_TutorExterno_PListarTutoresExternos : System.Web.UI
     private void CargarListaTutoresExternos()
     {
         listaTutoresExternos = cTutorExterno.Obtener_GTutorExterno_O().ToList();
+        
         grvListaTutoresExternos.DataSource = listaTutoresExternos;
         grvListaTutoresExternos.DataBind();
     }

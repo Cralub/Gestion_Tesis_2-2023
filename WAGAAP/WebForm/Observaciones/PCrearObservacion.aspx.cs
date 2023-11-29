@@ -40,7 +40,7 @@ public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Pag
                 CodigoSubEtapa = subEtapa.CodigoSubEtapa,
                 CodigoUsuarioObservacion = usuario.CodigoUsuario,
                 TipoObservacion = rbObservacionFondo.Checked ? 'O' : 'A',
-                ComentarioObservacion = txtComentario.Text,
+                ComentarioObservacion = txbComentario.Text,
                 EstadoObservacion = SDatosGlobales.ESTADO_ACTIVO
             };
             if (ValidarEntradas(eGObservacion))

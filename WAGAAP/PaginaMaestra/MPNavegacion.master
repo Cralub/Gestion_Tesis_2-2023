@@ -5,14 +5,14 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GAAPG - Menu Principal</title>
+    <title>GAAP - Menu Principal</title>
     <!-- Link Styles -->
     <link rel="stylesheet" href="/Estilos/PaginaMaestra/SPaginaMaestra.css">
     <link href="/Estilos/SEstilo.css" rel="stylesheet" />
     <link href="/Estilos/SEstilo2.css" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -97,7 +97,7 @@
             <section class="home-section">
                 <header>
                     <nav>
-                        <a href="#">Gestión de apoyo y asesoramiento a proyectos de grado</a>
+                        <a href="#">Gestión de Apoyo y Asesoramiento a Proyectos</a>
                         <ul>
                             <li>
                                 <asp:LinkButton ID="lkbUsuarioLogueado" runat="server" OnClick="lkbUsuarioLogueado_Click">
@@ -111,9 +111,11 @@
                                             <li>
                                                 <asp:Image ID="imgFlechaAbajo" runat="server" CssClass="iconoFlecha" ImageUrl="/Imagenes/Iconos/FlechaAbajo.png" />
                                                 <ul>
-                                                    <li><asp:LinkButton ID="lkbPerfil" runat="server" Text="Perfil" OnClick="lkbUsuarioLogueado_Click"></asp:LinkButton></li>
+                                                    <li>
+                                                        <asp:LinkButton ID="lkbPerfil" runat="server" Text="Perfil" OnClick="lkbUsuarioLogueado_Click"></asp:LinkButton></li>
                                                     <br />
-                                                    <li><asp:LinkButton ID="lkbCerrarSesion" runat="server" Text="Cerrar sesión" OnClick="lkbCerrarSesion_Click"></asp:LinkButton></li>
+                                                    <li>
+                                                        <asp:LinkButton ID="lkbCerrarSesion" runat="server" Text="Cerrar sesión" OnClick="lkbCerrarSesion_Click"></asp:LinkButton></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -132,98 +134,6 @@
             <!-- Scripts -->
         </div>
     </form>
-    <%--<form id="form1" runat="server">
-    <div>
-        <div class="barraLateral">
-    <div class="detallesLogo">
-        <img src="/Imagenes/Logo/Logo_GAAPG.jpg" class="logo" />
-      <i id="boton">☰</i>
-    </div>
-    <ul class="listaNavegacion">
-      <li>
-        <a href="#">
-          <img src="/Imagenes/Iconos/inicio.png"  class="IconoMenu">
-          <span class="nombre_enlace">Menu Principal</span>
-        </a>
-        <span class="texto_informacion">Menu Principal</span>
-      </li>
-      <li>
-        <a href="#">
-          <img src="/Imagenes/Iconos/observaciones.png"  class="IconoMenu">
-          <span class="nombre_enlace">Observaciones</span>
-        </a>
-        <span class="texto_informacion">Observaciones</span>
-      </li>
-      <li>
-        <a href="#">
-          <img src="/Imagenes/Iconos/proyecto.png"  class="IconoMenu">
-          <span class="nombre_enlace">Proyecto</span>
-        </a>
-        <span class="texto_informacion">Proyecto</span>
-      </li>
-      
-      <li class="menu_inferior">
-        <div class="margen_inferior">
-          <a href="#">
-            <img src="/Imagenes/Iconos/configuracion.png"  class="IconoMenu">
-            <span class="nombre_enlace">Configuración</span>
-          </a>
-          <span class="texto_informacion">Configuración</span>
-        </div>
-        <div class="margen_inferior">
-          <a href="#">
-            <img src="/Imagenes/Iconos/ayuda.png"  class="IconoMenu">
-            <span class="nombre_enlace">Ayuda</span>
-          </a>
-          <span class="texto_informacion">Ayuda</span>
-        </div>
-        <i class="bx bx-log-out" id="log_out"></i>
-      </li>
-    </ul>
-  </div>
-  <section class="home-section">
-    <header>
-      <nav>
-         <a href="#">Gestión de apoyo y asesoramiento a proyectos de grado</a>
-         <ul>
-            <li>
-              <a href="#"><img src="/Imagenes/Iconos/usuario.png" class="iconoUsuario"></a>
-            </li>
-            <li>
-              <ul>
-                <li><img src="/Imagenes/Iconos/Punto_verde.png" class="iconoEnlinea"></li>
-                <br>
-                <ul>
-                  <li>
-                    <img src="/Imagenes/Iconos/FlechaAbajo.png" class="iconoFlecha"></a>
-                    <ul>
-                      <li><a href="">Perfil</a></li>
-                      <br>
-                      <li><a href="">Cerrar sesion</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </ul>
-              
-            </li>
-          </ul>
-      </nav>
-   </header>
-    <div class="content">
-      
-      <!--ACÁ VA EL CONTENIDO DE LA PAGINA-->
-    
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-    
-            
-        
-        </asp:ContentPlaceHolder>
-     </div>
-  </section>
-  <!-- Scripts -->
-  
-   </div>
-   </form>--%>
     <script src="/Guiones/JNavegacionMenu.js"></script>
 </body>
 </html>

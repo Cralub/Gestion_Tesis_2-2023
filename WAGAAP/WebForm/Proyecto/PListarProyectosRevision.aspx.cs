@@ -79,7 +79,9 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
             try
             {
                 // Modifica el contenido de la celda en esa columna para cada fila
-                e.Row.Cells[codigoRolColumnIndex].Text = SUtil.ObtenerNombreRolPorCodigo(e.Row.Cells[codigoRolColumnIndex].Text); 
+                string rol = e.Row.Cells[codigoRolColumnIndex].Text;
+                if (rol != "Rol En Proyecto")
+                    e.Row.Cells[codigoRolColumnIndex].Text = SUtil.ObtenerNombreRolPorCodigo(rol); // Puedes cambiar "Nuevo valor" por el valor que quieras mostrar
             }
             catch (Exception) { }
 

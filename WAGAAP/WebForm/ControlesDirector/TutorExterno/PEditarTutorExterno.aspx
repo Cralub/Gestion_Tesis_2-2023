@@ -12,17 +12,11 @@
 
         </div>
         <div>
-            <asp:Label ID="lblNombres" runat="server" Text="Nombres"></asp:Label>
-            <asp:TextBox ID="txbNombres" runat="server" MaxLength="70"></asp:TextBox>
+            <asp:Label ID="lblNombreCompleto" runat="server" Text="Nombres"></asp:Label>
+            <asp:TextBox ID="txbNombreCompleto" runat="server" MaxLength="140"></asp:TextBox>
             <asp:Label ID="lblMensajeNombres" runat="server" Text=""></asp:Label>
-
         </div>
-        <div>
-            <asp:Label ID="lblApellidos" runat="server" Text="Apellidos"></asp:Label>
-            <asp:TextBox ID="txbApellidos" runat="server" MaxLength="70"></asp:TextBox>
-            <asp:Label ID="lblMensajeApellidos" runat="server" Text=""></asp:Label>
-
-        </div>
+       
         <div>
             <asp:Label ID="lblCarrera" runat="server" Text="Carrera"></asp:Label>
             <asp:TextBox ID="txbCarrera" runat="server" MaxLength="20"></asp:TextBox>

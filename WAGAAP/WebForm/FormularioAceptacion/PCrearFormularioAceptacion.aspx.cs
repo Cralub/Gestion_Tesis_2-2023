@@ -21,6 +21,7 @@ public partial class WebForm_Observaciones_PCrearFormularioAceptacion : System.W
     #endregion
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (!IsPostBack)
         {
 

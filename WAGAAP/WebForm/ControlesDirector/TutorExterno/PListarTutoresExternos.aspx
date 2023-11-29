@@ -14,8 +14,7 @@
         <asp:GridView ID="grvListaTutoresExternos" DataKeyNames="CodigoTutorExterno" CssClass="gridview" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDataBound="gvListaTutoresExternos_RowDataBound" OnRowCommand="gvListaTutoresExternos_RowCommand">
             <Columns>
                 <asp:BoundField DataField="CodigoTutorExterno" HeaderText="Codigo" />
-                <asp:BoundField DataField="NombresTutorExterno" HeaderText="Nombres" />
-                <asp:BoundField DataField="ApellidosTutorExterno" HeaderText="Apellidos" />
+                <asp:BoundField DataField="NombreCompletoTutorExterno" HeaderText="Nombres" />
                 <asp:BoundField DataField="DescripcionTutorExterno" HeaderText="Descripcion" />
                 <asp:BoundField DataField="CarreraTutorExterno" HeaderText="Carrera" />
                 <asp:BoundField DataField="DireccionTrabajoTutorExterno" HeaderText="Direccion" />

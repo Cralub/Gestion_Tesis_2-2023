@@ -13,6 +13,7 @@
     background-color: white;
     border-radius: 10px;
     width: 50%;
+    
 }
 
 .Menu {
@@ -22,15 +23,16 @@
 }
 
 .txtBusqueda {
+
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 10px;
     height: 50px;
     cursor: pointer;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-    font-size:18px;
+    font-size: 18px;
+    margin: 1% 0 1% 0;
 }
 
 .ContenedorCombo {
@@ -76,7 +78,9 @@
         padding: 0.5%;
         border-radius: 10px;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-        min-width: 100px;
+        min-width: 110px;
+        height: max-content;
+        width: max-content;
     }
 
     .EstiloTable td {
@@ -86,7 +90,6 @@
         border-radius: 10px;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         height: max-content;
-        
         
     }
 /*boton tabla*/
@@ -104,15 +107,16 @@
     height: 40px;
     flex-grow: 1; /* Los botones ocuparán todo el espacio disponible */
     margin: 3% 1% 3% 1%; /* Espacio entre botones (ajustable según sea necesario) */
-    max-width: 200px; /* Ancho máximo de los botones (ajustable según sea necesario) */
+    max-width: fit-content; /* Ancho máximo de los botones (ajustable según sea necesario) */
     white-space: nowrap; /* Evita que el texto en los botones se divida en varias líneas */
-    overflow: hidden; /* Oculta el texto que desborda el ancho máximo */
+    overflow: visible; /* Oculta el texto que desborda el ancho máximo */
     text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para el texto que no cabe */
     cursor: pointer;
     width: 100%;
-    padding: 0 7px 0 7px;
+    padding: 0 15px 0 15px;
     text-align: match-parent;
     display: table-cell;
+    
 }
 
     .Btntabla:hover {

@@ -33,14 +33,15 @@ public partial class WebForm_PObservacionDetalle : System.Web.UI.Page
 
     private void FiltrarInterfazUsuario()
     {
-        if (Session["UsuarioSesion"] != null)
+        if (Session["UsuarioSesion"] != null &&  Session["CodigoProyecto"] != null)
         {
+            string codigoProyecto = Session["CodigoProyecto"].ToString();
             EUsuarioSesionGAAP usuario = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
             //Editable solo si es el autor de la observacion y no es una observacion que pertenece a otra iteracion
             string codigoUsuarioObservacion = eGObservacion.CodigoUsuarioObservacion.Trim().ToUpper();
             string codigoUsuarioSesion = usuario.CodigoUsuario.Trim().ToUpper();
 
-            if (codigoUsuarioObservacion == codigoUsuarioSesion)
+            if (SUtil.CorrespondeRevision(codigoProyecto, usuario.CodigoUsuario) && usuario.CodigoUsuario == codigoUsuarioObservacion)
             {
                 btnEditarObservacion.Enabled = eGObservacion.EstadoObservacion == SDatosGlobales.ESTADO_ACTIVO;
                 btnEditarObservacion.Visible = btnEditarObservacion.Enabled;
@@ -72,7 +73,7 @@ public partial class WebForm_PObservacionDetalle : System.Web.UI.Page
     }
 
     protected void btnEditarObservacion_Click(object sender, EventArgs e)
-    {
+    {        
         Response.Redirect("~/WebForm/Observaciones/PEditarObservacion.aspx");
     }
 

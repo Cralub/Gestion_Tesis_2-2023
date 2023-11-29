@@ -31,8 +31,7 @@ public partial class WebForm_TutorExterno_PEditarTutorExterno : System.Web.UI.Pa
         try
         {
             EGTutorExterno eTutorExterno = cTutorExterno.Obtener_GTutorExterno_O_CodigoTutorExterno(txbCodigo.Text);
-            txbNombres.Text = eTutorExterno.NombresTutorExterno;
-            txbApellidos.Text = eTutorExterno.ApellidosTutorExterno;
+            txbNombreCompleto.Text = eTutorExterno.NombreCompletoTutorExterno;
             txbCarrera.Text = eTutorExterno.CarreraTutorExterno;
             txbDireccionTrabajo.Text = eTutorExterno.DireccionTrabajoTutorExterno;
             txbDescripcion.Text = eTutorExterno.DescripcionTutorExterno;
@@ -49,7 +48,7 @@ public partial class WebForm_TutorExterno_PEditarTutorExterno : System.Web.UI.Pa
     {
         try
         {
-            cTutorExterno.Actualizar_GTutorExterno_A(txbCodigo.Text, txbNombres.Text, txbApellidos.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
+            cTutorExterno.Actualizar_GTutorExterno_A(txbCodigo.Text, txbNombreCompleto.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
             Response.Redirect("PListarTutoresExternos.aspx");
         }
         catch (Exception)

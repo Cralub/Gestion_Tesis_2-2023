@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using SWLNGAAP;
 
 public partial class WebForm_TutorExterno_Default : System.Web.UI.Page
 {
@@ -33,7 +27,7 @@ public partial class WebForm_TutorExterno_Default : System.Web.UI.Page
     {
         try
         {
-            cTutorExterno.Insertar_GTutorExterno_I(txbCodigo.Text, txbNombres.Text, txbApellidos.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
+            cTutorExterno.Insertar_GTutorExterno_I(txbCodigo.Text, txbNombreCompleto.Text, txbCarrera.Text, txbDireccionTrabajo.Text, txbDescripcion.Text, txbSede.Text);
 
         }
         catch (Exception)

@@ -12,12 +12,12 @@
             <div class="ContenedorCombo">
 
                 <asp:DropDownList ID="ddlTipoObservacion" runat="server" CssClass="comboOpciones" OnSelectedIndexChanged="ddlTipoObservacion_SelectedIndexChanged" AutoPostBack="true">
-                    <asp:ListItem Text="Todos" Value="X" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="TIPO" Value="X" Selected="True"></asp:ListItem>
                     <asp:ListItem Text="Fondo" Value="O"></asp:ListItem>
                     <asp:ListItem Text="Forma" Value="A"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlEstadoObservacion" runat="server" CssClass="comboOpciones" OnSelectedIndexChanged="ddlEstadoObservacion_SelectedIndexChanged" AutoPostBack="true">
-                    <asp:ListItem Text="Todos" Value="X" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="ESTADO" Value="X" Selected="True"></asp:ListItem>
                     <asp:ListItem Text="Activo" Value="A"></asp:ListItem>
                     <asp:ListItem Text="Revisado" Value="V"></asp:ListItem>
                     <asp:ListItem Text="Corregido" Value="C"></asp:ListItem>
@@ -29,11 +29,12 @@
      <asp:GridView ID="grvListaObservaciones" DataKeyNames="CodigoObservacion" CssClass="EstiloTable" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="grvListaObservaciones_RowCommand" OnRowDataBound="grvListaObservaciones_RowDataBound">
          <Columns>
              <asp:BoundField DataField="CodigoObservacion" Visible="false" />
-             <asp:BoundField DataField="NombreUsuarioObservacion" Visible="true" />
-             <asp:BoundField DataField="TipoObservacion" HeaderText="Tipo" Visible="true" />
+             <asp:BoundField DataField="NombreUsuarioObservacion" Visible="true"  HeaderText="Nombre Observador"/>
+             <asp:BoundField DataField="NombreTipoObservacion" HeaderText="Tipo" Visible="true" />
              <asp:BoundField DataField="EstadoObservacion" HeaderText="Estado" Visible="true" />
+            
              <asp:BoundField DataField="ComentarioObservacion" HeaderText="Comentario" />
-             <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-BackColor="#64072D" ControlStyle-ForeColor="White" ControlStyle-Width="55" ControlStyle-Height="20" ControlStyle-BorderColor="#64072D" ControlStyle-CssClass="boton" />
+             <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-CssClass="Btntabla"/>
          </Columns>
      </asp:GridView>
  </div>

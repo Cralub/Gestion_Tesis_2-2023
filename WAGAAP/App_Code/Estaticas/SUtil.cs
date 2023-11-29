@@ -66,6 +66,22 @@ public static class SUtil
             return SDatosGlobales.STRING_MODALIDAD_TRABAJO_DIRIGIDO;
         return string.Empty;
     }
+    public static string ObtenerNombreEstado(char estado)
+    {
+        
+        switch (estado)
+        {
+            case SDatosGlobales.ESTADO_ACTIVO:return "Activo";               
+            case SDatosGlobales.ESTADO_PAUSADO:return "Pausado";
+            case SDatosGlobales.ESTADO_RECHAZADO:return "Rechazado";
+            case SDatosGlobales.ESTADO_FINALIZADO:return "Finalizado";
+            case SDatosGlobales.ESTADO_CORREGIDO:return "Corregido";
+            case SDatosGlobales.ESTADO_REVISADO:return "Revisado";
+            case SDatosGlobales.ESTADO_IGNORADO:return "Ignorado";
+            default: return string.Empty;
+        }
+        
+    }
     public static string ObtenerNombrePorCodigo(string codigoUsuario)
     {
         CUsuario cUsuario = new CUsuario();        

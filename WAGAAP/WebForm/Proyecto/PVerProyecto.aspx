@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../Estilos/Usuario/SFormularioUno.css" rel="stylesheet" />
+
     <link href="../../Estilos/Modal/SModalConfirmacion.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -10,7 +11,7 @@
         <div>
             <h1>Formulario Proyecto</h1>
             <div>
-                <asp:Label runat="server" CssClass="Datos" Text="Código de Proyecto:" ></asp:Label>
+                <asp:Label runat="server" CssClass="Datos" Text="Código de Proyecto:"></asp:Label>
                 <asp:Label runat="server" ID="lblCodigoProyecto" CssClass="Datos" Text="Código de Proyecto:"></asp:Label>
             </div>
             <div>
@@ -79,14 +80,14 @@
                 </div>
 
             </div>
-                    <div>
-    <asp:Button ID="btnVolver" CssClass="botonFormulario" runat="server" Text="Volver" OnClick="btnVolver_Click" />
-</div>
+            <div>
+                <asp:Button ID="btnVolver" CssClass="botonFormulario" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+            </div>
 
         </div>
-    
+
     </div>
-   
+
     <div class="modal-container" id="modalContainer">
         <div class="modal" id="modalConfirmacion">
             <div>

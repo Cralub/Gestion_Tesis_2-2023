@@ -9,7 +9,7 @@
         <h1>Lista Revision Proyectos</h1>
         <div class="Menu">
             <div class="buscador">
-                <asp:TextBox runat="server" MaxLength="15" ID="txbCodigoUsuario" CssClass="txtBusqueda" OnTextChanged="txbCodigoUsuario_TextChanged" placeholder="Buscar por nombre o codigo usuario" AutoPostBack="true"></asp:TextBox>
+                <asp:TextBox runat="server" MaxLength="15" ID="txbCodigoUsuario" CssClass="txtBusqueda" OnTextChanged="txbCodigoUsuario_TextChanged" placeholder="Buscar por nombre o codigo usuario" AutoPostBack="true" title="Presione Enter para Buscar" ></asp:TextBox>
 
             </div>
             <div class="ContenedorCombo">
@@ -40,14 +40,14 @@
             <asp:GridView ID="grvListaProyectos" DataKeyNames="CodigoProyecto" CssClass="EstiloTable" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDataBound="gvListaProyectos_RowDataBound" OnRowCommand="gvListaProyectos_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="CodigoProyecto" HeaderText="CodigoProyecto" Visible="False" />
-                    <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" />
+                    <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" Visible="true"/>
                     <asp:TemplateField HeaderText="Estudiantes">
                         <ItemTemplate>
                             <asp:DropDownList ID="ddlEstudiantes" runat="server" CssClass="comboOpciones" OnSelectedIndexChanged="ddlEstudiantes_SelectedIndexChanged" AutoPostBack="true">
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="CodigoTutor" HeaderText="Tutor" />
+                    <asp:BoundField DataField="NombreTutor" HeaderText="Tutor" />
                     <asp:BoundField DataField="TituloProyecto" HeaderText="Titulo" />
                     <asp:BoundField DataField="ModalidadProyecto" HeaderText="Modalidad" />
                     <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="btnLinea">

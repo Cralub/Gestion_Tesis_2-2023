@@ -18,4 +18,10 @@ public partial class WebForm_ControlesDirector_PMenuOpcionesDirector : System.We
         if (Session["UsuarioSesion"] != null)
             Response.Redirect("~/WebForm/ControlesDirector/TutorExterno/PListarTutoresExternos.aspx");
     }
+
+    protected void btnUsuarioProyecto_Click(object sender, EventArgs e)
+    {
+        if (Session["UsuarioSesion"] != null)
+            Response.Redirect("~/WebForm/ControlesDirector/UsuarioProyecto/PListarUsuariosProyecto.aspx");
+    }
 }

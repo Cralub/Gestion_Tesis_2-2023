@@ -1,12 +1,11 @@
 ﻿using SWLNGAAP;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 using System.Web;
 using System.Web.UI;
 
-public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Page
+public partial class WebForm_Formulario_PFormularioEstudiante : Page
 {
     #region Controladores
     CEtapa cEtapa = new CEtapa();
@@ -30,13 +29,13 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
     private bool ValidacionDeEstados(EProyectoCompleja proyecto)
     {
         bool esValido = false;
-       
+
         return esValido;
     }
     #endregion
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
         if (!IsPostBack)
         {
             CargarInformacionProyecto();
@@ -57,7 +56,7 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
             txbAlcance.Text = proyectoCompleto.AlcanceProyecto;
             lkbEnlaceDocumento.Text = proyectoCompleto.EnlaceDocumentoProyecto;
             txbTitulo.Text = proyectoCompleto.TituloProyecto;
-            ddlModalidades.Text = proyectoCompleto.ModalidadProyecto.ToString();
+            ddlModalidades.SelectedValue = proyectoCompleto.ModalidadProyecto.ToString();
             txbObjetivoGeneral.Text = proyectoCompleto.ObjetivoGeneralProyecto;
 
             grvListaUsuarios.DataSource = null;
@@ -66,8 +65,9 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
             grvListaUsuarios.DataBind();
 
 
-            bool EsModificable = ValidacionDeEstados(proyectoCompleto);
-            if (!EsModificable)
+
+            //bool EsModificable = ValidacionDeEstados(proyectoCompleto);
+            if (!SUtil.CorrespondeRevision(proyectoCompleto.CodigoProyecto, usuario.CodigoUsuario))
             {
                 txbObjetivosEspecificos.Enabled = false;
                 txbAlcance.Enabled = false;
@@ -78,6 +78,7 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
                 btnAgregarDocumento.Enabled = false;
                 btnAvanzar.Enabled = false;
                 btnTutor.Enabled = false;
+
             }
         }
     }
@@ -104,11 +105,11 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
     bool FormularioCompletoEnOrden()
     {
         EProyectoCompleja proyectoC = Session["ProyectoComplejo"] as EProyectoCompleja;
-        bool esCorrectoEntradasTexto = ValidarEntradas();
-        bool tieneTutor = !string.IsNullOrEmpty(proyectoC.CodigoTutor);
-        bool tieneModalidadCorrecta = char.Parse(ddlModalidades.SelectedValue) != '-';
 
-        if (esCorrectoEntradasTexto && tieneTutor && tieneModalidadCorrecta)
+        bool tieneTutor = !string.IsNullOrEmpty(proyectoC.CodigoTutor);
+
+
+        if (tieneTutor)
             return true;
         return false;
     }
@@ -176,17 +177,6 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
     {
 
     }
-
-    protected void btnCVTutorExterno_Click(object sender, EventArgs e)
-    {
-        if (Session["ProyectoComplejo"] != null)
-        {
-            /*Enviar codigoProyecto adjunto a CV tutor al Director*/
-
-        }
-
-    }
-
     protected void btnActualizarInformacion_Click(object sender, EventArgs e)
     {
         if (Session["ProyectoComplejo"] != null && Session["UsuarioSesion"] != null)
@@ -204,5 +194,14 @@ public partial class WebForm_Formulario_PFormularioEstudiante : System.Web.UI.Pa
                                                  );
         }
         CargarInformacionProyecto();
+    }
+    protected void btnCVTutorExterno_Click(object sender, EventArgs e)
+    {
+        if (Session["ProyectoComplejo"] != null)
+        {
+            /*Enviar codigoProyecto adjunto a CV tutor al Director*/
+
+        }
+
     }
 }

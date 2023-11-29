@@ -21,6 +21,7 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
         {
             LimpiarVariables();
         }
+        
     }
     
     void MostrarInformacion()
@@ -78,17 +79,15 @@ public partial class PaginaMaestra_Default : System.Web.UI.Page
 
     protected void btnLimpiar_Click(object sender, EventArgs e)
     {
-        Session.RemoveAll();
+        LimpiarVariables();
         lblUsuarioLogueado.Text = string.Empty;
     }
 
     
     private void LimpiarVariables()
     {
-        Session["CorrespondeRevision"] = null;
-        Session["PaginaAnterior"] = null;
-        Session["CodigoProyecto"] = null;
-        Session["UsuarioSesion"] = null;
+        Session.Clear();
+        Session.Abandon();
     }   
 
     protected void btnCelularInfo_Click(object sender, EventArgs e)

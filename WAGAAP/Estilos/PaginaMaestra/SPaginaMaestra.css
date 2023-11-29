@@ -14,6 +14,7 @@
     margin: 0%;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    font-weight:bold;
 }
 
 body {
@@ -323,7 +324,7 @@ nav {
             min-width: 200px;
             color: #000000;
             background-color: var(--color-default);
-            margin-top: 9%;
+            margin-top: 7%;
             padding: 2%;
         }
 
@@ -348,7 +349,7 @@ nav {
     width: 20px;
     height: 2%;
     position: fixed;
-    top: 5px; 
+    top: 0.5%; 
     right: 100px;
 }
 
@@ -356,6 +357,6 @@ nav {
     width: 20px;
     height: 30px;
     position: fixed;
-    top: 35px; 
+    top: 3.5%; 
     right: 100px;
 }

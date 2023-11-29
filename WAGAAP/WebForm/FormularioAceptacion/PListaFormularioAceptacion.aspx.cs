@@ -15,9 +15,11 @@ public partial class WebForm_Observaciones_PListaFormularioAceptacion : System.W
     {
         if (!IsPostBack)
         {
+            LimpiarVariables();
             CargarFormularios();
+            FiltrarInterfazUsuario();
         }
-        LimpiarVariables();
+        
     }
 
     private void LimpiarVariables()
@@ -48,5 +50,42 @@ public partial class WebForm_Observaciones_PListaFormularioAceptacion : System.W
     protected void btnCrearFormularioAceptacion_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/WebForm/FormularioAceptacion/PCrearFormularioAceptacion.aspx");
+    }
+
+    protected void grvListaFormularioAceptacion_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        int codigoRolColumnIndex = grvListaFormularioAceptacion.Columns.IndexOf(grvListaFormularioAceptacion.Columns
+           .Cast<DataControlField>()
+           .FirstOrDefault(field => field.HeaderText == "Responsable"));
+
+        if (codigoRolColumnIndex >= 0)
+        {
+            try
+            {
+                // Modifica el contenido de la celda en esa columna para cada fila
+                string codigoTribunal = e.Row.Cells[codigoRolColumnIndex].Text;
+                if (codigoTribunal != "Responsable")
+                    e.Row.Cells[codigoRolColumnIndex].Text = SUtil.ObtenerNombrePorCodigo(codigoTribunal); // Puedes cambiar "Nuevo valor" por el valor que quieras mostrar
+            }
+            catch (Exception) { }
+
+        }
+    }
+    void FiltrarInterfazUsuario()
+    {
+        if (Session["CodigoProyecto"] != null && Session["UsuarioSesion"] != null)
+        {
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            if (SUtil.CorrespondeRevision(Session["CodigoProyecto"].ToString(), usuarioSesion.CodigoUsuario))
+            {
+                btnCrearFormularioAceptacion.Enabled = usuarioSesion.Roles.Any(c => c == SDatosGlobales.ROL_TRIBUNAL_1 || c == SDatosGlobales.ROL_TRIBUNAL_2);
+                btnCrearFormularioAceptacion.Visible = btnCrearFormularioAceptacion.Enabled;
+            }
+        }
+    }
+    protected void btnVolver_Click(object sender, EventArgs e)
+    {
+        Session["CodigoProyecto"] = null;
+        Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
     }
 }
