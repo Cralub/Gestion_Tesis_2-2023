@@ -1,0 +1,54 @@
+﻿body {
+    background-color: lightgray;
+    font-family: "Open Sans", sans-serif;
+}
+.observacion {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 668px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.estado {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    margin-right: 30px;
+    margin-left: 15px;
+}
+
+.contenedor {
+    display: flex;
+   
+}
+.posicion{
+    margin-left: 8px;
+}
+.btn {
+    display: block;
+    margin-top: 10px;
+    background: #850842;
+    border-style: none;
+    border-radius: 15px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+.lineas {
+    line-height: 1.5;
+}
+.letras{
+    font-size: 20px;
+}

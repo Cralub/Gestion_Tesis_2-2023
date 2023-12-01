@@ -1,0 +1,159 @@
+﻿.txtBuscar2 {
+  border: 1px solid #ccc;
+  border-radius: 17px;
+  padding: 5px;
+}
+
+.txtBuscar2::placeholder {
+  font-size: 1rem;
+}
+
+.boton-busqueda2 {
+  background-color: transparent;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  text-align: left;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.fondo22 {
+  background-color: #ccc;
+}
+
+.tabla-personas2 {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+.tabla-personas2 th {
+  margin: 5px;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  text-align: center;
+}
+
+.tabla-personas2 td {
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.boton2 {
+  background-color: #850842;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 200px;
+  align-self: flex-end;
+}
+
+.tabla-split2 {
+  border-style: none;
+  border-color: inherit;
+  border-width: medium;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+  margin: 15px;
+  width: 64%;
+  border-collapse: collapse;
+}
+
+.tabla-split2 th {
+  margin: 5px;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  text-align: center;
+}
+
+.tabla-split2 td {
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.lbl-blanco2 {
+  background-color: white;
+  color: black;
+  display: block;
+  padding: 8px;
+}
+
+.ddl-rol2 {
+  background-color: #E3E3E3;
+  color: black;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 200px;
+  text-align: center;
+  position: relative;
+}
+
+.ddl-rol2::after {
+  content: "▼";
+  color: #850842;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.filters2 {
+  margin-left: 100px;
+  margin: 20px;
+  border-radius: 9pt;
+  position: relative;
+  text-align: left;
+}
+
+#searchInput2 {
+  padding: 6px;
+  border-radius: 8px;
+  padding-right: 130px;
+  margin-right: 150px;
+  margin-left: auto;
+}
+
+.titulo2 {
+  font-size: 22pt;
+  padding-top: 6%;
+  margin-left: 10%;
+  text-align: left;
+}
+
+.filter-controls2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-filters2 {
+  display: flex;
+  align-items: center;
+}
+
+.select-filters2 select {
+  margin-right: 10px;
+}
+
+.search-filter2 {
+  display: flex;
+  align-items: center;
+}
+
+search-filter2 input {
+  margin-right: 10px;
+}

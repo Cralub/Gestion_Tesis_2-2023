@@ -1,0 +1,99 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SWADNETGAAP", "SWADNETGAAP\", "{6ED7B322-353C-4D2A-879B-D98E2242B633}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51634"
+		Debug.AspNetCompiler.PhysicalPath = "SWADNETGAAP\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51634\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51634"
+		Release.AspNetCompiler.PhysicalPath = "SWADNETGAAP\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51634\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51634"
+		SlnRelativePath = "SWADNETGAAP\"
+		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SWLNGAAP", "SWLNGAAP\", "{F1420190-4A8F-443A-8C8A-3DDD111A7ED2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6ED7B322-353C-4D2A-879B-D98E2242B633} = {6ED7B322-353C-4D2A-879B-D98E2242B633}
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51705"
+		Debug.AspNetCompiler.PhysicalPath = "SWLNGAAP\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51705\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51705"
+		Release.AspNetCompiler.PhysicalPath = "SWLNGAAP\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51705\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51705"
+		SlnRelativePath = "SWLNGAAP\"
+		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WAGAAP", "WAGAAP\", "{62906527-E050-45D7-B7E4-41FF793D67CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1420190-4A8F-443A-8C8A-3DDD111A7ED2} = {F1420190-4A8F-443A-8C8A-3DDD111A7ED2}
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56440"
+		Debug.AspNetCompiler.PhysicalPath = "WAGAAP\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56440\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56440"
+		Release.AspNetCompiler.PhysicalPath = "WAGAAP\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56440\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56440"
+		SlnRelativePath = "WAGAAP\"
+		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ED7B322-353C-4D2A-879B-D98E2242B633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED7B322-353C-4D2A-879B-D98E2242B633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1420190-4A8F-443A-8C8A-3DDD111A7ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1420190-4A8F-443A-8C8A-3DDD111A7ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62906527-E050-45D7-B7E4-41FF793D67CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62906527-E050-45D7-B7E4-41FF793D67CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5FC99BD-BCF7-4717-95D0-CBE68892267A}
+	EndGlobalSection
+EndGlobal

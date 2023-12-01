@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="b453972e-af87-4058-aaa8-ffb71a045ade" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51634/SWADNETGAAP.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SWADNETGAAP.xsd" MetadataType="Schema" ID="b57a34d2-d282-4586-9417-3931f49229cd" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd2" />
+    <MetadataFile FileName="SWADNETGAAP1.xsd" MetadataType="Schema" ID="eef1b9ab-2934-464b-a5c1-d19d7a237c65" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd1" />
+    <MetadataFile FileName="SWADNETGAAP2.xsd" MetadataType="Schema" ID="49c3f75c-a0a2-4541-9a90-55faae8ef6eb" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?xsd=xsd0" />
+    <MetadataFile FileName="SWADNETGAAP.disco" MetadataType="Disco" ID="4c62dcae-6388-440e-bd80-5d1efd7ac428" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?disco" />
+    <MetadataFile FileName="SWADNETGAAP.wsdl" MetadataType="Wsdl" ID="a4e6d94c-a34b-4051-b972-8cac065cda4f" SourceId="1" SourceUrl="http://localhost:51634/SWADNETGAAP.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

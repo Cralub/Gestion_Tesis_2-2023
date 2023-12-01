@@ -1,0 +1,131 @@
+﻿.Contenedor1 {
+    padding: 35px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.OcultarDiv {
+    display: none;
+}
+
+
+.ContenedorPorcentaje {
+    margin: 0 auto;
+    border-radius: 25px;
+    background: #fff;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 90%; /* Ajusta el ancho del contenedor según tus necesidades */
+    height: 100%; /* Ajusta la altura del contenedor según tus necesidades */
+}
+
+.Contenedor-Botones {
+    margin: 0 auto;
+    border-radius: 25px;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    align-items: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    height:fit-content;
+}
+
+.Contenedor-SubEtapas {
+    margin: 0 auto;
+    border-radius: 25px;
+    background-color: #ffffff;
+    padding: 20px;
+    
+    width: 450px;
+    text-align: center;
+    align-items: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Valor de z-index inferior para ponerlo detrás */
+    height: fit-content;
+}
+
+.Estilo-SubEtapas {
+    border-radius: 8px;
+    background: #0E7116;
+    padding: 5px;
+    margin: 6px;
+    display: block;
+    color: white;
+}
+
+.Botones {
+    border: 0;
+    border-radius: 5px;
+    background: #0E7116;
+    padding: 5px;
+    height: 40px;
+    width: 90%;
+    margin: 6px;
+    outline: none;
+    color: white;
+}
+
+    .Botones:hover {
+        background-color: #850842;
+        /* Cambia el color de fondo al pasar el mouse sobre el botón */
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+.verde {
+    background: #0E7116;
+    color: white;
+}
+
+.amarillo {
+    background: #E75A03;
+    color: black;
+}
+
+.plomo {
+    background: #808080;
+    color: white;
+}
+
+
+/*----------------------------*/
+.barra-progreso {
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.barra {
+    width: 0;
+    height: 100%;
+    background-color: #0E7116;
+    border-radius: 5px;
+}
+
+.controles {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#porcentaje {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/*---------------------*/
+.contenedor {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.esquina-superior-derecha {
+    top: 250px;
+    left: 25px;
+    padding: 10px;
+}
