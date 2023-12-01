@@ -13,7 +13,7 @@ public partial class WebForm_Usuario_PAgregarCelular : System.Web.UI.Page
         if (ValidarCamposEntrada() && Session["UsuarioSesion"] != null)
         {
             cCelular.Insertar_GCelular_I(((EUsuarioSesionGAAP)Session["UsuarioSesion"]).CodigoUsuario, txbCodigoArea.Text, int.Parse(txbNumeroCelular.Text));
-            Response.Redirect("~/PaginaMaestra/Default.aspx");
+            Response.Redirect("~/WebForm/Informacion/PInformacionUsuario.aspx"); ;
         }
         
     }

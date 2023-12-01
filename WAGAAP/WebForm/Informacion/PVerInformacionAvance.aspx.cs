@@ -18,11 +18,21 @@ public partial class WebForm_Informacion_PVerInformacionAvance : Page
     {
         if (!IsPostBack)
         {
+            LimpiarVariables();
             CargarInformacion();
             CargarBarraProgreso();
             MostrarLabels(1);
         }
+        
     }
+
+    private void LimpiarVariables()
+    {
+        avanceTotal = -1;
+        numeroSubEtapa = -1;
+        codigoProyecto = null;
+    }
+
     private void MostrarLabels(int etapa)
     {
         CargarBarraProgreso();
@@ -60,7 +70,7 @@ public partial class WebForm_Informacion_PVerInformacionAvance : Page
     private void AsignarColorLabel(Label label, int numeroLabel)
     {
        
-        if (numeroSubEtapa < 0)
+        if (numeroSubEtapa <= 0)
             CalcularNumeroSubEtapa();
         if (numeroLabel == numeroSubEtapa )
             label.CssClass = "Estilo-SubEtapas amarillo";
@@ -72,22 +82,26 @@ public partial class WebForm_Informacion_PVerInformacionAvance : Page
 
     private void CalcularNumeroSubEtapa()
     {
-        EGEtapa etapaActiva = cEtapa.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto).Find(e => e.EstadoEtapa == SDatosGlobales.ESTADO_ACTIVO);
-        EGSubEtapa subEtapaActiva = cSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa(etapaActiva.CodigoEtapa).Find(e => e.EstadoSubEtapa == SDatosGlobales.ESTADO_ACTIVO);
-        numeroSubEtapa = 0;
-        numeroSubEtapa += subEtapaActiva.NumeroSubEtapa;
-        if (etapaActiva.NumeroEtapa > 1)
+        if (Session["CodigoProyecto"] != null || !string.IsNullOrEmpty(codigoProyecto))
         {
-            numeroSubEtapa += SDatosGlobales.N_SUB_ETAPAS_ETAPA_1;
+            EGEtapa etapaActiva = cEtapa.Obtener_GEtapa_O_CodigoProyecto(codigoProyecto).Find(e => e.EstadoEtapa == SDatosGlobales.ESTADO_ACTIVO);
+            EGSubEtapa subEtapaActiva = cSubEtapa.Obtener_GSubEtapa_O_CodigoEtapa(etapaActiva.CodigoEtapa).Find(e => e.EstadoSubEtapa == SDatosGlobales.ESTADO_ACTIVO);
+            numeroSubEtapa = subEtapaActiva.NumeroSubEtapa;
+            if (etapaActiva.NumeroEtapa > 1)
+            {
+                numeroSubEtapa += SDatosGlobales.N_SUB_ETAPAS_ETAPA_1;
+            }
+            if (etapaActiva.NumeroEtapa > 2)
+            {
+                numeroSubEtapa += SDatosGlobales.N_SUB_ETAPAS_ETAPA_2;
+            }
+            if (etapaActiva.NumeroEtapa > 3)
+            {
+                numeroSubEtapa += SDatosGlobales.N_SUB_ETAPAS_ETAPA_3;
+            }
         }
-        if (etapaActiva.NumeroEtapa > 2)
-        {
-            numeroSubEtapa += SDatosGlobales.N_SUB_ETAPAS_ETAPA_2;
-        }
-        if (etapaActiva.NumeroEtapa > 3)
-        {
-            numeroSubEtapa += SDatosGlobales.N_SUB_ETAPAS_ETAPA_3;
-        }
+            
+        
     }
 
     void CargarBarraProgreso()
@@ -104,7 +118,7 @@ public partial class WebForm_Informacion_PVerInformacionAvance : Page
     }
     private void CargarInformacion()
     {
-        if (Session["UsuarioSesion"] == null ||  (Session["CodigoProyecto"] == null && string.IsNullOrEmpty(codigoProyecto)) || Session["AvanceTotal"] == null)
+        if (Session["UsuarioSesion"] == null ||  Session["CodigoProyecto"] == null  || Session["AvanceTotal"] == null)
         {
             return;
         }
@@ -154,6 +168,7 @@ public partial class WebForm_Informacion_PVerInformacionAvance : Page
         AsignarColorLabel(lblE1S2, 2);
         AsignarColorLabel(lblE1S3, 3);
         AsignarColorLabel(lblE1S4, 4);
+
         AsignarColorLabel(lblE2S1, 5);
         AsignarColorLabel(lblE2S2, 6);
         AsignarColorLabel(lblE2S3, 7);
@@ -161,6 +176,7 @@ public partial class WebForm_Informacion_PVerInformacionAvance : Page
         AsignarColorLabel(lblE2S5, 9);
         AsignarColorLabel(lblE2S6, 10);
         AsignarColorLabel(lblE2S7, 11);
+
         AsignarColorLabel(lblE3S1, 12);
         AsignarColorLabel(lblE3S2, 13);
         AsignarColorLabel(lblE3S3, 14);
@@ -168,6 +184,7 @@ public partial class WebForm_Informacion_PVerInformacionAvance : Page
         AsignarColorLabel(lblE3S5, 16);
         AsignarColorLabel(lblE3S6, 17);
         AsignarColorLabel(lblE3S7, 18);
+
         AsignarColorLabel(lblE4S1, 19);
         AsignarColorLabel(lblE4S2, 20);
         AsignarColorLabel(lblE4S3, 21);
