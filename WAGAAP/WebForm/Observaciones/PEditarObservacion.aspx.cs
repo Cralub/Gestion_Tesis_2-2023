@@ -11,9 +11,9 @@ public partial class WebForm_Observaciones_PEditarObservacion : System.Web.UI.Pa
     private bool ValidarEntradas(EGObservacion eGObservacion)
     {
         bool res = false;
-        if(eGObservacion.ComentarioObservacion.Length > 10)        
+        if (eGObservacion.ComentarioObservacion.Length > 10)
             res = true;
-        
+
         return res;
     }
 
@@ -27,7 +27,7 @@ public partial class WebForm_Observaciones_PEditarObservacion : System.Web.UI.Pa
     }
     void CargarDatosObservacion()
     {
-        if(Session["CodigoObservacion"] != null)
+        if (Session["CodigoObservacion"] != null)
         {
             EGObservacion eGObservacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(int.Parse(Session["CodigoObservacion"].ToString()));
             if (eGObservacion.TipoObservacion == 'O') rbObservacionFondo.Checked = true; else rbObservacionForma.Checked = true;
@@ -38,11 +38,11 @@ public partial class WebForm_Observaciones_PEditarObservacion : System.Web.UI.Pa
     {
         CargarDatosObservacion();
     }
-    
+
 
     protected void btnEditarObservacion_Click(object sender, EventArgs e)
     {
-        if(Session["CodigoObservacion"] != null && Session["UsuarioSesion"] != null)
+        if (Session["CodigoObservacion"] != null && Session["UsuarioSesion"] != null)
         {
             EGObservacion observacion = cObservacion.Obtener_GObservacion_O_CodigoObservacion(int.Parse(Session["CodigoObservacion"].ToString()));
 
@@ -72,5 +72,9 @@ public partial class WebForm_Observaciones_PEditarObservacion : System.Web.UI.Pa
             Session["CodigoObservacion"] = null;
             Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
         }
+    }
+    protected void btnVolver_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
     }
 }

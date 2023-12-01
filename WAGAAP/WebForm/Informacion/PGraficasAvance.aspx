@@ -19,7 +19,7 @@
         <div class="div-contenedor">
 
             <div class="boton_detalle">
-                <asp:Button runat="server" CssClass="Btntabla" Text="VER DETALLE" />
+                <asp:Button runat="server" ID="btnDetalle" CssClass="Btntabla" Text="VER DETALLE" OnClick="btnDetalle_Click"/>
 
             </div>
             <div class="etapa">

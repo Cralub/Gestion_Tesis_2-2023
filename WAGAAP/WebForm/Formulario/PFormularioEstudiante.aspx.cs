@@ -8,11 +8,11 @@ using System.Web.UI;
 public partial class WebForm_Formulario_PFormularioEstudiante : Page
 {
     #region Controladores
-    CEtapa cEtapa = new CEtapa();
-    CSubEtapa cSubEtapa = new CSubEtapa();
+
     CProyecto cProyecto = new CProyecto();
     CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
     CProyectoCompleja cProyectoCompleja = new CProyectoCompleja();
+    CObservacion cObservacion = new CObservacion();
     #endregion
     #region Metodos privados
 
@@ -20,18 +20,12 @@ public partial class WebForm_Formulario_PFormularioEstudiante : Page
     {
         bool res = false;
         if (SUtil.ValidarSoloTextoYEspacio(txbTitulo.Text.Trim(), 0) &&
-            SUtil.ValidarSoloTextoYEspacio(txbObjetivoGeneral.Text.Trim(), 0) &&
+            SUtil.ValidarSoloTextoYEspacio(txbObjetivoGeneral.Text.Trim(), 0) /*&&
             SUtil.ValidarSoloTextoYEspacio(txbObjetivosEspecificos.Text.Trim(), 0) &&
-            SUtil.ValidarSoloTextoYEspacio(txbAlcance.Text.Trim(), 0))
+            SUtil.ValidarSoloTextoYEspacio(txbAlcance.Text.Trim(), 0)*/)
             res = true;
         return res;
-    }
-    private bool ValidacionDeEstados(EProyectoCompleja proyecto)
-    {
-        bool esValido = false;
-
-        return esValido;
-    }
+    }    
     #endregion
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -39,8 +33,9 @@ public partial class WebForm_Formulario_PFormularioEstudiante : Page
         if (!IsPostBack)
         {
             CargarInformacionProyecto();
+            LimpiarVariables();
         }
-        LimpiarVariables();
+       
     }
 
     private void CargarInformacionProyecto()
@@ -65,21 +60,22 @@ public partial class WebForm_Formulario_PFormularioEstudiante : Page
             grvListaUsuarios.DataBind();
 
 
+            bool correspondeRevision = SUtil.CorrespondeRevision(proyectoCompleto.CodigoProyecto, usuario.CodigoUsuario);
+           txbObjetivosEspecificos.Enabled = correspondeRevision;
+            txbAlcance.Enabled = correspondeRevision;
+            ddlModalidades.Enabled = correspondeRevision;
+            txbObjetivoGeneral.Enabled = correspondeRevision;
+            txbTitulo.Enabled = correspondeRevision;
+            btnActualizarInformacion.Enabled = correspondeRevision;
+            btnActualizarInformacion.Visible = correspondeRevision;
 
-            //bool EsModificable = ValidacionDeEstados(proyectoCompleto);
-            if (!SUtil.CorrespondeRevision(proyectoCompleto.CodigoProyecto, usuario.CodigoUsuario))
-            {
-                txbObjetivosEspecificos.Enabled = false;
-                txbAlcance.Enabled = false;
-                ddlModalidades.Enabled = false;
-                txbObjetivoGeneral.Enabled = false;
-                txbTitulo.Enabled = false;
-                btnActualizarInformacion.Enabled = false;
-                btnAgregarDocumento.Enabled = false;
-                btnAvanzar.Enabled = false;
-                btnTutor.Enabled = false;
+            btnAgregarDocumento.Enabled = correspondeRevision;
+            btnAvanzar.Enabled = correspondeRevision;
+            btnAvanzar.Visible = correspondeRevision;
+            btnTutor.Enabled = correspondeRevision;
+            btnTutor.Visible = correspondeRevision;
+            btnCVTutorExterno.Visible = correspondeRevision;
 
-            }
         }
     }
     protected void gvListaUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -135,13 +131,28 @@ public partial class WebForm_Formulario_PFormularioEstudiante : Page
     }
     protected void btnAvanzar_Click(object sender, EventArgs e)
     {
-        var proyecto = Session["ProyectoComplejo"] as EProyectoCompleja;
-        if (!string.IsNullOrEmpty(proyecto.NombreTutor))
+        if(Session["ProyectoComplejo"] != null)
         {
-            lblModal.Text = string.Format("¿Esta seguro que quiero crear este proyecto a {0}?", proyecto.NombreTutor);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "modalConfirmacion", "Open()", true);
+            var proyecto = Session["ProyectoComplejo"] as EProyectoCompleja;
+            if (!string.IsNullOrEmpty(proyecto.NombreTutor))
+            {
+                bool tieneObservacionesSinRevisar = cObservacion.Obtener_GObservacion_O_CodigoProyecto(proyecto.CodigoProyecto).Any(obs => obs.EstadoObservacion == SDatosGlobales.ESTADO_ACTIVO);
+                if (tieneObservacionesSinRevisar)
+                {
+                    lblMensajeTutor.Text = "*Revise todas sus Observaciones antes de continuar";
+                }
+                else
+                {
+                    lblModal.Text = string.Format("¿Esta seguro que quiero pasar este proyecto a {0}?", proyecto.NombreTutor);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "modalConfirmacion", "Open()", true);
+                }
+            }
+            else
+            {
+                lblMensajeTutor.Text = "*Escoja un Tutor antes de continuar";
+
+            }
         }
-        lblMensajeTutor.Text = "*Escoja un Tutor antes de continuar";
     }
 
     protected void btnTutor_Click(object sender, EventArgs e)

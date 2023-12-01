@@ -24,6 +24,7 @@ public static class SDatosGlobales
     public const string ROL_AYUDANTE_DIR = "AD";
     public const string ROL_TRIBUNAL_1 = "T1";
     public const string ROL_TRIBUNAL_2 = "T2";
+    public const string ROL_TRIBUNAL = "TR";
     public const string ROL_DAAP = "DP";
     //public const string ROL_GESTOR = "GT";
     #endregion

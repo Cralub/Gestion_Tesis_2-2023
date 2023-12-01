@@ -57,4 +57,9 @@ public partial class WebForm_Observaciones_PCrearObservacion : System.Web.UI.Pag
         }
         Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
     }
+
+    protected void btnVolver_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/WebForm/Observaciones/PListaObservacion.aspx");
+    }
 }

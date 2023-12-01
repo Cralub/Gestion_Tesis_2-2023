@@ -22,8 +22,15 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
         {
             LimpiarVariables();
             CargarListaProyectos();
+            FiltrarInterfazUI();
         }
     }
+
+    private void FiltrarInterfazUI()
+    {
+        
+    }
+
     private void CargarListaProyectos()
     {
 
@@ -68,6 +75,16 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
 
     protected void gvListaProyectos_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        #region Boton Editar solo Director
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            Button btnEditar = e.Row.FindControl("btnEditar") as Button;
+
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            bool esDirector = usuarioSesion.Roles.Any(rol => rol == SDatosGlobales.ROL_DIRECTOR);
+            btnEditar.Visible = esDirector;
+        }
+        #endregion
         #region Modificar Visualmente Roles
         // Encuentra el índice de la columna que deseas modificar
         int codigoRolColumnIndex = grvListaProyectos.Columns.IndexOf(grvListaProyectos.Columns
@@ -165,7 +182,7 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
     }
     protected void gvListaProyectos_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        if (e.CommandName == "btnVer" || e.CommandName == "btnObservaciones" || e.CommandName == "btnInfo" || e.CommandName == "btnFormularioAceptacion")
+        if (e.CommandName == "btnVer" || e.CommandName == "btnObservaciones" || e.CommandName == "btnInfo" || e.CommandName == "btnFormularioAceptacion" || e.CommandName == "btnEditar")
         {
             var index = int.Parse(e.CommandArgument.ToString());
             if (index >= 0)
@@ -187,6 +204,9 @@ public partial class WebForm_Proyecto_PListarProyectos : System.Web.UI.Page
                         break;
                     case "btnFormularioAceptacion":
                         redirectUrl = "~/WebForm/FormularioAceptacion/PListaFormularioAceptacion.aspx";
+                        break;
+                    case "btnEditar":
+                        redirectUrl = "~/WebForm/Proyecto/PEditarProyecto.aspx";
                         break;
                 }
 

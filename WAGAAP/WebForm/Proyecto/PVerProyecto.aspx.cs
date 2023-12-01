@@ -70,6 +70,14 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
         {
             EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
             string codigoProyecto = Session["CodigoProyecto"].ToString();
+
+            bool correspondeRevision = SUtil.CorrespondeRevision(codigoProyecto, usuarioSesion.CodigoUsuario);
+            btnDevolver.Enabled = correspondeRevision;
+            btnDevolver.Visible = correspondeRevision;
+
+            btnAvanzar.Enabled = correspondeRevision;
+            btnAvanzar.Visible = correspondeRevision;
+
             if (usuarioSesion.Roles.Any(rol => rol == SDatosGlobales.ROL_TUTOR))
             {
                 List<EGUsuarioProyecto> eGUsuarioProyecto = cUsuarioProyecto
@@ -82,15 +90,15 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
                     bool esTutorConfirmado = eGUsuarioProyecto.First().EstadoUsuarioProyecto == SDatosGlobales.ESTADO_ACTIVO;
                     btnAceptarTutoria.Enabled = !esTutorConfirmado;
                     btnAceptarTutoria.Visible = !esTutorConfirmado;
+                    btnDevolver.Enabled = !btnAceptarTutoria.Enabled;
+                    btnDevolver.Visible = !btnAceptarTutoria.Enabled;
+
+                    btnAvanzar.Enabled = !btnAceptarTutoria.Enabled;
+                    btnAvanzar.Visible = !btnAceptarTutoria.Enabled;
                 }
 
             }
-            bool correspondeRevision = SUtil.CorrespondeRevision(codigoProyecto, usuarioSesion.CodigoUsuario);
-            btnDevolver.Enabled = correspondeRevision;
-            btnDevolver.Visible = correspondeRevision;
-
-            btnAvanzar.Enabled = correspondeRevision;
-            btnAvanzar.Visible = correspondeRevision;
+            
         }
     }
     protected void gvListaUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -139,7 +147,7 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
         btnConfirmarTutoria.Enabled = mostrarTutoria;
         btnConfirmarTutoria.Visible = mostrarTutoria;
     }
-
+    
     protected void btnConfirmarTutoria_Click(object sender, EventArgs e)
     {
         if (Session["UsuarioSesion"] != null && Session["CodigoProyecto"] != null)
@@ -167,7 +175,7 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             cProyectoCompleja.Actualizar_Etapa_SubEtapa_SaltarASubEtapa(codigoProyecto, usuarioSesion.CodigoUsuario, codigoRol, (byte)1);
         }
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
-        Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
+        Response.Redirect("~/WebForm/Proyecto/PListarProyectosRevision.aspx");
     }
     protected void btnConfirmarAvance_Click(object sender, EventArgs e)
     {
@@ -184,7 +192,7 @@ public partial class WebForm_Proyecto_PVerProyecto : System.Web.UI.Page
             
         }
         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "Close()", true);
-        Response.Redirect("~/WebForm/Proyecto/PListarProyectos.aspx");
+        Response.Redirect("~/WebForm/Proyecto/PListarProyectosRevision.aspx");
     }
     private bool ExitenSiNesecitaTribunales(string codigoProyecto)
     {

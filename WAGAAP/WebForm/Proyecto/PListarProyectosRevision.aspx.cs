@@ -68,6 +68,16 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
 
     protected void gvListaProyectos_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        #region Boton Editar solo Director
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            Button btnEditar = e.Row.FindControl("btnEditar") as Button;
+
+            EUsuarioSesionGAAP usuarioSesion = Session["UsuarioSesion"] as EUsuarioSesionGAAP;
+            bool esDirector = usuarioSesion.Roles.Any(rol => rol == SDatosGlobales.ROL_DIRECTOR);
+            btnEditar.Visible = esDirector;
+        }
+        #endregion
         #region Modificar Visualmente Roles
         // Encuentra el índice de la columna que deseas modificar
         int codigoRolColumnIndex = grvListaProyectos.Columns.IndexOf(grvListaProyectos.Columns
@@ -177,8 +187,7 @@ public partial class WebForm_Proyecto_PListarProyectosRevision : System.Web.UI.P
 
                 switch (e.CommandName)
                 {
-                    case "btnVer":
-                        
+                    case "btnVer":                        
                         redirectUrl = "PVerProyecto.aspx";
                         break;
                     case "btnObservaciones":

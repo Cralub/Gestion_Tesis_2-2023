@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../Estilos/SBase.css" rel="stylesheet" />
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="contenedor">
@@ -43,15 +42,17 @@
                     <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" Visible="true"/>
                     <asp:TemplateField HeaderText="Estudiantes">
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlEstudiantes" runat="server" CssClass="comboOpciones" OnSelectedIndexChanged="ddlEstudiantes_SelectedIndexChanged" AutoPostBack="true">
+                            <asp:DropDownList Width="150" ID="ddlEstudiantes" runat="server" CssClass="comboOpciones" OnSelectedIndexChanged="ddlEstudiantes_SelectedIndexChanged" AutoPostBack="true">
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="NombreTutor" HeaderText="Tutor" />
                     <asp:BoundField DataField="TituloProyecto" HeaderText="Titulo" />
                     <asp:BoundField DataField="ModalidadProyecto" HeaderText="Modalidad" />
-                    <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="btnLinea">
+                    <asp:TemplateField ControlStyle-Width="80" ControlStyle-Height="50" HeaderText="Opciones" ItemStyle-CssClass="btnLinea">
                         <ItemTemplate>
+                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CommandName="btnEditar" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />
+
                             <asp:Button ID="btnVer" runat="server" Text="Ver" CommandName="btnVer" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />
                             <asp:Button ID="btnFormularioAceptacion" runat="server" Text="F. Aceptacion" CommandName="btnFormularioAceptacion" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />
                             <asp:Button ID="btnObservaciones" runat="server" Text="Observaciones" CommandName="btnObservaciones" CommandArgument='<%# Container.DataItemIndex %>' CssClass="Btntabla" />

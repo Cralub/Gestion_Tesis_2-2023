@@ -36,7 +36,7 @@
 .barra {
     width: 0;
     height: 100%;
-    background-color: #4caf50;
+    background-color: #0E7116;
     border-radius: 5px;
 }
 
@@ -111,13 +111,13 @@ p {
     display:block;
 }
 
-    .verde {
-        background-color: #00ff00;
-    }
+.verde {
+    background-color: #0E7116;
+}
 
-    .amarillo {
-        background-color: #ffff00;
-    }
+.amarillo {
+    background-color: #E75A03;
+}
 
     .plomo {
         background-color: #808080;
@@ -192,7 +192,7 @@ p {
     position: relative;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #3fe03f;
+    color: #0E7116;
 }
 .alinear_vertical{
     display:flex;

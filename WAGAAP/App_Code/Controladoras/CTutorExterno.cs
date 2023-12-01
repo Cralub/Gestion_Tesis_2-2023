@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SWLNGAAP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -72,7 +73,7 @@ public class CTutorExterno
         }
     }
 
-    public List<SWLNGAAP.EGTutorExterno> Obtener_GTutorExterno_O()
+    public List<EGTutorExterno> Obtener_GTutorExterno_O()
     {
         try
         {
@@ -84,7 +85,7 @@ public class CTutorExterno
         }
     }
 
-    public SWLNGAAP.EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(string CodigoTutorExterno)
+    public EGTutorExterno Obtener_GTutorExterno_O_CodigoTutorExterno(string CodigoTutorExterno)
     {
         try
         {

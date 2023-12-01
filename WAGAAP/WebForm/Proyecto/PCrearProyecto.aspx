@@ -32,7 +32,7 @@
                 <asp:Label ID="lblMensajeCrearProyecto" ForeColor="#850842" Font-Bold="true" runat="server" Text=""></asp:Label>
             </div>
             <div>
-                <asp:Button ID="btnVolver" runat="server" CssClass="Btntabla" Text="Volver" OnClick="btnVolver_Click" />
+                <asp:Button ID="btnVolver" runat="server" CssClass="Btntabla"  Text="Volver" OnClick="btnVolver_Click" />
             </div>
         </div>
         <div class="modal-container" id="modalContainer">

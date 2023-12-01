@@ -9,7 +9,8 @@ public partial class WebForm_ControlesDirector_UsuarioProyecto_PCrearUsuarioProy
 {
     #region Controladoras
     CUsuarioRol cUsuarioRol = new CUsuarioRol();
-    CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto(); 
+    CUsuarioProyecto cUsuarioProyecto = new CUsuarioProyecto();
+    CTutorExterno cTutorExterno = new CTutorExterno();
     #endregion
     static List<EGUsuarioRol> eGUsuarioRols = new List<EGUsuarioRol>();
     static List<EGUsuarioRol> eGUsuarioRolsFiltrados = new List<EGUsuarioRol>();
@@ -29,7 +30,11 @@ public partial class WebForm_ControlesDirector_UsuarioProyecto_PCrearUsuarioProy
             {
                 rolSeleccionado = ddlRoles.SelectedIndex;
                 eGUsuarioRols = new List<EGUsuarioRol>();
-                eGUsuarioRols = cUsuarioRol.Obtener_GUsuarioRol_O_CodigoRol(ddlRoles.SelectedValue);
+                string rol = ddlRoles.SelectedValue;
+                if (rol == SDatosGlobales.ROL_TRIBUNAL_1 || rol == SDatosGlobales.ROL_TRIBUNAL_2)
+                    rol = SDatosGlobales.ROL_TRIBUNAL;
+                
+                eGUsuarioRols = cUsuarioRol.Obtener_GUsuarioRol_O_CodigoRol(rol);
             }
             grvListaUsuariosRol.DataSource = null;
             FiltrarUsuariosProyecto();
@@ -48,11 +53,12 @@ public partial class WebForm_ControlesDirector_UsuarioProyecto_PCrearUsuarioProy
 
     private void FiltrarUsuariosProyecto()
     {
+        string usuario = txbUsuario.Text.Trim().ToUpper();
         eGUsuarioRolsFiltrados = new List<EGUsuarioRol>();
         eGUsuarioRolsFiltrados = eGUsuarioRols
-                .Where(w => string.IsNullOrEmpty(txbUsuario.Text.Trim()) || (w.CodigoUsuario
-                    .Contains(txbUsuario.Text) || 
-                        SUtil.ObtenerNombrePorCodigo(w.CodigoUsuario).Contains(txbUsuario.Text)) ).ToList();
+                .Where(w => string.IsNullOrEmpty(usuario) || 
+                (w.CodigoUsuario.ToUpper().Contains(usuario) || SUtil.ObtenerNombrePorCodigo(w.CodigoUsuario).ToUpper().Contains(usuario)) 
+                ).ToList();
     }
 
     protected void ddlRoles_SelectedIndexChanged(object sender, EventArgs e)

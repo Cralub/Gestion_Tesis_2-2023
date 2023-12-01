@@ -24,4 +24,8 @@
         <div>
             <asp:Button CssClass="botonFormulario" ID="btnEditarObservacion" Text="Editar Observacion" runat="server" OnClick="btnEditarObservacion_Click" />
         </div>
+    </div>
+    <div>
+        <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="botonFormulario" />
+    </div>
 </asp:Content>

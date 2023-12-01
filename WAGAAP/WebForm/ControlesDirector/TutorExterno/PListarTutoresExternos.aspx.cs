@@ -66,8 +66,11 @@ public partial class WebForm_TutorExterno_PListarTutoresExternos : System.Web.UI
     {
 
     }
-
-    protected void btnBuscar_Click(object sender, EventArgs e)
+    protected void btnCrearTutorExterno_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/WebForm/ControlesDirector/TutorExterno/PCrearTutorExterno.aspx");
+    }
+    protected void txbCodigoTutorExterno_TextChanged(object sender, EventArgs e)
     {
         grvListaTutoresExternos.DataSource = null;
         grvListaTutoresExternos.DataBind();
@@ -79,15 +82,5 @@ public partial class WebForm_TutorExterno_PListarTutoresExternos : System.Web.UI
         {
             throw;
         }
-    }
-
-    protected void btnCrearTutorExterno_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/WebForm/ControlesDirector/TutorExterno/PCrearTutorExterno.aspx");
-    }
-
-    protected void btnVolver_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/PaginaMaestra/Default.aspx");
     }
 }

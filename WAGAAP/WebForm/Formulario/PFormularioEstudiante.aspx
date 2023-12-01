@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../Estilos/Usuario/SFormularioUno.css" rel="stylesheet" />
     <link href="../../Estilos/Modal/SModalConfirmacion.css" rel="stylesheet" />
-   
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="contenedor">
@@ -63,26 +63,26 @@
                 <asp:TextBox runat="server" ID="txbAlcance" CssClass="txtDatos" TextMode="MultiLine" Height="6%" MaxLength="160"></asp:TextBox>
                 <asp:Label runat="server" ID="lblMensajeAlcance" type="text" />
             </div>
-             <div class="Datos">
-     <span>3. DATOS DE ASESORAMIENTO:</span>
- </div>
+            <div class="Datos">
+                <span>3. DATOS DE ASESORAMIENTO:</span>
+            </div>
             <div>
                 <div>
                     <asp:Button ID="btnTutor" runat="server" Text="Seleccionar Tutor" CssClass="botonFormulario" OnClick="btnTutor_Click" />
                     <asp:Button ID="btnCVTutorExterno" runat="server" Text="Enviar CV TutorExterno" CssClass="botonFormulario" OnClick="btnCVTutorExterno_Click" />
                 </div>
-                <asp:Label runat="server" ID="lblMensajeTutor" BackColor="White" Text=""></asp:Label>
+                
                 <div class="contenedorTabla">
-                      <asp:GridView ID="grvListaUsuarios" CssClass="EstiloTable" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaUsuarios_RowCommand" DataKeyNames="CodigoUsuario">
-      <Columns>
-          <asp:BoundField DataField="Nombre" HeaderText="Usuario" />
-          <asp:BoundField DataField="CodigoUsuario" HeaderText="Codigo" />
-          <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" />
-          <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-CssClass="Btntabla" />
-      </Columns>
-  </asp:GridView>
+                    <asp:GridView ID="grvListaUsuarios" CssClass="EstiloTable" runat="server" CellPadding="10" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowCommand="gvListaUsuarios_RowCommand" DataKeyNames="CodigoUsuario">
+                        <Columns>
+                            <asp:BoundField DataField="Nombre" HeaderText="Usuario" />
+                            <asp:BoundField DataField="CodigoUsuario" HeaderText="Codigo" />
+                            <asp:BoundField DataField="CodigoRol" HeaderText="Rol En Proyecto" />
+                            <asp:ButtonField ButtonType="Button" CommandName="btnVer" Text="Ver" ControlStyle-CssClass="Btntabla" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
-              
+                <asp:Label runat="server" ID="lblMensajeTutor" BackColor="White" Text=""></asp:Label>
             </div>
         </div>
         <div class="modal-container" id="modalContainer">

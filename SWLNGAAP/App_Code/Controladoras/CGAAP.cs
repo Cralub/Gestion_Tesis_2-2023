@@ -2254,9 +2254,9 @@ public class CGAAP
             }
             // Verificar condiciones especiales para finalizar la subetapa actual
             if (etapa.NumeroEtapa != 1 && subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA && subEtapaActual.NumeroSubEtapa == 3)
-                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);
+                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);
             else
-                aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+                aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_PAUSADO);
         }
         catch (EndpointNotFoundException EndPointEx)
         {
@@ -2308,9 +2308,9 @@ public class CGAAP
                 }
                 // Verificar condiciones especiales para finalizar la subetapa actual
                 if (etapa.NumeroEtapa != 1 && subEtapaActual.CodigoRolDesignadoSubEtapa == SDatos.ROL_DIRECTOR_CARRERA && subEtapaActual.NumeroSubEtapa == 3)
-                    aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);
+                    aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_IGNORADO);
                 else
-                    aSNETGAAP.Actualizar_GSubEtapa_A_CodigoUsuarioFirmaSubEtapa_EstadoSubEtapa(codigoUsuario, subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_FINALIZADO);
+                    aSNETGAAP.Actualizar_GSubEtapa_A_EstadoSubEtapa(subEtapaActual.CodigoSubEtapa, SDatos.ESTADO_PAUSADO);
             }
             else
             {
